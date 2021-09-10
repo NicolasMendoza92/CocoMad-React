@@ -1,0 +1,19 @@
+.barranav {
+    background-color: none;
+    color: whitesmoke;
+    font-family: 'Julius Sans One', sans-serif;
+ }
+ 
+ .barranav a{
+    font-size: 30px;
+    color: whitesmoke;
+    text-decoration: none;
+ }
+ 
+ .barranav a:hover {
+    color: rgb(146, 210, 226);
+ }
+ .barranav a.active {
+    background-color: none;
+    color: white;
+  }

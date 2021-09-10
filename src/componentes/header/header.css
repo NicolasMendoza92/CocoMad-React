@@ -1,0 +1,68 @@
+
+.ppal-image {
+    background-image: url(./cabeceras/homealfajor.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+    margin-bottom: 3rem;
+ }
+ 
+ @media only screen and (max-width: 1050px) {
+    .ppal-image {
+       height: 600px;
+    }
+ }
+ 
+ .efecto-artesanal h1 {
+    font-size: 90px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: white;
+ }
+ 
+ .efecto-artesanal p {
+    font-size: 40px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: white;
+ }
+ 
+ .efecto-artesanal {
+    animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
+ }
+ 
+ @keyframes efecto-artesanal {
+    0% {
+       transform: translateY(450px);
+    }
+ }
+ 
+ @media only screen and (max-width: 1050px) {
+    .efecto-artesanal h1 {
+       font-size: 40px;
+    }
+    .efecto-artesanal p {
+       font-size: 15px;
+    }
+ }
+ 
+ .boton-artesanal {
+    background: none;
+    padding: 10px;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 0.25rem;
+    font-size: 25px;
+    font-family: 'Julius Sans One', sans-serif;
+ }
+ 
+ .boton-artesanal:hover {
+    background: rgb(146, 210, 226);
+    padding: 10px;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 0.25rem;
+    font-size: 25px;
+    font-family: 'Julius Sans One', sans-serif;
+ }

@@ -2,13 +2,12 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
-import NavbarRB from './componentes/navbar/Navbar';
+import Header from './componentes/header/Header';
 
 function App() {
   return (
     <div>
      <Header/>
-     <NavbarRB/>
      <Container>
 
      </Container>
