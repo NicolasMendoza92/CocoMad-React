@@ -1,3 +1,7 @@
+.logo{
+    font-size: 25px;
+}
+
 .barranav {
     background-color: none;
     color: whitesmoke;
@@ -5,14 +9,17 @@
  }
  
  .barranav a{
-    font-size: 30px;
+    font-size: 25px;
     color: whitesmoke;
     text-decoration: none;
  }
  
  .barranav a:hover {
     color: rgb(146, 210, 226);
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    transition-duration: 0.4s;
  }
+
  .barranav a.active {
     background-color: none;
     color: white;
