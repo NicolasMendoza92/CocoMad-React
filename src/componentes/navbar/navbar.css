@@ -2,6 +2,12 @@
     font-size: 25px;
 }
 
+.navbar{
+   background:transparent;
+}
+.navbar-2 {
+   background-color: rgb(246, 181, 181);;
+}
 .barranav {
     background-color: none;
     color: whitesmoke;

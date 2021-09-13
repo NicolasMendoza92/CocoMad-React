@@ -1,25 +1,28 @@
-
-.ppal-image {
-    background-image: url(./cabeceras/homealfajor.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
+.background-home{
+    background: url(../../assets/homealfajor.jpeg) no-repeat top center;
+    background-size: cover !important;
     background-attachment: fixed;
-    background-position: center;
+    overflow: hidden;
     width: 100%;
-    height: 1000px;
-    margin-bottom: 3rem;
+    height: 100vh;
+    transition: 0.5s;
  }
- 
- @media only screen and (max-width: 1050px) {
-    .ppal-image {
-       height: 600px;
-    }
- }
- 
+ .background-about{
+   background: url(../../assets/nosotrosrisas.jpeg) no-repeat top center;
+   background-size: cover !important;
+   background-attachment: fixed;
+   overflow: hidden;
+   width: 100%;
+   height: 100vh;
+   transition: 0.5s;
+
+}
  .efecto-artesanal h1 {
     font-size: 90px;
     font-family: 'Julius Sans One', sans-serif;
     color: white;
+   transition: 0.5s;
+
  }
  
  .efecto-artesanal p {
@@ -30,6 +33,8 @@
  
  .efecto-artesanal {
     animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
+   transition: 0.5s;
+
  }
  
  @keyframes efecto-artesanal {
@@ -60,6 +65,7 @@
     border-radius: 0.25rem;
     font-size: 25px;
     font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
  }
  
  .boton-artesanal:hover {
@@ -72,4 +78,20 @@
     border-radius: 0.25rem;
     font-size: 25px;
     font-family: 'Julius Sans One', sans-serif;
+ }
+ .circleArrow{
+    background: transparent;
+    border: none;
+    color:white;
+    font-size: 3rem;
+    padding: 0;
+    transition: 0.4s;
+    cursor: pointer;
+    border-radius: 2rem;
+    animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
+ }
+ .circleArrow:hover {
+    color:rgb(146, 210, 226);
+    background: white;
+    border: 1px inset rgb(146, 210, 226);
  }
