@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import './navbar.css';
 
-export default function NavbarRB(props) {
+export default function NavbarRB (props) {
     return (
         <Navbar bg="trasnparent" variant="light" expand="lg">
             <Container className="barranav">
