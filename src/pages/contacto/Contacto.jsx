@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from '../../componentes/header/Header'
 
-export const Nosotros = () => {
+export const Contacto = () => {
     return (
         <div>
-            <Header/>
+           <Header/>
         </div>
     )
 }

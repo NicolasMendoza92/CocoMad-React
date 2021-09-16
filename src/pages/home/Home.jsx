@@ -1,9 +1,13 @@
 import React from 'react'
 import './home.css';
 import { Card, Col, Container, Row } from 'react-bootstrap'
+import Header from '../../componentes/header/Header';
+
 
 export const Home = () => {
     return (
+        <>
+        <Header/>
         <Container>
             <Row className="mb-5">
                 <Col className="col-12 col-lg-8 d-flex flex-column justify-content-between">
@@ -39,5 +43,6 @@ export const Home = () => {
                 </Col>
             </Row>
         </Container>
+        </>
     )
 }

@@ -1,32 +1,36 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container} from 'react-bootstrap';
-import Header from './componentes/header/Header';
-import Footer from './componentes/footer/Footer';
-import { Home } from './pages/home/Home';
-import { useState } from "react";
-import { Productos } from './pages/productos/Productos';
-import { Nosotros } from './pages/nosotros/Nosotros';
-import { Contactenos } from './pages/contactenos/Contactenos';
-
-
+import { Switch, Route } from 'react-router-dom';
+import {Home} from './pages/home/Home'
+import {Nosotros} from './pages/nosotros/Nosotros'
+import {Productos} from './pages/productos/Productos'
+import {Contacto} from './pages/contacto/Contacto'
+import  Footer  from './componentes/footer/Footer';
 
 function App() {
-
-  const [section, setSection] = useState('home')
   
   return (
-    <div>
-      {(section === 'home' || section === 'nosotros') && <Header setSection={setSection} section={section}/>}
-     <Container>
-     {section === 'home' && <Home/>}
-     {section === 'nosotros' && <Nosotros/>}
-     {section === 'productos' && <Productos/>}
-     {section === 'contactenos' && <Contactenos/>}
-     </Container>
-     <Footer/>
+    
+    <div className="footer-fix">
+      <Switch>
+        <Route path="/">
+          <Home/>
+        </Route>
+        <Route path="/productos">
+          <Productos />
+        </Route>
+        <Route path="/nosotros">
+          <Nosotros />
+        </Route>
+        <Route path="/contacto">
+          <Contacto/>
+        </Route>
+      </Switch>
+      <Footer/>
     </div>
+
   );
 }
 
 export default App;
+
