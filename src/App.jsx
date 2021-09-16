@@ -17,7 +17,7 @@ function App() {
   
   return (
     <div>
-      {(section === 'home' || section === 'nosotros') && <Header setSection={setSection} section={section}/>}
+     {(section === 'home' || section === 'nosotros') && <Header setSection={setSection} section={section}/>}
      <Container>
      {section === 'home' && <Home/>}
      {section === 'nosotros' && <Nosotros/>}
