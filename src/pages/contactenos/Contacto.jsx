@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Nosotros = () => {
+export const Contacto = () => {
     return (
         <div>
-            Nosotros
+            Contactenos
         </div>
     )
 }

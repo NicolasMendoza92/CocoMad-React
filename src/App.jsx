@@ -7,7 +7,7 @@ import { Home } from './pages/home/Home';
 import { useState } from "react";
 import { Productos } from './pages/productos/Productos';
 import { Nosotros } from './pages/nosotros/Nosotros';
-import { Contactenos } from './pages/contactenos/Contactenos';
+import { Contacto } from './pages/contactenos/Contacto';
 
 
 
@@ -22,7 +22,7 @@ function App() {
      {section === 'home' && <Home/>}
      {section === 'nosotros' && <Nosotros/>}
      {section === 'productos' && <Productos/>}
-     {section === 'contactenos' && <Contactenos/>}
+     {section === 'contactenos' && <Contacto/>}
      </Container>
      <Footer/>
     </div>
