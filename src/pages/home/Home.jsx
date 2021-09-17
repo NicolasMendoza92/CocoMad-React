@@ -7,7 +7,7 @@ import Header from '../../componentes/header/Header';
 export const Home = () => {
     return (
         <>
-        <Header/>
+        <Header page="home"/>
         <Container>
             <Row className="mb-5">
                 <Col className="col-12 col-lg-8 d-flex flex-column justify-content-between">
