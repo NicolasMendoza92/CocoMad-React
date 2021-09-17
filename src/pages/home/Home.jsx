@@ -7,7 +7,11 @@ import Header from '../../componentes/header/Header';
 export const Home = () => {
     return (
         <>
-        <Header page="home"/>
+        <Header 
+        page="home"
+        titulo="Alfajores Argentinos 100% Artesanales"
+        button="Quiero saber mas !"
+        />
         <h1>HOME</h1>
         {/* <Container>
             <Row className="mb-5">

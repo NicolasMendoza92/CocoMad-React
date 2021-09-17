@@ -14,6 +14,14 @@
    background: url(../../assets/nosotrosrisas.jpeg) no-repeat top center;
 
 }
+.background-productos{
+   background: url(../../assets/productosalfa.jpeg) no-repeat top center;
+
+}
+.background-contacto{
+   background: url(../../assets/contactenos.jpeg) no-repeat top center;
+
+}
  .efecto-artesanal h1 {
     font-size: 90px;
     font-family: 'Julius Sans One', sans-serif;
