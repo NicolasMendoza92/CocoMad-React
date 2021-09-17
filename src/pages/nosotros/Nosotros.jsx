@@ -3,9 +3,9 @@ import Header from '../../componentes/header/Header'
 
 export const Nosotros = () => {
     return (
-        <div>
+        <>
             <Header page="about"/>
-            <h1>hola</h1>
-        </div>
+            <h1>PRODRUCTOS</h1>
+        </>
     )
 }

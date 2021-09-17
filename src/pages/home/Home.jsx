@@ -8,7 +8,8 @@ export const Home = () => {
     return (
         <>
         <Header page="home"/>
-        <Container>
+        <h1>HOME</h1>
+        {/* <Container>
             <Row className="mb-5">
                 <Col className="col-12 col-lg-8 d-flex flex-column justify-content-between">
                     <Card className="bg-dark text-white mb-2 tarjetas">
@@ -42,7 +43,7 @@ export const Home = () => {
                     </Card>
                 </Col>
             </Row>
-        </Container>
+        </Container> */}
         </>
     )
 }
