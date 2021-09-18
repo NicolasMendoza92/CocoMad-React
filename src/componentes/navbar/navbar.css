@@ -14,42 +14,21 @@
     font-family: 'Julius Sans One', sans-serif;
  }
  
- .barranav a{
+ .link-nav{
     font-size: 25px;
-    color: whitesmoke;
+    color: whitesmoke !important;
     text-decoration: none;
  }
  
- .barranav a:hover {
-    color: rgb(146, 210, 226);
+ .link-nav:hover {
+    color: rgb(146, 210, 226) !important;
     text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-    transition-duration: 0.4s;
+    transition-duration: 0.3s;
  }
 
- .barranav a.active {
+ .link-nav:active {
     background-color: none;
-    color: white;
+    color: rgb(146, 210, 226) !important;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
   }
 
-  .nav-links {
-   background-color: none;
-   color: whitesmoke;
-   font-family: 'Julius Sans One', sans-serif;
-}
-
-.nav-links a{
-   font-size: 25px;
-   color: whitesmoke;
-   text-decoration: none;
-}
-
-.nav-links a:hover {
-   color: rgb(146, 210, 226);
-   text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-   transition-duration: 0.4s;
-}
-
-.nav-links a.active {
-   background-color: none;
-   color: white;
- }

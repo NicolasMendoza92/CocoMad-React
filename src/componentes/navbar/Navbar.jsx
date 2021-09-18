@@ -1,25 +1,19 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import './navbar.css';
 
-export default function NavbarRB(props) {
-    let backgroundNavbar;
-    if (props.section === 'productos'){
-        backgroundNavbar = true;
-    } else {
-        backgroundNavbar = false;
-    }
+export default function NavbarRB() {
     return (
-        <Navbar className={backgroundNavbar ? 'navbar-2' : 'navbar'} bg="none" expand="lg">
+        <Navbar bg="none" expand="lg">
             <Container className="barranav">
-                <a onClick={() => props.setSection('home')} href="#home">COCOMAD</a>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Nav.Link className="link-nav" as={NavLink} to="/" exact activeClassName="active">COCOMAD</Nav.Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <a onClick={() => props.setSection('productos')}  className="ms-2 me-2 p-3" href="#link">PRODUCTOS</a>
-                        <a onClick={() => props.setSection('nosotros')} className="ms-2 me-2 p-3" href="#link">NOSOTROS</a>
-                        <a onClick={() => props.setSection('contactenos')} className="ms-2 me-2 p-3" href="#link">CONTACTENOS</a>
-                        <a onClick={() => props.setSection('buy')} className="ms-2 me-2 p-3" href="#link">BUY</a>
+                    <Nav className="me-auto" >
+                        <Nav.Link className="link-nav" as={NavLink} to="/productos" exact activeClassName="active">PRODUCTO</Nav.Link>
+                        <Nav.Link className="link-nav" as={NavLink} to="/nosotros" exact activeClassName="active">NOSOTROS</Nav.Link>
+                        <Nav.Link className="link-nav" as={NavLink} to="/contacto" exact activeClassName="active">CONTACTO</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
