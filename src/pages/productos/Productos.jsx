@@ -1,7 +1,8 @@
-import Button from '@restart/ui/esm/Button'
+
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import Header from '../../componentes/header/Header'
+import { Producto } from '../../componentes/producto/Producto'
 
 
 export const Productos = () => {
@@ -13,60 +14,14 @@ export const Productos = () => {
                 subtitulo="Increible variedad y sabores!"
                 button="Todos nuestros CocoAlfajores"
             />
-            <div className="row">
-                <div className="col-3">
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://www.pequerecetas.com/wp-content/uploads/2019/06/alfajores-de-maicena.jpg" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="col-3">
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://www.pequerecetas.com/wp-content/uploads/2019/06/alfajores-de-maicena.jpg" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="col-3">
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://www.pequerecetas.com/wp-content/uploads/2019/06/alfajores-de-maicena.jpg" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-                <div className="col-3">
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="https://www.pequerecetas.com/wp-content/uploads/2019/06/alfajores-de-maicena.jpg" />
-                        <Card.Body>
-                            <Card.Title>Card Title</Card.Title>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
-                            </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                </div>
-            </div>
+            <Row className="mb-5">
+                <Col className="col-12 col-lg-4 d-flex flex-column justify-content-between ">
+                  {/* hacer un map y traer los productos de producto */}
+                  <Producto/>
+                </Col>
+            </Row>
+
+
         </div>
     )
 }
