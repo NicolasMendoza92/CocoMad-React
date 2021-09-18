@@ -13,18 +13,21 @@ function App() {
     
     <div className="footer-fix">
       <Switch>
-        <Route path="/">
-          <Home/>
-        </Route>
-        <Route path="/productos">
-          <Productos />
-        </Route>
-        <Route path="/nosotros">
-          <Nosotros />
-        </Route>
-        <Route path="/contacto">
-          <Contacto/>
-        </Route>
+            <Route path="/" exact>
+                <Home/>
+            </Route>
+
+            <Route path="/productos">
+               <Productos />
+            </Route>
+
+            <Route path="/nosotros">
+                <Nosotros />
+            </Route>
+
+            <Route path="/contacto">
+                <Contacto/>
+            </Route>
       </Switch>
       <Footer/>
     </div>

@@ -1,22 +1,25 @@
-.background-home{
-    background: url(../../assets/homealfajor.jpeg) no-repeat top center;
-    background-size: cover !important;
-    background-attachment: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100vh;
-    transition: 0.5s;
-    margin-top: 3rem;
- }
- .background-about{
-   background: url(../../assets/nosotrosrisas.jpeg) no-repeat top center;
+.header-style {
    background-size: cover !important;
    background-attachment: fixed;
    overflow: hidden;
    width: 100%;
    height: 100vh;
    transition: 0.5s;
-   margin-top: 3rem;
+}
+.background-home{
+    background: url(../../assets/homealfajor.jpeg) no-repeat top center;
+    
+ }
+.background-about{
+   background: url(../../assets/nosotrosrisas.jpeg) no-repeat top center;
+
+}
+.background-productos{
+   background: url(../../assets/productosalfa.jpeg) no-repeat top center;
+
+}
+.background-contacto{
+   background: url(../../assets/contactenos.jpeg) no-repeat top center;
 
 }
  .efecto-artesanal h1 {
