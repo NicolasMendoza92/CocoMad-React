@@ -1,8 +1,8 @@
 import React from 'react'
-import "./formularioHome.css"
+import "./formulario.css"
 
 
-export const FormularioHome = () => {
+export const Formulario = () => {
     return (
         <div className="inscribite">
             <div className="formu p-3">

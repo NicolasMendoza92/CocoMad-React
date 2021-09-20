@@ -4,7 +4,8 @@ import Header from '../../componentes/header/Header';
 import { Container } from 'react-bootstrap';
 import { CardsHome } from '../../componentes/cards-home/CardsHome';
 import { CarouselHome } from '../../componentes/carousel/CarouselHome';
-import { FormularioHome } from '../../componentes/formularioHome/FormularioHome';
+import { Formulario } from '../../componentes/formulario/Formulario';
+
 
 
 const cardsHome = [
@@ -41,7 +42,7 @@ export const Home = () => {
                  <CarouselHome />
                  </div>
                  <div class="col-12 col-lg-6 d-flex align-items-center inscribite">
-                     <FormularioHome />
+                     <Formulario />
                  </div>
              </div>
             </Container>
