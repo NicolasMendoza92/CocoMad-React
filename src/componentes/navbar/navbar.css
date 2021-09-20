@@ -1,34 +1,17 @@
 .logo{
     font-size: 25px;
 }
-
-.navbar{
-   background:transparent;
-}
-.navbar-2 {
-   background-color: rgb(246, 181, 181);;
-}
-.barranav {
+.link-nav{
     background-color: none;
-    color: whitesmoke;
     font-family: 'Julius Sans One', sans-serif;
- }
- 
- .link-nav{
     font-size: 25px;
-    color: whitesmoke !important;
     text-decoration: none;
- }
- 
- .link-nav:hover {
-    color: rgb(146, 210, 226) !important;
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
     transition-duration: 0.3s;
+   }
+   .link-nav:hover {
+      color: rgb(86, 205, 235) !important;
+      transform: scale(105%);
+      text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
  }
 
- .link-nav:active {
-    background-color: none;
-    color: rgb(146, 210, 226) !important;
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-  }
 
