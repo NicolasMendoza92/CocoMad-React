@@ -12,6 +12,7 @@ function App() {
   return (
     
     <div className="footer-fix">
+      
       <Switch>
             <Route path="/" exact>
                 <Home/>
