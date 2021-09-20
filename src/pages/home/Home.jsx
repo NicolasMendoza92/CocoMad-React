@@ -2,6 +2,26 @@ import React from 'react'
 import './home.css';
 import Header from '../../componentes/header/Header';
 import { Container } from 'react-bootstrap';
+import { CardsHome } from '../../componentes/cards-home/CardsHome';
+
+
+const cardsHome = [
+    {
+        image:"https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg" ,
+        title: "COCO ALFAJORES",
+        sentence: "LOS COCO ALFAJORES SON LOS FAVORITOS DE LA CLIENTELA" ,
+    },
+    {
+        image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154707/cocoMAD/tortas_g15ap8.jpg",
+        title: "COCO TORTAS",
+        sentence: "IDEAL PARA REUNIONES Y FESTEJOS",
+    },
+    {
+        image:"https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154689/cocoMAD/feca_qdmavt.jpg" ,
+        title: "COCO CAFECITO",
+        sentence: "ESPECIALES PARA ACOMPAÑAR CUALQUIERA DE NUESTROS COCO DULCES" ,
+    }
+]
 
 
 export const Home = () => {
@@ -13,18 +33,7 @@ export const Home = () => {
                 button="Quiero saber mas !"
             />
             <Container>
-                <div className="col-12 col-lg-8 d-flex flex-column justify-content-between">
-                    <div className="card bg-dark text-white mb-2 tarjetas">
-                        <img src="/cocomad/cocoimag/alfajores.jpg" className="card-img" alt="..." />
-                        <div
-                            className="card-img-overlay text-center d-flex flex-column align-items-center justify-content-center py-5 px-4">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <button href="#" className="boton-artesanal">Quiero saber mas!</button>
-                        </div>
-                    </div>
-                </div>
+             <CardsHome cardsHome={cardsHome} />
             </Container>
         </>
     )
