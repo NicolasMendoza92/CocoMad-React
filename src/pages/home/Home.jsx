@@ -3,6 +3,8 @@ import './home.css';
 import Header from '../../componentes/header/Header';
 import { Container } from 'react-bootstrap';
 import { CardsHome } from '../../componentes/cards-home/CardsHome';
+import { CarouselHome } from '../../componentes/carousel/CarouselHome';
+import { FormularioHome } from '../../componentes/formularioHome/FormularioHome';
 
 
 const cardsHome = [
@@ -34,6 +36,14 @@ export const Home = () => {
             />
             <Container>
              <CardsHome cardsHome={cardsHome} />
+             <div className="row gx-3 gy-2 p-4 mb-4">
+                 <div className="col-12 col-lg-6 p-3">
+                 <CarouselHome />
+                 </div>
+                 <div class="col-12 col-lg-6 d-flex align-items-center inscribite">
+                     <FormularioHome />
+                 </div>
+             </div>
             </Container>
         </>
     )

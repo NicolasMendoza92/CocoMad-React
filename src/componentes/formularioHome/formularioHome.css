@@ -1,0 +1,45 @@
+
+.inscribite {
+    background-image:none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+ }
+ @media only screen and (max-width: 990px) {
+    .inscribite{
+      background:none;
+    }
+ 
+    .inscribite h1{
+       font-size: 30px;
+     }
+ }
+ 
+ .formu {
+    font-family: 'Julius Sans One', sans-serif;
+ }
+ 
+ .formu h1 {
+    font-family: 'Julius Sans One', sans-serif;
+ }
+ 
+ .boton-suscribe {
+    background: none;
+    padding: 5px;
+    color: rgb(10, 8, 8);
+    border-color: rgb(10, 8, 8);
+    border-radius: 0.25rem;
+    font-size: 25px;
+    font-family: 'Julius Sans One', sans-serif;
+ }
+ 
+ .boton-suscribe:hover {
+    background: rgb(146, 210, 226);
+    padding: 5px;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 0.25rem;
+    font-size: 25px;
+    font-family: 'Julius Sans One', sans-serif;
+ }
+ 
