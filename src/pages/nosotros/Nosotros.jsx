@@ -10,7 +10,7 @@ export const Nosotros = () => {
             subtitulo="Se parte de la cultura COCOMAD"
             button="Quiero conocer mas"
             />
-            <h1>Nosotros</h1>
+            <h1>Nosotros hola</h1>
         </>
     )
 }
