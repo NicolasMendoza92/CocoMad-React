@@ -1,6 +1,5 @@
 .header-style {
    background-size: cover !important;
-   background-attachment: fixed;
    overflow: hidden;
    width: 100%;
    height: 100vh;
@@ -8,9 +7,7 @@
    margin-bottom: 3rem;
 }
 .background-home{
-    background: url(../../assets/homealfajor.jpeg) no-repeat top center;
- 
-    
+    background: url(../../assets/homealfajor.jpeg) no-repeat top center;    
  }
 .background-about{
    background: url(../../assets/nosotrosrisas.jpeg) no-repeat top center;
