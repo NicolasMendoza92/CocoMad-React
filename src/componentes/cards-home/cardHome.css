@@ -1,11 +1,22 @@
 .card-home {
     border: none;
     font-family: 'Julius Sans One', sans-serif;
+    cursor: pointer;
 }
 .card-home h5 {
     font-family: 'Julius Sans One', sans-serif;
- }
- .card-home p {
+}
+.card-home p {
     font-size: 20px;
- }
+}
+.card-home:hover .image-card {
+    filter: brightness(70%);
+    transition: 0.4s ease-in-out;
+}
+.text-card {
+    opacity: 0.7;
+}
+.card-home:hover .text-card {
+    opacity: 1;
+}
  
