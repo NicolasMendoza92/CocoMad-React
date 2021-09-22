@@ -36,6 +36,7 @@ function App() {
               <Route path="/contacto">
                 <Contacto />
               </Route>
+              
             </Switch>
           </CSSTransition>
         </TransitionGroup>
