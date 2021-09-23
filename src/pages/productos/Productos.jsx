@@ -18,6 +18,7 @@ export const Productos = () => {
                 <Col className="col-12 col-lg-4 d-flex flex-column justify-content-between ">
                   {/* hacer un map y traer los productos de producto */}
                   <Producto/>
+                  hola
                 </Col>
             </Row>
 
