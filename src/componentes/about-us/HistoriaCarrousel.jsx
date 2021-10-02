@@ -6,7 +6,7 @@ export const HistoriaCarrousel = () => {
     return (
         <div>
             <Container>
-               <Carousel variant="dark" className="carousel-home d-flex justify-content-center">
+               <Carousel variant="dark" className="d-flex justify-content-center">
             <Carousel.Item>
                 <img
                     className="d-block w-100"
