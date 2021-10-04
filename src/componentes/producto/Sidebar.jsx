@@ -21,7 +21,8 @@ export const Sidebar = () => {
                     <li><Link href="#!" class="card-link-secondary">Tartas</Link></li>
                     <li><Link href="#!" class="card-link-secondary">Lo Salado</Link></li>
                     <li><Link href="#!" class="card-link-secondary">Desayunos Sorpesas</Link></li>
-                    <li><Link href="#!" class="card-link-secondary">Box Armados</Link></li>
+                    <li><Link href="#!" class="card-link-secondary">Box Armados</Link>
+                    </li>
                 </ul>
             </div>
 
