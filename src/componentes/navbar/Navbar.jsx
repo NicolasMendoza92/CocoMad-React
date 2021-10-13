@@ -13,7 +13,7 @@ export default function NavbarRB() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto" >
-                        <Nav.Link className="link-nav" as={NavLink} to="/productos" exact>PRODUCTO</Nav.Link>
+                        <Nav.Link className="link-nav" as={NavLink} to="/productos" exact>PRODUCTOS</Nav.Link>
                         <Nav.Link className="link-nav" as={NavLink} to="/nosotros" exact>NOSOTROS</Nav.Link>
                         <Nav.Link className="link-nav" as={NavLink} to="/contacto" exact>CONTACTO</Nav.Link>
                     </Nav>

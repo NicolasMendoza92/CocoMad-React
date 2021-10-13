@@ -1,12 +1,41 @@
 import './productos.css';
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import Header from '../../componentes/header/Header'
-import { Producto } from '../../componentes/producto/Producto'
-import { Sidebar } from '../../componentes/producto/Sidebar'
+import { CardsProduct } from '../../componentes/producto/CardsProduct'
+import { Sidebar } from '../../componentes/sidebarProduct/Sidebar'
+import { SliderProducts } from '../../componentes/sliderProducts/SliderProducts';
 
 
 export const Productos = () => {
+
+    let products = [
+        {
+          id: "1",
+          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          title: "torta 1",
+          price: "$42.99",
+        },
+        {
+          id: "2",
+          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          title: "torta 2",
+          price: "$40.00",
+        },
+        {
+          id: "3",
+          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          title: "torta 3",
+          price: "$29.99",
+        },
+        {
+          id: "4",
+          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          title: "torta 4",
+          price: "$34.99",
+        },
+      ];
+
     return (
         <div>
             <Header
@@ -16,16 +45,15 @@ export const Productos = () => {
                 button="Todos nuestros CocoAlfajores"
             />
             <Container>
-                <div className="row mt-5">
-                    <div className="col-md-4 mb-4">
+                <Row>
+                    <Col className="col-12 col-md-3  columnaFiltros">
                         <Sidebar />
-                    </div>
-                    <div className="col-md-8 mb-4">
-                        <Producto />
-                    </div>
-                </div>
-
-
+                    </Col>
+                    <Col className="col-12 col-md-9 columnaProductos p-0">
+                        <CardsProduct products={products}/>
+                    </Col>
+                </Row>
+                <SliderProducts />
             </Container>
 
 
