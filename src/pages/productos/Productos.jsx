@@ -44,7 +44,6 @@ export const Productos = () => {
                 subtitulo="Increible variedad y sabores!"
                 button="Todos nuestros CocoAlfajores"
             />
-<<<<<<< HEAD
             <Container>
                 <Row>
                     <Col className="col-12 col-md-3  columnaFiltros">
@@ -56,15 +55,6 @@ export const Productos = () => {
                 </Row>
                 <SliderProducts />
             </Container>
-=======
-            <Row className="mb-5">
-                <Col className="col-12 col-lg-4 d-flex flex-column justify-content-between ">
-                  {/* hacer un map y traer los productos de producto */}
-                  <Producto/>
-                  hola
-                </Col>
-            </Row>
->>>>>>> nosotrosPage
 
 
         </div>
