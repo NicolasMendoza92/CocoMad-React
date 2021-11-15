@@ -51,19 +51,6 @@
    background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635353154/cocoMAD/new_local_tdjzzx.jpg) no-repeat top center;
 }
 
-.header-style-carrito {
-   background-size: cover !important;
-   overflow: hidden;
-   width: 100%;
-   height: 40vh;
-   transition: 0.5s;
-   margin-bottom: 3rem;
-}
-
-.background-carrito{
-   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154710/cocoMAD/vidriococo_vugruo.jpg) no-repeat top center;
-}
-
 
  .efecto-artesanal h1 {
     font-size: 90px;

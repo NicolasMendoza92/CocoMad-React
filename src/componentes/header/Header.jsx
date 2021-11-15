@@ -14,7 +14,7 @@ export const Header = ({ page, titulo, button, subtitulo }) => {
   return (
     <div className={`header-style-${page} background-${page}`}>
       <NavbarRB />
-      <div className="h-75 d-flex flex-column justify-content-start align-items-center">
+      <div className="h-75 d-flex flex-column justify-content-between align-items-center">
         <div className="my-5 text-center efecto-artesanal">
           <h1>{titulo}</h1>
           {/* <h4>{subtitulo}</h4>

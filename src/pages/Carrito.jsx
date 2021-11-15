@@ -5,7 +5,7 @@ import { Header } from '../componentes/header/Header';
 export default function Carrito() {
   return (
     <>
-     <Header page="carrito" titulo="Finaliza tu compra" />
+     <Header page="home" titulo="Finaliza tu compra" />
          CArrito
     </>
   );
