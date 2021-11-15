@@ -35,11 +35,11 @@
     color: white;
  }
  
- .efecto-artesanal {
+ /* .efecto-artesanal {
     animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
    transition: 0.5s;
 
- }
+ } */
  
  @keyframes efecto-artesanal {
     0% {
@@ -96,7 +96,7 @@
     transition: 0.4s;
     cursor: pointer;
     border-radius: 2rem;
-    animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
+    /* animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1); */
  }
  .circleArrow:hover {
     color:rgb(146, 210, 226);
