@@ -2,6 +2,7 @@
     font-size: 25px;
 }
 .link-nav{
+    color: aliceblue;
     background-color: none;
     font-family: 'Julius Sans One', sans-serif;
     font-size: 25px;
@@ -13,5 +14,86 @@
       transform: scale(105%);
       text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
  }
+
+ .link-nav-log {
+    color: aliceblue;
+    background-color: none;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
+ 
+ .link-nav-log:hover{
+    color: rgb(86, 205, 235) !important;
+    transform: scale(105%);
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+ }
+ .link-active-log{
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: 600;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    text-decoration: none;
+ }
+
+ .link-active{
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: 900;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 25px;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    text-decoration: none;
+ }
+
+ .navbar-links li {
+    list-style: none;
+    position: relative;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+}
+
+ .navbar-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white !important;
+}
+
+ /* NAVBAR POSTITIONS */
+.contenedor {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .logo-container a {
+        text-align: center;
+    } 
+ }
+
+
+.nav-logo-desktop{
+max-width: 100px;
+
+}
+.login-register {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
 
 

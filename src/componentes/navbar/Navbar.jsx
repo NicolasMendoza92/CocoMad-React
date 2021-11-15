@@ -1,24 +1,66 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Nav } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { BsCartDash } from 'react-icons/bs'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import './navbar.css';
+import { NavbarMobile } from './NavbarMobile';
 
-export default function NavbarRB() {
+export const NavbarRB = () => {
+
+
+    const [show, setShow] = useState(false);
+
+    const handleShow = () => setShow(true);
+
     return (
-        <Navbar bg="none" expand="lg" variant="dark">
-            <Container>
-                <Nav>
-                    <Nav.Link className="nav-link link-nav link-home" as={NavLink} to="/" exact>COCOMAD</Nav.Link>
-                </Nav>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto" >
-                        <Nav.Link className="link-nav" as={NavLink} to="/productos" exact>PRODUCTOS</Nav.Link>
-                        <Nav.Link className="link-nav" as={NavLink} to="/nosotros" exact>NOSOTROS</Nav.Link>
-                        <Nav.Link className="link-nav" as={NavLink} to="/contacto" exact>CONTACTO</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <>
+            <nav>
+                <Container bg="none" className="py-2">
+                    <div className="d-flex align-items-center justify-content-between contenedor " >
+                        <div className="d-block d-md-none ">
+                            <button
+                                className="navbar-button"
+                                onClick={handleShow}>
+                                <GiHamburgerMenu />
+                            </button>
+                        </div>
+                        <div className="logo-container" >
+                            <a href="/"  >
+                                <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636994115/cocoMAD/logo_blanco_rmmuf2.png" alt="img logo" className="nav-logo-desktop" />
+                            </a>
+                        </div>
+                        <div className="d-flex align-items-center login-register  ">
+                            <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>
+                            <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link>
+                            <div className="d-flex align-items-center">
+                                <Nav.Link className="link-nav" as={NavLink} to="/carrito"  exact> <BsCartDash /></Nav.Link>
+                                <Nav.Link className="link-nav" as={NavLink} to="/favoritos" exact><MdOutlineFavoriteBorder /></Nav.Link>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </nav>
+            <nav>
+                <Container bg="none" className="pb-2 d-none d-md-block border-0 ">
+                    <div className="d-flex align-items-center justify-content-center w-100 navbar-links">
+                        <li className="p-2 mx-3">
+                            <Nav.Link className="link-nav" activeClassName="link-active" as={NavLink} to="/productos" exact>PRODUCTOS</Nav.Link>
+                        </li>
+                        <li className="p-2 mx-3">
+                            <Nav.Link className="link-nav" activeClassName="link-active" as={NavLink} to="/nosotros" exact>NOSOTROS</Nav.Link>
+                        </li>
+                        <li className="p-2 mx-3">
+                            <Nav.Link className="link-nav" activeClassName="link-active" as={NavLink} to="/contacto" exact>CONTACTO</Nav.Link>
+                        </li>
+
+
+                    </div>
+                </Container>
+            </nav>
+
+            <NavbarMobile setShow={setShow} show={show} />
+        </>
     );
 }

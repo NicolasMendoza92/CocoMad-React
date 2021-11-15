@@ -1,9 +1,9 @@
 import React from 'react'
-import { Historia } from '../../componentes/about-us/Historia'
-import { HistoriaCarrousel } from '../../componentes/about-us/HistoriaCarrousel'
-import Header from '../../componentes/header/Header'
+import { Historia } from '../componentes/about-us/Historia'
+import { HistoriaCarrousel } from '../componentes/about-us/HistoriaCarrousel'
+import {Header} from '../componentes/header/Header'
 
-export const Nosotros = () => {
+export default function Nosotros () {
     return (
         <>
             <Header 

@@ -1,13 +1,13 @@
-import './productos.css';
+
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import Header from '../../componentes/header/Header'
-import { CardsProduct } from '../../componentes/producto/CardsProduct'
-import { Sidebar } from '../../componentes/sidebarProduct/Sidebar'
-import { SliderProducts } from '../../componentes/sliderProducts/SliderProducts';
+import { Header } from '../componentes/header/Header'
+import { CardsProduct } from '../componentes/producto/CardsProduct'
+import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
+import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
 
 
-export const Productos = () => {
+export default function Productos () {
 
     let products = [
         {

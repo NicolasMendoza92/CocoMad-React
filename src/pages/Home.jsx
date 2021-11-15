@@ -1,10 +1,10 @@
 import React from 'react'
-import './home.css';
-import Header from '../../componentes/header/Header';
 import { Container } from 'react-bootstrap';
-import { CardsHome } from '../../componentes/cards-home/CardsHome';
-import { CarouselHome } from '../../componentes/carousel/CarouselHome';
-import { Formulario } from '../../componentes/formulario/Formulario';
+
+import { CarouselHome } from '../componentes/carousel/CarouselHome';
+import { Formulario } from '../componentes/formulario/Formulario';
+import { CardsHome } from '../componentes/cards-home/CardsHome';
+import { Header } from '../componentes/header/Header';
 
 
 
@@ -27,7 +27,7 @@ const cardsHome = [
 ]
 
 
-export const Home = () => {
+export default function Home () {
     return (
         <>
             <Header
@@ -41,7 +41,7 @@ export const Home = () => {
                  <div className="col-12 col-lg-6 p-3">
                  <CarouselHome />
                  </div>
-                 <div class="col-12 col-lg-6 d-flex align-items-center inscribite">
+                 <div className="col-12 col-lg-6 d-flex align-items-center inscribite">
                      <Formulario />
                  </div>
              </div>

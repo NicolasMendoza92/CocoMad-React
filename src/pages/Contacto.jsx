@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import { Formulario } from '../../componentes/formulario/Formulario'
-import Header from '../../componentes/header/Header'
-import { Ubicacion } from '../../componentes/ubicacion/Ubicacion'
-import "./contacto.css"
-export const Contacto = () => {
+import { Formulario } from '../componentes/formulario/Formulario'
+import { Header } from '../componentes/header/Header'
+import { Ubicacion } from '../componentes/ubicacion/Ubicacion'
+
+
+export default function Contacto () {
     return (
         <>
             <div>
