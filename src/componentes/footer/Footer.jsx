@@ -1,4 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { FaArrowUp, FaFacebookSquare, FaInstagramSquare, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { GrMail } from 'react-icons/gr';
 import React from 'react'
 import './footer.css';
 
@@ -9,24 +11,22 @@ export const  Footer = () => {
                 <div className="col-12 col-lg-4 my-4">
                     <div className="mb-2">
                         <h5>SEGUINOS EN NUESTRAS REDES</h5>
-                        <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" ><i
-                            className="fab fa-facebook-square social-icon"></i></a>
-                        <a href="https://www.instagram.com/cocomadbakery/"><i
-                            className="fab fa-instagram-square social-icon"></i></a>
+                        <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" ><FaFacebookSquare className="social-icon"/> </a>
+                        <a href="https://www.instagram.com/cocomadbakery/"> <FaInstagramSquare className="social-icon"/> </a>
                     </div>
                     <h5>RETIRA NUESTROS PRODUCTOS POR</h5>
                     <div className="links mb-2">
-                        <a href="https://toogoodtogo.es/es/" target="blank" ><i class="fas fa-dolly"></i>TooGoodToGo</a>
+                        <a href="https://toogoodtogo.es/es/">TooGoodToGo</a>
                     </div>
                 </div>
                 <div className="col-12 col-lg-4 my-4">
-                    <h5>CONCATENOS</h5>
+                    <h5>CONTACTENOS</h5>
                     <div className="links mb-2">
-                        <a href="https://wa.me/c/34635790277" target="blank" ><i class="far fa-envelope"></i>cocomadbakery@gmail.com</a><br />
+                        <a href="https://wa.me/c/34635790277"  ><GrMail/>cocomadbakery@gmail.com</a><br />
                     </div>
                     <h5>REALIZA TU PEDIDO POR WHATSAPP</h5>
                     <div className="links mb-2">
-                        <a href="https://wa.me/c/34635790277" target="blank" ><i class="fab fa-whatsapp"></i>+34635790277</a>
+                        <a href="https://wa.me/c/34635790277"  ><FaWhatsapp/>+34635790277</a>
                     </div>
                 </div>
                 <div className="col-12 col-lg-4 my-4">
@@ -34,13 +34,12 @@ export const  Footer = () => {
                     <div className="links">
                         <p>Calle Evaristo San Miguel
                             9 <br /> Madrid 28008 <br /> España</p> <br />
-                        <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" ><i class="fas fa-map-marker-alt"></i>
-                            ¡Quiero ir!</a>
+                        <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" >Quiero Ir! <FaMapMarkerAlt/></a>
                     </div>
                 </div>
             </div>
             <div className="d-flex align-items-center justify-content-between">
-                <b>© 2019 CocoMad Bakery All rights reserved</b> <a className="volverArriba mt-2"><i className="fas fa-chevron-circle-up"></i></a>
+                <b>© 2019 CocoMad Bakery All rights reserved</b> <a className="volverArriba mt-2"> <FaArrowUp/> </a>
             </div>
         </div>
     )

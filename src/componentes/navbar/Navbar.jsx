@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Nav } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
@@ -27,9 +27,9 @@ export const NavbarRB = () => {
                             </button>
                         </div>
                         <div className="logo-container" >
-                            <a href="/"  >
+                            <Link as={NavLink} to="/home"  >
                                 <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636994115/cocoMAD/logo_blanco_rmmuf2.png" alt="img logo" className="nav-logo-desktop" />
-                            </a>
+                            </Link>
                         </div>
                         <div className="d-flex align-items-center login-register  ">
                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>

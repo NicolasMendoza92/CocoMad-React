@@ -4,7 +4,6 @@ import { Container } from 'react-bootstrap';
 import { CarouselHome } from '../componentes/carousel/CarouselHome';
 import { Formulario } from '../componentes/formulario/Formulario';
 import { CardsHome } from '../componentes/cards-home/CardsHome';
-import { Header } from '../componentes/header/Header';
 
 
 
@@ -30,11 +29,6 @@ const cardsHome = [
 export default function Home () {
     return (
         <>
-            <Header
-                page="home"
-                titulo="Alfajores Argentinos 100% Artesanales"
-                button="Quiero saber mas !"
-            />
             <Container>
              <CardsHome cardsHome={cardsHome} />
              <div className="row gx-3 gy-2 p-4 mb-4">

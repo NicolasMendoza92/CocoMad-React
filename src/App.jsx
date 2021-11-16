@@ -1,7 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { CSSTransition, TransitionGroup } from 'react-transition-group';
-// import router dom 
+
+import { Redirect, useLocation, useParams } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 // Pages Landing
 import Home from './pages/Home'
@@ -16,6 +17,7 @@ import Carrito from './pages/Carrito';
 
 // Componentes 
 import { Footer } from './componentes/footer/Footer';
+import { Header } from './componentes/header/Header';
 
 
 
@@ -25,40 +27,41 @@ function App() {
   return (
 
     <div className="footer-fix">
-            <Switch>
-              <Route path="/" exact>
-                <Home />
-              </Route>
+      <Header/>
+      <Switch>
+        <Route path="/home" exact>
+          <Home />
+        </Route>
 
-              <Route path="/productos">
-                <Productos />
-              </Route>
+        <Route path="/productos">
+          <Productos />
+        </Route>
 
-              <Route path="/nosotros">
-                <Nosotros />
-              </Route>
+        <Route path="/nosotros">
+          <Nosotros />
+        </Route>
 
-              <Route path="/contacto">
-                <Contacto />
-              </Route>
+        <Route path="/contacto">
+          <Contacto />
+        </Route>
 
-              <Route path="/carrito">
-                <Carrito />
-              </Route>
+        <Route path="/carrito">
+          <Carrito />
+        </Route>
 
-              <Route path="/favoritos" >
-                <Favoritos />
-              </Route>
+        <Route path="/favoritos" >
+          <Favoritos />
+        </Route>
 
-              <Route path="/login" >
-                <Login />
-              </Route>
+        <Route path="/login" >
+          <Login />
+        </Route>
 
-              <Route path="/register" >
-                <Registro />
-              </Route>
+        <Route path="/register" >
+          <Registro />
+        </Route>
 
-            </Switch>
+      </Switch>
       <Footer />
     </div>
 

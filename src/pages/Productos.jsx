@@ -1,7 +1,6 @@
 
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { Header } from '../componentes/header/Header'
 import { CardsProduct } from '../componentes/producto/CardsProduct'
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
@@ -38,12 +37,6 @@ export default function Productos () {
 
     return (
         <div>
-            <Header
-                page="productos"
-                titulo="De Argentina a Madrid"
-                subtitulo="Increible variedad y sabores!"
-                button="Todos nuestros CocoAlfajores"
-            />
             <Container>
                 <Row>
                     <Col className="col-12 col-md-3  columnaFiltros">
