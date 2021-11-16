@@ -97,3 +97,109 @@ max-width: 100px;
 }
 
 
+/* estilos del buscador  */
+.search-form {
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    .search-form {
+        width: 100%;
+    }
+}
+.search-input {
+    border:0 !important;
+    border-radius: 0 1rem 1rem 0;
+    cursor: pointer;
+}
+.search-input:focus {
+    outline: none;
+}
+.search-icon {
+    border: 0 !important;
+    border-radius: 1rem 0 0 1rem;
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(86, 205, 235);
+    text-align: center;
+    white-space: nowrap;
+    background-color: white;
+}
+
+/* estilo de la navbar movile  */
+
+/* RESPONSIVE NAVBAR */
+.responsive-navbar {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+}
+.responsive-navbar-header {
+    background-color: rgb(86, 205, 235) !important;
+}
+
+.responsive-navbar-links {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgb(86, 205, 235);
+    margin-bottom: 2rem;
+
+}
+.responsive-navbar-links li {
+    list-style: none;
+    border-bottom: 1px solid rgb(86, 205, 235);
+    transition: all 0.5s;
+
+}
+.responsive-navbar-links li a {
+    color: rgb(86, 205, 235) !important;
+    cursor: pointer;
+}
+.responsive-navbar-links li:hover  {
+    background-color: rgb(86, 205, 235); 
+}
+.responsive-navbar-links li:hover a {
+    color: white !important; 
+}
+
+.bienvenido-user{
+    color:rgb(86, 205, 235);
+    font-size: 20px;
+}
+
+
+
+/* sector redes */
+.navbar-responsive-redes {
+    color: black;
+}
+.navbar-responsive-subtitle {
+    color: rgb(86, 205, 235) !important;
+    text-align: center;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 25px;
+    list-style: none;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 30px;
+    list-style: none;
+}
+.face-icon{
+    color: #0d6efd;
+}.face-icon:hover{
+    color: #0d6efd;
+}
+.twitter-icon{
+    color:#0d6efd;;
+}.twitter-icon:hover{
+    color: #0d6efd;;
+}
+.insta-icon {
+    width: 30px;
+}

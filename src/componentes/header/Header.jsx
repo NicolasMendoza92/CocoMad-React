@@ -20,11 +20,11 @@ export const Header = () => {
   }
 
   return (
-    <div className={`header-style background-${location}`}>
+    <div className={`header-style-${location}`}>
       <NavbarRB />
-      <div className="h-75 d-flex flex-column justify-content-between align-items-center">
+      <div className="h-50 d-flex flex-column justify-content-between align-items-center">
         <div className="my-5 text-center efecto-artesanal">
-          <h1> </h1>
+          <h1> ALFAJORES ARGENTINOS 100% ARTESANOS </h1>
           {/* <h4>{subtitulo}</h4>
           <button href="#" className="mt-5 boton-artesanal">{button}</button> */}
         </div>

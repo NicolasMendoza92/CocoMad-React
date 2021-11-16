@@ -1,10 +1,7 @@
-* {
-  box-sizing: border-box;
-}
+
 body {
+  box-sizing: border-box;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .footer-fix {
@@ -13,30 +10,6 @@ body {
   min-height: 100vh;
 }
 
-.page {
-  position: absolute;
-  left: 15px;
-  right: 15px;
-}
-
-.page-enter {
-  opacity: 0;
-  z-index: 1;
-}
-
-.page-enter-active {
-  opacity: 1;
-  transition: opacity 350ms linear 150ms;
-}
-
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 250ms linear;
-}
 
 /* estilo de pag producto */
 .navbar-productos {
@@ -56,4 +29,70 @@ body {
 
 .tarjetas p {
   font-size: 20px;
+}
+
+
+.boton-artesanal {
+  background: none;
+  padding: 10px;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 25px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+
+.boton-artesanal:hover {
+  background: rgb(146, 210, 226);
+  text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+  transition-duration: 0.5s;
+  padding: 10px;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 25px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.boton-artesanal-cel {
+  background: rgb(146, 210, 226);
+  padding: 5px;
+  color: whitesmoke;
+  border-color: rgb(146, 210, 226);
+  border-radius: 0.25rem;
+  font-size: 15px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+
+.boton-artesanal-cel:hover {
+  background: whitesmoke;
+  transition-duration: 0.5s;
+  padding: 5px;
+  color: rgb(146, 210, 226);
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 15px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.boton-down{
+  border: none;
+  background: none;
+}
+
+.circleArrow{
+  border: none;
+  color: whitesmoke;
+  font-size: 3rem;
+  padding: 0;
+  transition: 0.4s;
+  cursor: pointer;
+  border-radius: 2rem;
+  /* animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1); */
+}
+.circleArrow:hover {
+  color:rgb(146, 210, 226);
+  box-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
 }

@@ -4,8 +4,10 @@ import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
-import './navbar.css';
+import { VscSearch } from 'react-icons/vsc'
 import { NavbarMobile } from './NavbarMobile';
+import './navbar.css';
+
 
 export const NavbarRB = () => {
 
@@ -35,7 +37,7 @@ export const NavbarRB = () => {
                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>
                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link>
                             <div className="d-flex align-items-center">
-                                <Nav.Link className="link-nav" as={NavLink} to="/carrito"  exact> <BsCartDash /></Nav.Link>
+                                <Nav.Link className="link-nav" as={NavLink} to="/carrito" exact> <BsCartDash /></Nav.Link>
                                 <Nav.Link className="link-nav" as={NavLink} to="/favoritos" exact><MdOutlineFavoriteBorder /></Nav.Link>
                             </div>
                         </div>
@@ -57,6 +59,24 @@ export const NavbarRB = () => {
 
 
                     </div>
+                </Container>
+            </nav>
+            <nav className="bg-none">
+                <Container className="py-2 d-flex justify-content-center ">
+                    <form className="search-form" >
+                        <div className="input-group mb-3 border-0">
+                            <span
+                                className="search-icon"
+                                id="basic-addon1"><VscSearch /></span>
+                            <input
+                                type="text"
+                                className="col-11 search-input"
+                                placeholder="¿Que Buscas? "
+                                aria-describedby="basic-addon1"
+                                // onChange={filter}
+                            />
+                        </div>
+                    </form>
                 </Container>
             </nav>
 

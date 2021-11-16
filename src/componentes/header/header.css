@@ -1,32 +1,89 @@
-/* ESTILOS PARA LA LANDING  */
+/* ESTILOS PARA LA LANDING PPALES  */
 
-.header-style {
+.header-style-home {
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
    height: 100vh;
    transition: 0.5s;
    margin-bottom: 3rem;
+   background: url(../../assets/homealfajor.jpeg) no-repeat top center;
 }
 
-.background-home{
-   background: url(../../assets/homealfajor.jpeg) no-repeat top center;    
-}
-
-.background-nosotros{
+.header-style-nosotros {
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 100vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
    background: url(../../assets/nosotrosrisas.jpeg) no-repeat top center;
 }
 
-.background-productos{
+
+.header-style-productos{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 100vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
    background: url(../../assets/productosalfa.jpeg) no-repeat top center;
 
 }
 
-.background-contacto{
+.header-style-contacto{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 100vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
    background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635353154/cocoMAD/new_local_tdjzzx.jpg) no-repeat top center;
 }
 
+/* Estilos para las landing Extras */
 
+.header-style-login{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 40vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
+   background-color: rosybrown;
+}
+.header-style-register{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 40vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
+   background-color: rosybrown;
+}
+.header-style-carrito{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 40vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
+   background-color: rosybrown;
+}
+.header-style-favoritos{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   height: 40vh;
+   transition: 0.5s;
+   margin-bottom: 3rem;
+   background-color: rosybrown;
+}
+
+
+
+/* Efectos del DIV header  */
  .efecto-artesanal h1 {
     font-size: 90px;
     font-family: 'Julius Sans One', sans-serif;
@@ -67,44 +124,4 @@
    }
  }
 
- .boton-down{
-    border: none;
-    background: none;
- }
- 
- .boton-artesanal {
-    background: none;
-    padding: 10px;
-    color: whitesmoke;
-    border-color: whitesmoke;
-    border-radius: 0.25rem;
-    font-size: 25px;
-    font-family: 'Julius Sans One', sans-serif;
-    transition: 0.4s;
- }
- 
- .boton-artesanal:hover {
-    background: rgb(146, 210, 226);
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-    transition-duration: 0.5s;
-    padding: 10px;
-    color: whitesmoke;
-    border-color: whitesmoke;
-    border-radius: 0.25rem;
-    font-size: 25px;
-    font-family: 'Julius Sans One', sans-serif;
- }
- .circleArrow{
-    border: none;
-    color: whitesmoke;
-    font-size: 3rem;
-    padding: 0;
-    transition: 0.4s;
-    cursor: pointer;
-    border-radius: 2rem;
-    /* animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1); */
- }
- .circleArrow:hover {
-    color:rgb(146, 210, 226);
-    box-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
- }
+

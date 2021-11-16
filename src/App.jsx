@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { Redirect, useLocation, useParams } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 // Pages Landing
 import Home from './pages/Home'
