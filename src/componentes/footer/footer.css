@@ -6,8 +6,9 @@
     font-family: 'Julius Sans One', sans-serif;
     color: whitesmoke;
  }
- .footer h5{
+ .footer p{
      font-weight: bold;
+     margin-bottom: 0;
  }
  
  .footer a :hover {
@@ -22,6 +23,9 @@
     transition-duration: 0.5s;
  }
 
+ .whatsapp{
+    font-size: 4rem;
+ }
  
  .links {
     list-style: none;
@@ -44,10 +48,13 @@
  }
 
  .volverArriba {
-    font-size: 2.5rem;
-    color: whitesmoke;
-    text-decoration: none;
-    transition: 0.4s;
+   font-size: 2.5rem;
+   color: whitesmoke;
+   text-decoration: none;
+   transition: 0.4s;
+   background-color: transparent;
+   border: none;
+   padding: 0;
  }
  
  .volverArriba:link, .volverArriba:visited, .volverArriba:active {
@@ -56,4 +63,9 @@
  
  .volverArriba:hover {
     color: rgb(146, 210, 226);
+ }
+
+ .footer-admin{
+    background-color: gray;
+    color: blanchedalmond;
  }

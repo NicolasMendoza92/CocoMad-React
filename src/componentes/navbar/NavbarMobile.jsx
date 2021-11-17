@@ -1,10 +1,12 @@
 import React from 'react'
-import { Nav, NavLink, Offcanvas } from 'react-bootstrap';
+import { Nav, Offcanvas } from 'react-bootstrap';
 import { BsFacebook } from 'react-icons/bs';
 import { GrInstagram, GrTwitter } from 'react-icons/gr';
 import { VscClose } from 'react-icons/vsc';
+import { NavLink } from 'react-router-dom';
 
-export const NavbarMobile = ({ setShow, show }) => {
+
+export const NavbarMobile = ({ setShow, show, user }) => {
 
   const handleClose = () => setShow(false);
 
@@ -19,10 +21,10 @@ export const NavbarMobile = ({ setShow, show }) => {
     <div>
       <Offcanvas show={show} onHide={handleClose} className="responsive-navbar text-white">
         <Offcanvas.Header className="responsive-navbar-header">
-          <div className="logo-container" >
-            <NavLink as={NavLink} to="/home" onClick={handleClose}>
+          <div className="logo-container-responsive" >
+            <Nav.Link as={NavLink} to="/" onClick={handleClose}>
               <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636994115/cocoMAD/logo_blanco_rmmuf2.png" alt="img logo" className="nav-logo-desktop" />
-            </NavLink>
+            </Nav.Link>
           </div>
           <button type="button" aria-label="Close" className="navbar-button mx-1" onClick={handleClose} ><VscClose /></button>
         </Offcanvas.Header>
@@ -35,39 +37,44 @@ export const NavbarMobile = ({ setShow, show }) => {
           </a>
         </Offcanvas.Header>
 
-        <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
-          <p>Bienvenido Sr/a </p>
-          <div>
-            <NavLink as={NavLink} to="/home" onClick={handleClose}>
-              <button className="boton-artesanal-cel px-4" >Mi Perfil</button>
-            </NavLink>
-            <button onClick={logout} className="boton-artesanal-cel">Cerrar Sesion</button>
-          </div>
-        </Offcanvas.Header>
+        {/* si existe usuario registrado entonces  */}
+        {user.role === 'user' &&
+          <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
+            <p>Bienvenido Sr/a </p>
+            <div>
+              <Nav.Link to="/perfil" onClick={handleClose}>
+                <button className="boton-artesanal-cel px-4" >Mi Perfil</button>
+              </Nav.Link>
+            </div>
+            <button onClick={logout} className="boton-artesanal-cel p-1">Cerrar Sesion</button>
+          </Offcanvas.Header>
+        }
 
-        {/* si esta registrado un usuario admin entonces se muestra */}
-        {/* {user.role === 'admin'
-                &&
-                <Offcanvas.Header className="d-flex flex-column bienvenido-user">
-                    <p>Bienvenido Sr/a {user.name}</p>
-                    <div className="d-flex justify-content-evenly">
-                        <NavLink  as={NavLink} to="/myProfile" onClick={handleClose} >
-                            <button className="boton-artesanal-cel px-4">Mi Perfil</button>
-                        </NavLink>
-                        <button onClick={logout} className="boton-artesanal-cel p-1">Cerrar Sesion</button>
-                    </div>
-                </Offcanvas.Header>
-            } */}
+
+        {/* si esta registrado el admin entonces muestra  */}
+        {user.role === 'admin'
+          &&
+          <Offcanvas.Header className="d-flex flex-column bienvenido-user">
+            <p>Bienvenido Sr/a {user.name}</p>
+            <div className="d-flex flex-column m-2 ">
+              <NavLink as={NavLink} to="/perfil" onClick={handleClose} >
+                <button className="boton-artesanal-cel px-4">Mi Perfil</button>
+              </NavLink>
+            </div>
+            <button onClick={logout} className="boton-artesanal-cel p-2">Cerrar Sesion</button>
+
+          </Offcanvas.Header>
+        }
         <Offcanvas.Body >
           <div className="responsive-navbar-links text-center ">
             <li className="p-2 mx-3" >
-              <Nav.Link as={NavLink} to="/productos" exact activeClassName="link-active" onClick={handleClose}>PRODUCTOS</Nav.Link>
+              <Nav.Link as={NavLink} to="/productos" activeClassName="link-active-cel" onClick={handleClose} >PRODUCTOS</Nav.Link>
             </li>
             <li className="p-2 mx-3">
-              <Nav.Link as={NavLink} to="/contacto" activeClassName="link-active" onClick={handleClose}>CONTACTO</Nav.Link>
+              <NavLink as={NavLink} to="/contacto" activeClassName="link-active-cel" onClick={handleClose}>CONTACTO</NavLink>
             </li>
             <li className="p-2 mx-3">
-              <Nav.Link as={NavLink} to="/nosotros" activeClassName="link-active" onClick={handleClose}>NOSOTROS</Nav.Link>
+              <NavLink as={NavLink} to="/nosotros" activeClassName="link-active-cel" onClick={handleClose}>NOSOTROS</NavLink>
             </li>
             {/* {user.role === 'admin' &&      
                     <li className="p-2 mx-3">
@@ -94,5 +101,6 @@ export const NavbarMobile = ({ setShow, show }) => {
       </Offcanvas>
 
     </div>
-  )}
+  )
+}
 

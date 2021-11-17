@@ -1,6 +1,6 @@
 /* ESTILOS PARA LA LANDING PPALES  */
 
-.header-style-home {
+.header-style- {
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
@@ -48,7 +48,6 @@
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
-   height: 40vh;
    transition: 0.5s;
    margin-bottom: 3rem;
    background-color: rosybrown;
@@ -57,30 +56,48 @@
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
-   height: 40vh;
    transition: 0.5s;
-   margin-bottom: 3rem;
+   margin-bottom: 2rem;
    background-color: rosybrown;
 }
 .header-style-carrito{
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
-   height: 40vh;
    transition: 0.5s;
-   margin-bottom: 3rem;
+   margin-bottom: 2rem;
    background-color: rosybrown;
 }
 .header-style-favoritos{
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
-   height: 40vh;
    transition: 0.5s;
-   margin-bottom: 3rem;
+   margin-bottom: 2rem;
+   background-color: rosybrown;
+}
+.header-style-perfil{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   transition: 0.5s;
+   margin-bottom: 2rem;
    background-color: rosybrown;
 }
 
+/* Estilos para las admin board */
+.header-style-productList{
+   width: 100%;
+}
+.header-style-messageList{
+   width: 100%;
+}
+.header-style-saleList{
+   width: 100%;
+}
+.header-style-userList{
+   width: 100%;
+}
 
 
 /* Efectos del DIV header  */
