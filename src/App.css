@@ -16,6 +16,40 @@ body {
   background-color: rgb(246, 181, 181);;
 }
 
+/* estilo de login */
+
+.form-login{
+  color: rgb(146, 210, 226);
+  font-family: 'Julius Sans One', sans-serif;
+  border: solid rgb(146, 210, 226);
+  }
+
+.responsive-login-face {
+  background-color: #3b5998;
+  color: white;
+  border: 1px solid #3b5998;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+  
+}
+.responsive-login-face:hover {
+  background-color: white;
+  color: #3b5998;
+}
+
+.crea-cuenta a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 0%;
+}
+.crea-cuenta a:hover{
+  color: rgb(146, 210, 226);
+  font-weight: 900;
+}
+
 /* Estilo de pag home  */
 
 .tarjetas {
@@ -31,7 +65,7 @@ body {
   font-size: 20px;
 }
 
-
+/* ESTILOS GENERALES */
 .boton-artesanal {
   background: none;
   padding: 10px;
