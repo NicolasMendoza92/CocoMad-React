@@ -21,7 +21,7 @@ export const FormRegister = () => {
     return (
         <Form
             noValidate validated={validated}
-            className="form-register my-5" onSubmit={handleSubmit}>
+            className="form-register px-3 my-5" onSubmit={handleSubmit}>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicName">
                 <label className="col-11 col-md-6 text-center">Nombre y Apellido</label>
                 <Form.Control
