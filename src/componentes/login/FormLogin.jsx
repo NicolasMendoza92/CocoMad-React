@@ -16,7 +16,7 @@ export const FormLogin = () => {
                 <div className="d-flex flex-column align-items-center">
                     <h3><b>Bienvenido a COCOMAD</b> </h3>
                 </div>
-                <Form>
+                <Form className="text-center">
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label> <b>Email</b></Form.Label>
                         <Form.Control type="email" placeholder="Ingresa el correo" />
@@ -25,6 +25,7 @@ export const FormLogin = () => {
                         <Form.Label> <b>Contraseña</b></Form.Label>
                         <Form.Control type="password" placeholder="Contraseña" />
                     </Form.Group>
+                    <button type="submit" className="boton-artesanal-cel">Iniciar Sesion</button>
                 </Form>
                 <div className="d-flex flex-column">
                     <button onClick={errorLink} type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>
