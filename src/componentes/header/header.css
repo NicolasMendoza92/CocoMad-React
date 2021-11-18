@@ -101,18 +101,14 @@
 
 /* Efectos del DIV header  */
  .efecto-artesanal h1 {
-    font-size: 90px;
+    font-size: 80px;
     font-family: 'Julius Sans One', sans-serif;
     color: white;
+    padding: 2rem;
    transition: 0.5s;
 
  }
  
- .efecto-artesanal h4 {
-    font-size: 40px;
-    font-family: 'Julius Sans One', sans-serif;
-    color: white;
- }
  
  /* .efecto-artesanal {
     animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
