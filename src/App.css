@@ -15,9 +15,21 @@ body {
 .navbar-productos {
   background-color: rgb(246, 181, 181);;
 }
+/* estilo de pag register */
+
+.container-register {
+  background-image: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637253794/cocoMAD/coco_logo_t6ln4i.jpg);
+  background-size: cover;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  color: whitesmoke;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.form-register{
+  font-family: 'Julius Sans One', sans-serif;
+}
 
 /* Estilo de pag home  */
-
 .tarjetas {
   border: none;
   font-family: 'Julius Sans One', sans-serif;

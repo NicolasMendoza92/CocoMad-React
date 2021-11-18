@@ -40,11 +40,11 @@ export const Footer = () => {
                         <div className="col-12 col-lg-4 my-4">
                             <p>CONTACTENOS</p>
                             <div className="mb-2">
-                                <Link href="https://wa.me/c/34635790277"  ><GrMail />cocomadbakery@gmail.com</Link><br />
+                                <Link to="https://wa.me/c/34635790277"  ><GrMail />cocomadbakery@gmail.com</Link><br />
                             </div>
                             <p>REALIZA TU PEDIDO POR WHATSAPP</p>
                             <div className="mb-2">
-                                <Link href="https://wa.me/c/34635790277" className="whatsapp"> <FaWhatsapp /> </Link> <br />
+                                <Link to="https://wa.me/c/34635790277" className="whatsapp"> <FaWhatsapp /> </Link> <br />
                                 +34635790277
                             </div>
                         </div>
@@ -53,7 +53,7 @@ export const Footer = () => {
                             <div className="">
                                 <p>Calle Evaristo San Miguel
                                     9 <br /> Madrid 28008 <br /> España</p> <br />
-                                <Link href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="_blank" >Quiero Ir! <FaMapMarkerAlt /></Link>
+                                <Link to="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="_blank" >Quiero Ir! <FaMapMarkerAlt /></Link>
                             </div>
                         </div>
                     </div>
