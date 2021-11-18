@@ -38,9 +38,9 @@ export const Footer = () => {
                             </div>
                         </div>
                         <div className="col-12 col-lg-4 my-4">
-                            <p>CONTACTENOS</p>
+                            <p>MANDANOS CORREO</p>
                             <div className="mb-2">
-                                <Link to="https://wa.me/c/34635790277"  ><GrMail />cocomadbakery@gmail.com</Link><br />
+                               <Link className="gmail"> <GrMail /></Link> 
                             </div>
                             <p>REALIZA TU PEDIDO POR WHATSAPP</p>
                             <div className="mb-2">
@@ -51,8 +51,7 @@ export const Footer = () => {
                         <div className="col-12 col-lg-4 my-4">
                             <p>NUESTRA TIENDA</p>
                             <div className="">
-                                <p>Calle Evaristo San Miguel
-                                    9 <br /> Madrid 28008 <br /> España</p> <br />
+                                <p>Calle Evaristo San Miguel 9 <br /> Madrid 28008 <br /> España</p> <br />
                                 <Link to="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="_blank" >Quiero Ir! <FaMapMarkerAlt /></Link>
                             </div>
                         </div>
