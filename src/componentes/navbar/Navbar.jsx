@@ -126,15 +126,16 @@ export const Navbar = ({ user }) => {
                         <Container className="py-2 d-flex justify-content-center ">
                             <form className="search-form" >
                                 <div className="input-group mb-3 border-0">
-                                    <span
-                                        className="search-icon"
-                                        id="basic-addon1"><VscSearch /></span>
+                                    <button className="search-icon"
+                                        id="basic-addon1" >
+                                        <VscSearch />
+                                    </button>
                                     <input
                                         type="text"
                                         className="col-11 search-input"
                                         placeholder="¿Que Buscas? "
                                         aria-describedby="basic-addon1"
-                                    // onChange={filter}
+                                    // onClick={filter}
                                     />
                                 </div>
                             </form>
