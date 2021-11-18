@@ -64,6 +64,16 @@
     color: white !important;
 }
 
+.navbar-user {
+    font-size: 18px;
+    margin: 0 0.3rem;
+    font-family: 'Julius Sans One', sans-serif;
+    z-index: 1020;
+}
+.navbar-user .nav-link {
+    color: white ;
+}
+
  /* NAVBAR POSTITIONS */
 .contenedor {
     position: relative;
@@ -141,8 +151,6 @@ max-width: 100px;
 }
 
 /* estilo de la navbar movile  */
-
-/* RESPONSIVE NAVBAR */
 
 .logo-container-responsive {
     position: relative;

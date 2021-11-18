@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav, Offcanvas } from 'react-bootstrap';
 import { BsFacebook } from 'react-icons/bs';
+import { FaWrench } from 'react-icons/fa';
 import { GrInstagram, GrTwitter } from 'react-icons/gr';
 import { VscClose } from 'react-icons/vsc';
 import { NavLink } from 'react-router-dom';
@@ -29,15 +30,19 @@ export const NavbarMobile = ({ setShow, show, user }) => {
           <button type="button" aria-label="Close" className="navbar-button mx-1" onClick={handleClose} ><VscClose /></button>
         </Offcanvas.Header>
         <Offcanvas.Header className="d-flex justify-content-evenly">
-          <a href="/login">
-            <button className="boton-artesanal-cel">Iniciar sesión</button>
-          </a>
-          <a href="/register">
-            <button className="boton-artesanal-cel">Registrarse</button>
-          </a>
+          {user.role === '' &&
+            <>
+              <Nav.Link as={NavLink} to="/login">
+                <button className="boton-artesanal-cel">Iniciar sesión</button>
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/register">
+                <button className="boton-artesanal-cel">Registrarse</button>
+              </Nav.Link>
+            </>
+          }
         </Offcanvas.Header>
 
-        {/* si existe usuario registrado entonces  */}
+        {/* si esta registrado el normal entonces  */}
         {user.role === 'user' &&
           <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
             <p>Bienvenido Sr/a </p>
@@ -50,10 +55,8 @@ export const NavbarMobile = ({ setShow, show, user }) => {
           </Offcanvas.Header>
         }
 
-
         {/* si esta registrado el admin entonces muestra  */}
-        {user.role === 'admin'
-          &&
+        {user.role === 'user' &&
           <Offcanvas.Header className="d-flex flex-column bienvenido-user">
             <p>Bienvenido Sr/a {user.name}</p>
             <div className="d-flex flex-column m-2 ">
@@ -62,9 +65,9 @@ export const NavbarMobile = ({ setShow, show, user }) => {
               </NavLink>
             </div>
             <button onClick={logout} className="boton-artesanal-cel p-2">Cerrar Sesion</button>
-
           </Offcanvas.Header>
         }
+
         <Offcanvas.Body >
           <div className="responsive-navbar-links text-center ">
             <li className="p-2 mx-3" >
@@ -76,11 +79,12 @@ export const NavbarMobile = ({ setShow, show, user }) => {
             <li className="p-2 mx-3">
               <NavLink as={NavLink} to="/nosotros" activeClassName="link-active-cel" onClick={handleClose}>NOSOTROS</NavLink>
             </li>
-            {/* {user.role === 'admin' &&      
-                    <li className="p-2 mx-3">
-                        <Nav.Link as={NavLink} to="/adminBoard" activeClassName="link-active"><FaWrench className="mb-1 me-2" />ADMIN BOARD</Nav.Link>
-                    </li>
-                    } */}
+
+            {user.role === 'admin' &&
+              <li className="p-2 mx-3">
+                <Nav.Link as={NavLink} to="/productList" activeClassName="link-active"><FaWrench className="mb-1 me-2" />ADMIN BOARD</Nav.Link>
+              </li>
+            }
 
           </div>
           <div className="navbar-responsive-redes">

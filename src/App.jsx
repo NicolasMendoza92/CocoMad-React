@@ -22,6 +22,8 @@ import { Footer } from './componentes/footer/Footer';
 import { Header } from './componentes/header/Header';
 import Perfil from './pages/Perfil';
 
+import { guardarEnLocalStorage } from "./utils/localStorage";
+
 // import Lottie from "react-lottie"
 // import pagewine from "./utils/lottieArchivos/pagewine.json";
 // import { Container } from 'react-bootstrap';
@@ -39,7 +41,9 @@ import Perfil from './pages/Perfil';
 
 function App() {
 
-const user={name:"nico", email:"nico@gmail.com" , role:"admin"}
+const user={name:'nico', email:'nico@gmail.com' , role:''}
+
+guardarEnLocalStorage({ key: 'user', value: { user } })
 
 const isAdmin = user.role === "admin";
 
