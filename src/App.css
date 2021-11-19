@@ -79,6 +79,29 @@ body {
   font-size: 20px;
 }
 
+/* estilo pag contacto */
+
+.form-contacto {
+  font-family: 'Julius Sans One', sans-serif;
+  color: rgb(146, 210, 226);
+  font-weight: 600;
+}
+.text-format {
+  padding: 3rem;
+  font-family: 'Julius Sans One', sans-serif;
+  text-align: center;
+}
+.text-format h1 {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 50px;
+}
+.text-format h5 {
+  text-align: justify;
+}
+.text-format p {
+  text-align: justify;
+}
+
 /* ESTILOS GENERALES */
 .boton-artesanal {
   background: none;

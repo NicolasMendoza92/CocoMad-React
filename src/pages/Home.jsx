@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap';
 
 import { CarouselHome } from '../componentes/carousel/CarouselHome';
-import { Formulario } from '../componentes/formulario/Formulario';
+
 import { CardsHome } from '../componentes/cards-home/CardsHome';
 
 
@@ -36,7 +36,7 @@ export default function Home () {
                  <CarouselHome />
                  </div>
                  <div className="col-12 col-lg-6 d-flex align-items-center inscribite">
-                     <Formulario />
+                     
                  </div>
              </div>
             </Container>
