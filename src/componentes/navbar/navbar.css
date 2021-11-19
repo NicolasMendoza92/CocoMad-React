@@ -103,6 +103,12 @@
        }
  }
 
+ /* cambio de imagen logo en cel */
+ @media only screen and (max-width: 768px){
+     #main-img{
+        content:url("https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636994115/cocoMAD/logo_blanco_rmmuf2.png");
+     }
+ }
 
 .nav-logo-desktop{
 max-width: 100px;

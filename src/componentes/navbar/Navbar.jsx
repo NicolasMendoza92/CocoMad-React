@@ -52,7 +52,7 @@ export const Navbar = ({ user }) => {
                                 </div>
                                 <div className="logo-container" >
                                     <Link as={NavLink} to="/"  >
-                                        <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637164998/cocoMAD/cocomad_logo_grueso_ppca6a.png" alt="img logo" className="nav-logo-desktop" />
+                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637164998/cocoMAD/cocomad_logo_grueso_ppca6a.png" alt="img logo" className="nav-logo-desktop" />
                                     </Link>
                                 </div>
                                 <div className="d-flex align-items-center login-register  ">

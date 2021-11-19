@@ -49,7 +49,7 @@ export const HistoriaCarrousel = () => {
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
-                            src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635353154/cocoMAD/nosotrasnew_zriwi1.jpg"
+                            src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637318094/cocoMAD/_MG_5263_wfo1wt.png"
                             alt="Second slide"
                         />
                     </Carousel.Item>
