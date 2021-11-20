@@ -44,12 +44,12 @@ export const NavbarMobile = ({ setShow, show, user }) => {
         </Offcanvas.Header>
 
         {/* si esta registrado el normal entonces  */}
-        {user.role === 'user' &&
+        {user.role === 'admin' &&
           <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
-            <p>Bienvenido Sr/a </p>
+            <p>Bienvenido Sr/a {user.name} </p>
             <div>
-              <Nav.Link to="/perfil" onClick={handleClose}>
-                <button className="boton-artesanal-cel px-4" >Mi Perfil</button>
+              <Nav.Link as={NavLink} to="/productList" onClick={handleClose}>
+                <button className="boton-artesanal-cel px-4" >AdminBoard</button>
               </Nav.Link>
             </div>
             <button onClick={logout} className="boton-artesanal-cel p-1">Cerrar Sesion</button>

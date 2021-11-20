@@ -15,7 +15,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const Navbar = ({ user }) => {
+export const Navbar = ({user}) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
