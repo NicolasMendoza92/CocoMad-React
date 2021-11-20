@@ -2,7 +2,7 @@
 import React from 'react'
 import { CardProduct } from './CardProduct';
 
-export const CardsProduct = ({products}) => {
+export const CardsProducts = ({products}) => {
     
     const mapProducts = products.map((product) => (<CardProduct product={product} />));
 

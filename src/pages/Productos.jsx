@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import { CardsProduct } from '../componentes/producto/CardsProduct'
+import { CardsProducts } from '../componentes/producto/CardsProducts'
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
 
@@ -43,7 +43,7 @@ export default function Productos () {
                         <Sidebar />
                     </Col>
                     <Col className="col-12 col-md-9 columnaProductos p-0">
-                        <CardsProduct products={products}/>
+                        <CardsProducts products={products}/>
                     </Col>
                 </Row>
                 <SliderProducts />
