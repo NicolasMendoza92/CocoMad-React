@@ -148,6 +148,19 @@ body {
   font-family: 'Julius Sans One', sans-serif;
 }
 
+/* spinner */
+.spinner-style {
+  position:fixed;
+  top: 50%;
+  right: 48%;
+  z-index: 2;
+  color: #1d4683 !important;
+}
+.spinner-style .spinner-border {
+  width: 4rem;
+  height: 4rem;
+}
+
 .boton-down{
   border: none;
   background: none;

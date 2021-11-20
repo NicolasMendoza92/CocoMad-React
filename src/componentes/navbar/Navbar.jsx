@@ -11,11 +11,13 @@ import { NavbarMobile } from './NavbarMobile';
 import './navbar.css';
 import { NavbarAdmin } from './NavbarAdmin';
 import { FaShareSquare } from 'react-icons/fa';
+import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
 export const Navbar = ({ user }) => {
 
+    const tokenLocal = leerDeLocalStorage('token') || {};
 
     const location = useLocation();
     const { pathname } = location;
@@ -26,9 +28,7 @@ export const Navbar = ({ user }) => {
     const handleShow = () => setShow(true);
 
     const logout = () => {
-        // localStorage.removeItem('token');
-        // localStorage.removeItem('favorites');
-        // localStorage.removeItem('cart');
+        localStorage.removeItem('token');
         window.location.href = '/';
     }
 
@@ -56,7 +56,8 @@ export const Navbar = ({ user }) => {
                                     </Link>
                                 </div>
                                 <div className="d-flex align-items-center login-register  ">
-                                    {user.role === '' &&
+                                    {!tokenLocal.token
+                                        &&
                                         <>
                                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>
                                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link>
