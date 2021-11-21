@@ -5,16 +5,17 @@ import { FaWrench } from 'react-icons/fa';
 import { GrInstagram, GrTwitter } from 'react-icons/gr';
 import { VscClose } from 'react-icons/vsc';
 import { NavLink } from 'react-router-dom';
+import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 export const NavbarMobile = ({ setShow, show, user }) => {
 
+  const tokenLocal = leerDeLocalStorage('token') || {};
+
   const handleClose = () => setShow(false);
 
   const logout = () => {
-    // localStorage.removeItem('token');
-    // localStorage.removeItem('favorites');
-    // localStorage.removeItem('cart');
+    localStorage.removeItem('token');
     window.location.href = '/';
   }
 
@@ -24,13 +25,13 @@ export const NavbarMobile = ({ setShow, show, user }) => {
         <Offcanvas.Header className="responsive-navbar-header">
           <div className="logo-container-responsive" >
             <Nav.Link as={NavLink} to="/" onClick={handleClose}>
-              <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636994115/cocoMAD/logo_blanco_rmmuf2.png" alt="img logo" className="nav-logo-desktop" />
+              <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636995518/cocoMAD/logo_celeste_y_blanco_coco_dgsugq.png" alt="img logo" className="nav-logo-desktop" />
             </Nav.Link>
           </div>
           <button type="button" aria-label="Close" className="navbar-button mx-1" onClick={handleClose} ><VscClose /></button>
         </Offcanvas.Header>
         <Offcanvas.Header className="d-flex justify-content-evenly">
-          {user.role === '' &&
+          {!tokenLocal.token &&
             <>
               <Nav.Link as={NavLink} to="/login">
                 <button className="boton-artesanal-cel">Iniciar sesión</button>
@@ -43,12 +44,12 @@ export const NavbarMobile = ({ setShow, show, user }) => {
         </Offcanvas.Header>
 
         {/* si esta registrado el normal entonces  */}
-        {user.role === 'user' &&
+        {user.role === 'admin' &&
           <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
-            <p>Bienvenido Sr/a </p>
+            <p>Bienvenido Sr/a {user.name} </p>
             <div>
-              <Nav.Link to="/perfil" onClick={handleClose}>
-                <button className="boton-artesanal-cel px-4" >Mi Perfil</button>
+              <Nav.Link as={NavLink} to="/productList" onClick={handleClose}>
+                <button className="boton-artesanal-cel px-4" >AdminBoard</button>
               </Nav.Link>
             </div>
             <button onClick={logout} className="boton-artesanal-cel p-1">Cerrar Sesion</button>

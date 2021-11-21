@@ -2,6 +2,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 // Pages Landing
 import Home from './pages/Home'
 import Nosotros from './pages/Nosotros'
@@ -11,6 +14,7 @@ import Favoritos from './pages/Favoritos';
 import Login from './pages/Login';
 import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
+import Perfil from './pages/Perfil';
 // Admin pages
 import ProductList from './pages/pagesAdmin/ProductList';
 import MessageList from './pages/pagesAdmin/MessageList';
@@ -20,35 +24,55 @@ import SaleList from './pages/pagesAdmin/SaleList';
 // Componentes 
 import { Footer } from './componentes/footer/Footer';
 import { Header } from './componentes/header/Header';
-import Perfil from './pages/Perfil';
+import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 
-import { guardarEnLocalStorage } from "./utils/localStorage";
-
-// import Lottie from "react-lottie"
-// import pagewine from "./utils/lottieArchivos/pagewine.json";
-// import { Container } from 'react-bootstrap';
-
-// const defaultOptions = {
-//   loop: true,
-//   autoplay: true,
-//   rendererSettings: {
-//     preserveAspectRatio: "xMidYMid slice"
-//   },
-
-// }
-
+// utils
+import { leerDeLocalStorage } from "./utils/localStorage";
 
 
 function App() {
 
-const user={name:'nico', email:'nico@gmail.com' , role:''}
+  const tokenLocalData = leerDeLocalStorage('token') || {};
 
-guardarEnLocalStorage({ key: 'user', value: { user } })
+  const [user, setUser] = useState({});
 
-const isAdmin = user.role === "admin";
+  const [isLoading, setIsLoading] = useState(true);
+
+  // hacemos la validacion del token
+  const requestUserData = async () => {
+    const tokenLocal = leerDeLocalStorage('token') || {};
+    setIsLoading(true);
+    
+    try {
+      if (tokenLocal.token) {
+        const headers = { 'x-auth-token': tokenLocal.token };
+        const response = await axios.get('http://localhost:4000/api/auth', {headers});
+        setUser(response.data);
+      }
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      localStorage.removeItem('token');
+      alert('Su sesión expiró.')
+      window.location.href = '/';
+    }
+  };
+
+  useEffect(() => {
+    requestUserData();
+  }, []);
+
+  const isAdmin = user.role === "admin";
+
+  if (isLoading) {
+    return (
+      <SpinnerCM />
+    );
+  }
+
+
 
   return (
-
     <div className="footer-fix">
       <Header user={user} />
       <Switch>
@@ -77,21 +101,22 @@ const isAdmin = user.role === "admin";
         </Route>
 
         <Route path="/login" >
-          <Login />
+          <Login requestUserData={requestUserData} />
         </Route>
 
         <Route path="/register" >
           <Registro />
         </Route>
 
-        <Route path="/perfil" >
-          <Perfil />
-        </Route>
-
-         {/* Admin pages */}
-         {isAdmin && (
+        {tokenLocalData.token &&
+          <Route path="/perfil" >
+            <Perfil requestUserData={requestUserData} user={user} />
+          </Route>
+        }
+        {/* Admin pages */}
+        {isAdmin && (
           <Route path="/productList" >
-            <ProductList/>
+            <ProductList />
           </Route>
         )}
         {isAdmin && (
@@ -101,7 +126,7 @@ const isAdmin = user.role === "admin";
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList />
+            <UserList user={user} />
           </Route>
         )}
         {isAdmin && (
@@ -112,9 +137,6 @@ const isAdmin = user.role === "admin";
 
         <Route path="/404">
           404
-          {/* <Container>
-            <Lottie options={{ animationData: pagewine, ...defaultOptions }} />
-          </Container> */}
         </Route>
 
         <Route path="*">

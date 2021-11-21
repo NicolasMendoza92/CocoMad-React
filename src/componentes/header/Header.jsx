@@ -8,7 +8,7 @@ import { useLocation } from 'react-router';
 import { SubHeader } from './SubHeader';
 
 
-export const Header = ({ user }) => {
+export const Header = ({user}) => {
 
 
   // Se usa useLocation para poder cambiar el estilo de la pagina 
