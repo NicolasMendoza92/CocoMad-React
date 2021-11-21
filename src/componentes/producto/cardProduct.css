@@ -1,67 +1,82 @@
+.productos {
+  color: #333;
+  margin-bottom: 3rem;
+  transition: 0.4s;
+  border: 1px solid rgb(146, 210, 226);
+  width: 21rem;
+}
 
- .productos {
-   color: #333;
-   margin-bottom: 3rem;
-   transition: 0.4s;
-   border: 2px solid rgb(168, 77, 77, 0);
-   width:21rem;
- }
- .card-productos {
-   text-decoration: none;
-   cursor: pointer;
-   border: none;
-   border-radius: 0;
- }
- .img-product {
-   width: 15rem;
- }
- .productos:hover  {
-   border: 2px solid rgb(146, 210, 226);
-   box-shadow: 9px 9px 11px 2px rgba(117, 115, 115, 0.51);
- }
- .name-producto {
-   font-weight: bold;
-   font-size: 19px;
-   height: 3rem;
- }
- .precio-producto {
-   color: #888;
-   font-size: 17px;
- }
+.card-productos {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+}
+
+.card-description{
+  padding-bottom: 0;
+}
+
+.img-product {
+  width: 15rem;
+  height: 15rem;
+}
+
+.productos:hover {
+  border: 2px solid rgb(146, 210, 226);
+  box-shadow: 9px 9px 11px 2px rgba(117, 115, 115, 0.51);
+}
+
+.name-product {
+  font-weight: bold;
+  font-size: 19px;
+  height: 2rem;
+}
+
+.descript-product {
+  font-size: 13px;
+  height: 2rem;
+}
+
+.price-product {
+  color: #888;
+  font-size: 17px;
+}
 
 
- /* zona de botones */
+/* zona de botones */
 .add-cart-btn {
-    background: none;
-    color: rgb(146, 210, 226);
-    border-color: rgb(146, 210, 226);
-    border-radius: 0.25rem;
-    font-size: 20px;
-    font-family: 'Julius Sans One', sans-serif;
-    transition: 0.4s;
- }
- 
- .add-cart-btn:hover {
-    background: rgb(146, 210, 226);
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-    transition-duration: 0.5s;
-    color: whitesmoke;
-    border-color: whitesmoke;
-    border-radius: 0.25rem;
-    font-size: 20px;
-    font-family: 'Julius Sans One', sans-serif;
- }
+  background: rgb(146, 210, 226);
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 20px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
 
- .add-favorite-btn {
-   color: rgb(146, 210, 226);
-   border: none;
-   width: 2.2rem;
-   height: 2.2rem;
-   background: none;
-   transition-duration: 0.3s;
-   border: 1px solid rgb(146, 210, 226);
- }
- .add-favorite-btn:hover {
-   background-color: rgb(146, 210, 226);
-   color: whitesmoke;
- }
+.add-cart-btn:hover {
+  background: none;
+  transition-duration: 0.5s;
+  color: rgb(146, 210, 226);
+  border-color: rgb(146, 210, 226);
+  border-radius: 0.25rem;
+  font-size: 20px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.add-favorite-btn {
+  color: rgb(146, 210, 226);
+  border: none;
+  background-color: rgb(146, 210, 226);
+  width: 2.2rem;
+  height: 2.2rem;
+  background: none;
+  transition-duration: 0.3s;
+  border: 1px solid rgb(146, 210, 226);
+}
+
+.add-favorite-btn:hover {
+  background: rgb(146, 210, 226);
+  color: whitesmoke;
+}

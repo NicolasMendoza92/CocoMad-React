@@ -15,7 +15,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const Navbar = ({user}) => {
+export const Navbar = ({ user, filter }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -127,7 +127,9 @@ export const Navbar = ({user}) => {
                         <Container className="py-2 d-flex justify-content-center ">
                             <form className="search-form" >
                                 <div className="input-group mb-3 border-0">
-                                    <button className="search-icon"
+                                    <button
+                                        onClick={filter}
+                                        className="search-icon"
                                         id="basic-addon1" >
                                         <VscSearch />
                                     </button>
@@ -136,7 +138,6 @@ export const Navbar = ({user}) => {
                                         className="col-11 search-input"
                                         placeholder="¿Que Buscas? "
                                         aria-describedby="basic-addon1"
-                                    // onClick={filter}
                                     />
                                 </div>
                             </form>

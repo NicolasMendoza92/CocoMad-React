@@ -9,19 +9,21 @@ export const CardProduct = ({ product }) => {
     const { image, name, price } = product;
 
     return (
-        <div className="productos mx-1 p-0" >
+        <div className="productos my-2 mx-1 p-0" >
             <Card className="card-productos">
                 <div className="mt-3 d-flex align-items-start justify-content-center">
                     <Card.Img className="img-product" variant="top" src={image} />
                 </div>
                 <Card.Body className="card-description" >
-                    <Card.Title className="name-producto mt-1 text-center">
+                    <Card.Title className="name-product mt-1 text-center">
                         {name}
                     </Card.Title>
-                    <Card.Text className="precio-producto mt-2 text-center">
-                        {price}
+                    {/* <Card.Title className="descript-product mt-1 text-center">
+                        {description}
+                    </Card.Title> */}
+                    <Card.Text className="price-product mt-2 text-center">
+                       $ {price}
                     </Card.Text>
-                    <Card.Text className="text-center">Por unidad</Card.Text>
                 </Card.Body>
             </Card>
             <div className="d-flex align-items-center justify-content-center bg-white">

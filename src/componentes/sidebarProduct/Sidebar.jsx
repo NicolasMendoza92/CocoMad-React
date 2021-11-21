@@ -2,8 +2,26 @@ import './sidebar.css';
 import React from 'react'
 import { CloseButton} from 'react-bootstrap';
 
-export const Sidebar = () => {
+export const Sidebar = ({setSelectCategory, selectCategory, onselectCat, onselectPri, setSelectPrice, selectPrice}) => {
 
+    const filtrarCategoria = (e) => {
+        const category = e.target.value;
+        setSelectCategory(category)
+      }
+    
+      const filtrarPrecio = (e) => {
+        const price = e.target.value;
+        setSelectPrice(price)
+      }
+    
+      const clearSelect = () => {
+        onselectCat('');
+        onselectPri('')
+      }
+    
+      const visibleClearCat = selectCategory ? '' : 'd-none';
+    
+      const visibleClearPri = selectPrice ? '' : 'd-none';
 
     return (
         <div className="sidebar">
@@ -15,8 +33,7 @@ export const Sidebar = () => {
                     <select className="form-select" >
                         <option value="">Alfajores Linea Clasica</option>
                         <option value="">Alfajores Linea Premium</option>
-                        <option value="">Alfajores Grandes Simples</option>
-                        <option value="">Alfajores Grandes Triples</option>
+                        <option value="">Alfajores Grandes</option>
                         <option value="">Tartas</option>
                         <option value="">Lo Salado</option>
                         <option value="">Desayunos </option>

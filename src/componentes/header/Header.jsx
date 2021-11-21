@@ -4,12 +4,13 @@ import './header.css';
 import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Navbar } from '../navbar/Navbar';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { SubHeader } from './SubHeader';
 
 
-export const Header = ({user}) => {
+export const Header = ({user, setSerch}) => {
 
+  const history = useHistory();
 
   // Se usa useLocation para poder cambiar el estilo de la pagina 
   const path = useLocation().pathname;
@@ -25,6 +26,13 @@ export const Header = ({user}) => {
     window.scrollTo(0, 1000);
   }
 
+  const filter = (e) => {
+    e.preventDefault();
+    const keyword = e.target.value;
+    history.push('/productos');
+    setSerch(keyword);
+};
+
   return (
     <>
       {splitLocation[1] !== "login"
@@ -38,7 +46,7 @@ export const Header = ({user}) => {
         && splitLocation[1] !== "saleList"
         &&
         <div className={`header-style-${currentlocation}`}>
-          <Navbar user={user} />
+          <Navbar user={user} filter={filter} />
           <div className="h-50 d-flex flex-column justify-content-between align-items-center">
             <div className="my-5 text-center efecto-artesanal">
               { splitLocation[1] === "" && <h1> ALFAJORES ARGENTINOS 100% ARTESANOS </h1>}

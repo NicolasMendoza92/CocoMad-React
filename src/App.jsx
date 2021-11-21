@@ -35,6 +35,8 @@ function App() {
   const tokenLocalData = leerDeLocalStorage('token') || {};
 
   const [user, setUser] = useState({});
+  const [products, setProducts] = useState([]);
+  const [serch, setSerch] = useState('');
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -62,6 +64,22 @@ function App() {
     requestUserData();
   }, []);
 
+    // get productos de la API 
+
+    const getProducts = async () => {
+      try {
+        const response = await axios.get('http://localhost:4000/api/products/');
+        setProducts(response.data);
+
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    useEffect(() => {
+      getProducts();
+    }, [])
+
   const isAdmin = user.role === "admin";
 
   if (isLoading) {
@@ -74,14 +92,19 @@ function App() {
 
   return (
     <div className="footer-fix">
-      <Header user={user} />
+      <Header 
+      user={user}
+      setSerch={setSerch} />
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
 
         <Route path="/productos">
-          <Productos />
+          <Productos 
+          products={products} 
+          setProducts={setProducts}
+          serch={serch} />
         </Route>
 
         <Route path="/nosotros">
