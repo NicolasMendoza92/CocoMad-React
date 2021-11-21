@@ -11,26 +11,26 @@ export default function Productos () {
     let products = [
         {
           id: "1",
-          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-          title: "torta 1",
+          image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          name: "torta 1",
           price: "$42.99",
         },
         {
           id: "2",
-          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-          title: "torta 2",
+          image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          name: "torta 2",
           price: "$40.00",
         },
         {
           id: "3",
-          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-          title: "torta 3",
+          image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+         name: "torta 3",
           price: "$29.99",
         },
         {
           id: "4",
-          img: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-          title: "torta 4",
+          image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
+          name: "torta 4",
           price: "$34.99",
         },
       ];

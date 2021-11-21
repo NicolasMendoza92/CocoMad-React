@@ -1,22 +1,37 @@
-import Button from '@restart/ui/esm/Button'
+
 import React from 'react'
-import { Card, Col } from 'react-bootstrap'
-import './cardProduct.css'; 
+import { Card} from 'react-bootstrap'
+import { FaHeart } from 'react-icons/fa';
+import './cardProduct.css';
 
 export const CardProduct = ({ product }) => {
-    const { img, title, price } = product;
+
+    const { image, name, price } = product;
+
     return (
-        <div>
-            <Col className="col-12 col-lg-4 mx-2 mb-2">
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={img} />
-                    <Card.Body>
-                        <p className="mb-0"  > {title} </p>
-                        <Card.Title>{price}</Card.Title>
-                        <Button className="boton-ver">Agregar al Carrito</Button>
-                    </Card.Body>
-                </Card>
-            </Col>
+        <div className="productos mx-1 p-0" >
+            <Card className="card-productos">
+                <div className="mt-3 d-flex align-items-start justify-content-center">
+                    <Card.Img className="img-product" variant="top" src={image} />
+                </div>
+                <Card.Body className="card-description" >
+                    <Card.Title className="name-producto mt-1 text-center">
+                        {name}
+                    </Card.Title>
+                    <Card.Text className="precio-producto mt-2 text-center">
+                        {price}
+                    </Card.Text>
+                    <Card.Text className="text-center">Por unidad</Card.Text>
+                </Card.Body>
+            </Card>
+            <div className="d-flex align-items-center justify-content-center bg-white">
+                <button className="add-cart-btn m-1" >
+                    Añadir al Carrito
+                </button>
+                <button className="add-favorite-btn m-1">
+                    <FaHeart/>
+                </button>
+            </div >
         </div>
     )
 }

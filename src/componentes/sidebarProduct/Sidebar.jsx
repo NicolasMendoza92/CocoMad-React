@@ -1,42 +1,48 @@
 import './sidebar.css';
 import React from 'react'
-import { Link } from 'react-router-dom';
-import { Accordion } from 'react-bootstrap';
+import { CloseButton} from 'react-bootstrap';
 
 export const Sidebar = () => {
+
+
     return (
         <div className="sidebar">
-            <div class="mb-4 filtrador">
-                <div class="d-flex justify-content-between align-items-center">
-                    <input type="text" class="form-control mb-0 me-2" placeholder="Busca tus cocoalfajores..." />
-                    <button href="#!" className="boton-buscador"><i class="fas fa-search fa-lg"></i></button>
+            <h4>Filtra tus Productos</h4>
+
+            <div className=" d-flex  align-content-center mt-2">
+                <div className="d-flex flex-column">
+                    <label className="m-2" >Categoria</label>
+                    <select className="form-select" >
+                        <option value="">Alfajores Linea Clasica</option>
+                        <option value="">Alfajores Linea Premium</option>
+                        <option value="">Alfajores Grandes Simples</option>
+                        <option value="">Alfajores Grandes Triples</option>
+                        <option value="">Tartas</option>
+                        <option value="">Lo Salado</option>
+                        <option value="">Desayunos </option>
+                        <option value="">Box Armados</option>
+                    </select>
+                </div>
+                <div>
+                    <CloseButton className="m-2" />
                 </div>
             </div>
-            <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="1">
-                    <Accordion.Header className="mb-3">CATEGORIAS</Accordion.Header>
-                    <Accordion.Body className="d-flex flex-column align-items-center my-4">
-                        <Link href="#!" className="card-link-secondary">Alfajores Linea Clasica</Link>
-                        <Link href="#!" className="card-link-secondary">Alfajores Premium</Link>
-                        <Link href="#!" className="card-link-secondary">Alfajores Grandes Simples</Link>
-                        <Link href="#!" className="card-link-secondary">Alfajores Grandes Triples</Link>
-                        <Link href="#!" className="card-link-secondary">Tartas</Link>
-                        <Link href="#!" className="card-link-secondary">Lo Salado</Link>
-                        <Link href="#!" className="card-link-secondary">Desayunos Sorpesas</Link>
-                        <Link href="#!" className="card-link-secondary">Box Armados</Link>
-                    </Accordion.Body>
-                </Accordion.Item >
-                <Accordion.Item eventKey="2">
-                    <Accordion.Header className="mb-3">Filtra por Precio</Accordion.Header>
-                    <Accordion.Body className="d-flex align-items-center my-4">
-                        <span class="m-2">$0</span>
-                        <form class="mb-1">
-                            <input class="multi-range" type="range" />
-                        </form>
-                        <span class="m-2">$100</span>
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion >
-        </div >
+
+            <div className=" d-flex  align-content-center mt-2">
+                <div className="d-flex flex-column">
+                    <label className="m-2">Precio</label>
+                    <select className="form-select" >
+                        <option value="20">Hasta $20</option>
+                        <option value="30">Hasta $30</option>
+                        <option value="40">Hasta $40</option>
+                        <option value="60">Hasta $60</option>
+                    </select>
+                </div>
+                <div>
+                    <CloseButton className="m-2" />
+                </div>
+            </div>
+        </div>
+
     )
 }
