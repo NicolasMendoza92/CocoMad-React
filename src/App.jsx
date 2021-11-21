@@ -30,21 +30,6 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 import { leerDeLocalStorage } from "./utils/localStorage";
 
 
-// import Lottie from "react-lottie"
-// import pagewine from "./utils/lottieArchivos/pagewine.json";
-// import { Container } from 'react-bootstrap';
-
-// const defaultOptions = {
-//   loop: true,
-//   autoplay: true,
-//   rendererSettings: {
-//     preserveAspectRatio: "xMidYMid slice"
-//   },
-
-// }
-
-
-
 function App() {
 
   const tokenLocalData = leerDeLocalStorage('token') || {};
@@ -152,9 +137,6 @@ function App() {
 
         <Route path="/404">
           404
-          {/* <Container>
-            <Lottie options={{ animationData: pagewine, ...defaultOptions }} />
-          </Container> */}
         </Route>
 
         <Route path="*">
