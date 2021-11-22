@@ -40,8 +40,8 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, serch }) 
     return (
         <>
             {currentProducts?.length !== 0 ?
-                <>
-                    <span className="mb-3">Pagina {currentPage} de {totalPages}</span>
+                <div className="d-flex flex-column align-items-center">
+                    <span className="mb-3 pag-num ">Pagina {currentPage} de {totalPages}</span>
                     <div className="d-flex flex-wrap justify-content-center">
                         {mapProducts}
                     </div>
@@ -50,7 +50,7 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, serch }) 
                         setCurrentPage={setCurrentPage}
                         totalPages={totalPages}
                     />
-                </>
+                </div>
                 :
                 <Card className="no-results-card text-center text-dark-50 p-5 m-5">
                     <Card.Title>Producto no encontrado</Card.Title>

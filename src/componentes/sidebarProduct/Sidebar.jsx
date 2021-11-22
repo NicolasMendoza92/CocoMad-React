@@ -24,31 +24,31 @@ export const Sidebar = ({setSelectCategory, selectCategory, onselectCat, onselec
       const visibleClearPri = selectPrice ? '' : 'd-none';
 
     return (
-        <div className="sidebar">
+        <div className="sidebar mb-3">
             <h4>Filtra tus Productos</h4>
-
-            <div className=" d-flex  align-content-center mt-2">
+            <div className="d-flex align-content-center mt-2">
                 <div className="d-flex flex-column">
-                    <label className="m-2" >Categoria</label>
-                    <select className="form-select" >
-                        <option value="">Alfajores Linea Clasica</option>
-                        <option value="">Alfajores Linea Premium</option>
-                        <option value="">Alfajores Grandes</option>
-                        <option value="">Tartas</option>
-                        <option value="">Lo Salado</option>
-                        <option value="">Desayunos </option>
-                        <option value="">Box Armados</option>
+                    <label className="m-2" > <b>Categoria</b></label>
+                    <select  onChange={filtrarCategoria} className="form-select" >
+                        <option value="Alfajores Clasicos">Alfajores Clasicos</option>
+                        <option value="Alfajores Premium">Alfajores Premium</option>
+                        <option value="Alfajores Grandes">Alfajores Grandes</option>
+                        <option value="tartas">Tartas</option>
+                        <option value="bizcochos">Bizcochos</option>
+                        <option value="salado">Salado</option>
+                        <option value="desayunos">Desayunos </option>
+                        <option value="boxs">Box Armados</option>
                     </select>
                 </div>
                 <div>
-                    <CloseButton className="m-2" />
+                    <CloseButton className={`m-2 ${visibleClearCat}`} onClick={clearSelect} />
                 </div>
             </div>
 
             <div className=" d-flex  align-content-center mt-2">
                 <div className="d-flex flex-column">
-                    <label className="m-2">Precio</label>
-                    <select className="form-select" >
+                    <label className="m-2"> <b>Precio</b></label>
+                    <select onChange={filtrarPrecio} className="form-select" >
                         <option value="20">Hasta $20</option>
                         <option value="30">Hasta $30</option>
                         <option value="40">Hasta $40</option>
@@ -56,7 +56,7 @@ export const Sidebar = ({setSelectCategory, selectCategory, onselectCat, onselec
                     </select>
                 </div>
                 <div>
-                    <CloseButton className="m-2" />
+                    <CloseButton className={`m-2 ${visibleClearPri}`} onClick={clearSelect} />
                 </div>
             </div>
         </div>

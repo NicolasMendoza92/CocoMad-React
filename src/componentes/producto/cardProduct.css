@@ -1,8 +1,7 @@
 .productos {
   color: #333;
   margin-bottom: 3rem;
-  transition: 0.4s;
-  border: 1px solid rgb(146, 210, 226);
+  /* border: 1px solid rgb(146, 210, 226); */
   width: 21rem;
 }
 
@@ -10,6 +9,7 @@
   text-decoration: none;
   cursor: pointer;
   border: none;
+  background-color: whitesmoke;
   border-radius: 0;
 }
 
@@ -39,8 +39,12 @@
 }
 
 .price-product {
-  color: #888;
+  color: rgb(102, 101, 101);
   font-size: 17px;
+}
+
+.pag-num{
+  font-family:'Julius Sans One', sans-serif; ;
 }
 
 

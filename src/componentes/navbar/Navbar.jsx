@@ -128,7 +128,6 @@ export const Navbar = ({ user, filter }) => {
                             <form className="search-form" >
                                 <div className="input-group mb-3 border-0">
                                     <button
-                                        onClick={filter}
                                         className="search-icon"
                                         id="basic-addon1" >
                                         <VscSearch />
@@ -138,6 +137,7 @@ export const Navbar = ({ user, filter }) => {
                                         className="col-11 search-input"
                                         placeholder="¿Que Buscas? "
                                         aria-describedby="basic-addon1"
+                                        onChange={filter}
                                     />
                                 </div>
                             </form>
