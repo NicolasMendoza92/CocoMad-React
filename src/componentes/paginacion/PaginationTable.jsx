@@ -1,12 +1,8 @@
 import './pagination.css'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-export const PaginationStore = ({totalPages = 0, setCurrentPage, currentPage = 1}) => {
-  const scrollToTop = () => {
-    window.scrollTo(0, 250);
-  };
+export const PaginationTable = ({totalPages = 0, setCurrentPage, currentPage = 1}) => {
     const handleSetPage = (n) => {
-      scrollToTop();
       setCurrentPage(n);
     };
     const pagination = () => {
