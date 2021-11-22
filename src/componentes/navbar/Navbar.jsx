@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Nav, NavDropdown } from 'react-bootstrap';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash, BsCartFill } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -15,7 +15,9 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const Navbar = ({ user, filter }) => {
+export const Navbar = ({ user, setSerch}) => {
+
+    const history = useHistory();
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -31,6 +33,14 @@ export const Navbar = ({ user, filter }) => {
         localStorage.removeItem('token');
         window.location.href = '/';
     }
+
+    const filter = (e) => {
+        e.preventDefault();
+        const keyword = e.target.value;
+        history.push('/productos');
+        setSerch(keyword);
+    };
+    
 
     return (
         <>
@@ -52,7 +62,7 @@ export const Navbar = ({ user, filter }) => {
                                 </div>
                                 <div className="logo-container" >
                                     <Link as={NavLink} to="/"  >
-                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637164998/cocoMAD/cocomad_logo_grueso_ppca6a.png" alt="img logo" className="nav-logo-desktop" />
+                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637589150/cocoMAD/cocomad_logo_grue_blanco_cr0it8.png" alt="img logo" className="nav-logo-desktop" />
                                     </Link>
                                 </div>
                                 <div className="d-flex align-items-center login-register  ">

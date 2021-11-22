@@ -121,7 +121,7 @@ export const FormRegister = () => {
                     required
                 />
             </Form.Group>
-            <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicName">
+            <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicClass">
                 <label className="col-11 col-md-6 text-center">Conoces CocoMad?</label>
                 <Form.Select
                     className="col-11 col-md-9 text-center"

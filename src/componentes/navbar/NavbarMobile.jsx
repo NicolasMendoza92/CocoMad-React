@@ -25,7 +25,7 @@ export const NavbarMobile = ({ setShow, show, user }) => {
         <Offcanvas.Header className="responsive-navbar-header">
           <div className="logo-container-responsive" >
             <Nav.Link as={NavLink} to="/" onClick={handleClose}>
-              <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636995518/cocoMAD/logo_celeste_y_blanco_coco_dgsugq.png" alt="img logo" className="nav-logo-desktop" />
+              <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637583514/cocoMAD/coco_mad_celeste_fqdppx.png" alt="img logo" className="nav-logo-desktop" />
             </Nav.Link>
           </div>
           <button type="button" aria-label="Close" className="navbar-button mx-1" onClick={handleClose} ><VscClose /></button>

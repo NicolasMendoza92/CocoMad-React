@@ -53,7 +53,6 @@
   background: rgb(146, 210, 226);
   color: whitesmoke;
   border-color: whitesmoke;
-  border-radius: 0.25rem;
   font-size: 20px;
   font-family: 'Julius Sans One', sans-serif;
   transition: 0.4s;
@@ -64,7 +63,6 @@
   transition-duration: 0.5s;
   color: rgb(146, 210, 226);
   border-color: rgb(146, 210, 226);
-  border-radius: 0.25rem;
   font-size: 20px;
   font-family: 'Julius Sans One', sans-serif;
 }

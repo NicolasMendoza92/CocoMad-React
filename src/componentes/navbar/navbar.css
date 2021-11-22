@@ -110,6 +110,10 @@
      }
  }
 
+ #main-img:hover{
+     content: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636995518/cocoMAD/logo_celeste_y_blanco_coco_dgsugq.png);
+ }
+
 .nav-logo-desktop{
 max-width: 100px;
 
@@ -171,7 +175,7 @@ max-width: 100px;
     border: none;
 }
 .responsive-navbar-header {
-    background-color: rgb(189, 186, 186) !important;
+    background-color: whitesmoke !important;
 }
 
 .responsive-navbar-links {
