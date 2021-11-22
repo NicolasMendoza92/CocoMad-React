@@ -4,7 +4,6 @@ import { GrMail } from 'react-icons/gr';
 import React from 'react'
 import './footer.css';
 import { useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
 import { FooterAdmin } from './FooterAdmin';
 
 export const Footer = () => {
@@ -29,8 +28,8 @@ export const Footer = () => {
                         <div className="col-12 col-lg-4 my-4">
                             <div className="mb-2">
                                 <p>SEGUINOS EN NUESTRAS REDES</p>
-                                <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" ><FaFacebookSquare className="social-icon" /> </a>
-                                <a href="https://www.instagram.com/cocomadbakery/"> <FaInstagramSquare className="social-icon" /> </a>
+                                <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" target="blank" ><FaFacebookSquare className="social-icon" /> </a>
+                                <a href="https://www.instagram.com/cocomadbakery/" target="blank"> <FaInstagramSquare className="social-icon" /> </a>
                             </div>
                             <p>RETIRA NUESTROS PRODUCTOS POR</p>
                             <div className="mb-2">
@@ -40,11 +39,11 @@ export const Footer = () => {
                         <div className="col-12 col-lg-4 my-4">
                             <p>MANDANOS CORREO</p>
                             <div className="mb-2">
-                               <Link className="gmail"> <GrMail /></Link> 
+                               <a href="hola" className="gmail"> <GrMail /></a> 
                             </div>
                             <p>REALIZA TU PEDIDO POR WHATSAPP</p>
                             <div className="mb-2">
-                                <Link to="https://wa.me/c/34635790277" className="whatsapp"> <FaWhatsapp /> </Link> <br />
+                                <a href="https://wa.me/c/34635790277" target="blank" className="whatsapp"> <FaWhatsapp /> </a> <br />
                                 +34635790277
                             </div>
                         </div>
@@ -52,7 +51,7 @@ export const Footer = () => {
                             <p>NUESTRA TIENDA</p>
                             <div className="">
                                 <p>Calle Evaristo San Miguel 9 <br /> Madrid 28008 <br /> España</p> <br />
-                                <Link to="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="_blank" >Quiero Ir! <FaMapMarkerAlt /></Link>
+                                <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" >Quiero Ir! <FaMapMarkerAlt /></a>
                             </div>
                         </div>
                     </div>
