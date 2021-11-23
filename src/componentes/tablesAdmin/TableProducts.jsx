@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Container, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
+import { Container, Table} from 'react-bootstrap';
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
 import swal from 'sweetalert';
@@ -12,7 +12,7 @@ import UploadProducts from '../adminComp/UploadProducts';
 import { PaginationTable } from '../paginacion/PaginationTable'
 import { SpinnerCM } from '../spinner/SpinnerCM';
 
-export const TableProducts = ({products, getProducts, setProducts}) => {
+export const TableProducts = ({tableProducts, getProducts, setTableProducts}) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [productFind, setProductFind] = useState({});
@@ -26,12 +26,12 @@ export const TableProducts = ({products, getProducts, setProducts}) => {
         const start = 0 + currentPage * limit - limit;
         const end = start + limit;
 
-        const productsSlice = products.slice(start, end);
+        const productsSlice = tableProducts.slice(start, end);
         setCurrentProducts(productsSlice);
         
-        const totalPages = Math.ceil(products.length / limit);
+        const totalPages = Math.ceil(tableProducts.length / limit);
         setTotalPages(totalPages);
-    }, [currentPage, products]);
+    }, [currentPage, tableProducts]);
 
     const closeModalEditar = () => setShowModalEditar(false);
     const handleShowModalEditar = () => setShowModalEditar(true);
@@ -80,19 +80,19 @@ export const TableProducts = ({products, getProducts, setProducts}) => {
         const keyword = e.target.value;
 
         if (keyword !== '') {
-            const results = products.filter((prod) => {
+            const results = tableProducts.filter((prod) => {
                 return prod.name.toLowerCase().includes(keyword.toLowerCase())
                     || prod.category.toLowerCase().includes(keyword.toLowerCase());
             });
-            setProducts(results);
+            setTableProducts(results);
         } else {
-            setProducts(products);
+            setTableProducts(tableProducts);
         }
         setBusqueda(keyword);
     };
     return (
         <>
-        <UploadProducts getProductos={getProducts} />
+        <UploadProducts getProducts={getProducts} />
         <Container>
             <div className="d-flex justify-content-between align-items-center my-2">
                 <form>
@@ -134,30 +134,8 @@ export const TableProducts = ({products, getProducts, setProducts}) => {
                                 <td>$ {price}</td>
                                 <td>{category}</td>
                                 <td className="p-1 d-flex ">
-                                    <OverlayTrigger
-                                        placement="left"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Editar Producto
-                                                </Tooltip>)
-                                        }
-                                    >
                                         <button className="m-auto" onClick={() => findProduct(_id)} ><FaRegEdit className="mb-1" /></button>
-                                    </OverlayTrigger>
-                                    <OverlayTrigger
-                                        placement="left"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Eliminar Producto
-                                                </Tooltip>)
-                                        }
-                                    >
                                         <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
-                                    </OverlayTrigger>
                                 </td>
                             </tr>
                         ))}

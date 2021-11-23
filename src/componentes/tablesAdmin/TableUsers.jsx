@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
-import { OverlayTrigger, Table, Tooltip } from 'react-bootstrap'
+import { Table} from 'react-bootstrap'
 import { FaEraser, FaHistory, FaRegEdit } from 'react-icons/fa'
 import { VscSearch } from 'react-icons/vsc'
 import swal from 'sweetalert'
@@ -115,34 +115,12 @@ export const TableUsers = ({tableUsers, user, setTableUsers, getUsers}) => {
                                 <td>{email}</td>
                                 <td>{role}</td>
                                 <td className="p-1 d-flex ">
-                                    <OverlayTrigger
-                                        placement="left"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Editar Usuario
-                                                </Tooltip>)
-                                        }
-                                    >
                                         <button 
                                         disabled={user.email === email }
                                         className={user.email === email? 'm-auto circle-btn-disable' : 'm-auto circle-btn'} onClick={() => findUser(_id)} ><FaRegEdit className="mb-1" /></button>
-                                    </OverlayTrigger>
-                                    <OverlayTrigger
-                                        placement="left"
-                                        delay={{ show: 250, hide: 400 }}
-                                        overlay={
-                                            (props) => (
-                                                <Tooltip id="button-tooltip" {...props}>
-                                                    Eliminar Usuario
-                                                </Tooltip>)
-                                        }
-                                    >
                                         <button 
                                         disabled={user.email === email }
                                         className={user.email === email? 'm-auto circle-btn-disable' : 'm-auto circle-btn'} onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
-                                    </OverlayTrigger>
                                 </td>
 
                             </tr>

@@ -33,6 +33,7 @@ export default function UploadProduts({ getProducts }) {
             setIsLoading(true);
             await axios.post("http://localhost:4000/api/products/", input);
             swal("Excelente", "Producto agregado", "success");
+            getProducts();
             setIsLoading(false);
         }
         event.target.reset();

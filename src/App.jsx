@@ -65,12 +65,13 @@ function App() {
   }, []);
 
   // get productos de la API 
-
+  // definimos estado aparte para setear productos de admin
+  const [tableProducts, setTableProducts] = useState([]);
   const getProducts = async () => {
     try {
       const response = await axios.get('http://localhost:4000/api/products/');
       setProducts(response.data);
-
+      setTableProducts(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -153,7 +154,7 @@ function App() {
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/productList" >
-            <ProductList products={products} setProducts={setProducts} getProducts={getProducts} />
+            <ProductList tableProducts={tableProducts} setTableProducts={setTableProducts} getProducts={getProducts} />
           </Route>
         )}
         {isAdmin && (
@@ -163,7 +164,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList user={user} tableUsers={tableUsers} setTableUsers={setTableUsers} getUsers={getUsers}/>
+            <UserList user={user} tableUsers={tableUsers} setTableUsers={setTableUsers} getUsers={getUsers} />
           </Route>
         )}
         {isAdmin && (
