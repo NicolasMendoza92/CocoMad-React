@@ -3,6 +3,10 @@ import { Nav } from 'react-bootstrap'
 import { FaArrowUp } from 'react-icons/fa'
 
 export const FooterAdmin = () => {
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
     return (
         <div className="mt-auto footer-admin">
             <div className="row text-center align-items-center">
@@ -13,8 +17,9 @@ export const FooterAdmin = () => {
                 </Nav>
             </div>
             <div className="d-flex align-items-center justify-content-between">
-                <b>© 2019 CocoMad Bakery All rights reserved</b>
-                <Nav.Link href="/">Ventas<FaArrowUp /> </Nav.Link> 
+                <p>© 2019 CocoMad Bakery All rights reserved</p>
+                <p>Mr Ronioza Pages</p>
+                <Nav.Link onClick={scrollToTop}><FaArrowUp /> </Nav.Link> 
             </div>
         </div>
     )

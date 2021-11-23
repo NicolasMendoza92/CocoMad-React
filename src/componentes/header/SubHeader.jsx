@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '../navbar/Navbar';
+import { NavbarSmall } from '../navbar/NavbarSmall';
 import { useLocation } from 'react-router';
 import './header.css';
 
@@ -12,7 +12,7 @@ export const SubHeader = ({user, setSerch}) => {
     return (
 
         <div className={`header-style-${currentlocation}`}>
-        <Navbar user={user} setSerch={setSerch}/>
+        <NavbarSmall user={user} setSerch={setSerch}/>
         </div>
   
     )
