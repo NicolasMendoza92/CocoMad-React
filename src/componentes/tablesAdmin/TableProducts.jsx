@@ -135,7 +135,7 @@ export const TableProducts = ({products, getProducts, setProducts}) => {
                                 <td>{category}</td>
                                 <td className="p-1 d-flex ">
                                     <OverlayTrigger
-                                        placement="right"
+                                        placement="left"
                                         delay={{ show: 250, hide: 400 }}
                                         overlay={
                                             (props) => (
@@ -147,7 +147,7 @@ export const TableProducts = ({products, getProducts, setProducts}) => {
                                         <button className="m-auto" onClick={() => findProduct(_id)} ><FaRegEdit className="mb-1" /></button>
                                     </OverlayTrigger>
                                     <OverlayTrigger
-                                        placement="right"
+                                        placement="left"
                                         delay={{ show: 250, hide: 400 }}
                                         overlay={
                                             (props) => (
