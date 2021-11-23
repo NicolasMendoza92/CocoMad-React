@@ -44,11 +44,11 @@ function App() {
   const requestUserData = async () => {
     const tokenLocal = leerDeLocalStorage('token') || {};
     setIsLoading(true);
-    
+
     try {
       if (tokenLocal.token) {
         const headers = { 'x-auth-token': tokenLocal.token };
-        const response = await axios.get('http://localhost:4000/api/auth', {headers});
+        const response = await axios.get('http://localhost:4000/api/auth', { headers });
         setUser(response.data);
       }
       setIsLoading(false);
@@ -64,21 +64,35 @@ function App() {
     requestUserData();
   }, []);
 
-    // get productos de la API 
+  // get productos de la API 
 
-    const getProducts = async () => {
-      try {
-        const response = await axios.get('http://localhost:4000/api/products/');
-        setProducts(response.data);
+  const getProducts = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/products/');
+      setProducts(response.data);
 
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    useEffect(() => {
-      getProducts();
-    }, [])
+  useEffect(() => {
+    getProducts();
+  }, [])
+
+  // definimos estado aparte para traer usuarios para admin
+  const [tableUsers, setTableUsers] = useState([]);
+  const getUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/users/');
+      setTableUsers(response.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    getUsers();
+  }, [])
 
   const isAdmin = user.role === "admin";
 
@@ -92,19 +106,19 @@ function App() {
 
   return (
     <div className="footer-fix">
-      <Header 
-      user={user}
-      setSerch={setSerch} />
+      <Header
+        user={user}
+        setSerch={setSerch} />
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
 
         <Route path="/productos">
-          <Productos 
-          products={products} 
-          setProducts={setProducts}
-          serch={serch} />
+          <Productos
+            products={products}
+            setProducts={setProducts}
+            serch={serch} />
         </Route>
 
         <Route path="/nosotros">
@@ -139,7 +153,7 @@ function App() {
         {/* Admin pages */}
         {isAdmin && (
           <Route path="/productList" >
-            <ProductList products={products} setProducts={setProducts} getProducts={getProducts}/>
+            <ProductList products={products} setProducts={setProducts} getProducts={getProducts} />
           </Route>
         )}
         {isAdmin && (
@@ -149,7 +163,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/userList" >
-            <UserList user={user} />
+            <UserList user={user} tableUsers={tableUsers} setTableUsers={setTableUsers} getUsers={getUsers}/>
           </Route>
         )}
         {isAdmin && (
