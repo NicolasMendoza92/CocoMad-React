@@ -31,6 +31,8 @@ export const Header = ({user, setSerch}) => {
       {splitLocation[1] !== "login"
         && splitLocation[1] !== "register"
         && splitLocation[1] !== "perfil"
+        && splitLocation[1] !== "favoritos"
+        && splitLocation[1] !== "carrito"
         && splitLocation[1] !== "productList"
         && splitLocation[1] !== "userList"
         && splitLocation[1] !== "messageList"
@@ -44,9 +46,6 @@ export const Header = ({user, setSerch}) => {
               { splitLocation[1] === "productos" && <h1> DE ARGENTINA A MADRID, PRUEBA NUEVOS SABORES </h1>}
               { splitLocation[1] === "nosotros" && <h1> CONOCE NUESTRA HISTORIA Y QUIENES SOMOS </h1>}
               { splitLocation[1] === "contacto" && <h1> VEN A VISITARNOS!! </h1>}
-              { splitLocation[1] === "carrito" && <h1> YA NO QUEDA NADA PARA DISFRUTAR </h1>}
-              { splitLocation[1] === "favoritos" && <h1> HAZ REALIDAD ESE ANTOJO! </h1>}
-    
             </div>
             <button className="boton-down" onClick={scrollDown}>
               <FontAwesomeIcon className="circleArrow" icon={faChevronCircleDown} />
@@ -58,6 +57,8 @@ export const Header = ({user, setSerch}) => {
 
       {splitLocation[1] === "login" && <SubHeader user={user}/>}
       {splitLocation[1] === "register" && <SubHeader user={user}/>}
+      {splitLocation[1] === "carrito" && <SubHeader user={user}/>}
+      {splitLocation[1] === "favoritos" && <SubHeader user={user}/>}
       {splitLocation[1] === "perfil" && <SubHeader user={user}/>}
       {splitLocation[1] === "productList" && <SubHeader user={user} />}
       {splitLocation[1] === "messageList" && <SubHeader user={user}  />}

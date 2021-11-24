@@ -36,6 +36,7 @@ function App() {
 
   const [user, setUser] = useState({});
   const [products, setProducts] = useState([]);
+  const [messages, setMessages] = useState([]);
   const [serch, setSerch] = useState('');
 
   const [isLoading, setIsLoading] = useState(true);
@@ -94,6 +95,19 @@ function App() {
   useEffect(() => {
     getUsers();
   }, [])
+
+  // Traigo los Mensajes que postean los usuarios
+  const getMessages = async () => {
+    try{
+      const response = await axios.get('http://localhost:4000/api/messages/');
+      setMessages(response.data)
+    } catch(error){
+      console.error(error)
+    }
+  }
+  useEffect(()=> {
+    getMessages();
+  },[])
 
   const isAdmin = user.role === "admin";
 
@@ -159,7 +173,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/messageList" >
-            <MessageList />
+            <MessageList messages={messages} setMessages={setMessages} getMessages={getMessages} />
           </Route>
         )}
         {isAdmin && (

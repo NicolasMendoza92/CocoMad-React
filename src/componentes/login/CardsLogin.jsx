@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import { Link, NavLink } from 'react-router-dom'
 
 export const CardsLogin = () => {
     return (
@@ -9,9 +8,9 @@ export const CardsLogin = () => {
                 className="text-center mb-2">
                 <Card.Body>
                     <h4> Haz tu pedido por WhatsApp </h4>
-                    <Link as={NavLink} to="/register">
+                    <a href="https://wa.me/c/34635790277" target="blank" >
                         <button className="boton-artesanal-cel">Quiero pedir por whatsApp</button>
-                    </Link>
+                    </a>
                 </Card.Body>
             </Card>
         </div>

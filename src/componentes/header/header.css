@@ -41,33 +41,31 @@
    margin-bottom: 3rem;
    background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635353154/cocoMAD/new_local_tdjzzx.jpg) no-repeat top center;
 }
+
+/* Estilos para las landing Extras */
 .header-style-carrito{
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
-   height: 100vh;
    transition: 0.5s;
    margin-bottom: 3rem;
-   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637682094/cocoMAD/_MG_5488_fnwcaa.png) no-repeat top center;
+   background-color: rosybrown;
 }
 .header-style-favoritos{
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
-   height: 100vh;
    transition: 0.5s;
-   margin-bottom: 3rem;
-   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg) no-repeat top center;
+   margin-bottom: 2rem;
+   background-color: rosybrown;
 }
-
-/* Estilos para las landing Extras */
 
 .header-style-login{
    background-size: cover !important;
    overflow: hidden;
    width: 100%;
    transition: 0.5s;
-   margin-bottom: 3rem;
+   margin-bottom: 2rem;
    background-color: rosybrown;
 }
 .header-style-register{

@@ -1,21 +1,45 @@
+import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { Form } from 'react-bootstrap'
+import swal from 'sweetalert';
 
 
 export const Formulario = () => {
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
+    const [input, setInput] = useState({ senderName: '', senderEmail: '', message: '', senderIg: '' });
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        const newInput = { ...input, [name]: value };
+        if (newInput.senderName.length < 30 && newInput.senderEmail.length < 35 && newInput.senderIg.length < 35 && newInput.message.length < 200) {
+            setInput(newInput);
+        } else {
+            swal('Alcanzaste el numero maximo de caracteres')
         }
+    }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('http://localhost:4000/api/messages/', input);
+            swal({
+                title: "Mensaje enviado con exito !",
+                icon: "success",
+            });
+        } catch (error) {
+            if (error.response.data) {
+                swal("Faltan datos", "Completar los campos obligatorios", "warning");
+            } else {
+                alert('error de conexion')
+            }
+        }
         setValidated(true);
-    };
+        if (setValidated === true) {
+            e.target.reset();
+        }
+    }
 
     return (
 
@@ -31,7 +55,7 @@ export const Formulario = () => {
                     type="text"
                     name="senderName"
                     required
-                    // onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                     maxLength="30"
                 />
             </Form.Group>
@@ -41,7 +65,7 @@ export const Formulario = () => {
                     className="col-11 col-md-9"
                     type="text"
                     name="senderIg"
-                    // onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                     maxLength="30"
                 />
             </Form.Group>
@@ -52,7 +76,7 @@ export const Formulario = () => {
                     type="email"
                     name="senderEmail"
                     required
-                    // onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                     maxLength="35"
                 />
             </Form.Group>
@@ -66,7 +90,7 @@ export const Formulario = () => {
                     minLength="15"
                     maxLength="200"
                     rows={3}
-                    // onChange={(e) => handleChange(e)}
+                    onChange={(e) => handleChange(e)}
                 />
             </Form.Group>
             <hr />
