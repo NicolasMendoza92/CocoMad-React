@@ -103,6 +103,25 @@
        }
  }
 
+ /*burbuja de producto en carrito  */
+ .swym-header--count {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+    color: rgb(86, 205, 235);
+    font-size: 13px;
+    font-weight: 800;
+    height: 1.3em;
+    min-width: 1.3em;
+    position: absolute;
+    right: 60px;
+    bottom: 10px;
+    z-index: 0;
+}
+
+
  /* cambio de imagen logo en cel */
  @media only screen and (max-width: 768px){
      #main-img{
@@ -242,11 +261,8 @@ max-width: 100px;
 }.face-icon:hover{
     color: #0d6efd;
 }
-.twitter-icon{
+.insta-icon{
     color:#0d6efd;;
-}.twitter-icon:hover{
+}.insta-icon:hover{
     color: #0d6efd;;
-}
-.insta-icon {
-    width: 30px;
 }

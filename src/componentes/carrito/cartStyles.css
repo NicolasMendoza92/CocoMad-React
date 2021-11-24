@@ -1,0 +1,88 @@
+.agregar-sacar-btn {
+    color: white;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    background: rosybrown;
+    transition-duration: 0.3s;
+    border: 1px solid whitesmoke;
+}
+
+.agregar-sacar-btn:hover {
+    background-color: whitesmoke;
+    border: 1px solid rosybrown;
+    color: rosybrown;
+}
+
+.agregar-sacar-btn-modal {
+  color: white;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: rosybrown;
+  transition-duration: 0.3s;
+  border: 1px solid whitesmoke;
+}
+
+.agregar-sacar-btn-modal:hover {
+  background-color: whitesmoke;
+  border: 1px solid rosybrown;
+  color: rosybrown;
+}
+
+.delete-cartItem-btn {
+  color: rgb(146, 210, 226);
+  border: none;
+  width: 3rem;
+  height: 3rem;
+  background: whitesmoke;
+  transition-duration: 0.3s;
+  border: 1px solid rgb(146, 210, 226);
+}
+
+.delete-cartItem-btn-modal {
+  color: rgb(146, 210, 226);
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: whitesmoke;
+  transition-duration: 0.3s;
+  border: 1px solid rgb(146, 210, 226);
+}
+
+.btn-remove-to-cart {
+    background-color: transparent;
+    border: 2px solid #888;
+    border-radius: 1rem;
+    color: #888;
+    transition: 0.4s;
+    margin: 2px;
+  }
+  .btn-remove-to-cart:hover {
+    border: 2px solid red;
+    color: red;
+  }
+
+.clean-cart {
+  background-color: transparent;
+  border: 2px solid #888;
+  border-radius: 1rem;
+  color: #888;
+  transition: 0.4s;
+  margin: 2px;
+}
+.clean-cart:hover {
+  border: 2px solid red;
+  color: red;
+}
+
+.responsive-cart-button-add{
+  font-family: "Montserrat", sans-serif !important;
+  background-color: whitesmoke;
+  color: #b59062;
+  border: 1px solid #b59062;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+}

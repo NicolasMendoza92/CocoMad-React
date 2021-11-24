@@ -28,6 +28,7 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 
 // utils
 import { leerDeLocalStorage } from "./utils/localStorage";
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
   const [user, setUser] = useState({});
   const [products, setProducts] = useState([]);
   const [messages, setMessages] = useState([]);
+
+  const [cart, setCart] = useLocalStorage('cart', [])
+
   const [serch, setSerch] = useState('');
 
   const [isLoading, setIsLoading] = useState(true);
@@ -123,7 +127,8 @@ function App() {
     <div className="footer-fix">
       <Header
         user={user}
-        setSerch={setSerch} />
+        setSerch={setSerch}
+        cart={cart} />
       <Switch>
         <Route path="/" exact>
           <Home />
@@ -131,9 +136,10 @@ function App() {
 
         <Route path="/productos">
           <Productos
-            products={products}
+            products={products} 
             setProducts={setProducts}
-            serch={serch} />
+            serch={serch}
+            cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/nosotros">
@@ -145,11 +151,14 @@ function App() {
         </Route>
 
         <Route path="/carrito">
-          <Carrito />
+          <Carrito 
+          user={user}
+          cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/favoritos" >
-          <Favoritos />
+          <Favoritos 
+          cart={cart} setCart={setCart}/>
         </Route>
 
         <Route path="/login" >

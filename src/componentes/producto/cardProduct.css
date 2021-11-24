@@ -1,7 +1,6 @@
 .productos {
   color: #333;
   margin-bottom: 3rem;
-  /* border: 1px solid rgb(146, 210, 226); */
   width: 21rem;
 }
 
@@ -53,9 +52,18 @@
   background: rgb(146, 210, 226);
   color: whitesmoke;
   border-color: whitesmoke;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Julius Sans One', sans-serif;
   transition: 0.4s;
+}
+
+.added-cart-btn {
+  background: whitesmoke;
+  color: rgb(146, 210, 226);
+  border-color: rgb(146, 210, 226);
+  font-size: 18px;
+  font-family: 'Julius Sans One', sans-serif;
+
 }
 
 .add-cart-btn:hover {
@@ -63,7 +71,7 @@
   transition-duration: 0.5s;
   color: rgb(146, 210, 226);
   border-color: rgb(146, 210, 226);
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Julius Sans One', sans-serif;
 }
 

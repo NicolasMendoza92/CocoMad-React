@@ -7,7 +7,7 @@ import { useLocation } from 'react-router';
 import { SubHeader } from './SubHeader';
 
 
-export const Header = ({user, setSerch}) => {
+export const Header = ({user, setSerch, cart}) => {
 
 
 
@@ -39,7 +39,7 @@ export const Header = ({user, setSerch}) => {
         && splitLocation[1] !== "saleList"
         &&
         <div className={`header-style-${currentlocation}`}>
-          <Navbar user={user} setSerch={setSerch} />
+          <Navbar user={user} setSerch={setSerch} cart={cart} />
           <div className="h-50 d-flex flex-column justify-content-between align-items-center">
             <div className="my-5 text-center efecto-artesanal">
               { splitLocation[1] === "" && <h1> ALFAJORES ARGENTINOS 100% ARTESANOS </h1>}
@@ -55,10 +55,10 @@ export const Header = ({user, setSerch}) => {
 
       }
 
-      {splitLocation[1] === "login" && <SubHeader user={user}/>}
-      {splitLocation[1] === "register" && <SubHeader user={user}/>}
-      {splitLocation[1] === "carrito" && <SubHeader user={user}/>}
-      {splitLocation[1] === "favoritos" && <SubHeader user={user}/>}
+      {splitLocation[1] === "login" && <SubHeader user={user} cart={cart}/>}
+      {splitLocation[1] === "register" && <SubHeader user={user} cart={cart}/>}
+      {splitLocation[1] === "carrito" && <SubHeader user={user} cart={cart}/>}
+      {splitLocation[1] === "favoritos" && <SubHeader user={user} cart={cart}/>}
       {splitLocation[1] === "perfil" && <SubHeader user={user}/>}
       {splitLocation[1] === "productList" && <SubHeader user={user} />}
       {splitLocation[1] === "messageList" && <SubHeader user={user}  />}

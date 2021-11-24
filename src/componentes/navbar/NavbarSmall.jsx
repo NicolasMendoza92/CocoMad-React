@@ -14,7 +14,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const NavbarSmall = ({ user }) => {
+export const NavbarSmall = ({ user, cart }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -101,8 +101,14 @@ export const NavbarSmall = ({ user }) => {
                                     <div className="d-flex align-items-center">
                                         <Nav.Link className="link-nav" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
+                                            {cart.length >0 &&
+                                                <span className="swym-header--count">{cart.length}</span>
+                                            }
                                         <Nav.Link className="link-nav" as={NavLink} to="/favoritos" exact>
                                             {splitLocation[1] === "favoritos" ? <MdFavorite /> : <MdOutlineFavoriteBorder />}</Nav.Link>
+                                            {/* {favorites.length >0 &&
+                                                <span className="swym-header--count">{favorites.length}</span>
+                                            } */}
                                     </div>
                                 </div>
                             </div>

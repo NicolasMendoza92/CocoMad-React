@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav, Offcanvas } from 'react-bootstrap';
 import { BsFacebook } from 'react-icons/bs';
 import { FaWrench } from 'react-icons/fa';
-import { GrInstagram, GrTwitter } from 'react-icons/gr';
+import { GrInstagram } from 'react-icons/gr';
 import { VscClose } from 'react-icons/vsc';
 import { NavLink } from 'react-router-dom';
 import { leerDeLocalStorage } from '../../utils/localStorage';
@@ -92,13 +92,10 @@ export const NavbarMobile = ({ setShow, show, user }) => {
             <Offcanvas.Title className="navbar-responsive-subtitle mt-3">Seguinos en nuestras redes</Offcanvas.Title>
             <div className="navbar-responsive-icons-container d-flex justify-content-evenly my-5">
               <li>
-                <a href="/facebook" className="face-icon"><BsFacebook /></a>
+                <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" target="blank" className="face-icon"><BsFacebook /></a>
               </li>
               <li>
-                <a href="/twitter" className="twitter-icon"><GrTwitter /></a>
-              </li>
-              <li>
-                <a href="/instagram" className="twitter-icon"><GrInstagram /></a>
+                <a  href="https://www.instagram.com/cocomadbakery/" target="blank" className="insta-icon"><GrInstagram /></a>
               </li>
             </div>
           </div>

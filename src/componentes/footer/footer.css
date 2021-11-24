@@ -1,8 +1,8 @@
 .footer {
-   background-color: rosybrown;
+   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154619/cocoMAD/alfacococolorfoot_fnte6d.jpg) top center;
    background-repeat: no-repeat;
    background-size: cover;
-   padding: 6rem 3rem 0rem 3rem;
+   padding: 6rem 0rem 0rem 0rem;
    font-family: 'Julius Sans One', sans-serif;
    color: whitesmoke;
 }
@@ -18,7 +18,7 @@
 }
 
 .social-icon {
-   font-size: 5rem;
+   font-size: 4rem;
    margin: 0 10px;
    color: rgb(255, 255, 255);
    transition-duration: 0.5s;
@@ -91,4 +91,16 @@
 .footer-admin {
    background-color: gray;
    color: blanchedalmond;
+}
+
+.botom-footer{
+   background-color: grey;
+}
+@media only screen and (max-width: 640px) {
+   .botom-footer {
+      font-size: 10px;
+   }
+   .volverArriba {
+      font-size: 1.8rem;
+   }
 }

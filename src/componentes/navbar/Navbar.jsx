@@ -15,7 +15,8 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const Navbar = ({ user, setSerch}) => {
+
+export const Navbar = ({ user, setSerch, cart}) => {
 
     const history = useHistory();
 
@@ -111,8 +112,13 @@ export const Navbar = ({ user, setSerch}) => {
                                     <div className="d-flex align-items-center">
                                         <Nav.Link className="link-nav" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
+                                            {cart.length >0 &&
+                                                <span className="swym-header--count">{cart.length}</span>
+                                            }
                                         <Nav.Link className="link-nav" as={NavLink} to="/favoritos" exact>
-                                            {splitLocation[1] === "favoritos" ? <MdFavorite /> : <MdOutlineFavoriteBorder />}</Nav.Link>
+                                        {splitLocation[1] === "favoritos" ? <MdFavorite /> : <MdOutlineFavoriteBorder />}</Nav.Link>
+                                        {/* {favorites.length > 0 &&
+                                        <span className="swym-header--count">{favorites.length}</span>} */}
                                     </div>
                                 </div>
                             </div>
