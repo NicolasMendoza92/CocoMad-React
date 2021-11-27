@@ -10,7 +10,6 @@ import Home from './pages/Home'
 import Nosotros from './pages/Nosotros'
 import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
-import Favoritos from './pages/Favoritos';
 import Login from './pages/Login';
 import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
@@ -154,11 +153,6 @@ function App() {
           <Carrito 
           user={user}
           cart={cart} setCart={setCart} />
-        </Route>
-
-        <Route path="/favoritos" >
-          <Favoritos 
-          cart={cart} setCart={setCart}/>
         </Route>
 
         <Route path="/login" >

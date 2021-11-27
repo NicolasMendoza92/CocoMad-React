@@ -108,7 +108,7 @@ export const FormLogin = ({requestUserData}) => {
                             onChange={(e) => handleChange(e)}
                             required />
                     </Form.Group>
-                    <button type="submit" className="boton-artesanal-cel">Iniciar Sesion</button>
+                    <button type="submit" className="responsive-login-btn">Iniciar Sesion</button>
                 </Form>
                 <div className="d-flex flex-column">
                     <button onClick={errorLink} type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>

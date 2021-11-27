@@ -22,36 +22,41 @@ export const Footer = () => {
                 && splitLocation[1] !== "saleList"
                 &&
                 <div className="mt-auto footer">
-                    <div className="row text-center justify-content-center links mx-3">  
-                        <div className="col-12 col-lg-3 my-4 p-2">
-                            <p>REALIZA TU PEDIDO POR WHATSAPP</p>
-                            <div className="mb-2">
-                                <a href="https://wa.me/c/34635790277" target="blank" className="whatsapp"> <FaWhatsapp /> </a> <br />
-                                +34635790277
-                            </div>
-                        </div>
-                        <div className="col-12 col-lg-3 my-4 p-2">
-                            <div className="mb-2">
-                                <p>SEGUINOS EN NUESTRAS REDES</p>
+                    <div className="row text-center justify-content-start links mx-3">
+                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                            <p>CONTACTO</p>
+                            <hr />
+                            <div className="my-2">
+                                <a href="https://wa.me/c/34635790277" target="blank"> <FaWhatsapp className="social-icon" /> </a>
                                 <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" target="blank" ><FaFacebookSquare className="social-icon" /> </a>
                                 <a href="https://www.instagram.com/cocomadbakery/" target="blank"> <FaInstagramSquare className="social-icon" /> </a>
                             </div>
-                            <p>RETIRA NUESTROS PRODUCTOS POR</p>
-                            <div className="mb-2">
+                            <div className="subtitle-footer mb-2">
+                                <p>Busca nuestros productos en</p>
                                 <a href="https://toogoodtogo.es/es/">TooGoodToGo</a>
                             </div>
                         </div>
-                        <div className="col-12 col-lg-3 my-4 p-2">
-                            <p>NUESTRA TIENDA</p>
-                            <div className="">
-                                <p>Calle Evaristo San Miguel 9 <br /> Madrid 28008 <br /> España</p> <br />
+                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                            <p>LINKS PARA NAVEGAR</p>
+                            <hr />
+                            <a href="/productos">PRODUCTOS</a>
+                            <a href="/nosotros">NOSOTROS</a>
+                            <a href="/contacto">CONTACTO</a>
+                        </div>
+                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                            <p>VISITANOS</p>
+                            <hr />
+                            <div className="d-flex flex-column align-items-start direccion">
+                                <p>Calle Evaristo San Miguel 9</p>
+                                <p>Madrid 28008</p>
+                                <p>España </p>
                                 <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" >Quiero Ir! <FaMapMarkerAlt /></a>
                             </div>
                         </div>
                     </div>
                     <div className="d-flex align-items-center justify-content-between botom-footer">
-                        <b>© 2019 CocoMad Bakery All rights reserved</b> 
-                        <button onClick={scrollToTop} className="volverArriba mt-2"> <FaArrowUp /> </button>
+                        <b>© 2019 CocoMad Bakery All rights reserved</b>
+                        <button onClick={scrollToTop} className="volverArriba mt-2 mx-2"> <FaArrowUp /> </button>
                     </div>
                 </div>
             }

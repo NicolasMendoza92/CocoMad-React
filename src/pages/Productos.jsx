@@ -23,7 +23,7 @@ export default function Productos({ products, setProducts, serch, cart, setCart 
     <div>
       <Container>
         <Row>
-          <Col className="col-12 col-md-3  columnaFiltros">
+          <Col className="col-12 col-md-3">
             <Sidebar
               setSelectCategory={setSelectCategory}
               setSelectPrice={setSelectPrice}
@@ -32,7 +32,7 @@ export default function Productos({ products, setProducts, serch, cart, setCart 
               onselectCat={clearFilterCategory}
               onselectPri={clearFilterPrice} />
           </Col>
-          <Col className="col-12 col-md-9 columnaProductos p-0">
+          <Col className="col-12 col-md-9 p-0">
             <CardsProducts
               products={products}
               setProducts={setProducts}

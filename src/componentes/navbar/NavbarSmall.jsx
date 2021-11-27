@@ -4,8 +4,7 @@ import { useLocation } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash, BsCartFill } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { CgProfile } from 'react-icons/cg'
-import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md'
+import { CgProfile } from 'react-icons/cg'  
 import { NavbarMobile } from './NavbarMobile';
 import './navbar.css';
 import { NavbarAdmin } from './NavbarAdmin';
@@ -104,11 +103,6 @@ export const NavbarSmall = ({ user, cart }) => {
                                             {cart.length >0 &&
                                                 <span className="swym-header--count">{cart.length}</span>
                                             }
-                                        <Nav.Link className="link-nav" as={NavLink} to="/favoritos" exact>
-                                            {splitLocation[1] === "favoritos" ? <MdFavorite /> : <MdOutlineFavoriteBorder />}</Nav.Link>
-                                            {/* {favorites.length >0 &&
-                                                <span className="swym-header--count">{favorites.length}</span>
-                                            } */}
                                     </div>
                                 </div>
                             </div>

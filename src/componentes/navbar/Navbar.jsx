@@ -5,7 +5,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash, BsCartFill } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { CgProfile } from 'react-icons/cg'
-import { MdFavorite, MdOutlineFavoriteBorder } from 'react-icons/md'
 import { VscSearch } from 'react-icons/vsc'
 import { NavbarMobile } from './NavbarMobile';
 import './navbar.css';
@@ -115,10 +114,6 @@ export const Navbar = ({ user, setSerch, cart}) => {
                                             {cart.length >0 &&
                                                 <span className="swym-header--count">{cart.length}</span>
                                             }
-                                        <Nav.Link className="link-nav" as={NavLink} to="/favoritos" exact>
-                                        {splitLocation[1] === "favoritos" ? <MdFavorite /> : <MdOutlineFavoriteBorder />}</Nav.Link>
-                                        {/* {favorites.length > 0 &&
-                                        <span className="swym-header--count">{favorites.length}</span>} */}
                                     </div>
                                 </div>
                             </div>

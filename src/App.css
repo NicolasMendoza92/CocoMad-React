@@ -38,6 +38,21 @@ body {
   border: solid rgb(146, 210, 226);
   }
 
+  .responsive-login-btn{
+    background-color: rgb(146, 210, 226);
+    color: white;
+    border: 1px solid whitesmoke;
+    font-size: 20px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 5px;
+    transition: all 0.5s; 
+  }
+  .responsive-login-btn:hover{
+    background-color: whitesmoke;
+    color: rgb(146, 210, 226);
+    border: 1px solid rgb(146, 210, 226);
+  }
+
 .responsive-login-face {
   background-color: #3b5998;
   color: white;
@@ -45,8 +60,7 @@ body {
   font-size: 20px;
   padding: 0.5rem 1rem;
   margin: 0.5rem 5px;
-  transition: all 0.5s;
-  
+  transition: all 0.5s; 
 }
 .responsive-login-face:hover {
   background-color: white;

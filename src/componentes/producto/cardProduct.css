@@ -1,7 +1,7 @@
 .productos {
   color: #333;
   margin-bottom: 3rem;
-  width: 21rem;
+  width: 18rem;
 }
 
 .card-productos {
@@ -13,7 +13,7 @@
 }
 
 .card-description{
-  padding-bottom: 0;
+  padding: 0;
 }
 
 .img-product {
@@ -22,28 +22,26 @@
 }
 
 .productos:hover {
-  border: 2px solid rgb(146, 210, 226);
-  box-shadow: 9px 9px 11px 2px rgba(117, 115, 115, 0.51);
+  border: 1px solid rgb(146, 210, 226);
+  box-shadow: 6px 6px 9px 1.5px rgba(117, 115, 115, 0.51);
 }
 
 .name-product {
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  font-size: 19px;
-  height: 2rem;
-}
-
-.descript-product {
-  font-size: 13px;
-  height: 2rem;
+  font-size: 15px;
+  height: 1.3rem;
+  margin-bottom: 0;
 }
 
 .price-product {
   color: rgb(102, 101, 101);
   font-size: 17px;
+  margin-bottom: 0;
 }
 
 .pag-num{
-  font-family:'Julius Sans One', sans-serif; ;
+  font-family:'Julius Sans One', sans-serif; 
 }
 
 

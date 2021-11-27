@@ -3,7 +3,6 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Card } from 'react-bootstrap'
-import { FaHeart } from 'react-icons/fa';
 import './cardProduct.css';
 
 export const CardProduct = ({ product, cart, setCart }) => {
@@ -28,22 +27,19 @@ export const CardProduct = ({ product, cart, setCart }) => {
     return (
         <div className="productos my-2 mx-1 p-0" >
             <Card className="card-productos">
-                <div className="mt-3 d-flex align-items-start justify-content-center">
+                <div className="mt-1 d-flex align-items-start justify-content-center">
                     <Card.Img className="img-product" variant="top" src={product.image} />
                 </div>
                 <Card.Body className="card-description" >
-                    <Card.Title className="name-product mt-1 text-center">
+                    <p className="name-product text-center">
                         {product.name}
-                    </Card.Title>
-                    {/* <Card.Title className="descript-product mt-1 text-center">
-                        {product.description}
-                    </Card.Title> */}
-                    <Card.Text className="price-product mt-2 text-center">
+                    </p>
+                    <p className="price-product text-center">
                         $ {product.price}
-                    </Card.Text>
+                    </p>
                 </Card.Body>
             </Card>
-            <div className="d-flex align-items-center justify-content-center bg-white">
+            <div className="d-flex align-items-center justify-content-center m-1 bg-white">
                 <button
                     disabled={isInCart}
                     className={isInCart ? 'added-cart-btn' : 'add-cart-btn'}
@@ -53,9 +49,6 @@ export const CardProduct = ({ product, cart, setCart }) => {
                     ) : (
                         'Añadir al Carrito'
                     )}
-                </button>
-                <button className="add-favorite-btn   m-1">
-                    <FaHeart />
                 </button>
             </div >
         </div>

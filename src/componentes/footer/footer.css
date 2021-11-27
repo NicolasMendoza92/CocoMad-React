@@ -1,13 +1,12 @@
 .footer {
-   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154619/cocoMAD/alfacococolorfoot_fnte6d.jpg) top center;
-   background-repeat: no-repeat;
-   background-size: cover;
-   padding: 6rem 0rem 0rem 0rem;
+   background-color:rosybrown;
+   padding: 2rem 0rem 0rem 0rem;
    font-family: 'Julius Sans One', sans-serif;
    color: whitesmoke;
 }
 
 .footer p {
+   font-size: 20px;
    font-weight: bold;
    margin-bottom: 0;
 }
@@ -18,7 +17,7 @@
 }
 
 .social-icon {
-   font-size: 4rem;
+   font-size: 1.5rem;
    margin: 0 10px;
    color: rgb(255, 255, 255);
    transition-duration: 0.5s;
@@ -30,27 +29,32 @@
    }
 
    .footer a {
-      font-size: 25px;
+      font-size: 15px;
    }
 
    .social-icon {
-      font-size: 3rem;
+      font-size: 1.5rem;
    }
 }
 
-
-
-.gmail {
-   font-size: 3rem;
+.direccion p {
+   font-size: 12px;
 }
 
-.whatsapp {
-   font-size: 3rem;
+.subtitle-footer p{
+   font-size: 12px;
 }
+
 
 .links {
    list-style: none;
-   font-size: 20px;
+   font-size: 15px;
+}
+.links hr { 
+   width: 50px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   height: 5px;
 }
 
 .links a {
@@ -62,16 +66,9 @@
    color: rgb(146, 210, 226);
 }
 
-@media only screen and (max-width: 1050px) {
-   .imagen-pie {
-      width: 200px;
-   }
-}
-
-
 
 .volverArriba {
-   font-size: 2.5rem;
+   font-size: 2rem;
    color: whitesmoke;
    text-decoration: none;
    transition: 0.4s;
@@ -98,7 +95,7 @@
 }
 @media only screen and (max-width: 640px) {
    .botom-footer {
-      font-size: 10px;
+      font-size: 15px;
    }
    .volverArriba {
       font-size: 1.8rem;

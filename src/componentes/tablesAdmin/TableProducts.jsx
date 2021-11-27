@@ -157,7 +157,7 @@ export const TableProducts = ({tableProducts, getProducts, setTableProducts}) =>
                 closeModal={closeModalEditar}
                 showModalEditar={showModalEditar}
                 productFind={productFind}
-                getProductos={getProducts}
+                getProducts={getProducts}
             />
         </Container>
     </>

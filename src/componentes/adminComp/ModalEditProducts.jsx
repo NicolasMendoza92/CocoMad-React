@@ -10,6 +10,7 @@ export default function ModalEditProducts({ showModalEditar, closeModal, product
         name: productFind.name,
         description: productFind.description,
         image: productFind.image,
+        imageDetail: productFind.imageDetail,
         category: productFind.category,
         price: productFind.price,
     });
@@ -25,9 +26,8 @@ export default function ModalEditProducts({ showModalEditar, closeModal, product
         try {
             await axios.put(`http://localhost:4000/api/products/${productFind._id}`, input)
             swal("Producto modificado");
-            await getProducts();
             closeModal();
-            getProducts();
+            await getProducts();
         } catch (error) {
             console.error(error);
         }
@@ -74,18 +74,29 @@ export default function ModalEditProducts({ showModalEditar, closeModal, product
                                 defaultValue={productFind.image}
                             />
                         </Form.Group>
+                        <Form.Group className="mb-3 row" controlId="imageDetail">
+                            <Form.Label className="col-12 col-md-3">Imagen Detalle:</Form.Label>
+                            <input
+                                className="col-12 col-md-9"
+                                name="imageDetail"
+                                onChange={(e) => handleChange(e)}
+                                required
+                                type="text"
+                                defaultValue={productFind.imageDetail}
+                            />
+                        </Form.Group>
                         <Form.Group className="mb-3 row" controlId="category">
                             <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
                             <select name="category" onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
-                                <option value="" disabled selected={""}>Categoria...</option>
+                                <option value="" disabled>Categoria...</option>
                                 <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                                 <option value="Alfajores Premium">Alfajores Premium</option>
                                 <option value="Alfajores Grandes">Alfajores Grandes</option>
-                                <option value="tartas">Tartas</option>
-                                <option value="bizcochos">Bizcochos</option>
-                                <option value="salado">Salado</option>
-                                <option value="desayunos">Desayunos </option>
-                                <option value="boxs">Box Armados</option>
+                                <option value="Tartas">Tartas</option>
+                                <option value="Bizcochos">Bizcochos</option>
+                                <option value="Salado">Salado</option>
+                                <option value="Desayunos">Desayunos </option>
+                                <option value="Boxs">Box Armados</option>
                             </select>
                         </Form.Group>
                         <Form.Group className="mb-3 row" controlId="price">

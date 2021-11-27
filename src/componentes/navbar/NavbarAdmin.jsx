@@ -3,6 +3,11 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 export const NavbarAdmin = () => {
+    
+    const logout = () => {
+        localStorage.removeItem('token');
+        window.location.href = '/';
+    }
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -15,7 +20,7 @@ export const NavbarAdmin = () => {
                             <Nav.Link as={NavLink} to="/messageList">Mensajes</Nav.Link>
                             <Nav.Link as={NavLink} to="/saleList">Ventas</Nav.Link>
                             <Nav.Link as={NavLink} to="/">Ir al Landing</Nav.Link>
-                            <Nav.Link as={NavLink} to="/">Cerrar Sesion</Nav.Link>
+                            <Nav.Link onClick={logout} >Cerrar Sesion</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
