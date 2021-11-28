@@ -20,21 +20,30 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 1.4rem;
     padding: 1rem;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 50px;
     color:white;
-    border-bottom: 3px solid rgb(129, 129, 129,0.3);
+    border-bottom: 3px solid rgb(146, 210, 226);
 }
 .product-price{
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     color:white;
+    font-weight: bold;
     line-height: 1rem;
 }
 .add-cart-btn-detail {
     background: rgb(146, 210, 226);
     color: whitesmoke;
     border-color: whitesmoke;
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
+  }
+  .add-cart-btn-detail:hover {
+    background: white;
+    color: rgb(146, 210, 226);
+    border-color: rgb(146, 210, 226);
     font-size: 18px;
     font-family: 'Julius Sans One', sans-serif;
     transition: 0.4s;

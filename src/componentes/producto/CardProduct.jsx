@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import './cardProduct.css';
 
-export const CardProduct = ({ product, cart, setCart }) => {
+export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
 
     const [isInCart, setIsInCart] = useState(false);
 
@@ -14,6 +14,7 @@ export const CardProduct = ({ product, cart, setCart }) => {
     const quantity = 1
     const addToCart = () => {
         setCart((cart) => cart.concat({ product, quantity }));
+        setShowSideCart(true);
     };
 
     useEffect(() => {
@@ -27,7 +28,7 @@ export const CardProduct = ({ product, cart, setCart }) => {
 
     return (
         <div className="productos my-2 mx-1 p-0" >
-            <Card as={Link} to={`/productos/${product._id}`}  className="card-productos">
+            <Card as={Link} to={`/detalle/${product._id}`}  className="card-productos">
                 <div className="mt-1 d-flex align-items-start justify-content-center">
                     <Card.Img className="img-product" variant="top" src={product.image} />
                 </div>

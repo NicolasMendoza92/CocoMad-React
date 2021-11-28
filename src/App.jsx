@@ -135,7 +135,7 @@ function App() {
           <Home />
         </Route>
 
-        <Route path="/productos/:productId">
+        <Route path="/detalle/:productId">
           <DetailsProduct
             cart={cart}
             setCart={setCart}

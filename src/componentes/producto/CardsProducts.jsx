@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import { PaginationStore } from '../paginacion/PaginationStore';
 import { CardProduct } from './CardProduct';
 
-export const CardsProducts = ({ products, selectCategory, selectPrice, serch, cart, setCart }) => {
+export const CardsProducts = ({ products, selectCategory, selectPrice, serch, cart, setCart, setShowSideCart}) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -39,7 +39,8 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, serch, ca
         key={product._id} 
         product={product}
         cart={cart}
-        setCart={setCart} />));
+        setCart={setCart} 
+        setShowSideCart={setShowSideCart}/>));
 
     return (
         <>

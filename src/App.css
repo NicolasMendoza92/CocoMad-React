@@ -1,4 +1,3 @@
-
 body {
   box-sizing: border-box;
   margin: 0;
@@ -12,8 +11,43 @@ body {
 
 
 /* estilo de pag producto */
-.navbar-productos {
-  background-color: rgb(246, 181, 181);;
+
+.cart-side-btn {
+  background-color: none !important;
+  border: none;
+  right: 0;
+  top: 70%;
+  position: fixed;
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
+  border: 2px solid rgb(204, 204, 204) !important;
+  z-index: 5;
+}
+.cart-side-icon{
+  color: rgb(204, 204, 204);
+  font-size: 1.3rem;
+}
+.cart-side-icon-add{
+  color: rgb(86, 205, 235);
+  font-size: 1.3rem;
+}
+
+.swym-header-count-shop {
+  display: flex;
+  align-items: end;
+  position: relative;
+  justify-content: center;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  color: rgb(86, 205, 235);
+  font-size: 12px;
+  font-weight: 800;
+  height: 1.3em;
+  min-width: 1.3em;
+  position: absolute;
+  right: 30px;
+  bottom: -5px;
+  z-index: 0;
 }
 
 /* estilo de pag register */
@@ -26,32 +60,34 @@ body {
   color: whitesmoke;
   font-family: 'Julius Sans One', sans-serif;
 }
-.form-register{
+
+.form-register {
   font-family: 'Julius Sans One', sans-serif;
 }
 
 /* estilo de login */
 
-.form-login{
+.form-login {
   color: rgb(146, 210, 226);
   font-family: 'Julius Sans One', sans-serif;
   border: solid rgb(146, 210, 226);
-  }
+}
 
-  .responsive-login-btn{
-    background-color: rgb(146, 210, 226);
-    color: white;
-    border: 1px solid whitesmoke;
-    font-size: 20px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 5px;
-    transition: all 0.5s; 
-  }
-  .responsive-login-btn:hover{
-    background-color: whitesmoke;
-    color: rgb(146, 210, 226);
-    border: 1px solid rgb(146, 210, 226);
-  }
+.responsive-login-btn {
+  background-color: rgb(146, 210, 226);
+  color: white;
+  border: 1px solid whitesmoke;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+}
+
+.responsive-login-btn:hover {
+  background-color: whitesmoke;
+  color: rgb(146, 210, 226);
+  border: 1px solid rgb(146, 210, 226);
+}
 
 .responsive-login-face {
   background-color: #3b5998;
@@ -60,8 +96,9 @@ body {
   font-size: 20px;
   padding: 0.5rem 1rem;
   margin: 0.5rem 5px;
-  transition: all 0.5s; 
+  transition: all 0.5s;
 }
+
 .responsive-login-face:hover {
   background-color: white;
   color: #3b5998;
@@ -73,7 +110,8 @@ body {
   font-size: 1.2rem;
   margin-top: 0%;
 }
-.crea-cuenta a:hover{
+
+.crea-cuenta a:hover {
   color: rgb(146, 210, 226);
   font-weight: 900;
 }
@@ -100,18 +138,22 @@ body {
   color: rgb(146, 210, 226);
   font-weight: 600;
 }
+
 .text-format {
   padding: 3rem;
   font-family: 'Julius Sans One', sans-serif;
   text-align: center;
 }
+
 .text-format h1 {
   font-family: 'Julius Sans One', sans-serif;
   font-size: 50px;
 }
+
 .text-format h5 {
   text-align: justify;
 }
+
 .text-format p {
   text-align: justify;
 }
@@ -164,23 +206,24 @@ body {
 
 /* spinner */
 .spinner-style {
-  position:fixed;
+  position: fixed;
   top: 50%;
   right: 48%;
   z-index: 2;
   color: #1d4683 !important;
 }
+
 .spinner-style .spinner-border {
   width: 4rem;
   height: 4rem;
 }
 
-.boton-down{
+.boton-down {
   border: none;
   background: none;
 }
 
-.circleArrow{
+.circleArrow {
   border: none;
   color: whitesmoke;
   font-size: 3rem;
@@ -190,7 +233,8 @@ body {
   border-radius: 2rem;
   /* animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1); */
 }
+
 .circleArrow:hover {
-  color:rgb(146, 210, 226);
+  color: rgb(146, 210, 226);
   box-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { MdOutlineClose } from 'react-icons/md';
 import './cartStyles.css';
 
@@ -24,20 +24,9 @@ export const CardCarrito = ({ productCart, cart, setCart, changeQuantity }) => {
   return (
     <>
       <div className="d-flex justify-content-end">
-        <OverlayTrigger
-          placement="left"
-          delay={{ show: 250, hide: 400 }}
-          overlay={
-            (props) => (
-              <Tooltip id="button-tooltip" {...props}>
-                Eliminar
-              </Tooltip>)
-          }
-        >
           <button className="btn-remove-to-cart pb-1 mb-2" onClick={removeToCart}>
             <MdOutlineClose />
           </button>
-        </OverlayTrigger>
       </div>
       <div className="row justify-content-center align-content-center">
         <Card.Img className="m-2 col-12 col-lg-2"

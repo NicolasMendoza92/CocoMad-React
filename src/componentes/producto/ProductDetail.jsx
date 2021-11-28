@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import './productDetail.css';
 
 export const ProductDetail = ({ product, cart, setCart }) => {
@@ -21,7 +21,6 @@ export const ProductDetail = ({ product, cart, setCart }) => {
   }, [cart, product]);
 
   return (
-    <Container>
       <Row className="details-product-bg" style={{
         backgroundImage: `url(${product.imageDetail})`
       }}>
@@ -43,6 +42,5 @@ export const ProductDetail = ({ product, cart, setCart }) => {
           </div>
         </Col>
       </Row>
-    </Container>
   );
 };

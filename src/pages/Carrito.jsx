@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Accordion, Card, Container, OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
+import { Accordion, Card, Container, Button } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
 import { BuyForm } from '../componentes/carrito/BuyForm';
@@ -54,18 +54,7 @@ export default function Carrito({ cart, setCart, user }) {
             <div>
                 {cart.length !==0 &&  
                 <div className="d-flex justify-content-end align-items-center">
-                    <OverlayTrigger
-                        placement="left"
-                        delay={{ show: 250, hide: 400 }}
-                        overlay={
-                            (props) => (
-                                <Tooltip id="button-tooltip" {...props}>
-                                    Limpiar carrito
-                                </Tooltip>)
-                        }
-                    >
                         <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
-                    </OverlayTrigger>
                 </div>
                 }
                 <div className="row justify-content-center align-items-center">

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import { CartSideButton } from '../componentes/cartSide/CartSideButton';
 import { CardsProducts } from '../componentes/producto/CardsProducts'
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
@@ -8,6 +9,7 @@ import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
 
 export default function Productos({ products, setProducts, serch, cart, setCart }) {
 
+  const [showSideCart, setShowSideCart] = useState(false);
   const [selectCategory, setSelectCategory] = useState('');
   const [selectPrice, setSelectPrice] = useState('');
 
@@ -40,13 +42,18 @@ export default function Productos({ products, setProducts, serch, cart, setCart 
               selectPrice={selectPrice}
               serch={serch}
               cart={cart}
-              setCart={setCart} />
+              setCart={setCart} 
+              setShowSideCart={setShowSideCart}/>
           </Col>
         </Row>
         <SliderProducts />
       </Container>
-
-
+      <CartSideButton
+        setCart={setCart}
+        cart={cart}
+        showSideCart={showSideCart}
+        setShowSideCart={setShowSideCart}
+        className="position-fixed" />
     </div>
   )
 }
