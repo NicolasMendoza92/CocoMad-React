@@ -135,7 +135,7 @@ export const TableProducts = ({tableProducts, getProducts, setTableProducts}) =>
                                 <td>{category}</td>
                                 <td className="p-1 d-flex ">
                                         <button className="m-auto" onClick={() => findProduct(_id)} ><FaRegEdit className="mb-1" /></button>
-                                        <button className="m-auto circle-btn" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
+                                        <button className="m-auto" onClick={() => alertaBorrar(_id)} ><FaEraser className="mb-1" /></button>
                                 </td>
                             </tr>
                         ))}

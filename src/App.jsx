@@ -14,6 +14,7 @@ import Login from './pages/Login';
 import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
 import Perfil from './pages/Perfil';
+import DetailsProduct from './pages/DetailsProduct';
 // Admin pages
 import ProductList from './pages/pagesAdmin/ProductList';
 import MessageList from './pages/pagesAdmin/MessageList';
@@ -28,6 +29,7 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 // utils
 import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
+
 
 
 function App() {
@@ -101,16 +103,16 @@ function App() {
 
   // Traigo los Mensajes que postean los usuarios
   const getMessages = async () => {
-    try{
+    try {
       const response = await axios.get('http://localhost:4000/api/messages/');
       setMessages(response.data)
-    } catch(error){
+    } catch (error) {
       console.error(error)
     }
   }
-  useEffect(()=> {
+  useEffect(() => {
     getMessages();
-  },[])
+  }, [])
 
   const isAdmin = user.role === "admin";
 
@@ -133,9 +135,16 @@ function App() {
           <Home />
         </Route>
 
+        <Route path="/productos/:productId">
+          <DetailsProduct
+            cart={cart}
+            setCart={setCart}
+            products={products} />
+        </Route>
+
         <Route path="/productos">
           <Productos
-            products={products} 
+            products={products}
             setProducts={setProducts}
             serch={serch}
             cart={cart} setCart={setCart} />
@@ -150,9 +159,9 @@ function App() {
         </Route>
 
         <Route path="/carrito">
-          <Carrito 
-          user={user}
-          cart={cart} setCart={setCart} />
+          <Carrito
+            user={user}
+            cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/login" >

@@ -108,7 +108,7 @@ export const Navbar = ({ user, setSerch, cart}) => {
                                         </NavDropdown>
                                     }
 
-                                    <div className="d-flex align-items-center">
+                                    <div className="d-flex align-items-center position-relative">
                                         <Nav.Link className="link-nav" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
                                             {cart.length >0 &&

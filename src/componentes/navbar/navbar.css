@@ -5,7 +5,7 @@
     color: aliceblue;
     background-color: none;
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 25px;
+    font-size: 30px;
     text-decoration: none;
     transition-duration: 0.3s;
    }
@@ -96,7 +96,7 @@
         color: aliceblue;
         background-color: none;
         font-family: 'Julius Sans One', sans-serif;
-        font-size: 20px;
+        font-size: 30px;
         padding: 5px;
         text-decoration: none;
         transition-duration: 0.3s;
@@ -106,7 +106,7 @@
  /*burbuja de producto en carrito  */
  .swym-header--count {
     display: flex;
-    align-items: start;
+    align-items: end;
     justify-content: center;
     background-color: #fff;
     border-radius: 50%;
@@ -116,7 +116,7 @@
     height: 1.3em;
     min-width: 1.3em;
     position: absolute;
-    right: 60px;
+    right: 8px;
     bottom: 10px;
     z-index: 0;
 }

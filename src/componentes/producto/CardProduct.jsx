@@ -3,6 +3,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import './cardProduct.css';
 
 export const CardProduct = ({ product, cart, setCart }) => {
@@ -26,7 +27,7 @@ export const CardProduct = ({ product, cart, setCart }) => {
 
     return (
         <div className="productos my-2 mx-1 p-0" >
-            <Card className="card-productos">
+            <Card as={Link} to={`/productos/${product._id}`}  className="card-productos">
                 <div className="mt-1 d-flex align-items-start justify-content-center">
                     <Card.Img className="img-product" variant="top" src={product.image} />
                 </div>
