@@ -103,6 +103,114 @@
        }
  }
 
+ /* NAVBAR SMALL */
+ .link-nav-small{
+    color: rosybrown;
+    font-weight: bolder;
+    background-color: none;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
+   .link-nav-small:hover {
+      color: rgb(86, 205, 235) !important;
+      transform: scale(105%);
+      font-weight: bolder;
+      text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+ }
+
+ .link-nav-log-small {
+    color: rosybrown;
+    background-color: none;
+    font-weight: bolder;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
+ 
+ .link-nav-log-small:hover{
+    color: rgb(86, 205, 235) !important;
+    transform: scale(105%);
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+ }
+ .link-active-log-small{
+    color: rosybrown;
+    background-color: none;
+    font-weight: bolder;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    text-decoration: none;
+ }
+
+ .link-active-small{
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: bolder;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 25px;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    text-decoration: none;
+ }
+
+ .navbar-links-small li {
+    list-style: none;
+    position: relative;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+}
+
+ .navbar-button-small {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: rosybrown !important;
+}
+
+.navbar-user-small {
+    font-size: 18px;
+    font-weight: bolder;
+    margin: 0 0.3rem;
+    font-family: 'Julius Sans One', sans-serif;
+    z-index: 1020;
+}
+.navbar-user-small .nav-link-small {
+    color: rosybrown ;
+    font-weight: bolder;
+}
+
+ /* NAVBAR POSTITIONS */
+.contenedor-small {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-container-small {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .logo-container-small a {
+        text-align: center;
+    } 
+    .link-nav-small{
+        color: rosybrown;
+        background-color: none;
+        font-family: 'Julius Sans One', sans-serif;
+        font-size: 30px;
+        padding: 5px;
+        text-decoration: none;
+        transition-duration: 0.3s;
+       }
+ }
+
  /*burbuja de producto en carrito  */
  .swym-header--count {
     display: flex;
@@ -120,18 +228,37 @@
     bottom: 10px;
     z-index: 0;
 }
+.swym-header--count-small {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-color: rgb(86, 205, 235);
+    border-radius: 50%;
+    color: rosybrown;
+    font-size: 13px;
+    font-weight: 800;
+    height: 1.3em;
+    min-width: 1.3em;
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+    z-index: 0;
+}
 
 
  /* cambio de imagen logo en cel */
  @media only screen and (max-width: 768px){
      #main-img{
-        content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636994115/cocoMAD/logo_blanco_rmmuf2.png);
+        content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210952/cocoMAD/cocomad_logo_blanco_1_qxhyqg.png);
      }
  }
 
- #main-img:hover{
-     content: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1636995518/cocoMAD/logo_celeste_y_blanco_coco_dgsugq.png);
- }
+  /* cambio de imagen logo en cel nav Small */
+  @media only screen and (max-width: 768px){
+    #main-img-small{
+       content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210957/cocoMAD/cocomad_logo_rose_1_jkbvbz.png);
+    }
+}
 
 .nav-logo-desktop{
 max-width: 100px;
@@ -218,7 +345,7 @@ max-width: 100px;
     background-color: rgb(86, 205, 235); 
 }
 .responsive-navbar-links li:hover a {
-    color: white !important; 
+    color: rosybrown !important; 
     text-decoration: none;
 }
 

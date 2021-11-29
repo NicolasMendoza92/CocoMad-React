@@ -81,7 +81,7 @@ export const FormLogin = ({requestUserData}) => {
 
     return (
         <Card className="form-login">
-            <Card.Body>
+            <Card.Body className="card-login-form">
                 <div className="d-flex flex-column align-items-center">
                     <h3><b>Bienvenido a COCOMAD</b> </h3>
                 </div>

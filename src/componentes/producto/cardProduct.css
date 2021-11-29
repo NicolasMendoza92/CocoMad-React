@@ -67,24 +67,8 @@
 .add-cart-btn:hover {
   background: none;
   transition-duration: 0.5s;
-  color: rgb(146, 210, 226);
+  color: rosybrown;
   border-color: rgb(146, 210, 226);
   font-size: 18px;
   font-family: 'Julius Sans One', sans-serif;
-}
-
-.add-favorite-btn {
-  color: rgb(146, 210, 226);
-  border: none;
-  background-color: rgb(146, 210, 226);
-  width: 2.2rem;
-  height: 2.2rem;
-  background: none;
-  transition-duration: 0.3s;
-  border: 1px solid rgb(146, 210, 226);
-}
-
-.add-favorite-btn:hover {
-  background: rgb(146, 210, 226);
-  color: whitesmoke;
 }
