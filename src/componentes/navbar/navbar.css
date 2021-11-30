@@ -136,7 +136,7 @@
     text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
  }
  .link-active-log-small{
-    color: rosybrown;
+    color: rgb(86, 205, 235) !important;
     background-color: none;
     font-weight: bolder;
     font-family: 'Julius Sans One', sans-serif;
@@ -338,14 +338,15 @@ max-width: 100px;
 }
 .responsive-navbar-links li a {
     color: rgb(86, 205, 235) !important;
+    font-weight: bold;
     cursor: pointer;
     text-decoration: none;
 }
 .responsive-navbar-links li:hover  {
-    background-color: rgb(86, 205, 235); 
+    background-color: rgb(231, 229, 229); 
 }
 .responsive-navbar-links li:hover a {
-    color: rosybrown !important; 
+    color: white !important; 
     text-decoration: none;
 }
 

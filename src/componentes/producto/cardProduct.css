@@ -4,39 +4,72 @@
   width: 18rem;
 }
 
+
 .card-productos {
   text-decoration: none;
   cursor: pointer;
   border: none;
-  background-color: whitesmoke;
+  background-color: none;
   border-radius: 0;
 }
 
 .card-description{
   padding: 0;
 }
-
+.container-photo{
+  position: relative;
+}
 .img-product {
-  width: 15rem;
-  height: 15rem;
+  width: 18rem;
+  height: 18rem;
 }
 
-.productos:hover {
+.overlay {
+  position: absolute; 
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  bottom: 0; 
+  background: rgb(146, 210, 226);
+  background: rgb(146, 210, 226); 
+  color: whitesmoke; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container-photo:hover .overlay {
+  opacity: 1;
+}
+
+/* .productos:hover {
   border: 1px solid rgb(146, 210, 226);
-  box-shadow: 6px 6px 9px 1.5px rgba(117, 115, 115, 0.51);
-}
+  box-shadow: 5px 5px 7px 1.5px rgba(163, 161, 161, 0.51);
+} */
 
+.category-product{
+  color: rgb(102, 101, 101);
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  height: 1.3rem;
+  margin-bottom: 0;
+}
 .name-product {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   height: 1.3rem;
-  margin-bottom: 0;
+  margin-bottom: 1px;
 }
 
 .price-product {
   color: rgb(102, 101, 101);
   font-size: 17px;
+  font-weight: bold;
   margin-bottom: 0;
 }
 
@@ -67,7 +100,7 @@
 .add-cart-btn:hover {
   background: none;
   transition-duration: 0.5s;
-  color: rosybrown;
+  color: rgb(146, 210, 226);
   border-color: rgb(146, 210, 226);
   font-size: 18px;
   font-family: 'Julius Sans One', sans-serif;
