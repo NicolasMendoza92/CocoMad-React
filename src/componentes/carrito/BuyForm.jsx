@@ -141,7 +141,7 @@ export const BuyForm = ({ user, cart }) => {
                 </Form.Group>
             </Row>
             <Form.Group className="mb-3" controlId="validationCustom05">
-                <FloatingLabel controlId="floatingAddress1" label="Dirección">
+                <FloatingLabel controlId="floatingAddress1" label="Dirección...">
                     <Form.Control type="text"
                         name="buyerAddress1"
                         onChange={(e) => handleChange(e)}
@@ -153,11 +153,11 @@ export const BuyForm = ({ user, cart }) => {
                 </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" controlId="validationCustom06">
-                <FloatingLabel controlId="floatingAddress2" label="Piso, departamento ...">
+                <FloatingLabel controlId="floatingAddress2" label="Piso, Puerta ...">
                     <Form.Control type="text"
                         name="buyerAddress2"
                         onChange={(e) => handleChange(e)}
-                        maxLength="10"
+                        maxLength="30"
                         required />
                         
                 </FloatingLabel>
@@ -193,7 +193,7 @@ export const BuyForm = ({ user, cart }) => {
                 <Form.Group as={Col} controlId="formGridZip">
                     <FloatingLabel controlId="floatingZip" label="Codigo Postal">
                         <Form.Control type="text"
-                            maxLength="4"
+                            maxLength="8"
                             name="buyerZip"
                             onChange={(e) => handleChange(e)}
                             required />

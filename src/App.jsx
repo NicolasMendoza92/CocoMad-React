@@ -39,10 +39,11 @@ function App() {
   const [user, setUser] = useState({});
   const [products, setProducts] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [sales, setSales] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', [])
 
-  const [serch, setSerch] = useState('');
+  const [search, setSearch] = useState('');
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -114,6 +115,21 @@ function App() {
     getMessages();
   }, [])
 
+   // Traigo ventas que hacen los usuarios
+   const [tableSales, setTableSales] = useState([]);
+   const getSales = async () => {
+     try {
+       const response = await axios.get('http://localhost:4000/api/sales/');
+       setSales(response.data);
+       setTableSales(response.data);
+     } catch (error) {
+       console.error(error);
+     }
+   }
+   useEffect(() => {
+     getSales();
+   }, [])
+
   const isAdmin = user.role === "admin";
 
   if (isLoading) {
@@ -128,7 +144,7 @@ function App() {
     <div className="footer-fix">
       <Header
         user={user}
-        setSerch={setSerch}
+        setSearch={setSearch}
         cart={cart} />
       <Switch>
         <Route path="/" exact>
@@ -146,7 +162,8 @@ function App() {
           <Productos
             products={products}
             setProducts={setProducts}
-            serch={serch}
+            search={search}
+            setSearch={setSearch}
             cart={cart} setCart={setCart} />
         </Route>
 
@@ -195,7 +212,9 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/saleList" >
-            <SaleList />
+            <SaleList  sales={sales}
+              getSales={getSales}
+              tableSales={tableSales} setTableSales={setTableSales} />
           </Route>
         )}
 

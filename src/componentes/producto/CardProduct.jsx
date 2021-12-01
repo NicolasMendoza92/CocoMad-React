@@ -45,15 +45,15 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
                     </p>
                 </Card.Body>
             </Card>
-            <div className="d-flex align-items-center justify-content-center m-1 bg-white">
+            <div className="d-flex align-items-center justify-content-center">
                 <button
                     disabled={isInCart}
                     className={isInCart ? 'added-cart-btn' : 'add-cart-btn'}
                     onClick={addToCart} >
                     {isInCart ? (
-                        'Añadido al Carrito'
+                        'Agregado al Carrito'
                     ) : (
-                        'Añadir al Carrito'
+                        'Agregar al Carrito'
                     )}
                 </button>
             </div >

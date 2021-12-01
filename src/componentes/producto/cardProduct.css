@@ -83,18 +83,21 @@
   background: rgb(146, 210, 226);
   color: whitesmoke;
   border-color: whitesmoke;
+  width: 100%;
   font-size: 18px;
+  font-weight: bold;
   font-family: 'Julius Sans One', sans-serif;
-  transition: 0.4s;
 }
 
 .added-cart-btn {
   background: whitesmoke;
+  width: 100%;
   color: rgb(146, 210, 226);
   border-color: rgb(146, 210, 226);
   font-size: 18px;
   font-family: 'Julius Sans One', sans-serif;
-
+  font-weight: bold;
+ 
 }
 
 .add-cart-btn:hover {
@@ -103,5 +106,7 @@
   color: rgb(146, 210, 226);
   border-color: rgb(146, 210, 226);
   font-size: 18px;
+  font-weight: bold;
   font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
 }

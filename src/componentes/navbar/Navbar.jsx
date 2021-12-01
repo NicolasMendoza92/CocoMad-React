@@ -5,17 +5,17 @@ import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash, BsCartFill } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { CgProfile } from 'react-icons/cg'
-import { VscSearch } from 'react-icons/vsc'
-import { NavbarMobile } from './NavbarMobile';
-import './navbar.css';
-import { NavbarAdmin } from './NavbarAdmin';
 import { FaShareSquare } from 'react-icons/fa';
 import { leerDeLocalStorage } from '../../utils/localStorage';
+import './navbar.css';
+import { NavbarAdmin } from './NavbarAdmin';
+import { NavbarMobile } from './NavbarMobile';
+import { NavbarSearch } from './NavbarSearch';
 
 
 
 
-export const Navbar = ({ user, setSerch, cart}) => {
+export const Navbar = ({ user, setSearch, cart }) => {
 
     const history = useHistory();
 
@@ -38,9 +38,9 @@ export const Navbar = ({ user, setSerch, cart}) => {
         e.preventDefault();
         const keyword = e.target.value;
         history.push('/productos');
-        setSerch(keyword);
+        setSearch(keyword);
     };
-    
+
 
     return (
         <>
@@ -111,9 +111,9 @@ export const Navbar = ({ user, setSerch, cart}) => {
                                     <div className="d-flex align-items-center position-relative">
                                         <Nav.Link className="link-nav" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
-                                            {cart.length >0 &&
-                                                <span className="swym-header--count">{cart.length}</span>
-                                            }
+                                        {cart.length > 0 &&
+                                            <span className="swym-header--count">{cart.length}</span>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -135,24 +135,7 @@ export const Navbar = ({ user, setSerch, cart}) => {
                         </Container>
                     </nav>
                     <nav className="bg-none">
-                        <Container className="py-2 d-flex justify-content-center ">
-                            <form className="search-form" >
-                                <div className="input-group mb-3 border-0">
-                                    <button
-                                        className="search-icon"
-                                        id="basic-addon1" >
-                                        <VscSearch />
-                                    </button>
-                                    <input
-                                        type="text"
-                                        className="col-11 search-input"
-                                        placeholder="¿Que Buscas? "
-                                        aria-describedby="basic-addon1"
-                                        onChange={filter}
-                                    />
-                                </div>
-                            </form>
-                        </Container>
+                        <NavbarSearch filter={filter} />
                     </nav>
                 </>
             }

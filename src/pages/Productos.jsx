@@ -3,11 +3,12 @@ import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { CartSideButton } from '../componentes/cartSide/CartSideButton';
 import { CardsProducts } from '../componentes/producto/CardsProducts'
+import { ProductSearch } from '../componentes/producto/ProductSearch';
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
 
 
-export default function Productos({ products, setProducts, serch, cart, setCart }) {
+export default function Productos({ products, setProducts, search, setSearch, cart, setCart }) {
 
   const [showSideCart, setShowSideCart] = useState(false);
   const [selectCategory, setSelectCategory] = useState('');
@@ -35,12 +36,13 @@ export default function Productos({ products, setProducts, serch, cart, setCart 
               onselectPri={clearFilterPrice} />
           </Col>
           <Col className="col-12 col-md-9 p-0">
+            <ProductSearch setSearch={setSearch} />
             <CardsProducts
               products={products}
               setProducts={setProducts}
               selectCategory={selectCategory}
               selectPrice={selectPrice}
-              serch={serch}
+              search={search}
               cart={cart}
               setCart={setCart} 
               setShowSideCart={setShowSideCart}/>
