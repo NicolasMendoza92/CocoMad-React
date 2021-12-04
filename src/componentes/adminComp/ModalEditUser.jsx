@@ -39,8 +39,9 @@ export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}
                         <Form.Group className="mb-3 row align-items-center justify-content-start" >
                             <p>Nombre: {userFind.name}</p>
                             <p>Apellido: {userFind.lastName}</p>
-                            <p>{userFind.role}</p>
-                            <label className="col-11 col-md-3 align-items-center">Role:</label>
+                            <p>Conoce CocoMad: {userFind.knowcoco}</p>
+                            <p>Este usuario es: {userFind.role}</p>
+                            <label className="col-11 col-md-3 align-items-center">Cambiar:</label>
                             <select name="role" onChange={(e) => handleChange(e)} className="col-11 col-md-9" required>
                                 <option value="" disabled selected >Elje un rol</option>
                                 <option value="user">Cliente</option>

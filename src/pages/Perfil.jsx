@@ -1,21 +1,14 @@
-import Button from '@restart/ui/esm/Button';
-import React from 'react';
-import { Card } from 'react-bootstrap';
 
-export default function Perfil() {
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { MyProfileView } from '../componentes/perfil/MyProfileView';
+
+export default function Perfil({ user, requestUserData }) {
   return (
-    <div className="d-flex justify-content-center align-items-center mb-3">
-    <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-</Card>
-    </div>
+    <div className="bg-grey">
+            <Container>
+                <MyProfileView  requestUserData={requestUserData} user={user} />
+            </Container>
+        </div>
   );
 }

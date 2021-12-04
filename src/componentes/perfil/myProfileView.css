@@ -1,0 +1,46 @@
+.card-profile {
+    margin: 2.5rem auto;
+    text-align: center;
+    border: 2px solid #b59062;
+    max-width: 50rem;
+    height: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    .card-profile {
+      min-width: 20rem;
+    }
+  }
+  .img-avatar {
+    border-radius: 15rem;
+    width: 18rem;
+    height: auto;
+  }
+  .btn-admin {
+    border-radius: 0.3rem;
+    color: rgb(255, 255, 255);
+    background: #203048;
+    padding: 1px 6px;
+    border: 2px outset #203048;
+  }
+  .btn-admin:hover {
+    background: #2f476b;
+    color: #e2c29b;
+  }
+  .btn-admin:active {
+    border: 2px inset #203048;
+  }
+  .btn-admin:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem #b59062;
+  }
+  
+  .card-body-container {
+    width: 20rem;
+  }
+  .btn-config {
+    border: 0;
+    background-color: white;
+  }
+  .label-change-avatar{
+    width: 3rem !important;
+  }
