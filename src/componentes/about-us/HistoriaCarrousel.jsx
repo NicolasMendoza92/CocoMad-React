@@ -8,7 +8,7 @@ import './historia.css';
 export const HistoriaCarrousel = () => {
 
     useEffect(() => {
-        Aos.init({ duration: 2000 });
+        Aos.init({ duration: 1500 });
     }, [])
 
     return (

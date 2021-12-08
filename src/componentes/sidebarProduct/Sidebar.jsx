@@ -33,11 +33,11 @@ export const Sidebar = ({setSelectCategory, selectCategory, onselectCat, onselec
                         <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                         <option value="Alfajores Premium">Alfajores Premium</option>
                         <option value="Alfajores Grandes">Alfajores Grandes</option>
-                        <option value="tartas">Tartas</option>
-                        <option value="bizcochos">Bizcochos</option>
-                        <option value="salado">Salado</option>
-                        <option value="desayunos">Desayunos </option>
-                        <option value="boxs">Box Armados</option>
+                        <option value="Tartas">Tartas</option>
+                        <option value="Bizcochos">Bizcochos</option>
+                        <option value="Salado">Salado</option>
+                        <option value="Desayunos">Desayunos </option>
+                        <option value="Boxs">Box Armados</option>
                     </select>
                 </div>
                 <div>

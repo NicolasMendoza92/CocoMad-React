@@ -31,7 +31,7 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
             <Card as={Link} to={`/detalle/${product._id}`} className="card-productos">
                 <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
                     <Card.Img className="img-product" variant="top" src={product.image} />
-                    <div class="overlay">Ver Detalle</div>
+                    <div className="overlay">Ver Detalle</div>
                 </div>
                 <Card.Body className="card-description" >
                     <p className="category-product text-center">

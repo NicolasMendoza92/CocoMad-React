@@ -24,7 +24,7 @@ export const ProductDetail = ({ product, cart, setCart }) => {
       <Row className="details-product-bg" style={{
         backgroundImage: `url(${product.imageDetail})`
       }}>
-        <Col className="columna-detalle col-12 col-md-10 col-lg-8 col-xl-5 text-center">
+        <Col className="columna-detalle col-11 col-md-10 col-lg-8 col-xl-5 text-center">
             <span className="product-name">{product.name}</span>
             <h2 className="mt-3 product-description">{product.description}</h2>
           <p className="mt-1 product-price ">${product.price} POR UNIDAD</p>
