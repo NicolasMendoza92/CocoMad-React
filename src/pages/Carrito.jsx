@@ -93,7 +93,7 @@ export default function Carrito({ cart, setCart, user }) {
                                 {/* LISTADO DE DATOS DE COMPRA */}
                                 <div className="d-flex flex-column align-items-between datos-compra-div mx-auto">
                                     <h3 className="m-2 text-center ">DATOS DE LA COMPRA</h3>
-                                    <div className="row justify-content-md-center align-items-md-center">
+                                    <div>
                                         {mapCompra}
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
@@ -105,8 +105,8 @@ export default function Carrito({ cart, setCart, user }) {
                                         <h5> $5 </h5>
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
-                                        <h3>Total $ </h3>
-                                        <h3>{(5 + total).toFixed(2)}</h3>
+                                        <h3>Total</h3>
+                                        <h3>$ {(5 + total).toFixed(2)}</h3>
                                     </div>
                                 </div>
                                 <div>

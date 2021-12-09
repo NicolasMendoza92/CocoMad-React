@@ -270,7 +270,7 @@ export const BuyForm = ({ user, cart }) => {
                             </Form.Group>
                         </Row>
                         {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
-                        <button className="btn-general-style" type="submit">
+                        <button className="boton-comprar" type="submit">
                             Comprar
                         </button>
                     </Accordion.Body>

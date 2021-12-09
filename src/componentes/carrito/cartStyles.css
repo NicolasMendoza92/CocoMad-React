@@ -87,8 +87,148 @@
   transition: all 0.5s;
 }
 
+/* Listado en el carrito */
 .img-cart{
   width: 10rem;
   height: 10rem;
   padding: 0;
+}
+
+@media screen and (max-width: 577px) {
+  .img-cart {
+    width: 6rem;
+    height: 6rem;
+  }
+  .description-cart{
+    font-size: 12px;
+  }
+  .subtotal-cart{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .botonera-cart {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+  .agregar-sacar-btn {
+    color: white;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    background: rosybrown;
+    transition-duration: 0.3s;
+    border: 1px solid whitesmoke;
+}
+.delete-cartItem-btn {
+  color: rgb(146, 210, 226);
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background: whitesmoke;
+  transition-duration: 0.3s;
+  border: 1px solid rgb(146, 210, 226);
+}
+}
+
+/* proceder a compra styles */
+.accordion-buy {
+  border: none !important;
+}
+.accordion-buy .accordion-header {
+  display: flex;
+  justify-content: center;
+}
+.accordion-buy .accordion-header button {
+  margin: 0;
+  display: flow-root;
+  text-align: center;
+  background-color: rosybrown !important;
+  color: white !important;
+  font-family: 'Julius Sans One', sans-serif !important;
+  border: 1px solid rosybrown;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  width: 40%;
+}
+.accordion-buy .accordion-header button:hover {
+  background-color: white !important;
+  color: rosybrown !important;
+}
+.accordion-buy .accordion-header button:focus {
+  box-shadow: none;
+}
+.accordion-buy .accordion-body {
+  margin: 1rem 0;
+  padding-top: 0;
+}
+.datos-compra-div{
+  background-color: rgba(238, 238, 238, 0.726);
+  border-right: 1.5px solid black;
+}
+.bg-datos-compra {
+  background-color: rgba(238, 238, 238, 0.726);
+  border-left: 1.5px solid black;
+}
+
+@media only screen and (max-width: 992px) {
+  .datos-compra-div{
+    background-color: rgba(238, 238, 238, 0.726);
+    border-right: none;
+  }
+}
+.img-buy-data{
+  width: 8rem;
+  height: 8rem;
+  padding: 5px;
+  background-color: none;
+}
+.border-subtotal-total {
+  border-top: 1.5px solid black;
+}
+.overflow-compra{
+  width: 100%;
+  height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.boton-comprar{
+  margin: 0;
+  display: flow-root;
+  text-align: center;
+  background-color: rosybrown !important;
+  color: white !important;
+  font-family: 'Julius Sans One', sans-serif !important;
+  border: 1px solid rosybrown;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  width: 40%;
+}
+
+.boton-comprar:hover{
+  background-color: white !important;
+  color: rosybrown !important;
+}
+
+.swym-count-data-buy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  color: rgb(86, 205, 235);
+  font-size: 12px;
+  font-weight: 800;
+  width: 1.3px;
+  height: 1.5em;
+  min-width: 1.3em;
+  right: -110px;
+  bottom: 22px;
+  z-index: 0;
 }
