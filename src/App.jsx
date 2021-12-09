@@ -115,20 +115,20 @@ function App() {
     getMessages();
   }, [])
 
-   // Traigo ventas que hacen los usuarios
-   const [tableSales, setTableSales] = useState([]);
-   const getSales = async () => {
-     try {
-       const response = await axios.get('http://localhost:4000/api/sales/');
-       setSales(response.data);
-       setTableSales(response.data);
-     } catch (error) {
-       console.error(error);
-     }
-   }
-   useEffect(() => {
-     getSales();
-   }, [])
+  // Traigo ventas que hacen los usuarios
+  const [tableSales, setTableSales] = useState([]);
+  const getSales = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/sales/');
+      setSales(response.data);
+      setTableSales(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    getSales();
+  }, [])
 
   const isAdmin = user.role === "admin";
 
@@ -191,7 +191,10 @@ function App() {
 
         {tokenLocalData.token &&
           <Route path="/perfil" >
-            <Perfil requestUserData={requestUserData} user={user} />
+            <Perfil requestUserData={requestUserData} user={user}
+              sales={sales}
+              setSales={setSales}
+              getSales={getSales} />
           </Route>
         }
         {/* Admin pages */}
@@ -212,7 +215,7 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/saleList" >
-            <SaleList  sales={sales}
+            <SaleList sales={sales}
               getSales={getSales}
               tableSales={tableSales} setTableSales={setTableSales} />
           </Route>

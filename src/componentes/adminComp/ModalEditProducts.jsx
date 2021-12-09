@@ -87,7 +87,7 @@ export default function ModalEditProducts({showModalEditar, closeModal, productF
                         <Form.Group className="mb-3 row" controlId="category">
                             <Form.Label className="col-12 col-md-3">Categoria:</Form.Label>
                             <select name="category" onChange={(e) => handleChange(e)} className="col-12 col-md-9" required>
-                                <option value="" disabled selected={""}>Categoria...</option>
+                                <option value="" disabled selected={"Categoria..."}>Categoria...</option>
                                 <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                                 <option value="Alfajores Premium">Alfajores Premium</option>
                                 <option value="Alfajores Grandes">Alfajores Grandes</option>

@@ -299,3 +299,11 @@ body {
   color: rgb(146, 210, 226);
   box-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
 }
+.btn-config{
+  background:grey;
+
+}
+.btn-config:hover{
+  background:whitesmoke;
+
+}

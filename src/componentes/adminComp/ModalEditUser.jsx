@@ -43,7 +43,7 @@ export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}
                             <p>Este usuario es: {userFind.role}</p>
                             <label className="col-11 col-md-3 align-items-center">Cambiar:</label>
                             <select name="role" onChange={(e) => handleChange(e)} className="col-11 col-md-9" required>
-                                <option value="" disabled selected >Elje un rol</option>
+                                <option value="" disabled selected={"Elije un Rol"} >Elje un rol</option>
                                 <option value="user">Cliente</option>
                                 <option value="admin">Administrador</option>
                             </select>

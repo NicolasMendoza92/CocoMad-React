@@ -81,7 +81,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
           </Card.Body>
           <div className="my-2 d-flex justify-content-between">
             <button
-              className="btn-admin "
+              className="boton-artesanal-cel "
               onClick={handleShowModalEditar}
             >
               <h5 className="text-center m-0 py-2  ">Editar perfil</h5>
@@ -96,7 +96,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
                     <ListGroup>
                       <ListGroup.Item>
                         <button
-                          className="btn-config"
+                          className="btn-edit"
                           onClick={() => alertaBorrar(user._id)}
                         >
                           Eliminar Cuenta
@@ -107,7 +107,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
                 </Popover>
               }
             >
-              <button className="my-2 p-0 circle-btn">
+              <button className="my-2 p-1 btn-config">
                 <FiSettings className="p-0 mb-1" />
               </button>
             </OverlayTrigger>
