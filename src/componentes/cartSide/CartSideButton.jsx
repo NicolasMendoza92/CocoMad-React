@@ -48,7 +48,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
         onHide={handleClose}
         scroll='true'
       >
-        <Offcanvas.Header closeButton> <h4 style={{ color: '#b59062' }} >Tu Carrito </h4>  </Offcanvas.Header>
+        <Offcanvas.Header closeButton> <h4 style={{ color: 'rgb(146, 210, 226)', fontFamily:'Julius Sans One' }} >Tu Carrito </h4>  </Offcanvas.Header>
         <Offcanvas.Body className="text-center mt-2">
           {cart.length !== 0 &&
               <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
@@ -56,8 +56,8 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
           <div className="d-flex flex-column ">
             {mapSideCarrito}
           </div>
-          <h2>TOTAL: ${total.toFixed(2)} </h2>
-          <button onClick={handleClose} className="btn-general-style" aria-label="Close">CONTINUA COMPRANDO</button>
+          <h2 style={{ color: 'black', fontFamily:'Julius Sans One' }}>TOTAL: ${total.toFixed(2)} </h2>
+          <button onClick={handleClose} className="boton-artesanal-cel" aria-label="Close">CONTINUA COMPRANDO</button>
         </Offcanvas.Body>
       </Offcanvas>
     </>

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Accordion, Card, Container, Button } from 'react-bootstrap';
+import { Accordion, Card, Container} from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
 import { BuyForm } from '../componentes/carrito/BuyForm';
@@ -50,7 +50,7 @@ export default function Carrito({ cart, setCart, user }) {
 
   return (
     <Container>
-            <h2 className="my-2">Tu carrito</h2>
+            <h2 className="my-2" style={{ color: 'rgb(146, 210, 226)', fontFamily:'Julius Sans One', fontWeight:'bold' }}>Tu carrito</h2>
             <div>
                 {cart.length !==0 &&  
                 <div className="d-flex justify-content-end align-items-center">
@@ -60,7 +60,7 @@ export default function Carrito({ cart, setCart, user }) {
                 <div className="row justify-content-center align-items-center">
                     <div className="text-center" >
                         {cart.length === 0 ?
-                            <Card className="no-results-card text-center text-dark-50 p-5 m-5">
+                            <Card className="text-center text-dark-50 p-5 m-5 no-result-card">
                                 <Card.Title>Tu carrito esta vacio</Card.Title>
                             </Card>
                             :
@@ -73,9 +73,9 @@ export default function Carrito({ cart, setCart, user }) {
                     </div>
                     <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
                         <div>
-                            <h2>TOTAL: ${total.toFixed(2)} </h2>
+                            <h2 style={{ color: 'black', fontFamily:'Julius Sans One', fontWeight:'bold' }}>TOTAL: ${total.toFixed(2)} </h2>
                             <Card.Text>
-                                <Button onClick={continueToBuy} className="btn-admin my-2" aria-label="Close" variant="secondary">CONTINUA COMPRANDO</Button>
+                                <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA COMPRANDO</button>
                             </Card.Text>
                         </div>
                     </div>

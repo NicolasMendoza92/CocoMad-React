@@ -8,7 +8,7 @@ export const CardDataCompra = ({ productCart }) => {
         <div className="row align-items-center justify-content-around">
             <Card.Img className="m-2 col-2 img-buy-data"
                 variant="left"
-                style={{ width: '5rem' }}
+                style={{ width: '6rem' }}
                 src={productCart.product.image}
             />
             <div className="col-8 row align-items-center justify-content-center p-0 ">

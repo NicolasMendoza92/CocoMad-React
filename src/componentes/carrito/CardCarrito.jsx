@@ -28,16 +28,15 @@ export const CardCarrito = ({ productCart, cart, setCart, changeQuantity }) => {
             <MdOutlineClose />
           </button>
       </div>
-      <div className="row justify-content-center align-content-center">
-        <Card.Img className="m-2 col-12 col-lg-2"
+      <div className="row justify-content-center align-content-center align-items-center">
+        <Card.Img className="m-1 col-12 col-lg-2 img-cart"
           variant="top"
-          style={{ width: '10rem' }}
           src={productCart.product.image}
         />
-        <Card.Text className="text-center col-12 col-lg-2" >
+        <Card.Text className="text-center col-12 col-lg-2 mb-0" >
           {productCart.product.name}
         </Card.Text>
-        <Card.Text className="text-center  col-12 col-lg-2">
+        <Card.Text className="text-center  col-12 col-lg-2 mb-0">
          <b> ${productCart.product.price}</b>
         </Card.Text>
         <div className="d-flex justify-content-center align-content-center m-2 col-12 col-lg-2">

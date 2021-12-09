@@ -10,7 +10,7 @@ export const CartSideModal = ({ productCart, cart, setCart, changeQuantity }) =>
     };
 
     const oneMore = () => {
-        changeQuantity(productCart.producto._id, productCart.quantity + 1);
+        changeQuantity(productCart.product._id, productCart.quantity + 1);
     };
 
     const oneLess = () => {

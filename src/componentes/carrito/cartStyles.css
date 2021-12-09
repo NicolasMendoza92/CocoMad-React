@@ -86,3 +86,9 @@
   margin: 0.5rem 5px;
   transition: all 0.5s;
 }
+
+.img-cart{
+  width: 10rem;
+  height: 10rem;
+  padding: 0;
+}

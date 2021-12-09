@@ -272,7 +272,7 @@ body {
   top: 50%;
   right: 48%;
   z-index: 2;
-  color: #1d4683 !important;
+  color: rgb(146, 210, 226) !important;
 }
 
 .spinner-style .spinner-border {
@@ -306,4 +306,10 @@ body {
 .btn-config:hover{
   background:whitesmoke;
 
+}
+
+.no-result-card{
+  border: 0.8px solid  rosybrown !important ;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bolder;
 }
