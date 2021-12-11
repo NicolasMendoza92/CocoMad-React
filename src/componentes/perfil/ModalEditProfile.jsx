@@ -18,7 +18,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-             await axios.put(`http://localhost:4000/api/profile/${user._id}`, input);
+             await axios.put(`https://cocobackend.herokuapp.com/api/profile/${user._id}`, input);
              swal("Perfil editado con exito", "", "success");
             await requestUserData();
             closeModal();
@@ -33,7 +33,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
             onHide={closeModal}
         >
             <Modal.Header closeButton>
-                <Modal.Title>Datos de Usuario</Modal.Title>
+                <Modal.Title  style={{ color: 'rgb(146, 210, 226)', fontFamily:'Julius Sans One' }}>Datos de Usuario</Modal.Title>
             </Modal.Header>
             <Modal.Body
             >
@@ -73,7 +73,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
                     </Form.Group>
                     <hr />
                     <div className="d-flex justify-content-center">
-                        <button type="submit" className="m-auto btn-admin " >
+                        <button type="submit" className="m-auto btn-edit " >
                             <h5 className="text-center m-0 py-2  ">Guardar cambios</h5>
                         </button>
                     </div>

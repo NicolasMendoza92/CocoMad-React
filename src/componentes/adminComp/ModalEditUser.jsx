@@ -16,7 +16,7 @@ export const ModalEditUser = ({ showModalEditar, closeModal, userFind, getUsers}
         e.preventDefault();
         e.stopPropagation();
         try {
-            await axios.put(`http://localhost:4000/api/users/${userFind._id}`, input)
+            await axios.put(`https://cocobackend.herokuapp.com/api/users/${userFind._id}`, input)
             swal("Cambio exitoso", `El usuario ahora es ${userFind.role === 'admin' ? 'Cliente' : 'Administrador'}`, "success");
             closeModal();
             getUsers();

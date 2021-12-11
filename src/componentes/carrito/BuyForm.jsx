@@ -54,7 +54,7 @@ export const BuyForm = ({ user, cart }) => {
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
 
             }
-            await axios.post('http://localhost:4000/api/sales/', newBuy);
+            await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
 
             swal({
                 title: "Compra Exitosa !",

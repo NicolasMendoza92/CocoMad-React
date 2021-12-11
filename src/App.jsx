@@ -55,7 +55,7 @@ function App() {
     try {
       if (tokenLocal.token) {
         const headers = { 'x-auth-token': tokenLocal.token };
-        const response = await axios.get('http://localhost:4000/api/auth', { headers });
+        const response = await axios.get('https://cocobackend.herokuapp.com/api/auth', { headers });
         setUser(response.data);
       }
       setIsLoading(false);
@@ -76,7 +76,7 @@ function App() {
   const [tableProducts, setTableProducts] = useState([]);
   const getProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/products/');
+      const response = await axios.get('https://cocobackend.herokuapp.com/api/products/');
       setProducts(response.data);
       setTableProducts(response.data);
     } catch (error) {
@@ -92,7 +92,7 @@ function App() {
   const [tableUsers, setTableUsers] = useState([]);
   const getUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/users/');
+      const response = await axios.get('https://cocobackend.herokuapp.com/api/users/');
       setTableUsers(response.data)
     } catch (error) {
       console.error(error);
@@ -105,7 +105,7 @@ function App() {
   // Traigo los Mensajes que postean los usuarios
   const getMessages = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/messages/');
+      const response = await axios.get('https://cocobackend.herokuapp.com/api/messages/');
       setMessages(response.data)
     } catch (error) {
       console.error(error)
@@ -119,7 +119,7 @@ function App() {
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/sales/');
+      const response = await axios.get('https://cocobackend.herokuapp.com/api/sales/');
       setSales(response.data);
       setTableSales(response.data);
     } catch (error) {
