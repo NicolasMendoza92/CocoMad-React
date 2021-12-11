@@ -27,6 +27,7 @@
     "react-transition-group": "^4.4.2",
     "sweetalert": "^2.1.2",
     "swiper": "^7.0.8",
+    "toml": "^3.0.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

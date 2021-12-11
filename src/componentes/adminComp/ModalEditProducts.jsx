@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import { Form, Modal } from "react-bootstrap";
 import swal from "sweetalert";
 
-export default function ModalEditProducts({showModalEditar, closeModal, productFind, getProducts}) {
+export default function ModalEditProducts(props) {
 
+    const {showModalEditar, closeModal, productFind, getProducts} = props;
+    
     const [input, setInput] = useState({
         name: productFind.name,
         description: productFind.description,

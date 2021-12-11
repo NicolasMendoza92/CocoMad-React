@@ -182,7 +182,7 @@ function App() {
         </Route>
 
         <Route path="/login" >
-          <Login requestUserData={requestUserData} />
+          <Login requestUserData={requestUserData} cart={cart} />
         </Route>
 
         <Route path="/register" >

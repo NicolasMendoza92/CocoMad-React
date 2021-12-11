@@ -7,13 +7,17 @@ import { Link, NavLink, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { guardarEnLocalStorage } from '../../utils/localStorage';
 
-export const FormLogin = ({requestUserData}) => {
+export const FormLogin = ({requestUserData, cart}) => {
 
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
 
     const [input, setInput] = useState({ email: '', password: '' });
     const history = useHistory();
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 400);
+    };
 
     const errorLink = () => {
         swal("Oops!", "Todavia no trabajamos en esto :(", "error");
@@ -38,9 +42,19 @@ export const FormLogin = ({requestUserData}) => {
             const response = await axios.post('http://localhost:4000/api/auth/login', input);
             const { token, name } = response.data;
             guardarEnLocalStorage({ key: 'token', value: { token } });
-            swal('Bienvenido al Mundo de COCOMAD ' + name);
+            if (cart.length !== 0) {
+                swal('Genial ' + name + ' estas listo para comprar');
+            } else {
+                swal('Bienvenido al CocoMad ' + name);
+            }
             await requestUserData(); 
-            history.push('/');
+            //El push redirecciona a la pantalla indicada en el parametro.
+            if (cart.length !== 0) {
+                history.push('/carrito');
+                scrollToTop();
+            } else {
+                history.push('/');
+            }
         } 
         catch (error) {
             console.error(error);
