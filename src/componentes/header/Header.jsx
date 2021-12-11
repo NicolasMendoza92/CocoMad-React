@@ -43,7 +43,7 @@ export const Header = ({user, setSerch, cart}) => {
           <div className="h-50 d-flex flex-column justify-content-between align-items-center">
             <div className="my-5 text-center efecto-artesanal">
               { splitLocation[1] === "" && <h1> ALFAJORES ARGENTINOS 100% ARTESANOS </h1>}
-              { splitLocation[1] === "productos" && <h1> DE ARGENTINA A MADRID, PRUEBA NUEVOS SABORES </h1>}
+              { splitLocation[1] === "productos" && <h1> DE TUCUMAN A MADRID, PRUEBA NUEVOS SABORES </h1>}
               { splitLocation[1] === "nosotros" && <h1> CONOCE NUESTRA HISTORIA Y QUIENES SOMOS </h1>}
               { splitLocation[1] === "contacto" && <h1> VEN A VISITARNOS!! </h1>}
             </div>
