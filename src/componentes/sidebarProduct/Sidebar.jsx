@@ -49,10 +49,10 @@ export const Sidebar = ({setSelectCategory, selectCategory, onselectCat, onselec
                 <div className="d-flex flex-column">
                     <label className="m-2"> <b>Precio</b></label>
                     <select onChange={filtrarPrecio} className="form-select" >
-                        <option value="20">Hasta $20</option>
-                        <option value="30">Hasta $30</option>
-                        <option value="40">Hasta $40</option>
-                        <option value="60">Hasta $60</option>
+                        <option value="10">Hasta $10</option>
+                        <option value="15">Hasta $15</option>
+                        <option value="25">Hasta $25</option>
+                        <option value="35">Hasta $35</option>
                     </select>
                 </div>
                 <div>
