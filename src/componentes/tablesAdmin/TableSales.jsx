@@ -7,7 +7,7 @@ import { VscSearch } from 'react-icons/vsc';
 import swal from 'sweetalert';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
-import { ModalViewSale } from '../ventas/ModalViewSale';
+import { ModalViewSale } from '../adminComp/ModalViewSale';
 
 export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
 
@@ -24,6 +24,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
+        console.log(response.data)
     }
 
     const alertaBorrar = (_id) => {
@@ -63,7 +64,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
             const results = sales.filter((sale) => {
                 return sale.buyerData.buyerEmail.toLowerCase().includes(keyword.toLowerCase())
                     || sale.buyerData.registerBuy.toLowerCase().includes(keyword.toLowerCase())
-                    || sale.buyerShipping.buyerState.toLowerCase().includes(keyword.toLowerCase());
+                    || sale.buyerShipping.deliveryDate.toLowerCase().includes(keyword.toLowerCase());
             });
             setTableSales(results);
         } else {
@@ -99,7 +100,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                     <tr className="text-center " >
                         <th>Fecha</th>
                         <th>Cliente</th>
-                        <th>Provincia</th>
+                        <th>Entrega</th>
                         <th>Productos</th>
                         <th>Total</th>
                         <th colSpan="2">Actions</th>
@@ -116,7 +117,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                                 registerBuy
                             },
                             buyerShipping: {
-                                buyerState
+                                deliveryDate
                             },
                             productsList
 
@@ -124,7 +125,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                             <tr className="text-center " key={tab}>
                                 <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerEmail}</td>
-                                <td>{buyerState}</td>
+                                <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
                                 <td>{productsList.map(({ producto, quantity }, prod) => (
                                     <Table size="sm" key={prod}>
                                         <thead>

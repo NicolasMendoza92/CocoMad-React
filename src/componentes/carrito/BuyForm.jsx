@@ -16,7 +16,7 @@ export const BuyForm = ({ user, cart }) => {
     const [input, setInput] = useState({
         buyerEmail: user.email, buyerName: user.name, 
         buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '',
-         buyerState: '', buyerZip: '', buyerShippingInstructions: '', buyerCardNumber: '',
+         buyerState: '', buyerZip: '',deliveryDate:'', buyerShippingInstructions: '', buyerCardNumber: '',
           buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
     });
 
@@ -43,6 +43,7 @@ export const BuyForm = ({ user, cart }) => {
                     buyerCity: input.buyerCity,
                     buyerState: input.buyerState,
                     buyerZip: input.buyerZip,
+                    deliveryDate: input.deliveryDate,
                     buyerShippingIntructions: input.buyerShippingInstructions,
                 },
                 buyerCard: {
@@ -203,6 +204,21 @@ export const BuyForm = ({ user, cart }) => {
                     </Form.Control.Feedback>
                 </Form.Group>
             </Row>
+            <Form.Group className="mb-3" controlId="validationCustom02">
+                <h5 className="mt-2">Fecha de entrega</h5>
+                <Form.Text className="text-muted">
+                    Hace tu pedido con 48 horas de anticipacion
+                </Form.Text>
+                  <Form.Control
+                        type="date"
+                        name="deliveryDate"
+                        onChange={(e) => handleChange(e)}
+                        required
+                    />
+                <Form.Control.Feedback type="invalid">
+                    Debes pedir con 2 dias de anticipacion
+                </Form.Control.Feedback>
+            </Form.Group>
             <Form.Group className="mt-2 mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Instrucciones de entrega</Form.Label>
                 <Form.Control as="textarea"
