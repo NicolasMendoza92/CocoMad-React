@@ -5,19 +5,27 @@ import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
 
-
 export const BuyForm = ({ user, cart }) => {
+
     const tokenLocal = leerDeLocalStorage('token') || {};
-    
+
+    // Formula para editar el datepicker
+    const disablePastDate = () => {
+        const today = new Date();
+        const dd = String(today.getDate() + 3).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0");
+        const yyyy = today.getFullYear();
+        return yyyy + "-" + mm + "-" + dd;
+    };
 
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
 
     const [input, setInput] = useState({
-        buyerEmail: user.email, buyerName: user.name, 
+        buyerEmail: user.email, buyerName: user.name,
         buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '',
-         buyerState: '', buyerZip: '',deliveryDate:'', buyerShippingInstructions: '', buyerCardNumber: '',
-          buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
+        buyerState: '', buyerZip: '', deliveryDate: '', buyerShippingInstructions: '', buyerCardNumber: '',
+        buyerCardName: '', buyerCardDate: '', buyerCardCode: ''
     });
 
     const handleChange = (e) => {
@@ -35,7 +43,6 @@ export const BuyForm = ({ user, cart }) => {
                     buyerEmail: input.buyerEmail,
                     buyerName: input.buyerName,
                     buyerLastName: input.buyerLastName,
-                    buyerDate: input.buyerDate,
                 },
                 buyerShipping: {
                     buyerAddress1: input.buyerAddress1,
@@ -79,14 +86,14 @@ export const BuyForm = ({ user, cart }) => {
         if (setValidated === true) {
             e.target.reset();
         }
-        
+
     }
 
     const scrollToTop = () => {
         window.scrollTo(0, 150);
     };
 
-
+  
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -160,7 +167,7 @@ export const BuyForm = ({ user, cart }) => {
                         onChange={(e) => handleChange(e)}
                         maxLength="30"
                         required />
-                        
+
                 </FloatingLabel>
                 <Form.Control.Feedback type="invalid">
                     Dato Requerido
@@ -172,7 +179,7 @@ export const BuyForm = ({ user, cart }) => {
                         <Form.Control type="text"
                             name="buyerCity"
                             onChange={(e) => handleChange(e)}
-                        maxLength="35"
+                            maxLength="35"
                             required />
                     </FloatingLabel>
                     <Form.Control.Feedback type="invalid">
@@ -204,25 +211,28 @@ export const BuyForm = ({ user, cart }) => {
                     </Form.Control.Feedback>
                 </Form.Group>
             </Row>
+
             <Form.Group className="mb-3" controlId="validationCustom02">
                 <h5 className="mt-2">Fecha de entrega</h5>
                 <Form.Text className="text-muted">
-                    Hace tu pedido con 48 horas de anticipacion
+                    Haz tu pedido con 48 horas de anticipacion <b>¡Domingos No Entregamos!</b> 
                 </Form.Text>
-                  <Form.Control
-                        type="date"
-                        name="deliveryDate"
-                        onChange={(e) => handleChange(e)}
-                        required
-                    />
+                <Form.Control
+                    type="date"
+                    min={disablePastDate()}
+                    name="deliveryDate"
+                    onChange={(e) => handleChange(e)}
+                    required
+                />
                 <Form.Control.Feedback type="invalid">
                     Debes pedir con 2 dias de anticipacion
                 </Form.Control.Feedback>
             </Form.Group>
+
             <Form.Group className="mt-2 mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Instrucciones de entrega</Form.Label>
                 <Form.Control as="textarea"
-                     maxLength="80"
+                    maxLength="80"
                     name="buyerShippingInstructions"
                     onChange={(e) => handleChange(e)}
                     rows={3} />
@@ -252,8 +262,8 @@ export const BuyForm = ({ user, cart }) => {
                         <Form.Group className="mb-3" controlId="validationCustom08">
                             <FloatingLabel controlId="floatingCardName" label="Nombre Tarjeta">
                                 <Form.Control type="text"
-                                 maxLength="20"
-                                 name="buyerCardName"
+                                    maxLength="20"
+                                    name="buyerCardName"
                                     onChange={(e) => handleChange(e)}
                                     required />
                             </FloatingLabel>
@@ -270,7 +280,7 @@ export const BuyForm = ({ user, cart }) => {
                                         required />
                                 </FloatingLabel>
                                 <Form.Control.Feedback type="invalid">
-                                   Fecha de Vencimiento Necesaria 
+                                    Fecha de Vencimiento Necesaria
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} controlId="validationCustom10">
@@ -281,7 +291,7 @@ export const BuyForm = ({ user, cart }) => {
                                         required />
                                 </FloatingLabel>
                                 <Form.Control.Feedback type="invalid">
-                                   Fecha de Vencimiento Necesaria 
+                                    Fecha de Vencimiento Necesaria
                                 </Form.Control.Feedback>
                             </Form.Group>
                         </Row>
