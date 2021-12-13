@@ -45,7 +45,7 @@ export const FormLogin = ({requestUserData, cart}) => {
             if (cart.length !== 0) {
                 swal('Genial ' + name + ' estas listo para comprar');
             } else {
-                swal('Bienvenido al CocoMad ' + name);
+                swal('Bienvenido al Mundo CocoMad ' + name);
             }
             await requestUserData(); 
             //El push redirecciona a la pantalla indicada en el parametro.
