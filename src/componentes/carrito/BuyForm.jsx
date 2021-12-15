@@ -93,7 +93,7 @@ export const BuyForm = ({ user, cart }) => {
         window.scrollTo(0, 150);
     };
 
-  
+
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -215,7 +215,7 @@ export const BuyForm = ({ user, cart }) => {
             <Form.Group className="mb-3" controlId="validationCustom02">
                 <h5 className="mt-2">Fecha de entrega</h5>
                 <Form.Text className="text-muted">
-                    Haz tu pedido con 48 horas de anticipacion <b>¡Domingos No Entregamos!</b> 
+                    Haz tu pedido con 48 horas de anticipacion <b>¡Domingos No Entregamos!</b>
                 </Form.Text>
                 <Form.Control
                     type="date"
