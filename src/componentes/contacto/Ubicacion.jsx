@@ -1,19 +1,14 @@
-import Aos from 'aos'
-import "aos/dist/aos.css";
+
 import React from 'react'
-import { useEffect } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import "./ubicacion.css"
 
 export const Ubicacion = () => {
 
-    useEffect(() => {
-        Aos.init({ duration: 1500 });
-    }, [])
 
     return (
-        <div  data-aos="fade-up" className="apertura my-3 text-center">
+        <div className="apertura my-3 text-center">
             <h2>Ven a conocer nuestra Tienda</h2>
             <div className="d-flex align-items-center mb-2">
                 <p className="mb-0 ms-2"><b>Visitanos en:</b> Calle Evaristo San Miguel 9, Madrid, España</p>

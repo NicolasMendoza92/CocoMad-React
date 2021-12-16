@@ -133,15 +133,13 @@
  .link-nav-log-small:hover{
     color: rgb(86, 205, 235) !important;
     transform: scale(105%);
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
  }
  .link-active-log-small{
-    color: rgb(86, 205, 235) !important;
+    color: rosybrown !important;
     background-color: none;
     font-weight: bolder;
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 15px;
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    font-size: 18px;
     text-decoration: none;
  }
 
@@ -343,10 +341,10 @@ max-width: 100px;
     text-decoration: none;
 }
 .responsive-navbar-links li:hover  {
-    background-color: rgb(231, 229, 229); 
+    background-color: whitesmoke; 
 }
 .responsive-navbar-links li:hover a {
-    color: white !important; 
+    color: rgb(86, 205, 235) !important; 
     text-decoration: none;
 }
 
@@ -386,11 +384,7 @@ max-width: 100px;
 }
 .face-icon{
     color: #0d6efd;
-}.face-icon:hover{
-    color: #0d6efd;
 }
 .insta-icon{
-    color:#0d6efd;;
-}.insta-icon:hover{
-    color: #0d6efd;;
+    color:#a71d72;
 }

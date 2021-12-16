@@ -2,7 +2,7 @@ import React from 'react'
 import swal from 'sweetalert'
 import axios from 'axios';
 import { Card, Form } from 'react-bootstrap'
-import { FaFacebookSquare } from 'react-icons/fa'
+// import { FaFacebookSquare } from 'react-icons/fa'
 import { Link, NavLink, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { guardarEnLocalStorage } from '../../utils/localStorage';
@@ -19,9 +19,9 @@ export const FormLogin = ({requestUserData, cart}) => {
         window.scrollTo(0, 400);
     };
 
-    const errorLink = () => {
-        swal("Oops!", "Todavia no trabajamos en esto :(", "error");
-    }
+    // const errorLink = () => {
+    //     swal("Oops!", "Todavia no trabajamos en esto :(", "error");
+    // }
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -125,7 +125,7 @@ export const FormLogin = ({requestUserData, cart}) => {
                     <button type="submit" className="responsive-login-btn">Iniciar Sesion</button>
                 </Form>
                 <div className="d-flex flex-column">
-                    <button onClick={errorLink} type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button>
+                    {/* <button onClick={errorLink} type="submit" className="responsive-login-face"> <FaFacebookSquare className="mb-1" /> Iniciar sesión con facebook</button> */}
                     <div className="d-flex flex-column align-items-center justify-content-center crea-cuenta mt-2">
                         <p className="mb-1 text-black ">¿Aun no tienes cuenta?</p>
                         <Link as={NavLink} to="/register">Create una!</Link>
