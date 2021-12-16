@@ -1,47 +1,69 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import './footer.css';
 
-export default function Footer() {
+import { FaArrowUp, FaFacebookSquare, FaInstagramSquare, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import './footer.css';
+import { useLocation } from 'react-router';
+import { FooterAdmin } from './FooterAdmin';
+
+export const Footer = () => {
+
+    const location = useLocation();
+    const { pathname } = location;
+    const splitLocation = pathname.split("/");
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
-        <div className="container-fluid footer">
-            <div className="row text-center align-items-center">
-                <div className="col-12 col-lg-4 my-4">
-                    <div className="mb-2">
-                        <h5>SEGUINOS EN NUESTRAS REDES</h5>
-                        <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" target="blank"><i
-                            className="fab fa-facebook-square social-icon"></i></a>
-                        <a href="https://www.instagram.com/cocomadbakery/" target="blank"><i
-                            className="fab fa-instagram-square social-icon"></i></a>
+        <>
+            {splitLocation[1] !== "productList"
+                && splitLocation[1] !== "messageList"
+                && splitLocation[1] !== "userList"
+                && splitLocation[1] !== "saleList"
+                &&
+                <div className="mt-auto footer">
+                    <div className="row text-center justify-content-start links mx-3">
+                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                            <p>CONTACTO</p>
+                            <hr />
+                            <div className="my-2">
+                                <a href="https://wa.me/c/34635790277" target="blank"> <FaWhatsapp className="social-icon" /> </a>
+                                <a href="https://www.facebook.com/CocoMad-Bakery-825265017858105" target="blank" ><FaFacebookSquare className="social-icon" /> </a>
+                                <a href="https://www.instagram.com/cocomadbakery/" target="blank"> <FaInstagramSquare className="social-icon" /> </a>
+                            </div>
+                            <div className="subtitle-footer mb-2">
+                                <p>Busca nuestros productos en</p>
+                                <a href="https://toogoodtogo.es/es/">TooGoodToGo</a>
+                            </div>
+                        </div>
+                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                            <p>LINKS PARA NAVEGAR</p>
+                            <hr />
+                            <a href="/productos">PRODUCTOS</a>
+                            <a href="/nosotros">NOSOTROS</a>
+                            <a href="/contacto">CONTACTO</a>
+                        </div>
+                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                            <p>VISITANOS</p>
+                            <hr />
+                            <div className="d-flex flex-column align-items-start direccion">
+                                <p>Calle Evaristo San Miguel 9</p>
+                                <p>Madrid 28008</p>
+                                <p>España </p>
+                                <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" >Quiero Ir! <FaMapMarkerAlt /></a>
+                            </div>
+                        </div>
                     </div>
-                    <h5>RETIRA NUESTROS PRODUCTOS POR</h5>
-                    <div className="links mb-2">
-                        <a href="https://toogoodtogo.es/es/" target="blank" ><i class="fas fa-dolly"></i>TooGoodToGo</a>
+                    <div className="d-flex align-items-center justify-content-between botom-footer">
+                        <b>© 2019 CocoMad Bakery All rights reserved</b>
+                        <button onClick={scrollToTop} className="volverArriba mt-2 mx-2"> <FaArrowUp /> </button>
                     </div>
                 </div>
-                <div className="col-12 col-lg-4 my-4">
-                    <h5>CONCATENOS</h5>
-                    <div className="links mb-2">
-                        <a href="https://wa.me/c/34635790277" target="blank" ><i class="far fa-envelope"></i>cocomadbakery@gmail.com</a><br />
-                    </div>
-                    <h5>REALIZA TU PEDIDO POR WHATSAPP</h5>
-                    <div className="links mb-2">
-                        <a href="https://wa.me/c/34635790277" target="blank" ><i class="fab fa-whatsapp"></i>+34635790277</a>
-                    </div>
-                </div>
-                <div className="col-12 col-lg-4 my-4">
-                    <h5>NUESTRA TIENDA</h5>
-                    <div className="links">
-                        <p>Calle Evaristo San Miguel
-                            9 <br /> Madrid 28008 <br /> España</p> <br />
-                        <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" ><i class="fas fa-map-marker-alt"></i>
-                            ¡Quiero ir!</a>
-                    </div>
-                </div>
-            </div>
-            <div className="d-flex align-items-center justify-content-between">
-                <b>© 2019 CocoMad Bakery All rights reserved</b> <a href="#" target="blank" className="volverArriba mt-2"><i className="fas fa-chevron-circle-up"></i></a>
-            </div>
-        </div>
+            }
+            {splitLocation[1] === "productList" && <FooterAdmin />}
+            {splitLocation[1] === "messageList" && <FooterAdmin />}
+            {splitLocation[1] === "userList" && <FooterAdmin />}
+            {splitLocation[1] === "saleList" && <FooterAdmin />}
+        </>
     )
 }

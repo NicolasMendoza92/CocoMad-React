@@ -1,34 +1,390 @@
 .logo{
     font-size: 25px;
 }
-
-.navbar{
-   background:transparent;
-}
-.navbar-2 {
-   background-color: rgb(246, 181, 181);;
-}
-.barranav {
+.link-nav{
+    color: aliceblue;
     background-color: none;
-    color: whitesmoke;
     font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
+   .link-nav:hover {
+      color: rgb(86, 205, 235) !important;
+      transform: scale(105%);
+      text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
  }
+
+ .link-nav-log {
+    color: aliceblue;
+    background-color: none;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
  
- .link-nav{
-    font-size: 25px;
-    color: whitesmoke !important;
+ .link-nav-log:hover{
+    color: rgb(86, 205, 235) !important;
+    transform: scale(105%);
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+ }
+ .link-active-log{
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: 600;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
     text-decoration: none;
  }
- 
- .link-nav:hover {
-    color: rgb(146, 210, 226) !important;
+
+ .link-active{
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: 900;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 25px;
     text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-    transition-duration: 0.3s;
+    text-decoration: none;
  }
 
- .link-nav:active {
-    background-color: none;
-    color: rgb(146, 210, 226) !important;
-    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
-  }
+ .navbar-links li {
+    list-style: none;
+    position: relative;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+}
 
+ .navbar-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white !important;
+}
+
+.navbar-user {
+    font-size: 18px;
+    margin: 0 0.3rem;
+    font-family: 'Julius Sans One', sans-serif;
+    z-index: 1020;
+}
+.navbar-user .nav-link {
+    color: white ;
+}
+
+ /* NAVBAR POSTITIONS */
+.contenedor {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .logo-container a {
+        text-align: center;
+    } 
+    .link-nav{
+        color: aliceblue;
+        background-color: none;
+        font-family: 'Julius Sans One', sans-serif;
+        font-size: 30px;
+        padding: 5px;
+        text-decoration: none;
+        transition-duration: 0.3s;
+       }
+ }
+
+ /* NAVBAR SMALL */
+ .link-nav-small{
+    color: rosybrown;
+    font-weight: bolder;
+    background-color: none;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
+   .link-nav-small:hover {
+      color: rgb(86, 205, 235) !important;
+      transform: scale(105%);
+      font-weight: bolder;
+      text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+ }
+
+ .link-nav-log-small {
+    color: rosybrown;
+    background-color: none;
+    font-weight: bolder;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+   }
+ 
+ .link-nav-log-small:hover{
+    color: rgb(86, 205, 235) !important;
+    transform: scale(105%);
+ }
+ .link-active-log-small{
+    color: rosybrown !important;
+    background-color: none;
+    font-weight: bolder;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+ }
+
+ .link-active-small{
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: bolder;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 25px;
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    text-decoration: none;
+ }
+
+ .navbar-links-small li {
+    list-style: none;
+    position: relative;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+}
+
+ .navbar-button-small {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: rosybrown !important;
+}
+
+.navbar-user-small {
+    font-size: 18px;
+    font-weight: bolder;
+    margin: 0 0.3rem;
+    font-family: 'Julius Sans One', sans-serif;
+    z-index: 1020;
+}
+.navbar-user-small .nav-link-small {
+    color: rosybrown ;
+    font-weight: bolder;
+}
+
+ /* NAVBAR POSTITIONS */
+.contenedor-small {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .logo-container-small {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .logo-container-small a {
+        text-align: center;
+    } 
+    .link-nav-small{
+        color: rosybrown;
+        background-color: none;
+        font-family: 'Julius Sans One', sans-serif;
+        font-size: 30px;
+        padding: 5px;
+        text-decoration: none;
+        transition-duration: 0.3s;
+       }
+ }
+
+ /*burbuja de producto en carrito  */
+ .swym-header--count {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+    color: rgb(86, 205, 235);
+    font-size: 13px;
+    font-weight: 800;
+    height: 1.3em;
+    min-width: 1.3em;
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+    z-index: 0;
+}
+.swym-header--count-small {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-color: rgb(86, 205, 235);
+    border-radius: 50%;
+    color: rosybrown;
+    font-size: 13px;
+    font-weight: 800;
+    height: 1.3em;
+    min-width: 1.3em;
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+    z-index: 0;
+}
+
+
+ /* cambio de imagen logo en cel */
+ @media only screen and (max-width: 768px){
+     #main-img{
+        content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210952/cocoMAD/cocomad_logo_blanco_1_qxhyqg.png);
+     }
+ }
+
+  /* cambio de imagen logo en cel nav Small */
+  @media only screen and (max-width: 768px){
+    #main-img-small{
+       content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210957/cocoMAD/cocomad_logo_rose_1_jkbvbz.png);
+    }
+}
+
+.nav-logo-desktop{
+max-width: 100px;
+
+}
+.login-register {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+
+/* estilos del buscador  */
+.search-form {
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    .search-form {
+        width: 100%;
+    }
+}
+.search-input {
+    border:0 !important;
+    border-radius: 0 1rem 1rem 0;
+    cursor: pointer;
+}
+.search-input:focus {
+    outline: none;
+}
+.search-icon {
+    border: 0 !important;
+    border-radius: 1rem 0 0 1rem;
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgb(86, 205, 235);
+    text-align: center;
+    white-space: nowrap;
+    background-color: white;
+}
+
+/* estilo de la navbar movile  */
+
+.logo-container-responsive {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+}
+
+.responsive-navbar {
+    font-family: "Montserrat", sans-serif;
+    border: none;
+}
+.responsive-navbar-header {
+    background-color: whitesmoke !important;
+}
+
+.responsive-navbar-links {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgb(86, 205, 235);
+    margin-bottom: 2rem;
+
+}
+.responsive-navbar-links li {
+    list-style: none;
+    border-bottom: 1px solid rgb(86, 205, 235);
+    transition: all 0.5s;
+
+}
+.responsive-navbar-links li a {
+    color: rgb(86, 205, 235) !important;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+.responsive-navbar-links li:hover  {
+    background-color: whitesmoke; 
+}
+.responsive-navbar-links li:hover a {
+    color: rgb(86, 205, 235) !important; 
+    text-decoration: none;
+}
+
+.link-active-cel {
+    color: rgb(86, 205, 235);
+    background-color: none;
+    font-weight: 800;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+ }
+
+.bienvenido-user{
+    color:rgb(86, 205, 235);
+    font-size: 20px;
+}
+
+
+
+/* sector redes */
+.navbar-responsive-redes {
+    color: black;
+}
+.navbar-responsive-subtitle {
+    color: rgb(86, 205, 235) !important;
+    text-align: center;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 25px;
+    list-style: none;
+}
+.navbar-responsive-icons-container li{
+    text-align: center;
+    font-size: 30px;
+    list-style: none;
+}
+.face-icon{
+    color: #0d6efd;
+}
+.insta-icon{
+    color:#a71d72;
+}

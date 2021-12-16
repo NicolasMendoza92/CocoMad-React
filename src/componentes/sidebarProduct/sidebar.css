@@ -1,0 +1,23 @@
+.sidebar{
+    font-family: 'Julius Sans One', sans-serif;
+}
+.boton-buscador {
+    background: none;
+    color: rgb(146, 210, 226);
+    border-color: rgb(146, 210, 226);
+    border-radius: 0.25rem;
+    font-size: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
+ }
+ 
+ .boton-buscador:hover {
+    background: rgb(146, 210, 226);
+    text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+    transition-duration: 0.5s;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    border-radius: 0.25rem;
+    font-size: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+ }

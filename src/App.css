@@ -1,31 +1,315 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 .footer-fix {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.page {
+
+/* estilo de pag producto */
+
+.cart-side-btn {
+  background-color: none !important;
+  border: none;
+  right: 0;
+  top: 70%;
+  position: fixed;
+  border-top-left-radius: 70px;
+  border-bottom-left-radius: 70px;
+  border: 2px solid rgb(204, 204, 204) !important;
+  z-index: 5;
+}
+.cart-side-icon{
+  color: rgb(204, 204, 204);
+  font-size: 1.3rem;
+}
+.cart-side-icon-add{
+  color: rgb(86, 205, 235);
+  font-size: 1.3rem;
+}
+
+.swym-header-count-shop {
+  display: flex;
+  align-items: end;
+  position: relative;
+  justify-content: center;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  color: rgb(86, 205, 235);
+  font-size: 12px;
+  font-weight: 800;
+  height: 1.3em;
+  min-width: 1.3em;
   position: absolute;
-  left: 15px;
-  right: 15px;
+  right: 30px;
+  bottom: -5px;
+  z-index: 0;
 }
 
-.page-enter {
-  opacity: 0;
-  z-index: 1;
+/* estilos del buscador  */
+.search-product {
+  width: 50%;
+}
+@media screen and (max-width: 996px) {
+  .search-product {
+      width: 100%;
+  }
+}
+.search-input-product {
+  border:1px solid rosybrown;
+  border-radius: 0 1rem 1rem 0;
+  cursor: pointer;
+}
+.search-input-product:focus {
+  outline: none;
+}
+.search-icon-product {
+  border: 1px solid rosybrown;
+  border-radius: 1rem 0 0 1rem;
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(86, 205, 235);
+  text-align: center;
+  white-space: nowrap;
+  background-color: white;
 }
 
-.page-enter-active {
-  opacity: 1;
-  transition: opacity 350ms linear 150ms;
+/* estilo de pag register */
+
+.container-register {
+  background-image: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637253794/cocoMAD/coco_logo_t6ln4i.jpg);
+  background-size: cover;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  color: whitesmoke;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
-.page-exit {
-  opacity: 1;
+.form-register {
+  font-family: 'Julius Sans One', sans-serif;
 }
 
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 250ms linear;
+/* estilo de login */
+
+.form-login {
+  color: rgb(146, 210, 226);
+  font-family: 'Julius Sans One', sans-serif;
+  border: solid rgb(146, 210, 226);
+}
+.card-login-form{
+  border: solid 1px rgb(146, 210, 226);
 }
 
+.responsive-login-btn {
+  background-color: rgb(146, 210, 226);
+  color: white;
+  border: 1px solid whitesmoke;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+}
+
+.responsive-login-btn:hover {
+  background-color: whitesmoke;
+  color: rosybrown;
+  border: 1px solid rgb(146, 210, 226);
+}
+
+.responsive-login-face {
+  background-color: #3b5998;
+  color: white;
+  border: 1px solid #3b5998;
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 5px;
+  transition: all 0.5s;
+}
+
+.responsive-login-face:hover {
+  background-color: white;
+  color: #3b5998;
+}
+.responsive-login-whatsapp{
+  color:#25d366;
+  font-size: 2.5rem;
+}
+
+.tarjeta-login{
+  border: solid 1px rgb(146, 210, 226);
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.crea-cuenta a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-top: 0%;
+}
+
+.crea-cuenta a:hover {
+  color: rgb(146, 210, 226);
+  font-weight: 900;
+}
+
+
+/* Estilo de pag home  */
+.tarjetas {
+  background-size: cover !important;
+  overflow: hidden;
+  width: 100%;
+  height: 8rem;
+  border: none;
+  padding: 2rem;
+  background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
+  font-family: 'Julius Sans One', sans-serif;
+  margin-bottom: 2rem;
+}
+
+.tarjetas h3{
+  font-weight: bold;
+}
+
+.tarjetas p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 766px) {
+  .tarjetas p {
+    font-size: 12px;
+  }
+}
+
+/* estilo pag contacto */
+
+.form-contacto {
+  font-family: 'Julius Sans One', sans-serif;
+  color: rgb(146, 210, 226);
+  font-weight: 600;
+}
+
+.text-format {
+  padding: 3rem;
+  font-family: 'Julius Sans One', sans-serif;
+  text-align: center;
+}
+
+.text-format h1 {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 50px;
+}
+
+.text-format h5 {
+  text-align: justify;
+}
+
+.text-format p {
+  text-align: justify;
+}
+
+
+/* ESTILOS GENERALES */
+.boton-artesanal {
+  background: none;
+  padding: 10px;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 25px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+
+.boton-artesanal:hover {
+  background: rgb(146, 210, 226);
+  text-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+  transition-duration: 0.5s;
+  padding: 10px;
+  color: rosybrown;
+  border-color: rgb(146, 210, 226);
+  border-radius: 0.25rem;
+  font-size: 25px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.boton-artesanal-cel {
+  background: rgb(146, 210, 226);
+  padding: 5px;
+  color: whitesmoke;
+  border-color: rgb(146, 210, 226);
+  border-radius: 0.25rem;
+  font-size: 15px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+
+.boton-artesanal-cel:hover {
+  background: whitesmoke;
+  transition-duration: 0.5s;
+  padding: 5px;
+  color: rosybrown;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 15px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+/* spinner */
+.spinner-style {
+  position: fixed;
+  top: 50%;
+  right: 48%;
+  z-index: 2;
+  color: rgb(146, 210, 226) !important;
+}
+
+.spinner-style .spinner-border {
+  width: 4rem;
+  height: 4rem;
+}
+
+.boton-down {
+  border: none;
+  background: none;
+}
+
+.circleArrow {
+  border: none;
+  color: whitesmoke;
+  font-size: 3rem;
+  padding: 0;
+  transition: 0.4s;
+  cursor: pointer;
+  border-radius: 2rem;
+}
+
+.circleArrow:hover {
+  color: rgb(146, 210, 226);
+  box-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
+}
+.btn-config{
+  background:grey;
+
+}
+.btn-config:hover{
+  background:whitesmoke;
+
+}
+
+.no-result-card{
+  border: 0.8px solid  rosybrown !important ;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bolder;
+}

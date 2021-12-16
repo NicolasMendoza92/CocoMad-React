@@ -1,0 +1,71 @@
+.details-product-bg {
+    height: 65vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0;
+}
+.columna-detalle{
+    align-self: center;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background-color: #232b3a88;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    margin-left: 1rem;
+}
+.product-name{
+    font-family:'Julius Sans One', sans-serif;
+    font-size: 1.5rem;
+    border-bottom: 3px solid rgb(146, 210, 226);
+    display: inline-block;
+    color:white;
+}
+.product-description{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    padding: 1rem;
+    font-weight: bold;
+    line-height: 50px;
+    color:white;
+    border-bottom: 3px solid rgb(146, 210, 226);
+}
+.product-price{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color:white;
+    font-weight: bold;
+    line-height: 1rem;
+}
+.add-cart-btn-detail {
+    background: rgb(146, 210, 226);
+    color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
+  }
+  .add-cart-btn-detail:hover {
+    background: white;
+    color: rgb(146, 210, 226);
+    border-color: rgb(146, 210, 226);
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
+  }
+  
+  .added-cart-btn-detail {
+    background: whitesmoke;
+    color: rgb(146, 210, 226);
+    border-color: rgb(146, 210, 226);
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+  
+  }
+
+  .glass-card {
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background-color: #232b3a88;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+  }

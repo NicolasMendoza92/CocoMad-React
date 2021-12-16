@@ -1,0 +1,19 @@
+.about{
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.listas-desordenadas{
+    text-decoration: none;
+    list-style: none;
+}
+
+.img-carrousel{
+    max-width: 800px;
+}
+
+ 
+@media only screen and (max-width: 1400px) {
+    .img-carrousel {
+       max-height: 600px;
+    }
+ }

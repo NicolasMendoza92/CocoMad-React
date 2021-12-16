@@ -1,0 +1,36 @@
+.card-profile {
+    margin: 2.5rem auto;
+    text-align: center;
+    border: 2px solid rgb(146, 210, 226);
+    max-width: 50rem;
+    height: auto;
+    font-family: 'Julius Sans One', sans-serif;
+  }
+  @media only screen and (max-width: 768px) {
+    .card-profile {
+      min-width: 20rem;
+    }
+  }
+  .img-avatar {
+    border-radius: 15rem;
+    width: 18rem;
+    height: auto;
+  }
+  .btn-edit {
+    border-radius: 0.3rem;
+    color: black;
+    background: rgb(146, 210, 226);
+    padding: 1px 6px;
+  }
+  .btn-edit:hover {
+    background: rosybrown;
+    color: black;
+  }
+  
+  .card-body-container {
+    width: 20rem;
+  }
+  
+  .label-change-avatar{
+    width: 3rem !important;
+  }
