@@ -3,20 +3,20 @@ import { ListGroup, ListGroupItem, Modal, Table } from 'react-bootstrap'
 
 export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
 
-    const { buyerData, buyerShipping, productsList } = saleFind;
+    const { buyerData, buyerShipping, productsList, buyerCard } = saleFind;
 
     const subTotal = productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0);
 
     const mapProductsList = productsList.map(({ producto, quantity }, prodList) => (
         <Table size="sm" key={prodList} >
-        <thead>
-            <tr className="row">
-                <td className="col-6">{producto.name}</td>
-                <td className="col-3">{quantity} u</td>
-                <td className="col-3">${producto.price}</td>
-            </tr>
-        </thead>
-    </Table>
+            <thead>
+                <tr className="row">
+                    <td className="col-6">{producto.name}</td>
+                    <td className="col-3">{quantity} u</td>
+                    <td className="col-3">${producto.price}</td>
+                </tr>
+            </thead>
+        </Table>
     ))
 
     return (
@@ -38,6 +38,14 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
                         </ListGroup>
                         <hr />
                         <h5> <u>Datos de envio</u> </h5>
+                        {buyerShipping.pickUp === "si" &&
+                            <ListGroup className="list-group-flush text-start">
+                                <ListGroupItem>El cliente retira del local</ListGroupItem>
+                            </ListGroup>
+                        }
+                        <ListGroup className="list-group-flush text-start">
+                            <ListGroupItem>Metodo de Pago:  {buyerCard.payMethod}</ListGroupItem>
+                        </ListGroup>
                         <ListGroup className="list-group-flush text-start">
                             <ListGroupItem>Dirección: {buyerShipping.buyerAddress1} {buyerShipping.buyerAddress2}</ListGroupItem>
                             <ListGroupItem>Ciudad: {buyerShipping.buyerCity}</ListGroupItem>

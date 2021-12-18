@@ -29,7 +29,7 @@ const DetailsProduct = ({products, cart, setCart}) => {
                 <ProductDetail product={product} cart={cart} setCart={setCart}  />
             </div>
             <div className="mt-5 text-center">
-            <SliderProducts products={products} />
+            <SliderProducts/>
             </div>
         </>
     );
