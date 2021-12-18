@@ -12,7 +12,7 @@ import { ModalViewSale } from '../adminComp/ModalViewSale';
 export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [saleFind, setSaleFind] = useState({buyerData: {}, buyerShipping:{}, productsList:[]});
+    const [saleFind, setSaleFind] = useState({buyerData: {}, buyerShipping:{}, buyerCard:{}, productsList:[]});
     const [showModalViewSale, setShowModalViewSale] = useState(false);
 
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
@@ -61,14 +61,13 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
     const filter = (e) => {
         const keyword = e.target.value;
         if (keyword !== '') {
-            const results = sales.filter((sale) => {
-                return sale.buyerData.buyerEmail.toLowerCase().includes(keyword.toLowerCase())
-                    || sale.buyerData.registerBuy.toLowerCase().includes(keyword.toLowerCase())
-                    || sale.buyerShipping.deliveryDate.toLowerCase().includes(keyword.toLowerCase());
+            const results = tableSales.filter((sale) => {
+                return sale.buyerData.buyerEmail.includes(keyword.toLowerCase())
+                    || sale.buyerShipping.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
             });
             setTableSales(results);
         } else {
-            setTableSales(sales);
+            setTableSales(tableSales);
         }
         setBusqueda(keyword);
     };
@@ -100,6 +99,8 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                     <tr className="text-center " >
                         <th>Fecha</th>
                         <th>Cliente</th>
+                        <th>Retira</th>
+                        <th>Pago</th>
                         <th>Entrega</th>
                         <th>Productos</th>
                         <th>Total</th>
@@ -117,7 +118,11 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                                 registerBuy
                             },
                             buyerShipping: {
-                                deliveryDate
+                                deliveryDate,
+                                pickUp
+                            },
+                            buyerCard: {
+                                payMethod,
                             },
                             productsList
 
@@ -125,6 +130,8 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                             <tr className="text-center " key={tab}>
                                 <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerEmail}</td>
+                                <td>{pickUp}</td>
+                                <td>{payMethod}</td>
                                 <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
                                 <td>{productsList.map(({ producto, quantity }, prod) => (
                                     <Table size="sm" key={prod}>
