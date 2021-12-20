@@ -1,67 +1,47 @@
 import React from 'react'
-import { Button, Card, Container } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
+import ReactCardCarousel from 'react-card-carousel';
+import './sliderProducts.css';
 
-
-export function SliderProducts({ products }) {
-
+export function SliderProducts() {
 
   return (
     <>
-      <h3 className="text-center masVendidos">Más vendidos</h3>
-      <Container className='d-flex'>
-          <div>
-          <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/cheesCake_banana_jyqeac.png" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
+      <h3 className="text-center mas-vendidos">LOS PREFERIDOS DE LA CLIENTELA</h3>
+      <div className='slider-products'>
+        <ReactCardCarousel autoplay={true} autoplay_speed={3500}>
+          <div className='card-slider' >
+            <Card.Img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/alfajor_de_coco_qoidxm.png" alt="Card image" />
+            <Card.ImgOverlay>
+              <p>ALFAJORES DE COCO</p>
+            </Card.ImgOverlay>
           </div>
-          <div>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
+          <div className='card-slider' >
+            <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/cheesCake_banana_jyqeac.png" />
+            <Card.ImgOverlay>
+              <p>CHEESE CAKE BANANA</p>
+            </Card.ImgOverlay>
           </div>
-          <div>
-          <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/cheesCake_FR_dihxuf.png" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-            </div>
-          <div>
-          <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/alfajor_de_coco_qoidxm.png" />
-              <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of
-                  the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-            </div>
-      </Container>
+          <div className='card-slider' >
+            <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/alfajor_maizena_aksv2o.png" />
+            <Card.ImgOverlay>
+              <p>ALFAJOR DE MAIZENA</p>
+            </Card.ImgOverlay>
+          </div>
+          <div className='card-slider'>
+            <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/cheesCake_FR_dihxuf.png" />
+            <Card.ImgOverlay>
+              <p>CHEESE CAKE FRUTOS ROJOS</p>
+            </Card.ImgOverlay>
+          </div>
+          <div className='card-slider'>
+            <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/cheesCake_coco_xtinwt.png" />
+            <Card.ImgOverlay>
+              <p>CHEESE CAKE COCO</p>
+            </Card.ImgOverlay>
+          </div>
+        </ReactCardCarousel>
+      </div>
     </>
   );
 }

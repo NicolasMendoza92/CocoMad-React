@@ -1,0 +1,60 @@
+.mas-vendidos {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.slider-products {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-slider {
+    height: 400px;
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+    background: none;
+    color: black;
+}
+.card-slider p {
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background-color: #232b3a88;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    position: relative;
+    color: whitesmoke;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 766px) {
+    .card-slider {
+        height: 250px;
+        width: 250px;
+        padding: 5px;
+        text-align: center;
+        background: none;
+        color: black;
+    }
+    .card-slider p {
+        backdrop-filter: blur(10px) saturate(180%);
+        -webkit-backdrop-filter: blur(10px) saturate(180%);
+        background-color: #232b3a88;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        position: relative;
+        color: whitesmoke;
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.glass-card-slider {
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background-color: #232b3a88;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}

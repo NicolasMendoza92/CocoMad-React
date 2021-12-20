@@ -3,7 +3,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 export const PaginationStore = ({totalPages = 0, setCurrentPage, currentPage = 1}) => {
   const scrollToTop = () => {
-    window.scrollTo(0, 250);
+    window.scrollTo(0, 550);
   };
     const handleSetPage = (n) => {
       scrollToTop();
