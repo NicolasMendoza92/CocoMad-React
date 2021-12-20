@@ -1,0 +1,53 @@
+.slider {
+    width: 100%;
+overflow: scroll;
+}
+
+
+
+
+.comentarios-estilo {
+    background-image: url(https://cdn.shopify.com/s/files/1/1504/5726/files/bg-homepage-reviews_2000x.png?v=1601260536);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+
+}
+
+
+.card-tamaño {
+    width: 22rem !important;
+    margin-bottom: 2rem;
+    background: rgb(255, 255, 255, 0) !important;
+}
+
+.card-comentarios {
+    background: rgb(255, 255, 255, 0);
+    border: none;
+}
+
+.card-comentarios h3 {
+    font-size: 1.875rem;
+    font-style: italic;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.descripcion-comentarios {
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 1rem;
+}
+
+.descripcion-nombre {
+    font-size: 700;
+    font-weight: bold;
+    color: #212529;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-size: 1rem;
+    line-height: 1.5;
+}

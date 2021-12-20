@@ -5,7 +5,43 @@ import { CarouselHome } from '../componentes/carousel/CarouselHome';
 
 import { CardsHome } from '../componentes/cards-home/CardsHome';
 
-
+let sliderMensajes = [
+    {
+      id: "1",
+      titulo: "Servicio excepcional",
+      descripcion:
+        "Tenían el vino que quería a un precio excelente y me lo entregaron rápidamente y sin problemas, ¿qué más se puede pedir?",
+      nombre: "Alvaro, AR",
+    },
+    {
+      id: "2",
+      titulo: "Servicio Fantástico",
+      descripcion:
+        "La experiencia fue excelente. El pedido se realizó sin problemas y el artículo se entregó bien empaquetado, a tiempo, como se describe y en excelentes condiciones. La experiencia del sitio web también fue buena.",
+      nombre: "Rodrigo, AR",
+    },
+    {
+      id: "3",
+      titulo: "Gran valor, vinos maravillosos",
+      descripcion:
+        "Estoy muy contento con todas las compras de TWC hasta la fecha. Hay una gran selección, precios razonables que ofrecen una excelente relación calidad-precio. ¡El proceso de pago es fácil y la entrega siempre es bastante rápida! Cliente muy feliz",
+      nombre: "Nicolas, ES",
+    },
+    {
+      id: "4",
+      titulo: "Gran valor, vinos maravillosos",
+      descripcion:
+        "Estoy muy contento con todas las compras de TWC hasta la fecha. Hay una gran selección, precios razonables que ofrecen una excelente relación calidad-precio. ¡El proceso de pago es fácil y la entrega siempre es bastante rápida! Cliente muy feliz",
+      nombre: "Nicolas, ES",
+    },
+    {
+      id: "5",
+      titulo: "Gran valor, vinos maravillosos",
+      descripcion:
+        "Estoy muy contento con todas las compras de TWC hasta la fecha. Hay una gran selección, precios razonables que ofrecen una excelente relación calidad-precio. ¡El proceso de pago es fácil y la entrega siempre es bastante rápida! Cliente muy feliz",
+      nombre: "Nicolas, ES",
+    },
+  ];
 
 const cardsHome = [
     {
@@ -35,13 +71,8 @@ export default function Home() {
             </div>
             <Container>
                 <CardsHome cardsHome={cardsHome} />
-                <div className="row gx-3 gy-2 p-4 mb-4">
-                    <div className="col-12 col-lg-6 p-3">
-                        <CarouselHome />
-                    </div>
-                    <div className="col-12 col-lg-6 d-flex align-items-center inscribite">
-
-                    </div>
+                <div className="p-4 mb-4">
+                        <CarouselHome sliderMensajes={sliderMensajes} />   
                 </div>
             </Container>
         </>
