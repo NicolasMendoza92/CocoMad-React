@@ -1,7 +1,7 @@
 import "./carouselHome.css"
 
-import { Card, Carousel, Col, Container, Row } from "react-bootstrap";
-
+import { Card } from "react-bootstrap";
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 
 export const CarouselHome = ({ sliderMensajes }) => {
@@ -31,15 +31,24 @@ export const CarouselHome = ({ sliderMensajes }) => {
         </div>
     ));
 
+    const sliderLeft =() =>{
+        const slider = document.getElementById("slider");
+        slider.scrollLeft = slider.scrollLeft - 500;
+    }
+    const sliderRight =() =>{
+        const slider = document.getElementById("slider");
+        slider.scrollLeft = slider.scrollLeft + 500;
+    }
+
     return (
         <>
-            <h3 className="text-center ">
-                Vea lo que han dicho nuestros clientes en Octubre
-            </h3>
-            <div className="d-flex  slider" >
-                {mapSliderMensajes}
+            <div id="main-slider-container" className="slider-container">
+                <FaAngleLeft className="slider-left-icon" onClick={sliderLeft}/>
+                <div id="slider" className="slider" >
+                    {mapSliderMensajes}
+                </div>
+                <FaAngleRight className="slider-right-icon"onClick={sliderRight} />
             </div>
-
         </>
     );
 };

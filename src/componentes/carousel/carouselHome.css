@@ -1,20 +1,71 @@
-.slider {
+#main-slider-container{
+    position: relative;
+    display: flex;
+    align-items: center;
     width: 100%;
-overflow: scroll;
 }
 
-
-
-
-.comentarios-estilo {
-    background-image: url(https://cdn.shopify.com/s/files/1/1504/5726/files/bg-homepage-reviews_2000x.png?v=1601260536);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: auto;
-
+#slider {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
+#slider::-webkit-scrollbar{
+    display: none;
+}
+
+.slider-right-icon {
+    background: rosybrown;
+    position: absolute;
+    border-radius: 100%;
+    font-size: 40px;
+    opacity: 0.5;
+}
+.slider-left-icon {
+    z-index: 1;
+    font-size: 40px;
+    background: rosybrown;
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 766px) {
+    .slider-right-icon {
+        background: rosybrown;
+        position: absolute;
+        border-radius: 100%;
+        opacity: 0.5;
+        font-size: 25px;
+    }
+    .slider-left-icon {
+        z-index: 1;
+        background: rosybrown;
+        position: absolute;
+        border-radius: 100%;
+        opacity: 0.5;
+        font-size: 25px;
+    }
+  }
+
+.slider-right-icon {
+    right: 0;
+}
+.slider-left-icon {
+    left:0;
+}
+
+.slider-right-icon:hover {
+    opacity: 1;
+    cursor:pointer;
+}
+
+.slider-left-icon:hover {
+    opacity: 1;
+    cursor:pointer;
+}
 
 .card-tamaño {
     width: 22rem !important;
@@ -23,7 +74,6 @@ overflow: scroll;
 }
 
 .card-comentarios {
-    background: rgb(255, 255, 255, 0);
     border: none;
 }
 
@@ -35,10 +85,9 @@ overflow: scroll;
 }
 
 .descripcion-comentarios {
-    font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
-        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1rem;
+    color: rgb(109, 107, 107) !important;
 }
 
 .descripcion-nombre {

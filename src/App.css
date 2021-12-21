@@ -174,10 +174,9 @@ body {
   padding: 2rem;
   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
   font-family: 'Julius Sans One', sans-serif;
-  margin-bottom: 2rem;
 }
 
-.tarjetas h3{
+.tarjetas h4{
   font-weight: bold;
 }
 
