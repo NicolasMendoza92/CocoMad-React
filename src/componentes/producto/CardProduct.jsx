@@ -41,7 +41,7 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
                         {product.name}
                     </p>
                     <p className="price-product text-center">
-                        $ {product.price}
+                         {product.price} €
                     </p>
                 </Card.Body>
             </Card>

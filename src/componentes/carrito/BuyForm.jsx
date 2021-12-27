@@ -1,17 +1,19 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import swal from 'sweetalert'
 import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
+import { ZipCode } from './ZipCode'
 
-export const BuyForm = ({ user, cart }) => {
+export const BuyForm = ({ user, cart, setEnvio }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
+
 
     // Formula para editar el datepicker
     const disablePastDate = () => {
@@ -21,6 +23,7 @@ export const BuyForm = ({ user, cart }) => {
         const yyyy = today.getFullYear();
         return yyyy + "-" + mm + "-" + dd;
     };
+
 
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
@@ -37,8 +40,8 @@ export const BuyForm = ({ user, cart }) => {
         const newInput = { ...input, [name]: value };
         if (newInput.pickUp === "si") {
             setPickUpLocal("si");
-        } else {
-            setPickUpLocal("no")
+        } else if(newInput.pickUp === "no") {
+            setPickUpLocal("no");
         }
         if (newInput.payMethod === "tarjeta") {
             setPayment("tarjeta")
@@ -52,6 +55,8 @@ export const BuyForm = ({ user, cart }) => {
         }
         setInput(newInput);
     }
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -113,7 +118,6 @@ export const BuyForm = ({ user, cart }) => {
     const scrollToTop = () => {
         window.scrollTo(0, 150);
     };
-
 
 
     return (
@@ -182,6 +186,7 @@ export const BuyForm = ({ user, cart }) => {
 
             {pickUpLocal === "no" &&
                 <div>
+                    <ZipCode setEnvio={setEnvio} />
                     <h5 className="mt-2">Dirección de envio</h5>
                     <Form.Group className="mb-3" controlId="validationCustom05">
                         <FloatingLabel controlId="floatingAddress1" label="Dirección...">
@@ -236,7 +241,7 @@ export const BuyForm = ({ user, cart }) => {
                         <Form.Group as={Col} controlId="formGridZip">
                             <FloatingLabel controlId="floatingZip" label="Codigo Postal">
                                 <Form.Control type="text"
-                                    maxLength="8"
+                                    maxLength="5"
                                     name="buyerZip"
                                     onChange={(e) => handleChange(e)}
                                     required />
@@ -418,6 +423,7 @@ export const BuyForm = ({ user, cart }) => {
                                         <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                                         <option value="efectivo">Pagare el dia del retiro</option>
                                         <option value="bizum">Bizum Ahora</option>
+                                        <option value="transferencia">Transferencia Ahora</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "efectivo" &&
@@ -430,6 +436,16 @@ export const BuyForm = ({ user, cart }) => {
                                 {payment === "bizum" &&
                                     <div>
                                         <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b> </h5>
+                                        <p> Puedes enviarnos un mensaje si deseas
+                                            <a href="https://wa.me/c/34635790277" target="blank" >
+                                                <FaWhatsappSquare className="wap-icon" />
+                                            </a>
+                                        </p>
+                                    </div>
+                                }
+                                {payment === "transferencia" &&
+                                    <div>
+                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN <b>XXXXX</b></h5>
                                         <p> Puedes enviarnos un mensaje si deseas
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
