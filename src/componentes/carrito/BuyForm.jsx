@@ -38,11 +38,6 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        if (newInput.pickUp === "si") {
-            setPickUpLocal("si");
-        } else if(newInput.pickUp === "no") {
-            setPickUpLocal("no");
-        }
         if (newInput.payMethod === "tarjeta") {
             setPayment("tarjeta")
         } else if (newInput.payMethod === "bizum") {
@@ -54,6 +49,17 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
             setPayment("efectivo")
         }
         setInput(newInput);
+    }
+
+    const handlePickUp = (e) => {
+        const { value, name } = e.target;
+        const newPick = { ...input, [name]: value };
+        if (newPick.pickUp === "si") {
+            setPickUpLocal("si");
+        } else if(newPick.pickUp === "no") {
+            setPickUpLocal("no");
+            swal('Las tarifas y alcance se aplican en base a la app Glovo')
+        }
     }
 
 
@@ -176,7 +182,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                 <Form.Select
                     className="col-11 col-md-9 text-center"
                     name="pickUp"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handlePickUp(e)}
                     required>
                     <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                     <option value="si">Si</option>

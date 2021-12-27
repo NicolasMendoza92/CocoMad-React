@@ -8,7 +8,6 @@ export const ZipCode = ({ setEnvio }) => {
     const [send, setSend] = useState('');
     const [precioEnvio, setPrecioEnvio] = useState('');
 
-    console.log(newZip)
 
     const changeCode = (e) => {
         const { value, name } = e.target;
