@@ -53,6 +53,18 @@ export const BuyForm = ({ user, cart }) => {
         setInput(newInput);
     }
 
+    const handlePickUp = (e) => {
+        const { value, name } = e.target;
+        const newPickUp = { ...input, [name]: value };
+        if (newPickUp.pickUp === "si") {
+            setPickUpLocal("si");
+        } else if ((newPickUp.pickUp === "no")) {
+            setPickUpLocal("no")
+            swal('Las tarifas y alcance de envio es aplicado segun la app GLOVO')
+        }
+        setInput(newPickUp);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -172,7 +184,7 @@ export const BuyForm = ({ user, cart }) => {
                 <Form.Select
                     className="col-11 col-md-9 text-center"
                     name="pickUp"
-                    onChange={(e) => handleChange(e)}
+                    onChange={(e) => handlePickUp(e)}
                     required>
                     <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                     <option value="si">Si</option>
