@@ -104,7 +104,7 @@ export default function Carrito({ cart, setCart, user }) {
                                         <h5>SubTotal:</h5>
                                         <h5>{total.toFixed(2)} € </h5>
                                     </div>
-                                    <div className="m-2 d-flex justify-content-around">
+                                    <div className="m-2 d-flex justifgity-content-around">
                                         <h5>Envio:</h5>
                                         <h5> 5 € </h5>
                                         {/* <ZipCode setEnvio={setEnvio} /> */}
