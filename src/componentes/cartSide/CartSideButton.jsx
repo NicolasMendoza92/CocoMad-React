@@ -2,11 +2,14 @@ import React from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import { BsCart, BsCartFill } from "react-icons/bs";
 import { MdOutlineCleaningServices } from "react-icons/md";
+import { useHistory } from "react-router-dom";
 import { CartSideModal } from "../cartSide/CartSideModal";
 
 export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart }) => {
   const handleClose = () => setShowSideCart(false);
   const handleShow = () => setShowSideCart(true);
+
+  const history = useHistory();
 
   const changeQuantity = (_id, quantity) => {
     const updateCart = cart.map((productCart) => {
@@ -28,6 +31,10 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
 
   const clearCart = () => {
     setCart([]);
+  };
+
+  const moveCart = () => {
+    history.push('/carrito');
   };
 
   return (
@@ -57,7 +64,8 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             {mapSideCarrito}
           </div>
           <h2 style={{ color: 'black', fontFamily:'Julius Sans One' }}>TOTAL: ${total.toFixed(2)} </h2>
-          <button onClick={handleClose} className="boton-artesanal-cel" aria-label="Close">CONTINUA COMPRANDO</button>
+          <button onClick={handleClose} className="boton-artesanal-cel" aria-label="Close">CONTINUA COMPRANDO</button> <br />
+          <button onClick={moveCart} className="boton-artesanal-cel mt-2">IR AL CARRITO</button>
         </Offcanvas.Body>
       </Offcanvas>
     </>

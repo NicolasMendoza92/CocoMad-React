@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Container, Table} from 'react-bootstrap';
 import { AiFillEye } from 'react-icons/ai';
 import { FaEraser, FaHistory} from 'react-icons/fa';
@@ -8,12 +8,28 @@ import swal from 'sweetalert';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
 import { ModalViewSale } from '../adminComp/ModalViewSale';
+import { PaginationTable } from '../paginacion/PaginationTable';
 
 export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({buyerData: {}, buyerShipping:{}, buyerCard:{}, productsList:[]});
     const [showModalViewSale, setShowModalViewSale] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const [currentSales, setCurrentSales] = useState([])
+
+    useEffect(() => {
+        const limit = 10;
+        const start = 0 + currentPage * limit - limit;
+        const end = start + limit;
+
+        const productsSlice = tableSales.slice(start, end);
+        setCurrentSales(productsSlice);
+        
+        const totalPages = Math.ceil(tableSales.length / limit);
+        setTotalPages(totalPages);
+    }, [currentPage, tableSales]);
 
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
     const handleShowModalViewSale = () => setShowModalViewSale(true);
@@ -108,11 +124,11 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                     </tr>
                 </thead>
                 <tbody >
-                    {tableSales.length === 0 ? 
+                    {currentSales.length === 0 ? 
                     <tr>
                         <td colSpan="6">No hay ventas registradas</td>
                     </tr> :
-                        tableSales.map(({
+                        currentSales.map(({
                             buyerData: {
                                 buyerEmail,
                                 registerBuy
@@ -157,6 +173,13 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                         ))}
                 </tbody>
             </Table>
+            <div className="d-flex justify-content-center ">
+                <PaginationTable
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalPages={totalPages}
+                />
+            </div>
 
             <ModalViewSale
                 closeModal={handleCloseModalViewSale}

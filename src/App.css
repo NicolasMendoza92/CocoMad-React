@@ -172,15 +172,17 @@ body {
   height: 8rem;
   border: none;
   padding: 2rem;
-  background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
+  background-color: rgb(146, 210, 226);
   font-family: 'Julius Sans One', sans-serif;
 }
 
 .tarjetas h4{
   font-weight: bold;
+  color: whitesmoke;
 }
 
 .tarjetas p {
+  color: whitesmoke;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;

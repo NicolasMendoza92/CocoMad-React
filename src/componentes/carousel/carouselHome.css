@@ -17,7 +17,7 @@
 }
 
 .slider-right-icon {
-    background: rosybrown;
+    background: rgb(231, 170, 107);
     position: absolute;
     border-radius: 100%;
     font-size: 40px;
@@ -26,7 +26,7 @@
 .slider-left-icon {
     z-index: 1;
     font-size: 40px;
-    background: rosybrown;
+    background: rgb(231, 170, 107);
     position: absolute;
     border-radius: 100%;
     opacity: 0.5;
@@ -34,7 +34,7 @@
 
 @media screen and (max-width: 766px) {
     .slider-right-icon {
-        background: rosybrown;
+        background: rgb(231, 170, 107);
         position: absolute;
         border-radius: 100%;
         opacity: 0.5;
@@ -42,7 +42,7 @@
     }
     .slider-left-icon {
         z-index: 1;
-        background: rosybrown;
+        background: rgb(231, 170, 107);
         position: absolute;
         border-radius: 100%;
         opacity: 0.5;
@@ -79,7 +79,8 @@
 
 .card-comentarios h3 {
     font-size: 1.875rem;
-    font-style: italic;
+    color: rgb(146, 210, 226);
+    font-family: 'Julius Sans One', sans-serif;
     line-height: 1;
     font-weight: bold;
 }
