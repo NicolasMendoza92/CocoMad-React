@@ -6,6 +6,7 @@ import { useHistory } from 'react-router';
 import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
+import { ZipCode } from '../componentes/carrito/ZipCode';
 
 export default function Carrito({ cart, setCart, user }) {
 
@@ -105,7 +106,8 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                     <div className="m-2 d-flex justify-content-around">
                                         <h5>Envio:</h5>
-                                        <h5>  € </h5>
+                                        <h5> 5 € </h5>
+                                        {/* <ZipCode setEnvio={setEnvio} /> */}
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
                                         <h3>Total</h3>
@@ -113,7 +115,7 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} />
+                                    <BuyForm user={user} cart={cart} />
                                 </div>
                             </div>
                         </Accordion.Body>

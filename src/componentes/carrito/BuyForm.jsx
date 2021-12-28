@@ -5,7 +5,7 @@ import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { leerDeLocalStorage } from '../../utils/localStorage'
-import { ZipCode } from './ZipCode'
+
 
 export const BuyForm = ({ user, cart, setEnvio }) => {
 
@@ -38,6 +38,12 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
+        if (newInput.pickUp === "si") {
+            setPickUpLocal("si");
+        } else if(newInput.pickUp === "no") {
+            setPickUpLocal("no");
+            swal('Las tarifas y alcance se aplican en base a la app Glovo')
+        }
         if (newInput.payMethod === "tarjeta") {
             setPayment("tarjeta")
         } else if (newInput.payMethod === "bizum") {
@@ -51,16 +57,16 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         setInput(newInput);
     }
 
-    const handlePickUp = (e) => {
-        const { value, name } = e.target;
-        const newPick = { ...input, [name]: value };
-        if (newPick.pickUp === "si") {
-            setPickUpLocal("si");
-        } else if(newPick.pickUp === "no") {
-            setPickUpLocal("no");
-            swal('Las tarifas y alcance se aplican en base a la app Glovo')
-        }
-    }
+    // const handlePickUp = (e) => {
+    //     const { value, name } = e.target;
+    //     const newPick = { ...input, [name]: value };
+    //     if (newPick.pickUp === "si") {
+    //         setPickUpLocal("si");
+    //     } else if(newPick.pickUp === "no") {
+    //         setPickUpLocal("no");
+    //         swal('Las tarifas y alcance se aplican en base a la app Glovo')
+    //     }
+    // }
 
 
 
@@ -182,7 +188,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                 <Form.Select
                     className="col-11 col-md-9 text-center"
                     name="pickUp"
-                    onChange={(e) => handlePickUp(e)}
+                    onChange={(e) => handleChange(e)}
                     required>
                     <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                     <option value="si">Si</option>
@@ -192,7 +198,6 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
 
             {pickUpLocal === "no" &&
                 <div>
-                    <ZipCode setEnvio={setEnvio} />
                     <h5 className="mt-2">Dirección de envio</h5>
                     <Form.Group className="mb-3" controlId="validationCustom05">
                         <FloatingLabel controlId="floatingAddress1" label="Dirección...">
