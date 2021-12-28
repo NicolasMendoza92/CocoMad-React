@@ -5,8 +5,9 @@ import { FaWhatsappSquare } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
+import { ZipCode } from './ZipCode'
 
-export const BuyForm = ({ user, cart }) => {
+export const BuyForm = ({ user, cart, setEnvio }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -189,6 +190,8 @@ export const BuyForm = ({ user, cart }) => {
 
             {pickUpLocal === "no" &&
                 <div>
+                    <ZipCode setEnvio={setEnvio}/>
+                    
                     <h5 className="mt-2">Dirección de envio</h5>
                     <Form.Group className="mb-3" controlId="validationCustom05">
                         <FloatingLabel controlId="floatingAddress1" label="Dirección...">

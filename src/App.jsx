@@ -41,11 +41,13 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [sales, setSales] = useState([]);
 
-  const [cart, setCart] = useLocalStorage('cart', [])
+  const [cart, setCart] = useLocalStorage('cart', []);
+
 
   const [search, setSearch] = useState('');
 
   const [isLoading, setIsLoading] = useState(true);
+
 
   // hacemos la validacion del token
   const requestUserData = async () => {
@@ -215,9 +217,9 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/saleList" >
-            <SaleList sales={sales}
+            <SaleList 
               getSales={getSales}
-              tableSales={tableSales} setTableSales={setTableSales} />
+              tableSales={tableSales} setTableSales={setTableSales}/>
           </Route>
         )}
 

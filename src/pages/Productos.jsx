@@ -44,12 +44,12 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               selectPrice={selectPrice}
               search={search}
               cart={cart}
-              setCart={setCart} 
-              setShowSideCart={setShowSideCart}/>
+              setCart={setCart}
+              setShowSideCart={setShowSideCart} />
           </Col>
         </Row>
-        <SliderProducts />
       </Container>
+      <SliderProducts />
       <CartSideButton
         setCart={setCart}
         cart={cart}
