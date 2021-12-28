@@ -10,7 +10,7 @@ import { SpinnerCM } from '../spinner/SpinnerCM';
 import { ModalViewSale } from '../adminComp/ModalViewSale';
 import { PaginationTable } from '../paginacion/PaginationTable';
 
-export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
+export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({buyerData: {}, buyerShipping:{}, buyerCard:{}, productsList:[]});
@@ -155,7 +155,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                                             <tr className="row">
                                                 <td className="col-6">{producto.name}</td>
                                                 <td className="col-3">{quantity} u</td>
-                                                <td className="col-3">$ {producto.price}</td>
+                                                <td className="col-3">{producto.price} €</td>
                                             </tr>
                                         </thead>
                                     </Table>
@@ -163,7 +163,7 @@ export const TableSales = ({ getSales, sales, tableSales, setTableSales }) => {
                                 )}
                                 </td>
                                 <td className="d-flex align-items-center justify-content-center" >
-                                    $ {(productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)}
+                                     {(productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)} €
                                 </td>
                                 <td>
                                     <button className="m-auto circle-btn" onClick={() => findSale(_id)} ><AiFillEye className="mb-1" /></button>

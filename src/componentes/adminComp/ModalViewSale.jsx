@@ -1,9 +1,13 @@
 import React from 'react'
+import { useState } from 'react';
 import { ListGroup, ListGroupItem, Modal, Table } from 'react-bootstrap'
+import { BsFillCalculatorFill } from 'react-icons/bs';
 
 export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
 
     const { buyerData, buyerShipping, productsList, buyerCard } = saleFind;
+
+    const [send, setSend] =useState();
 
     const subTotal = productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0);
 
@@ -18,6 +22,33 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
             </thead>
         </Table>
     ))
+
+    const calcularEnvio = () => {
+
+        if (buyerShipping.buyerZip === "28040" || buyerShipping.buyerZip === "28003" || buyerShipping.buyerZip === "28004" || buyerShipping.buyerZip === "28005" || buyerShipping.buyerZip === "28008"
+            || buyerShipping.buyerZip === "28010" || buyerShipping.buyerZip=== "28011" || buyerShipping.buyerZip === "28012" || buyerShipping.buyerZip === "28013" || buyerShipping.buyerZip === "28014"
+            || buyerShipping.buyerZip === "28015") {
+            setSend(8.40);
+        } else if (buyerShipping.buyerZip === "28001" || buyerShipping.buyerZip === "28002" || buyerShipping.buyerZip === "28006" || buyerShipping.buyerZip === "28007" || buyerShipping.buyerZip === "28009"
+            || buyerShipping.buyerZip === "28019" || buyerShipping.buyerZip === "28020" || buyerShipping.buyerZip === "28027" || buyerShipping.buyerZip === "28028" || buyerShipping.buyerZip === "28039"
+            || buyerShipping.buyerZip === "28045") {
+            setSend(11.40);
+        } else if (buyerShipping.buyerZip === "28016" || buyerShipping.buyerZip === "28017" || buyerShipping.buyerZip === "28018" || buyerShipping.buyerZip === "28023" || buyerShipping.buyerZip === "28025"
+            || buyerShipping.buyerZip === "28026" || buyerShipping.buyerZip === "28030" || buyerShipping.buyerZip === "28031" || buyerShipping.buyerZip === "28036" || buyerShipping.buyerZip === "28038"
+            || buyerShipping.buyerZip === "28041" || buyerShipping.buyerZip === "28043" || buyerShipping.buyerZip === "28047" || buyerShipping.buyerZip === "28053") {
+            setSend(13.40);
+        } else if (buyerShipping.buyerZip === "28021" || buyerShipping.buyerZip === "28022" || buyerShipping.buyerZip === "28024" || buyerShipping.buyerZip === "28029" || buyerShipping.buyerZip === "28032"
+            || buyerShipping.buyerZip === "28033" || buyerShipping.buyerZip === "280304" || buyerShipping.buyerZip === "28035" || buyerShipping.buyerZip === "28037" || buyerShipping.buyerZip === "28044"
+            || buyerShipping.buyerZip === "28046" || buyerShipping.buyerZip === "28050" || buyerShipping.buyerZip === "28054" || buyerShipping.buyerZip === "28055") {
+            setSend(14.20)
+        }
+        else (
+            setSend(15.40)
+        )
+    
+    }
+
+    const total = send + subTotal
 
     return (
         <div>
@@ -63,15 +94,15 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
                             </div>
                             <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
                                 <h5>SubTotal:</h5>
-                                <h5>${subTotal.toFixed(2)}</h5>
+                                <h5>{subTotal.toFixed(2)} €</h5>
                             </div>
                             <div className="m-2 d-flex justify-content-around">
                                 <h5>Envio:</h5>
-                                <h5> $5 </h5>
+                                <button onClick={calcularEnvio}>  <BsFillCalculatorFill /> </button> <h5> {send}</h5>
                             </div>
                             <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
-                                <h3>Total $ </h3>
-                                <h3>{subTotal.toFixed(2) + 5}</h3>
+                                <h3>Total: </h3>
+                                <h3>{total.toFixed(2)} €</h3>
                             </div>
                         </div>
                     </div>

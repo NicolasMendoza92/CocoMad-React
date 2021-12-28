@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { Accordion, Card, Container} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Accordion, Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
 import { BuyForm } from '../componentes/carrito/BuyForm';
@@ -9,7 +9,8 @@ import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
 
 export default function Carrito({ cart, setCart, user }) {
 
-  const history = useHistory();
+    const history = useHistory();
+    const [envio, setEnvio] = useState('');
 
     const scrollToTop = () => {
         window.scrollTo(0, 250);
@@ -26,6 +27,9 @@ export default function Carrito({ cart, setCart, user }) {
     };
 
     let total = cart.reduce((total, { product, quantity }) => total + product.price * quantity, 0);
+
+    const totalAmount = total + envio
+
 
     const mapCarrito = cart.map((productCart, i) => (<CardCarrito
         key={i} productCart={productCart}
@@ -48,14 +52,14 @@ export default function Carrito({ cart, setCart, user }) {
     />
     ));
 
-  return (
-    <Container>
-            <h2 className="my-2" style={{ color: 'rgb(146, 210, 226)', fontFamily:'Julius Sans One', fontWeight:'bold' }}>Tu carrito</h2>
+    return (
+        <Container>
+            <h2 className="my-2" style={{ color: 'rgb(146, 210, 226)', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>Tu carrito</h2>
             <div>
-                {cart.length !==0 &&  
-                <div className="d-flex justify-content-end align-items-center">
+                {cart.length !== 0 &&
+                    <div className="d-flex justify-content-end align-items-center">
                         <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
-                </div>
+                    </div>
                 }
                 <div className="row justify-content-center align-items-center">
                     <div className="text-center" >
@@ -73,7 +77,7 @@ export default function Carrito({ cart, setCart, user }) {
                     </div>
                     <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
                         <div>
-                            <h2 style={{ color: 'black', fontFamily:'Julius Sans One', fontWeight:'bold' }}>TOTAL: ${total.toFixed(2)} </h2>
+                            <h2 style={{ color: 'black', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>TOTAL: {total.toFixed(2)} € </h2>
                             <Card.Text>
                                 <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA COMPRANDO</button>
                             </Card.Text>
@@ -98,19 +102,19 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
                                         <h5>SubTotal:</h5>
-                                        <h5>${total.toFixed(2)} </h5>
+                                        <h5>{total.toFixed(2)} </h5>
                                     </div>
                                     <div className="m-2 d-flex justify-content-around">
                                         <h5>Envio:</h5>
-                                        <h5> $5 </h5>
+                                        <h5> {envio} € </h5>
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
                                         <h3>Total</h3>
-                                        <h3>$ {(5 + total).toFixed(2)}</h3>
+                                        <h3> {totalAmount} €</h3>
                                     </div>
                                 </div>
                                 <div>
-                                    <BuyForm user={user} cart={cart}/>
+                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} />
                                 </div>
                             </div>
                         </Accordion.Body>
@@ -119,5 +123,5 @@ export default function Carrito({ cart, setCart, user }) {
             }
 
         </Container>
-  );
+    );
 }

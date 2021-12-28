@@ -12,7 +12,7 @@ export const CardDataCompra = ({ productCart }) => {
             </div>
             <div className="col-4 p-0 m-1  text-center ">
                 <span className="text-center m-1 ">{productCart.product.name}</span> <br />
-                <span className="text-center p-0 m-2">$ {(productCart.product.price * productCart.quantity).toFixed(2)}</span>
+                <span className="text-center p-0 m-2"> {(productCart.product.price * productCart.quantity).toFixed(2)} €</span>
             </div>
             
         </div>

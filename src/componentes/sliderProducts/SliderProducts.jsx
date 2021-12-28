@@ -7,7 +7,7 @@ export function SliderProducts() {
 
   return (
     <>
-      <h3 className="text-center mas-vendidos">LOS PREFERIDOS DE LA CLIENTELA</h3>
+      <h3 className="text-center mas-vendidos d-flex justify-content-center align-items-center">LOS PREFERIDOS DE LA CLIENTELA</h3>
       <div className='slider-products'>
         <ReactCardCarousel autoplay={true} autoplay_speed={3500}>
           <div className='card-slider' >
