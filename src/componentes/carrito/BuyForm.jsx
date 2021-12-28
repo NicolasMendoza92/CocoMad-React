@@ -38,12 +38,6 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        if (newInput.pickUp === "si") {
-            setPickUpLocal("si");
-        } else if(newInput.pickUp === "no") {
-            setPickUpLocal("no");
-            swal('Las tarifas y alcance se aplican en base a la app Glovo')
-        }
         if (newInput.payMethod === "tarjeta") {
             setPayment("tarjeta")
         } else if (newInput.payMethod === "bizum") {
@@ -57,20 +51,6 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         setInput(newInput);
     }
 
-<<<<<<< HEAD
-    // const handlePickUp = (e) => {
-    //     const { value, name } = e.target;
-    //     const newPick = { ...input, [name]: value };
-    //     if (newPick.pickUp === "si") {
-    //         setPickUpLocal("si");
-    //     } else if(newPick.pickUp === "no") {
-    //         setPickUpLocal("no");
-    //         swal('Las tarifas y alcance se aplican en base a la app Glovo')
-    //     }
-    // }
-
-
-=======
     const handlePickUp = (e) => {
         const { value, name } = e.target;
         const newPickUp = { ...input, [name]: value };
@@ -82,7 +62,6 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         }
         setInput(newPickUp);
     }
->>>>>>> main
 
     const handleSubmit = async (e) => {
         e.preventDefault();
