@@ -13,8 +13,6 @@ import { NavbarMobile } from './NavbarMobile';
 import { NavbarSearch } from './NavbarSearch';
 
 
-
-
 export const Navbar = ({ user, setSearch, cart }) => {
 
     const history = useHistory();
