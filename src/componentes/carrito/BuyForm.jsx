@@ -35,11 +35,6 @@ export const BuyForm = ({ user, cart }) => {
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        if (newInput.pickUp === "si") {
-            setPickUpLocal("si");
-        } else {
-            setPickUpLocal("no")
-        }
         if (newInput.payMethod === "tarjeta") {
             setPayment("tarjeta")
         } else if (newInput.payMethod === "bizum") {
