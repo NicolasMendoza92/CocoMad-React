@@ -5,11 +5,12 @@ import { BsFillCalculatorFill } from 'react-icons/bs';
 
 export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
 
-    const { buyerData, buyerShipping, productsList, buyerCard } = saleFind;
+    const { buyerData, productsList, buyerConditions, buyerShipping } = saleFind;
 
-    const [send, setSend] =useState();
+    const [send, setSend] = useState();
 
     const subTotal = productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0);
+    const total = send + subTotal
 
     const mapProductsList = productsList.map(({ producto, quantity }, prodList) => (
         <Table size="sm" key={prodList} >
@@ -26,7 +27,7 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
     const calcularEnvio = () => {
 
         if (buyerShipping.buyerZip === "28040" || buyerShipping.buyerZip === "28003" || buyerShipping.buyerZip === "28004" || buyerShipping.buyerZip === "28005" || buyerShipping.buyerZip === "28008"
-            || buyerShipping.buyerZip === "28010" || buyerShipping.buyerZip=== "28011" || buyerShipping.buyerZip === "28012" || buyerShipping.buyerZip === "28013" || buyerShipping.buyerZip === "28014"
+            || buyerShipping.buyerZip === "28010" || buyerShipping.buyerZip === "28011" || buyerShipping.buyerZip === "28012" || buyerShipping.buyerZip === "28013" || buyerShipping.buyerZip === "28014"
             || buyerShipping.buyerZip === "28015") {
             setSend(8.40);
         } else if (buyerShipping.buyerZip === "28001" || buyerShipping.buyerZip === "28002" || buyerShipping.buyerZip === "28006" || buyerShipping.buyerZip === "28007" || buyerShipping.buyerZip === "28009"
@@ -45,10 +46,9 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
         else (
             setSend(15.40)
         )
-    
     }
 
-    const total = send + subTotal
+
 
     return (
         <div>
@@ -69,13 +69,10 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind }) => {
                         </ListGroup>
                         <hr />
                         <h5> <u>Datos de envio</u> </h5>
-                        {buyerShipping.pickUp === "si" &&
-                            <ListGroup className="list-group-flush text-start">
-                                <ListGroupItem>El cliente retira del local</ListGroupItem>
-                            </ListGroup>
-                        }
                         <ListGroup className="list-group-flush text-start">
-                            <ListGroupItem>Metodo de Pago:  {buyerCard.payMethod}</ListGroupItem>
+                            <ListGroupItem>Retira del Local:  {buyerConditions.pickUp}</ListGroupItem>
+                            <ListGroupItem>Dia de Envio:  {buyerConditions.deliveryDate}</ListGroupItem>
+                            <ListGroupItem>Metodo de Pago:  {buyerConditions.payMethod}</ListGroupItem>
                         </ListGroup>
                         <ListGroup className="list-group-flush text-start">
                             <ListGroupItem>Dirección: {buyerShipping.buyerAddress1} {buyerShipping.buyerAddress2}</ListGroupItem>

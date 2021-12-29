@@ -7,6 +7,7 @@ import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
 import { ZipCode } from './ZipCode'
 
+
 export const BuyForm = ({ user, cart, setEnvio }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
@@ -23,27 +24,26 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         return yyyy + "-" + mm + "-" + dd;
     };
 
+
+
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
 
     const [input, setInput] = useState({
         buyerEmail: user.email, buyerName: user.name,
         buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '',
-        buyerState: '', buyerZip: '', deliveryDate: '', pickUp: '', buyerShippingInstructions: '', buyerCardNumber: '',
-        buyerCardName: '', buyerCardDate: '', buyerCardCode: '', payMethod: '',
+        buyerState: '', buyerZip: '', deliveryDate: '', pickUp: '', buyerShippingInstructions: '', payMethod: ''
     });
 
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        if (newInput.payMethod === "tarjeta") {
-            setPayment("tarjeta")
+
+        if (newInput.payMethod === "transferencia") {
+            setPayment("transferencia")
         } else if (newInput.payMethod === "bizum") {
             setPayment("bizum")
-        } else if (newInput.payMethod === "transferencia") {
-            setPayment("transferencia")
-        }
-        else {
+        } else {
             setPayment("efectivo")
         }
         setInput(newInput);
@@ -61,9 +61,25 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         setInput(newPickUp);
     }
 
+    const handleDate = (e) => {
+        const { value, name } = e.target;
+        const newDate = { ...input, [name]: value };
+        const today = new Date();
+        const dateDelivery = new Date(newDate.deliveryDate);
+        today.setDate(today.getDate() + 2);
+        if (dateDelivery < today) {
+            swal('Debes realizar el pedido con 48hs de anticipacion');
+        } else {
+            swal("Ahora Si!", "", "success")
+        }
+        setInput(newDate);
+    }
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
+
         try {
             const newBuy = {
                 buyerData: {
@@ -71,37 +87,56 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     buyerName: input.buyerName,
                     buyerLastName: input.buyerLastName,
                 },
+                buyerConditions: {
+                    deliveryDate: input.deliveryDate,
+                    pickUp: input.pickUp,
+                    payMethod: input.payMethod,
+                },
+                productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
+            }
+            const newDelivery = {
+                buyerData: {
+                    buyerEmail: input.buyerEmail,
+                    buyerName: input.buyerName,
+                    buyerLastName: input.buyerLastName,
+                },
+                buyerConditions: {
+                    deliveryDate: input.deliveryDate,
+                    pickUp: input.pickUp,
+                    payMethod: input.payMethod,
+                },
                 buyerShipping: {
                     buyerAddress1: input.buyerAddress1,
                     buyerAddress2: input.buyerAddress2,
                     buyerCity: input.buyerCity,
                     buyerState: input.buyerState,
                     buyerZip: input.buyerZip,
-                    deliveryDate: input.deliveryDate,
-                    pickUp: input.pickUp,
                     buyerShippingIntructions: input.buyerShippingInstructions,
                 },
-                buyerCard: {
-                    payMethod: input.payMethod,
-                    buyerCardNumber: input.buyerCardNumber,
-                    buyerCardCode: input.buyerCardCode,
-                    buyerCardName: input.buyerCardName,
-                    buyerCardDate: input.buyerCardDate,
-                },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
-
             }
-            console.log(newBuy)
-            await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
+            if (pickUpLocal === "si") {
+                await axios.post('http://localhost:4000/api/sales/', newBuy);
+                swal({
+                    title: "Compra Exitosa !",
+                    icon: "success",
+                }).then(() => {
+                    localStorage.removeItem('cart');
+                    window.location.href = '/productos';
+                    window.scrollTo(0, 150);
+                });
+            } else if (pickUpLocal === "no") {
+                await axios.post('http://localhost:4000/api/deliverys/', newDelivery);
+                swal({
+                    title: "Compra Exitosa !",
+                    icon: "success",
+                }).then(() => {
+                    localStorage.removeItem('cart');
+                    window.location.href = '/productos';
+                    window.scrollTo(0, 150);
+                });
+            }
 
-            swal({
-                title: "Compra Exitosa !",
-                icon: "success",
-            }).then(() => {
-                localStorage.removeItem('cart');
-                window.location.href = '/productos';
-                window.scrollTo(0, 150);
-            });
 
         } catch (error) {
             console.error(error);
@@ -191,8 +226,8 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
 
             {pickUpLocal === "no" &&
                 <div>
-                    <ZipCode setEnvio={setEnvio}/>
-                    
+                    <ZipCode setEnvio={setEnvio} />
+
                     <h5 className="mt-2">Dirección de envio</h5>
                     <Form.Group className="mb-3" controlId="validationCustom05">
                         <FloatingLabel controlId="floatingAddress1" label="Dirección...">
@@ -269,7 +304,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                             type="date"
                             min={disablePastDate()}
                             name="deliveryDate"
-                            onChange={(e) => handleChange(e)}
+                            onChange={(e) => handleDate(e)}
                             required
                         />
                         <Form.Control.Feedback type="invalid">
@@ -304,68 +339,12 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                         <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                                         <option value="bizum">Bizum</option>
                                         <option value="transferencia">Trasnferencia</option>
-                                        <option value="tarjeta">Tarjeta</option>
                                     </Form.Select>
                                 </Form.Group>
-                                {payment === "tarjeta" &&
-                                    <div>
-                                        <Form.Text className="text-muted mb-1">
-                                            Todas las transacciones son seguras y encriptadas.
-                                        </Form.Text>
-                                        <Form.Group className="mb-3" controlId="validationCustom07">
-                                            <FloatingLabel controlId="floatingCardNumber" label="Numero de Tarjeta">
-                                                <Form.Control type="text" minLength="16" maxLength="19"
-                                                    name="buyerCardNumber"
-                                                    onChange={(e) => handleChange(e)}
-                                                    required />
-                                            </FloatingLabel>
-                                            <Form.Control.Feedback type="invalid">
-                                                Por Favor complete los datos de la tarjeta
-                                            </Form.Control.Feedback>
-                                        </Form.Group>
-                                        <Form.Group className="mb-3" controlId="validationCustom08">
-                                            <FloatingLabel controlId="floatingCardName" label="Nombre Tarjeta">
-                                                <Form.Control type="text"
-                                                    maxLength="20"
-                                                    name="buyerCardName"
-                                                    onChange={(e) => handleChange(e)}
-                                                    required />
-                                            </FloatingLabel>
-                                            <Form.Control.Feedback type="invalid">
-                                                Por Favor complete los datos de la tarjeta
-                                            </Form.Control.Feedback>
-                                        </Form.Group>
-                                        <Row className="mb-3">
-                                            <Form.Group as={Col} controlId="validationCustom10">
-                                                <FloatingLabel controlId="floatingCardDate" label="Vencimiento (MM/YY)">
-                                                    <Form.Control type="text" minLength="5" maxLength="5"
-                                                        name="buyerCardDate"
-                                                        onChange={(e) => handleChange(e)}
-                                                        required />
-                                                </FloatingLabel>
-                                                <Form.Control.Feedback type="invalid">
-                                                    Fecha de Vencimiento Necesaria
-                                                </Form.Control.Feedback>
-                                            </Form.Group>
-                                            <Form.Group as={Col} controlId="validationCustom11">
-                                                <FloatingLabel controlId="floatingCardCode" label="Codigo de seguridad">
-                                                    <Form.Control type="password" maxLength="3" minLength="3"
-                                                        name="buyerCardCode"
-                                                        onChange={(e) => handleChange(e)}
-                                                        required />
-                                                </FloatingLabel>
-                                                <Form.Control.Feedback type="invalid">
-                                                    Fecha de Vencimiento Necesaria
-                                                </Form.Control.Feedback>
-                                            </Form.Group>
-                                        </Row>
-                                    </div>
-                                }
-
                                 {payment === "bizum" &&
                                     <div>
                                         <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b></h5>
-                                        <p> Puedes enviarnos un mensaje si deseas
+                                        <p> Puedes enviarnos un mensaje para coordinar
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
@@ -375,7 +354,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                 {payment === "transferencia" &&
                                     <div>
                                         <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN <b>XXXXX</b></h5>
-                                        <p> Puedes enviarnos un mensaje si deseas
+                                        <p> Puedes enviarnos un mensaje para coordinar
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
@@ -403,7 +382,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                             type="date"
                             min={disablePastDate()}
                             name="deliveryDate"
-                            onChange={(e) => handleChange(e)}
+                            onChange={(e) => handleDate(e)}
                             required
                         />
                         <Form.Control.Feedback type="invalid">
@@ -429,6 +408,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                         <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                                         <option value="efectivo">Pagare el dia del retiro</option>
                                         <option value="bizum">Bizum Ahora</option>
+                                        <option value="transferencia">Transferencia</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "efectivo" &&
@@ -441,7 +421,17 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                 {payment === "bizum" &&
                                     <div>
                                         <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b> </h5>
-                                        <p> Puedes enviarnos un mensaje si deseas
+                                        <p> Puedes enviarnos un mensaje para coordinar
+                                            <a href="https://wa.me/c/34635790277" target="blank" >
+                                                <FaWhatsappSquare className="wap-icon" />
+                                            </a>
+                                        </p>
+                                    </div>
+                                }
+                                {payment === "transferencia" &&
+                                    <div>
+                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN <b>XXXXX</b></h5>
+                                        <p> Puedes enviarnos un mensaje para coordinar
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>

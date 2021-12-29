@@ -40,6 +40,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [messages, setMessages] = useState([]);
   const [sales, setSales] = useState([]);
+  const [deliverys, setDeliverys] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', []);
 
@@ -121,7 +122,7 @@ function App() {
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
     try {
-      const response = await axios.get('https://cocobackend.herokuapp.com/api/sales/');
+      const response = await axios.get('http://localhost:4000/api/sales/');
       setSales(response.data);
       setTableSales(response.data);
     } catch (error) {
@@ -131,6 +132,19 @@ function App() {
   useEffect(() => {
     getSales();
   }, [])
+
+   // Traigo los datos de direccion ventas que hacen los usuarios
+   const getDeliverys = async () => {
+     try {
+       const response = await axios.get('http://localhost:4000/api/deliverys/');
+       setDeliverys(response.data);
+     } catch (error) {
+       console.error(error);
+     }
+   }
+   useEffect(() => {
+     getDeliverys();
+   }, [])
 
   const isAdmin = user.role === "admin";
 
@@ -219,7 +233,8 @@ function App() {
           <Route path="/saleList" >
             <SaleList 
               getSales={getSales}
-              tableSales={tableSales} setTableSales={setTableSales}/>
+              tableSales={tableSales} setTableSales={setTableSales}
+              getDeliverys={getDeliverys} setDeliverys={setDeliverys} deliverys={deliverys}/>
           </Route>
         )}
 
