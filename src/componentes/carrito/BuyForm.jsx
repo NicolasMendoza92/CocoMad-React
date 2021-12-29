@@ -91,6 +91,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
 
             }
+            console.log(newBuy)
             await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
 
             swal({

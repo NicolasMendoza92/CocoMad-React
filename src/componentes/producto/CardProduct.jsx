@@ -3,12 +3,20 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Card } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './cardProduct.css';
 
 export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
 
     const [isInCart, setIsInCart] = useState(false);
+
+    const history = useHistory();
+
+    // funcion para ir al detalle
+    const verDetalle = () => {
+        history.push(`/detalle/${product._id}`)
+        window.scrollTo(0, 100);
+    }
 
     // Funcion para productos al carrito
     const quantity = 1
@@ -28,7 +36,7 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
 
     return (
         <div className="productos my-2 mx-1 p-0" >
-            <Card as={Link} to={`/detalle/${product._id}`} className="card-productos">
+            <Card onClick={verDetalle}  className="card-productos">
                 <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
                     <Card.Img className="img-product" variant="top" src={product.image} />
                     <div className="overlay">Ver Detalle</div>

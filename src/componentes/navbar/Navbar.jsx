@@ -35,9 +35,16 @@ export const Navbar = ({ user, setSearch, cart }) => {
     const filter = (e) => {
         e.preventDefault();
         const keyword = e.target.value;
-        history.push('/productos');
         setSearch(keyword);
     };
+
+    const buscarSubmit = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        history.push('/productos');
+        window.scrollTo(0, 850);
+        e.target.reset();
+    }
 
 
     return (
@@ -133,7 +140,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                         </Container>
                     </nav>
                     <nav className="bg-none">
-                        <NavbarSearch filter={filter} />
+                        <NavbarSearch filter={filter} buscarSubmit={buscarSubmit} />
                     </nav>
                 </>
             }

@@ -23,7 +23,8 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, search, c
 
         if (search.length !== '') {
             searchProducts = filteredProducts.filter((prod) => {
-                return prod.name.toLowerCase().includes(search.toLowerCase());
+                return prod.name.toLowerCase().includes(search.toLowerCase()) 
+                ||prod.category.toLowerCase().includes(search.toLowerCase()) ;
             });
         } else {
             searchProducts = filteredProducts;

@@ -2,14 +2,15 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { VscSearch } from 'react-icons/vsc'
 
-export const NavbarSearch = ({filter}) => {
+export const NavbarSearch = ({filter, buscarSubmit}) => {
     return (
         <Container className="py-2 d-flex justify-content-center ">
-        <form className="search-form" >
+        <form className="search-form" onSubmit={buscarSubmit} >
             <div className="input-group mb-3 border-0">
                 <button
                     className="search-icon"
-                    id="basic-addon1" >
+                    id="basic-addon1" 
+                    type='submit'>
                     <VscSearch />
                 </button>
                 <input

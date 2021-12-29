@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import './productDetail.css';
 
 export const ProductDetail = ({ product, cart, setCart }) => {
 
+  const history = useHistory();
 
   const [isInCart, setIsInCart] = useState(false);
 
@@ -12,6 +14,11 @@ export const ProductDetail = ({ product, cart, setCart }) => {
   const addToCart = () => {
     setCart((cart) => cart.concat({ product, quantity}));
   };
+
+  const backToShop = () => {
+    history.push('/productos');
+    window.scrollTo(0, 700);
+  }
 
   useEffect(() => {
     const inCart = cart?.find((productoCart) => productoCart.product._id === product._id);
@@ -39,6 +46,9 @@ export const ProductDetail = ({ product, cart, setCart }) => {
                 'Añadir al Carrito'
               )}
           </button>
+          </div>
+          <div className="mb-2">
+          <button onClick={backToShop}  className="add-cart-btn-detail" > Volver a Productos</button>
           </div>
         </Col>
       </Row>

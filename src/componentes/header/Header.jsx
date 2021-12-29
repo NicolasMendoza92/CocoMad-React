@@ -7,7 +7,7 @@ import { useLocation } from 'react-router';
 import { SubHeader } from './SubHeader';
 
 
-export const Header = ({user, setSerch, cart}) => {
+export const Header = ({user, setSearch, cart}) => {
 
 
 
@@ -39,7 +39,7 @@ export const Header = ({user, setSerch, cart}) => {
         && splitLocation[1] !== "saleList"
         &&
         <div className={`header-style-${currentlocation}`}>
-          <Navbar user={user} setSerch={setSerch} cart={cart} />
+          <Navbar user={user} setSearch={setSearch} cart={cart} />
           <div className="h-50 d-flex flex-column justify-content-between align-items-center">
             <div className="my-5 text-center efecto-artesanal">
               { splitLocation[1] === "" && <h1> ALFAJORES ARGENTINOS 100% ARTESANOS </h1>}
