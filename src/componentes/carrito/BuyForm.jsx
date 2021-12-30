@@ -126,7 +126,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     window.scrollTo(0, 150);
                 });
             } else if (pickUpLocal === "no") {
-                await axios.post('http://localhost:4000/api/deliverys/', newDelivery);
+                await axios.post('http://localhost:4000/api/deliveries/', newDelivery);
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",

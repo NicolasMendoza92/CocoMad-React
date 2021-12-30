@@ -7,7 +7,7 @@ import { ProductDetail } from "../componentes/producto/ProductDetail";
 import { SliderProducts } from "../componentes/sliderProducts/SliderProducts";
 
 
-const DetailsProduct = ({products, cart, setCart}) => {
+const DetailsProduct = ({ cart, setCart}) => {
 
     const [product, setProduct] = useState([]);
 

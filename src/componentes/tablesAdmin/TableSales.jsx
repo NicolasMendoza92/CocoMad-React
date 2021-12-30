@@ -10,7 +10,7 @@ import { SpinnerCM } from '../spinner/SpinnerCM';
 import { ModalViewSale } from '../adminComp/ModalViewSale';
 import { PaginationTable } from '../paginacion/PaginationTable';
 
-export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, setDeliverys, getDeliverys }) => {
+export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, setDeliveries, getDeliveries }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
@@ -18,7 +18,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, set
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [currentSales, setCurrentSales] = useState([]);
-    const [currentDeliverys,setCurrentDeliverys]=useState([]);
+    const [currentDeliveries,setCurrentDeliveries]=useState([]);
 
     useEffect(() => {
         const limit = 10;
@@ -28,19 +28,19 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, set
         const productsSlice = tableSales.slice(start, end);
         setCurrentSales(productsSlice);
 
-        const productosSlice = deliverys.slice(start, end);
-        setCurrentDeliverys(productosSlice);
+        const productosSlice = deliveries.slice(start, end);
+        setCurrentDeliveries(productosSlice);
 
         const totalPages = Math.ceil(tableSales.length / limit);
         setTotalPages(totalPages);
-    }, [currentPage, tableSales,deliverys]);
+    }, [currentPage, tableSales,deliveries]);
 
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
     const handleShowModalViewSale = () => setShowModalViewSale(true);
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/deliverys/${_id}`);
+        const response = await axios.get(`http://localhost:4000/api/deliveries/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
@@ -89,8 +89,8 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, set
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/deliverys/${_id}`, { headers });
-        await getDeliverys();
+        await axios.delete(`http://localhost:4000/api/deliveries/${_id}`, { headers });
+        await getDeliveries();
         setIsLoading(false);
     };
 
@@ -102,7 +102,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, set
 
     const refreshDeliverys = async () => {
         setIsLoading(true);
-        await getDeliverys();
+        await getDeliveries();
         setIsLoading(false);
     };
 
@@ -127,13 +127,13 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, set
     const filterDelivery = (e) => {
         const keyword = e.target.value;
         if (keyword !== '') {
-            const results = deliverys.filter((delivery) => {
+            const results = deliveries.filter((delivery) => {
                 return delivery.buyerData.buyerName.includes(keyword.toLowerCase())
                     || delivery.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
             });
-            setDeliverys(results);
+            setDeliveries(results);
         } else {
-            setDeliverys(deliverys);
+            setDeliveries(deliveries);
         }
         setFiltro(keyword);
     };
@@ -262,11 +262,11 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliverys, set
                     </tr>
                 </thead>
                 <tbody >
-                    {currentDeliverys.length === 0 ?
+                    {currentDeliveries.length === 0 ?
                         <tr>
                             <td colSpan="6">No hay ventas registradas</td>
                         </tr> :
-                        currentDeliverys.map(({
+                        currentDeliveries.map(({
                             buyerData: {
                                 buyerName,
                                 registerBuy,

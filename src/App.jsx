@@ -40,7 +40,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [messages, setMessages] = useState([]);
   const [sales, setSales] = useState([]);
-  const [deliverys, setDeliverys] = useState([]);
+  const [deliveries, setDeliveries] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', []);
 
@@ -134,16 +134,16 @@ function App() {
   }, [])
 
    // Traigo los datos de direccion ventas que hacen los usuarios
-   const getDeliverys = async () => {
+   const getDeliveries = async () => {
      try {
-       const response = await axios.get('http://localhost:4000/api/deliverys/');
-       setDeliverys(response.data);
+       const response = await axios.get('http://localhost:4000/api/deliveries/');
+       setDeliveries(response.data);
      } catch (error) {
        console.error(error);
      }
    }
    useEffect(() => {
-     getDeliverys();
+     getDeliveries();
    }, [])
 
   const isAdmin = user.role === "admin";
@@ -170,8 +170,7 @@ function App() {
         <Route path="/detalle/:productId">
           <DetailsProduct
             cart={cart}
-            setCart={setCart}
-            products={products} />
+            setCart={setCart}/>
         </Route>
 
         <Route path="/productos">
@@ -234,7 +233,7 @@ function App() {
             <SaleList 
               getSales={getSales}
               tableSales={tableSales} setTableSales={setTableSales}
-              getDeliverys={getDeliverys} setDeliverys={setDeliverys} deliverys={deliverys}/>
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}/>
           </Route>
         )}
 

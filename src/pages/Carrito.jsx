@@ -28,7 +28,8 @@ export default function Carrito({ cart, setCart, user }) {
 
     let total = cart.reduce((total, { product, quantity }) => total + product.price * quantity, 0);
 
-    const totalAmount = total + envio
+    const totalAmount = Number(total + envio)
+
 
 
     const mapCarrito = cart.map((productCart, i) => (<CardCarrito
@@ -110,7 +111,7 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
                                         <h3>Total</h3>
-                                        <h3> {totalAmount} €</h3>
+                                        <h3> {totalAmount.toFixed(2)} €</h3>
                                     </div>
                                 </div>
                                 <div>
