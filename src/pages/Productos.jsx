@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { CartSideButton } from '../componentes/cartSide/CartSideButton';
 import { CardsProducts } from '../componentes/producto/CardsProducts'
+import { ProductsBoxs } from '../componentes/producto/ProductsBoxs';
 import { ProductSearch } from '../componentes/producto/ProductSearch';
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
@@ -52,6 +53,7 @@ export default function Productos({ products, setProducts, search, setSearch, ca
           </Col>
         </Row>
       </Container>
+      <ProductsBoxs/>
       <SliderProducts />
       <CartSideButton
         setCart={setCart}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { ModalCantSab } from "./ModalCantSab";
+
 import './productDetail.css';
 
 export const ProductDetail = ({ product, cart, setCart }) => {
@@ -27,11 +27,6 @@ export const ProductDetail = ({ product, cart, setCart }) => {
       setIsInCart(true);
     }
   }, [cart, product]);
-
-  const [showModal, setShowModal] = useState(false);
-
-  const handleCloseModal = () => setShowModal(false);
-  const handleShowModal = () => setShowModal(true);
 
 
   return (
@@ -61,13 +56,6 @@ export const ProductDetail = ({ product, cart, setCart }) => {
         </Col>
       </Row>
 
-      {/* <ModalCantSab 
-       handleCloseModal={handleCloseModal}
-       showModal={showModal} /> */}
-
-      {/* <Button variant="primary" onClick={handleShowModal}>
-        Elija Sabores y Cantidades
-      </Button> */}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button, Col, Form, Modal, Row } from 'react-bootstrap'
+import { Button, Col, Form, Modal } from 'react-bootstrap'
 
 export const ModalCantSab = ({ handleCloseModal, showModal }) => {
 
@@ -35,15 +35,83 @@ export const ModalCantSab = ({ handleCloseModal, showModal }) => {
                     <Modal.Title>Datos de Venta</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                        <Form.Label column sm="2">
+                    <div className='d-flex flex-wrap'>
+                    <Form.Group className="d-flex flex-column mb-3 mx-1" controlId="formPlaintextPassword">
+                        <Form.Label >
                             Maizena
                         </Form.Label>
-                        <Col sm="2">
+                        <Col >
                         <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
                         </Col>
                     </Form.Group>
+                    <Form.Group className="d-flex flex-column mb-3 mx-1" controlId="formPlaintextPassword">
+                        <Form.Label>
+                            Cookies
+                        </Form.Label>
+                        <Col >
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group className="d-flex flex-column mb-3 mx-1" controlId="formPlaintextPassword">
+                        <Form.Label >
+                            Avena
+                        </Form.Label>
+                        <Col>
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  className="d-flex flex-column mx-1 mb-3" controlId="formPlaintextPassword">
+                        <Form.Label >
+                            Coco
+                        </Form.Label>
+                        <Col >
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group className="d-flex flex-column mx-1 mb-3" controlId="formPlaintextPassword">
+                        <Form.Label >
+                            Nuez
+                        </Form.Label>
+                        <Col >
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group className="d-flex flex-column mx-1 mb-3" controlId="formPlaintextPassword">
+                        <Form.Label >
+                            Cacao Amargo y Nueces
+                        </Form.Label>
+                        <Col >
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  className="d-flex flex-column mx-1 mb-3" controlId="formPlaintextPassword">
+                        <Form.Label >
+                            Avellana
+                        </Form.Label>
+                        <Col>
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  className="d-flex flex-column mx-1 mb-3" controlId="formPlaintextPassword">
+                        <Form.Label >
+                            Cafe
+                        </Form.Label>
+                        <Col>
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group  className="d-flex flex-column mx-1 mb-3" controlId="formPlaintextPassword">
+                        <Form.Label >
+                        Peanut Butter
+                        </Form.Label>
+                        <Col>
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
+                    </div>
+       
                     <Form onSubmit={handleSubmit}>
+                        {/* 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <select name="saborEmpa" className="col-12 col-md-9" onChange={(e) => handleChange(e)} required>
                                 <option value="" disabled selected={"Sabor..."}>Sabor...</option>
@@ -71,11 +139,7 @@ export const ModalCantSab = ({ handleCloseModal, showModal }) => {
                                 <option value="avellana">Avellana</option>
                                 <option value="bañado pequeño">Bañado pequeño</option>
                             </select>
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control name="cantidad" className="col-12 col-md-9" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
