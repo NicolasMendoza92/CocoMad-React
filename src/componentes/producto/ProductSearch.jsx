@@ -23,7 +23,7 @@ export const ProductSearch = ({ setSearch }) => {
                     </button>
                     <input
                         type="text"
-                        className="col-11 search-input-product"
+                        className="col-10 search-input-product"
                         placeholder="¿Que Buscas? "
                         aria-describedby="basic-addon1"
                         onChange={filter}

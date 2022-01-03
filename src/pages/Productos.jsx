@@ -26,17 +26,20 @@ export default function Productos({ products, setProducts, search, setSearch, ca
     <div>
       <Container>
         <Row>
-          <Col className="col-12 col-md-3">
-            <Sidebar
+          <Col className="col-12 col-md-6">
+          <Sidebar
               setSelectCategory={setSelectCategory}
               setSelectPrice={setSelectPrice}
               selectCategory={selectCategory}
               selectPrice={selectPrice}
               onselectCat={clearFilterCategory}
               onselectPri={clearFilterPrice} />
+              
           </Col>
-          <Col className="col-12 col-md-9 p-0">
-            <ProductSearch setSearch={setSearch} />
+          <Col className='col-12 col-md-6'>
+          <ProductSearch setSearch={setSearch} />
+          </Col>
+          <Col className="col-12">
             <CardsProducts
               products={products}
               setProducts={setProducts}

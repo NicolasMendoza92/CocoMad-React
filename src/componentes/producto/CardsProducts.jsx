@@ -11,7 +11,7 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, search, c
     const [currentProducts, setCurrentProducts] = useState([]);
 
     useEffect(() => {
-        const limit = 6;
+        const limit = 8;
         const start = 0 + currentPage * limit - limit;
         const end = start + limit;
 

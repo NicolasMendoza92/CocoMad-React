@@ -42,13 +42,6 @@ export const ProductDetail = ({ product, cart, setCart }) => {
         <Col className="columna-detalle col-11 col-md-10 col-lg-8 col-xl-5 text-center">
           <span className="product-name">{product.name}</span>
           <h2 className="mt-3 product-description">{product.description}</h2>
-          {(product.category === "Alfajores Clasicos" || product.category === "Alfajores Premium") &&
-            <>
-              <Button variant="primary" onClick={handleShowModal}>
-                Elija Sabores y Cantidades
-              </Button>
-            </>
-          }
           <p className="mt-1 product-price ">${product.price} POR UNIDAD</p>
           <div className="mb-2">
             <button
@@ -67,9 +60,14 @@ export const ProductDetail = ({ product, cart, setCart }) => {
           </div>
         </Col>
       </Row>
-      <ModalCantSab 
+
+      {/* <ModalCantSab 
        handleCloseModal={handleCloseModal}
-       showModal={showModal} />
+       showModal={showModal} /> */}
+
+      {/* <Button variant="primary" onClick={handleShowModal}>
+        Elija Sabores y Cantidades
+      </Button> */}
     </>
   );
 };

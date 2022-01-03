@@ -1,31 +1,28 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button, Form, Modal } from 'react-bootstrap'
+import { Button, Col, Form, Modal, Row } from 'react-bootstrap'
 
 export const ModalCantSab = ({ handleCloseModal, showModal }) => {
+
+    const [detallesProducto, setDetallesProducto] = useState('');
 
     const [input, setInput] = useState({
         saborEmpa: '',
         cantidad: '',
-        saborAlfa:'',
+        saborAlfa: '',
     });
 
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
         setInput(newInput);
+        console.log(newInput)
     };
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        // try {
-        //   await axios.put(`https://cocobackend.herokuapp.com/api/products/${productFind._id}`, input)
-        //   swal("Producto modificado");
-        //   await getProducts();
-        //   closeModal();
-        // } catch (error) {
-        //   console.error(error);
-        // }
+        setDetallesProducto('');
+        handleCloseModal();
     }
     return (
         <div>
@@ -38,6 +35,14 @@ export const ModalCantSab = ({ handleCloseModal, showModal }) => {
                     <Modal.Title>Datos de Venta</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+                        <Form.Label column sm="2">
+                            Maizena
+                        </Form.Label>
+                        <Col sm="2">
+                        <Form.Control name="cantidad" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
+                        </Col>
+                    </Form.Group>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <select name="saborEmpa" className="col-12 col-md-9" onChange={(e) => handleChange(e)} required>
@@ -67,9 +72,9 @@ export const ModalCantSab = ({ handleCloseModal, showModal }) => {
                                 <option value="bañado pequeño">Bañado pequeño</option>
                             </select>
                         </Form.Group>
-                        
+
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="number" placeholder="Cantidad" max="12" min="0" required />
+                            <Form.Control name="cantidad" className="col-12 col-md-9" type="number" placeholder="Cantidad" max="12" min="0" onChange={(e) => handleChange(e)} required />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Submit
