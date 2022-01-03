@@ -35,7 +35,7 @@ export const CardCarrito = ({ productCart, cart, setCart, changeQuantity }) => {
         />
         <Card.Text className="text-center col-2 mb-0 description-cart" >
           {productCart.product.name} <br />
-          <b> ${productCart.product.price}</b>
+          <b> {productCart.product.price} €</b>
         </Card.Text>
         <div className="d-flex justify-content-center align-content-center m-2 col-2 botonera-cart">
           <button
@@ -46,7 +46,7 @@ export const CardCarrito = ({ productCart, cart, setCart, changeQuantity }) => {
           <button onClick={oneMore} className="agregar-sacar-btn">+</button>
         </div>
         <Card.Text className="text-center col-2 subtotal-cart">
-          <b>Sub total: ${(productCart.product.price * productCart.quantity).toFixed(2)}</b>
+          <b>Sub total: {(productCart.product.price * productCart.quantity).toFixed(2)} €</b>
         </Card.Text>
         <hr />
       </div>

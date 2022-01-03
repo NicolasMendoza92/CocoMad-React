@@ -63,7 +63,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
           <div className="d-flex flex-column ">
             {mapSideCarrito}
           </div>
-          <h2 style={{ color: 'black', fontFamily:'Julius Sans One' }}>TOTAL: ${total.toFixed(2)} </h2>
+          <h2 style={{ color: 'black', fontFamily:'Julius Sans One' }}>TOTAL: {total.toFixed(2)} €</h2>
           <button onClick={handleClose} className="boton-artesanal-cel" aria-label="Close">CONTINUA COMPRANDO</button> <br />
           <button onClick={moveCart} className="boton-artesanal-cel mt-2">IR AL CARRITO</button>
         </Offcanvas.Body>
