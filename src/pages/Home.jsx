@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
-
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import { CarouselHome } from '../componentes/carousel/CarouselHome';
-
 import { CardsHome } from '../componentes/cards-home/CardsHome';
+import { useEffect } from 'react';
 
 let sliderMensajes = [
   {
@@ -80,20 +81,25 @@ const cardsHome = [
 
 
 export default function Home() {
+
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+}, []);
+
   return (
     <>
-      <div className="tarjetas d-flex flex-column justify-content-center align-items-center mt-2 mb-2">
+      <div data-aos="fade-left" className="tarjetas d-flex flex-column justify-content-center align-items-center mt-2 mb-2">
         <h4> ¡QUIERO TODO!</h4>
         <p>Con tan solo un click puedes disfrutarlo!!</p>
       </div>
       <Container>
         <CardsHome cardsHome={cardsHome} />
       </Container>
-      <div className="tarjetas d-flex flex-column justify-content-center align-items-center text-center mt-3">
+      <div data-aos="fade-right" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center mt-3">
         <h4>❤ ESTAMOS MUY AGRADECIDOS CON NUSTROS CLIENTES ❤ </h4>
       </div>
       <Container>
-        <div className="p-2 mb-4">
+        <div data-aos="fade-up" className="p-2 mb-4">
           <CarouselHome sliderMensajes={sliderMensajes} />
         </div>
       </Container>
