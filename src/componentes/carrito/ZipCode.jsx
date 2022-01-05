@@ -44,7 +44,7 @@ export const ZipCode = ({ setEnvio }) => {
 
     return (
         <div className='m-1 d-flex flex-column justify-content-center'>
-            <spam className='m-1 text-center'>Calcula el envio</spam>
+            <spam className='m-1 text-center'>Estima el precio del envio</spam>
             <Form className="mb-3 d-flex align-items-center justify-content-center" >
                 <Form.Select
                     className="codigo-postal text-center"
@@ -52,8 +52,7 @@ export const ZipCode = ({ setEnvio }) => {
                     name="zip"
                     onChange={(e) => changeCode(e)}
                 >
-                    <option value="" disabled selected={"Elije una Opcion"}>Pon tu codigo postal</option>
-                    <option value="" disabled>Madrid Centro</option>
+                    <option disabled selected={"Elije una Opcion"}>Pon tu codigo postal</option>
                     <option value="28001">28001</option>
                     <option value="28002">28002</option>
                     <option value="28003">28003</option>

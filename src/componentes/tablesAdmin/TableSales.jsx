@@ -9,12 +9,15 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
 import { ModalViewSale } from '../adminComp/ModalViewSale';
 import { PaginationTable } from '../paginacion/PaginationTable';
+import { ModalViewRetiro } from '../adminComp/ModalViewRetiro';
 
 export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, setDeliveries, getDeliveries }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
+    const [saleRetiro, setSaleRetiro] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
     const [showModalViewSale, setShowModalViewSale] = useState(false);
+    const [showModalViewRetiro, setShowModalViewRetiro] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [currentSales, setCurrentSales] = useState([]);
@@ -35,8 +38,12 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, se
         setTotalPages(totalPages);
     }, [currentPage, tableSales,deliveries]);
 
+    // vbles para abrir el delivery
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
     const handleShowModalViewSale = () => setShowModalViewSale(true);
+// vbles para abrir el retiro 
+    const handleCloseModalViewRetiro = () => setShowModalViewRetiro(false);
+    const handleShowModalViewRetiro = () => setShowModalViewRetiro(true);
 
     const findSale = async (_id) => {
         setIsLoading(true)
@@ -44,6 +51,15 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, se
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
+        console.log(response.data)
+    }
+
+    const findRetiro = async (_id) => {
+        setIsLoading(true)
+        const response = await axios.get(`http://localhost:4000/api/sales/${_id}`);
+        setSaleRetiro(response.data);
+        setIsLoading(false);
+        handleShowModalViewRetiro();
         console.log(response.data)
     }
 
@@ -185,7 +201,6 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, se
                             },
                             buyerConditions: {
                                 deliveryDate,
-                                pickUp,
                                 payMethod,
                             },
                             productsList
@@ -214,6 +229,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, se
                                 </td>
                                 <td>
                                     <button className="ms-3 circle-btn" onClick={() => alertaBorrarRetiro(_id)} ><FaEraser className="mb-1" /></button>
+                                    <button className="m-auto circle-btn" onClick={() => findRetiro(_id)} ><AiFillEye className="mb-1" /></button>
                                 </td>
                             </tr>
                         ))}
@@ -318,6 +334,11 @@ export const TableSales = ({ getSales, tableSales, setTableSales, deliveries, se
                 closeModal={handleCloseModalViewSale}
                 showModalViewSale={showModalViewSale}
                 saleFind={saleFind}
+            />
+             <ModalViewRetiro
+                closeModalRetiro={handleCloseModalViewRetiro}
+                showModalViewRetiro={showModalViewRetiro}
+                saleRetiro={saleRetiro}
             />
 
             {

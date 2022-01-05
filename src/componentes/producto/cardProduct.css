@@ -4,7 +4,6 @@
   width: 18rem;
 }
 
-
 .card-productos {
   text-decoration: none;
   cursor: pointer;
@@ -13,28 +12,32 @@
   border-radius: 0;
 }
 
-.card-description{
+.card-description {
   padding: 0;
 }
-.container-photo{
+
+.container-photo {
   position: relative;
 }
+
 .img-product {
-  width: 18rem;
-  height: 18rem;
+  max-width: 18rem;
+  max-height: 18rem;
 }
 
+
+
 .overlay {
-  position: absolute; 
+  position: absolute;
   font-family: 'Julius Sans One', sans-serif;
   font-weight: bold;
-  bottom: 0; 
+  bottom: 0;
   background: rgb(146, 210, 226);
-  background: rgb(146, 210, 226); 
-  color: whitesmoke; 
+  background: rgb(146, 210, 226);
+  color: whitesmoke;
   width: 100%;
   transition: .5s ease;
-  opacity:0;
+  opacity: 0;
   color: white;
   font-size: 20px;
   padding: 20px;
@@ -50,7 +53,7 @@
   box-shadow: 5px 5px 7px 1.5px rgba(163, 161, 161, 0.51);
 } */
 
-.category-product{
+.category-product {
   color: rgb(102, 101, 101);
   font-family: 'Julius Sans One', sans-serif;
   font-weight: bold;
@@ -58,6 +61,7 @@
   height: 1.3rem;
   margin-bottom: 0;
 }
+
 .name-product {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -73,8 +77,8 @@
   margin-bottom: 0;
 }
 
-.pag-num{
-  font-family:'Julius Sans One', sans-serif; 
+.pag-num {
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 
@@ -97,7 +101,7 @@
   font-size: 18px;
   font-family: 'Julius Sans One', sans-serif;
   font-weight: bold;
- 
+
 }
 
 .add-cart-btn:hover {
@@ -109,4 +113,40 @@
   font-weight: bold;
   font-family: 'Julius Sans One', sans-serif;
   transition: 0.4s;
+}
+
+@media screen and (max-width:768px) {
+  .productos {
+    margin-bottom: 1rem;
+    width: 9rem;
+  }
+
+  .img-product {
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+
+  .name-product {
+    font-size: 12px;
+  }
+
+  .price-product {
+    font-size: 14px;
+  }
+  .add-cart-btn {
+    font-size: 10px;
+  }
+
+  .added-cart-btn {
+    font-size: 10px;
+  }
+
+  .add-cart-btn:hover {
+    font-size: 10px;
+  }
+  
+.overlay {
+  font-size: 12px;
+  padding: 12px;
+}
 }

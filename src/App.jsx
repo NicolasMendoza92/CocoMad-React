@@ -45,6 +45,7 @@ function App() {
 
   const [cart, setCart] = useLocalStorage('cart', []);
 
+  const [showSideCart, setShowSideCart] = useState(false);
 
   const [search, setSearch] = useState('');
 
@@ -134,18 +135,18 @@ function App() {
     getSales();
   }, [])
 
-   // Traigo los datos de direccion ventas que hacen los usuarios
-   const getDeliveries = async () => {
-     try {
-       const response = await axios.get('http://localhost:4000/api/deliveries/');
-       setDeliveries(response.data);
-     } catch (error) {
-       console.error(error);
-     }
-   }
-   useEffect(() => {
-     getDeliveries();
-   }, [])
+  // Traigo los datos de direccion ventas que hacen los usuarios
+  const getDeliveries = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/deliveries/');
+      setDeliveries(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    getDeliveries();
+  }, [])
 
   const isAdmin = user.role === "admin";
 
@@ -171,7 +172,9 @@ function App() {
         <Route path="/detalle/:productId">
           <DetailsProduct
             cart={cart}
-            setCart={setCart}/>
+            setCart={setCart}
+            showSideCart={showSideCart}
+            setShowSideCart={setShowSideCart} />
         </Route>
 
         <Route path="/productos">
@@ -180,7 +183,9 @@ function App() {
             setProducts={setProducts}
             search={search}
             setSearch={setSearch}
-            cart={cart} setCart={setCart} />
+            cart={cart} setCart={setCart}
+            showSideCart={showSideCart}
+            setShowSideCart={setShowSideCart} />
         </Route>
 
         <Route path="/nosotros">
@@ -231,10 +236,10 @@ function App() {
         )}
         {isAdmin && (
           <Route path="/saleList" >
-            <SaleList 
+            <SaleList
               getSales={getSales}
               tableSales={tableSales} setTableSales={setTableSales}
-              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}/>
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries} />
           </Route>
         )}
 

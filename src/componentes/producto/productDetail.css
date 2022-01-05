@@ -84,3 +84,8 @@
     background-color: rgb(231, 170, 107);
     font-family: 'Julius Sans One', sans-serif;
 }
+
+.lista-boxes p{
+margin-right: 8px;
+margin-left: 5px;
+}

@@ -24,15 +24,13 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         return yyyy + "-" + mm + "-" + dd;
     };
 
-
-
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
 
     const [input, setInput] = useState({
         buyerEmail: user.email, buyerName: user.name,
-        buyerLastName: user.lastName, buyerAddress1: '', buyerAddress2: '', buyerCity: '',
-        buyerState: '', buyerZip: '', deliveryDate: '', pickUp: '', buyerShippingInstructions: '', payMethod: ''
+        buyerLastName: user.lastName, buyerCelphone: '', buyerAddress1: '', buyerAddress2: '', buyerCity: '',
+        buyerState: '', buyerZip: '', deliveryDate: '', deliveryHour: '', pickUp: '', buyerShippingInstructions: '', payMethod: ''
     });
 
     const handleChange = (e) => {
@@ -56,7 +54,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
             setPickUpLocal("si");
         } else if ((newPickUp.pickUp === "no")) {
             setPickUpLocal("no")
-            swal('Las tarifas y alcance de envio es aplicado segun la app GLOVO')
+            swal('Las tarifas y alcance de envio es aplicado segun la app GLOVO.')
         }
         setInput(newPickUp);
     }
@@ -86,9 +84,11 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     buyerEmail: input.buyerEmail,
                     buyerName: input.buyerName,
                     buyerLastName: input.buyerLastName,
+                    buyerCelphone: input.buyerCelphone,
                 },
                 buyerConditions: {
                     deliveryDate: input.deliveryDate,
+                    deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
                     payMethod: input.payMethod,
                 },
@@ -99,9 +99,11 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     buyerEmail: input.buyerEmail,
                     buyerName: input.buyerName,
                     buyerLastName: input.buyerLastName,
+                    buyerCelphone: input.buyerCelphone,
                 },
                 buyerConditions: {
                     deliveryDate: input.deliveryDate,
+                    deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
                     payMethod: input.payMethod,
                 },
@@ -211,6 +213,16 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     </Form.Control.Feedback>
                 </Form.Group>
             </Row>
+            <Form.Group className="mb-3" controlId="validationCustom16">
+                <FloatingLabel controlId="floatingPhone" label="Teléfono">
+                    <Form.Control type="text"
+                        name="buyerCelphone"
+                        onChange={(e) => handleChange(e)}
+                        maxLength="40"
+                        required
+                    />
+                </FloatingLabel>
+            </Form.Group>
             <Form.Group as={Col} controlId="validationCustom13">
                 <label>¿Retira del local?</label>
                 <Form.Select
@@ -218,7 +230,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     name="pickUp"
                     onChange={(e) => handlePickUp(e)}
                     required>
-                    <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                    <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                     <option value="si">Si</option>
                     <option value="no">No</option>
                 </Form.Select>
@@ -230,7 +242,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
 
                     <h5 className="mt-2">Dirección de envio</h5>
                     <Form.Group className="mb-3" controlId="validationCustom05">
-                        <FloatingLabel controlId="floatingAddress1" label="Dirección...">
+                        <FloatingLabel controlId="floatingAddress1" label="Dirección...Calle,Paseo...">
                             <Form.Control type="text"
                                 name="buyerAddress1"
                                 onChange={(e) => handleChange(e)}
@@ -293,8 +305,6 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                         </Form.Group>
                     </Row>
 
-
-
                     <Form.Group className="mb-3" controlId="validationCustom02">
                         <h5 className="mt-2">Fecha de entrega</h5>
                         <Form.Text className="text-muted">
@@ -310,6 +320,21 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                         <Form.Control.Feedback type="invalid">
                             Debes pedir con 2 dias de anticipacion
                         </Form.Control.Feedback>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="validationCustom20">
+                        <h5 className="mt-2">Rango de entrega</h5>
+                        <Form.Select
+                            className="col-11 col-md-9 text-center"
+                            name="deliveryHour"
+                            onChange={(e) => handleChange(e)}
+                            required>
+                            <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                            <option value="9a11">9:00 am - 11:00 am</option>
+                            <option value="11a13">11:00 am - 13:00 pm</option>
+                            <option value="16a18">16:30 pm - 18:00 pm</option>
+                            <option value="18a20">18:00 pm - 20:00 pm</option>
+                        </Form.Select>
                     </Form.Group>
 
                     <Form.Group className="mt-2 mb-3" controlId="exampleForm.ControlTextarea1">
@@ -336,7 +361,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                         name="payMethod"
                                         onChange={(e) => handleChange(e)}
                                         required>
-                                        <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                                        <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                                         <option value="bizum">Bizum</option>
                                         <option value="transferencia">Trasnferencia</option>
                                     </Form.Select>
@@ -389,6 +414,20 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                             Debes pedir con 2 dias de anticipacion
                         </Form.Control.Feedback>
                     </Form.Group>
+                    <Form.Group className="mb-3" controlId="validationCustom20">
+                        <h5 className="mt-2">Rango de entrega</h5>
+                        <Form.Select
+                            className="col-11 col-md-9 text-center"
+                            name="deliveryHour"
+                            onChange={(e) => handleChange(e)}
+                            required>
+                            <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                            <option value="9a11">9:00 am - 11:00 am</option>
+                            <option value="11a13">11:00 am - 13:00 pm</option>
+                            <option value="16a18">16:30 pm - 18:00 pm</option>
+                            <option value="18a20">18:00 pm - 20:00 pm</option>
+                        </Form.Select>
+                    </Form.Group>
 
                     {/* Continuar Compra */}
                     <Accordion className="mb-2">
@@ -405,7 +444,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                         name="payMethod"
                                         onChange={(e) => handleChange(e)}
                                         required>
-                                        <option value="" disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                                        <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
                                         <option value="efectivo">Pagare el dia del retiro</option>
                                         <option value="bizum">Bizum Ahora</option>
                                         <option value="transferencia">Transferencia</option>

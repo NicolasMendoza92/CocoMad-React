@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Offcanvas } from "react-bootstrap";
 import { BsCart, BsCartFill } from "react-icons/bs";
-import { MdOutlineCleaningServices } from "react-icons/md";
 import { useHistory } from "react-router-dom";
 import { CartSideModal } from "../cartSide/CartSideModal";
 
@@ -29,10 +28,6 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
     changeQuantity={changeQuantity} />
   ));
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
   const moveCart = () => {
     history.push('/carrito');
   };
@@ -57,9 +52,6 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
       >
         <Offcanvas.Header closeButton> <h4 style={{ color: 'rgb(146, 210, 226)', fontFamily:'Julius Sans One' }} >Tu Carrito </h4>  </Offcanvas.Header>
         <Offcanvas.Body className="text-center mt-2">
-          {cart.length !== 0 &&
-              <button className="clean-cart my-2" onClick={clearCart}><MdOutlineCleaningServices /></button>
-          }
           <div className="d-flex flex-column ">
             {mapSideCarrito}
           </div>

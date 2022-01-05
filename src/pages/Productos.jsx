@@ -9,9 +9,8 @@ import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
 
 
-export default function Productos({ products, setProducts, search, setSearch, cart, setCart }) {
+export default function Productos({ products, setProducts, search, setSearch, cart, setCart, setShowSideCart, showSideCart}) {
 
-  const [showSideCart, setShowSideCart] = useState(false);
   const [selectCategory, setSelectCategory] = useState('');
   const [selectPrice, setSelectPrice] = useState('');
 
@@ -53,7 +52,7 @@ export default function Productos({ products, setProducts, search, setSearch, ca
           </Col>
         </Row>
       </Container>
-      <ProductsBoxs/>
+      <ProductsBoxs cart={cart} setCart={setCart}/>
       <SliderProducts />
       <CartSideButton
         setCart={setCart}

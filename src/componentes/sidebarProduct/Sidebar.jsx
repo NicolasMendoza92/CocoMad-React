@@ -14,8 +14,11 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
         setSelectPrice(price)
     }
 
-    const clearSelect = () => {
-        onselectCat('');
+    const clearSelectCat = () => {
+        onselectCat('')
+
+    }
+    const clearSelectPri = () => {
         onselectPri('')
     }
 
@@ -31,6 +34,7 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
                     <div className="d-flex">
                         <label className="m-2" > <b>Categoria</b></label>
                         <select onChange={filtrarCategoria} className="form-select" >
+                            <option disabled selected>Elije...</option>
                             <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                             <option value="Alfajores Premium">Alfajores Premium</option>
                             <option value="Alfajores Grandes">Alfajores Grandes</option>
@@ -40,7 +44,7 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
                             <option value="Desayunos">Desayunos </option>
                             <option value="Boxs">Box Armados</option>
                         </select>
-                            <CloseButton className={`m-2 ${visibleClearCat}`} onClick={clearSelect} />
+                        <CloseButton className={`m-2 ${visibleClearCat}`} onClick={clearSelectCat} />
                     </div>
 
                 </div>
@@ -48,14 +52,15 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
                     <div className="d-flex">
                         <label className="m-2"> <b>Precio</b></label>
                         <select onChange={filtrarPrecio} className="form-select" >
+                            <option disabled selected>Rango...</option>
                             <option value="10">Hasta $10</option>
                             <option value="15">Hasta $15</option>
                             <option value="25">Hasta $25</option>
                             <option value="35">Hasta $35</option>
                         </select>
-                        <CloseButton className={`m-2 ${visibleClearPri}`} onClick={clearSelect} />
+                        <CloseButton className={`m-2 ${visibleClearPri}`} onClick={clearSelectPri} />
                     </div>
-                    
+
                 </div>
             </div>
         </>

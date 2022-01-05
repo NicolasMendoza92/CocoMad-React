@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import './productDetail.css';
 
-export const ProductDetail = ({ product, cart, setCart }) => {
+export const ProductDetail = ({ product, cart, setCart, setShowSideCart}) => {
 
   const history = useHistory();
 
@@ -14,6 +14,7 @@ export const ProductDetail = ({ product, cart, setCart }) => {
 
   const addToCart = () => {
     setCart((cart) => cart.concat({ product, quantity }));
+    setShowSideCart(true);
   };
 
   const backToShop = () => {
