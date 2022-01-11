@@ -11,6 +11,7 @@ export default function Carrito({ cart, setCart, user }) {
 
     const history = useHistory();
     const [envio, setEnvio] = useState('');
+    const [ajuste, setAjuste] = useState('');
 
     const scrollToTop = () => {
         window.scrollTo(0, 250);
@@ -28,9 +29,23 @@ export default function Carrito({ cart, setCart, user }) {
 
     let total = cart.reduce((total, { product, quantity }) => total + product.price * quantity, 0);
 
-    const totalAmount = Number(total + envio)
 
+    const totalAmount = Number(total + envio - ajuste)
 
+    const ajusteAlfajores = () => {
+        if (total === 9) {
+            setAjuste(0.50)
+        } else if (total === 18) {
+            setAjuste(1.50)
+        } else if (total === 7.20) {
+            setAjuste(0.40)
+        } else if (total === 14.40) {
+            setAjuste(1.90)
+        } else {
+            setAjuste('')
+            alert('producto sin descuento')
+        }
+    }
 
     const mapCarrito = cart.map((productCart, i) => (<CardCarrito
         key={i} productCart={productCart}
@@ -108,6 +123,11 @@ export default function Carrito({ cart, setCart, user }) {
                                     <div className="m-2 d-flex justify-content-around">
                                         <h5>Envio:</h5>
                                         <h5> {envio} € </h5>
+                                    </div>
+                                    <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
+                                        <p>Aplique descuento por Combo</p>
+                                        <button onClick={ajusteAlfajores}>Ajustar</button>
+                                        <p style={{ color: 'green' }}> -{ajuste}</p>
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
                                         <h3>Total</h3>

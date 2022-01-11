@@ -96,7 +96,7 @@ export default function Home() {
         <CardsHome cardsHome={cardsHome} />
       </Container>
       <div data-aos="fade-right" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center mt-3">
-        <h4>❤ ESTAMOS MUY AGRADECIDOS CON NUSTROS CLIENTES ❤ </h4>
+        <h4>❤ ESTAMOS MUY AGRADECIDOS CON NUSTROS COCOFANS ❤ </h4>
       </div>
       <Container>
         <div data-aos="fade-up" className="p-2 mb-4">

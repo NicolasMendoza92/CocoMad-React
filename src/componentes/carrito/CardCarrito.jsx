@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap'
 import { MdOutlineClose } from 'react-icons/md';
+import swal from 'sweetalert';
 import './cartStyles.css';
 
 
@@ -13,10 +14,21 @@ export const CardCarrito = ({ productCart, cart, setCart, changeQuantity }) => {
 
   const oneMore = () => {
     changeQuantity(productCart.product._id, productCart.quantity + 1);
+    if (productCart.product.category ==="Alfajores Premium" && (productCart.quantity === 5 || productCart.quantity === 11)) {
+      swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+    } else if (productCart.product.category ==="Alfajores Clasicos" && (productCart.quantity === 5 || productCart.quantity === 11)){
+      swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+    } 
+
   };
 
   const oneLess = () => {
     changeQuantity(productCart.product._id, productCart.quantity - 1);
+    if (productCart.product.category ==="Alfajores Premium" && (productCart.quantity === 7 || productCart.quantity === 13)) {
+      swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+    } else if (productCart.product.category ==="Alfajores Clasicos" && (productCart.quantity === 7 || productCart.quantity === 13)){
+      swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+    } 
   };
 
   const isCartZero = productCart.quantity <= 1;
@@ -45,8 +57,8 @@ export const CardCarrito = ({ productCart, cart, setCart, changeQuantity }) => {
           <h4 className="m-2">{productCart.quantity}</h4>
           <button onClick={oneMore} className="agregar-sacar-btn">+</button>
         </div>
-        <Card.Text className="text-center col-2 subtotal-cart">
-          <b>Sub total: {(productCart.product.price * productCart.quantity).toFixed(2)} €</b>
+        <Card.Text className="text-center col-2 subtotal-cart">         
+           <b>Sub total: {(productCart.product.price * productCart.quantity).toFixed(2)} €</b>  
         </Card.Text>
         <hr />
       </div>
