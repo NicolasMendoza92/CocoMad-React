@@ -53,6 +53,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                 && splitLocation[1] !== "messageList"
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
+                && splitLocation[1] !== "deliveryList"
                 &&
                 <>
                     <nav>
@@ -75,7 +76,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                         &&
                                         <>
                                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>
-                                            <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link>
+                                            {/* <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link> */}
                                         </>
                                     }
                                     {user.role === 'admin' &&
@@ -148,6 +149,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                 && splitLocation[1] !== "messageList"
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
+                && splitLocation[1] !== "deliveryList"
                 &&
                 <NavbarMobile setShow={setShow} show={show} user={user} />
             }
@@ -155,6 +157,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
             {splitLocation[1] === "messageList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "saleList" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "deliveryList" && <NavbarAdmin user={user} />}
         </>
     );
 }

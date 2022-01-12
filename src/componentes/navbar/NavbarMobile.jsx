@@ -36,9 +36,9 @@ export const NavbarMobile = ({ setShow, show, user }) => {
               <Nav.Link as={NavLink} to="/login">
                 <button className="boton-artesanal-cel">Iniciar sesión</button>
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/register">
+              {/* <Nav.Link as={NavLink} to="/register">
                 <button className="boton-artesanal-cel">Registrarse</button>
-              </Nav.Link>
+              </Nav.Link> */}
             </>
           }
         </Offcanvas.Header>

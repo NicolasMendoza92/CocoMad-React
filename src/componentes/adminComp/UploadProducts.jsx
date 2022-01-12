@@ -108,8 +108,8 @@ export default function UploadProduts({ getProducts }) {
                                 <Col className=" col-12 col-lg-6">
                                     <Form.Group className="d-flex flex-column" controlId="category">
                                         <Form.Label>Categoria</Form.Label>
-                                        <select  name="category" onChange={(e) => handleChange(e)} required>
-                                            <option value=""></option>
+                                        <select  name="category" onChange={(e) => handleChange(e)} defaultValue={'default'} required>
+                                            <option value="default" disabled >Elige...</option>
                                             <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                                             <option value="Alfajores Premium">Alfajores Premium</option>
                                             <option value="Alfajores Grandes">Alfajores Grandes</option>

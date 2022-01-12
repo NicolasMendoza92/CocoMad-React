@@ -33,8 +33,8 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
                 <div className="col-12 col-lg-6 mt-2">
                     <div className="d-flex">
                         <label className="m-2" > <b>Categoria</b></label>
-                        <select onChange={filtrarCategoria} className="form-select" >
-                            <option disabled selected>Elije...</option>
+                        <select onChange={filtrarCategoria} defaultValue={'default'} className="form-select" >
+                            <option value="default" disabled >Elije...</option>
                             <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                             <option value="Alfajores Premium">Alfajores Premium</option>
                             <option value="Alfajores Grandes">Alfajores Grandes</option>
@@ -51,8 +51,8 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
                 <div className="col-12 col-lg-6 mt-2">
                     <div className="d-flex">
                         <label className="m-2"> <b>Precio</b></label>
-                        <select onChange={filtrarPrecio} className="form-select" >
-                            <option disabled selected>Rango...</option>
+                        <select onChange={filtrarPrecio}  defaultValue={'default'} className="form-select" >
+                            <option value="default" disabled>Rango...</option>
                             <option value="10">Hasta $10</option>
                             <option value="15">Hasta $15</option>
                             <option value="25">Hasta $25</option>

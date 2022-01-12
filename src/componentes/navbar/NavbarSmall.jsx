@@ -37,6 +37,7 @@ export const NavbarSmall = ({ user, cart }) => {
                 && splitLocation[1] !== "messageList"
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
+                && splitLocation[1] !== "deliveryList"
                 &&
                 <>
                     <nav>
@@ -59,7 +60,7 @@ export const NavbarSmall = ({ user, cart }) => {
                                         &&
                                         <>
                                             <Nav.Link className="link-nav-log-small d-none d-md-block" activeClassName="link-active-log-small" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>
-                                            <Nav.Link className="link-nav-log-small d-none d-md-block" activeClassName="link-active-log-small" as={NavLink} to="/register" exact>Registrate</Nav.Link>
+                                            {/* <Nav.Link className="link-nav-log-small d-none d-md-block" activeClassName="link-active-log-small" as={NavLink} to="/register" exact>Registrate</Nav.Link> */}
                                         </>
                                     }
                                     {user.role === 'admin' &&
@@ -129,6 +130,7 @@ export const NavbarSmall = ({ user, cart }) => {
                 && splitLocation[1] !== "messageList"
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
+                && splitLocation[1] !== "deliveryList"
                 &&
                 <NavbarMobile setShow={setShow} show={show} user={user} />
             }
@@ -136,6 +138,7 @@ export const NavbarSmall = ({ user, cart }) => {
             {splitLocation[1] === "messageList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "saleList" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "deliveryList" && <NavbarAdmin user={user} />}
         </>
     );
 }

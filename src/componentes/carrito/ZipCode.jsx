@@ -1,7 +1,8 @@
-   
+
 import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { BsFillCalculatorFill } from 'react-icons/bs'
+import swal from 'sweetalert';
 
 export const ZipCode = ({ setEnvio }) => {
 
@@ -23,36 +24,35 @@ export const ZipCode = ({ setEnvio }) => {
         } else if (send.zip === "28001" || send.zip === "28002" || send.zip === "28006" || send.zip === "28007" || send.zip === "28009"
             || send.zip === "28019" || send.zip === "28020" || send.zip === "28027" || send.zip === "28028" || send.zip === "28039"
             || send.zip === "28045") {
-            setEnvio(11.40);
+            setEnvio(11.00);
         } else if (send.zip === "28016" || send.zip === "28017" || send.zip === "28018" || send.zip === "28023" || send.zip === "28025"
             || send.zip === "28026" || send.zip === "28030" || send.zip === "28031" || send.zip === "28036" || send.zip === "28038"
             || send.zip === "28041" || send.zip === "28043" || send.zip === "28047" || send.zip === "28053") {
-            setEnvio(13.40);
+            setEnvio(13.00);
         } else if (send.zip === "28021" || send.zip === "28022" || send.zip === "28024" || send.zip === "28029" || send.zip === "28032"
             || send.zip === "28033" || send.zip === "280304" || send.zip === "28035" || send.zip === "28037" || send.zip === "28044"
             || send.zip === "28046" || send.zip === "28050" || send.zip === "28054" || send.zip === "28055") {
-            setEnvio(14.20)
-        }
-        else (
-            setEnvio(15.40)
+            setEnvio(14.00)
+        } else if (send.zip === "28052" || send.zip === "28051" || send.zip === "28048" || send.zip === "28049" || send.zip === "28042") {
+            setEnvio(15.20)
+        } else (
+            swal('Porfavor selecciona un Codigo')
         )
-    
+
     }
-
-
-
 
     return (
         <div className='m-1 d-flex flex-column justify-content-center'>
-            <spam className='m-1 text-center'>Estima el precio del envio</spam>
-            <Form className="mb-3 d-flex align-items-center justify-content-center" >
+            <p className='m-1 text-center'>Estima el precio del envio</p>
+            <div className="mb-3 d-flex align-items-center justify-content-center" >
                 <Form.Select
                     className="codigo-postal text-center"
                     type="text"
                     name="zip"
                     onChange={(e) => changeCode(e)}
+                    defaultValue={'default'}
                 >
-                    <option disabled selected={"Elije una Opcion"}>Pon tu codigo postal</option>
+                    <option value="default" disabled >Pon tu codigo postal</option>
                     <option value="28001">28001</option>
                     <option value="28002">28002</option>
                     <option value="28003">28003</option>
@@ -109,10 +109,22 @@ export const ZipCode = ({ setEnvio }) => {
                     <option value="28054">28054</option>
                     <option value="28055">28055</option>
                 </Form.Select>
-                <Button className='m-1' variant="outline" onClick={calcularEnvio}>
-                    <BsFillCalculatorFill />
-                </Button>
-            </Form>
+                <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 200, hide: 300 }}
+                    overlay={
+                        (props) => (
+                            <Tooltip id="button-tooltip" {...props}>
+                                Estimar
+                            </Tooltip>)
+                    }
+                >
+                    <Button className='m-1' variant="outline" onClick={calcularEnvio}>
+                        <BsFillCalculatorFill />
+                    </Button>
+                </OverlayTrigger>
+
+            </div>
 
         </div>
     )

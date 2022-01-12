@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
 import { ZipCode } from './ZipCode'
@@ -68,7 +67,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         if (dateDelivery < today) {
             swal('Debes realizar el pedido con 48hs de anticipacion');
         } else {
-            swal("Ahora Si!", "", "success")
+            swal("Excelente!", "", "success")
         }
         setInput(newDate);
     }
@@ -156,22 +155,10 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
 
     }
 
-    const scrollToTop = () => {
-        window.scrollTo(0, 150);
-    };
-
-
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <div className="row row-cols-1">
-                {
-                    !tokenLocal.token
-                    &&
-                    <Link to='/login' onClick={scrollToTop} className="my-3 text-decoration-none text-secondary text-center">
-                        ¿Ya tiene una cuenta? Iniciar sesión
-                    </Link>
-                }
                 <h5 className="mt-2">Informacion del Contacto</h5>
             </div>
             <Form.Group className="mb-3" controlId="validationCustom01">
@@ -229,8 +216,9 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     className="col-11 col-md-9 text-center"
                     name="pickUp"
                     onChange={(e) => handlePickUp(e)}
+                    defaultValue={'default'}
                     required>
-                    <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                    <option value="default" disabled>Elije una opcion</option>
                     <option value="si">Si</option>
                     <option value="no">No</option>
                 </Form.Select>
@@ -328,8 +316,9 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
                             onChange={(e) => handleChange(e)}
+                            defaultValue={'default'}
                             required>
-                            <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                            <option value="default" disabled>Elije una opcion</option>
                             <option value="9a11">9:00 am - 11:00 am</option>
                             <option value="11a13">11:00 am - 13:00 pm</option>
                             <option value="16a18">16:30 pm - 18:00 pm</option>
@@ -360,8 +349,9 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
                                         onChange={(e) => handleChange(e)}
+                                        defaultValue={'default'}
                                         required>
-                                        <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                                        <option value="default" disabled>Elije una opcion</option>
                                         <option value="bizum">Bizum</option>
                                         <option value="transferencia">Trasnferencia</option>
                                     </Form.Select>
@@ -420,8 +410,9 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
                             onChange={(e) => handleChange(e)}
+                            defaultValue={'default'}
                             required>
-                            <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                            <option value="default" disabled>Elije una opcion</option>
                             <option value="9a11">9:00 am - 11:00 am</option>
                             <option value="11a13">11:00 am - 13:00 pm</option>
                             <option value="16a18">16:30 pm - 18:00 pm</option>
@@ -443,8 +434,9 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
                                         onChange={(e) => handleChange(e)}
+                                        defaultValue={'default'}
                                         required>
-                                        <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                                        <option value="default" disabled>Elije una opcion</option>
                                         <option value="efectivo">Pagare el dia del retiro</option>
                                         <option value="bizum">Bizum Ahora</option>
                                         <option value="transferencia">Transferencia</option>

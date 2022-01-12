@@ -11,7 +11,7 @@ import Nosotros from './pages/Nosotros'
 import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
 import Login from './pages/Login';
-import Registro from './pages/Registro';
+// import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
 import Perfil from './pages/Perfil';
 import DetailsProduct from './pages/DetailsProduct';
@@ -29,6 +29,7 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 // utils
 import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
+import DeliveryList from './pages/pagesAdmin/DeliveryList';
 
 
 
@@ -44,6 +45,7 @@ function App() {
   const [deliveries, setDeliveries] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', []);
+  const [finalPrice,setFinalPrice] = useState('');
 
   const [showSideCart, setShowSideCart] = useState(false);
 
@@ -199,16 +201,17 @@ function App() {
         <Route path="/carrito">
           <Carrito
             user={user}
-            cart={cart} setCart={setCart} />
+            cart={cart} setCart={setCart}
+            setFinalPrice={setFinalPrice} />
         </Route>
 
         <Route path="/login" >
           <Login requestUserData={requestUserData} cart={cart} />
         </Route>
 
-        <Route path="/register" >
+        {/* <Route path="/register" >
           <Registro />
-        </Route>
+        </Route> */}
 
         {tokenLocalData.token &&
           <Route path="/perfil" >
@@ -237,9 +240,15 @@ function App() {
         {isAdmin && (
           <Route path="/saleList" >
             <SaleList
-              getSales={getSales}
-              tableSales={tableSales} setTableSales={setTableSales}
-              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries} />
+              getSales={getSales} tableSales={tableSales} setTableSales={setTableSales}
+              finalPrice={finalPrice} />
+          </Route>
+        )}
+        {isAdmin && (
+          <Route path="/deliveryList" >
+            <DeliveryList
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}
+              finalPrice={finalPrice} />
           </Route>
         )}
 

@@ -7,46 +7,45 @@ import { VscSearch } from 'react-icons/vsc';
 import swal from 'sweetalert';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
+import { ModalViewSale } from '../adminComp/ModalViewSale';
 import { PaginationTable } from '../paginacion/PaginationTable';
-import { ModalViewRetiro } from '../adminComp/ModalViewRetiro';
 
-export const TableSales = ({ getSales, tableSales, setTableSales }) => {
+export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [saleRetiro, setSaleRetiro] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
-    const [showModalViewRetiro, setShowModalViewRetiro] = useState(false);
+    const [saleFind, setSaleFind] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
+    const [showModalViewSale, setShowModalViewSale] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const [currentSales, setCurrentSales] = useState([]);
 
+    const [currentDeliveries,setCurrentDeliveries]=useState([]);
 
     useEffect(() => {
         const limit = 10;
         const start = 0 + currentPage * limit - limit;
         const end = start + limit;
 
-        const productsSlice = tableSales.slice(start, end);
-        setCurrentSales(productsSlice);
+        const productosSlice = deliveries.slice(start, end);
+        setCurrentDeliveries(productosSlice);
 
-        const totalPages = Math.ceil(tableSales.length / limit);
+        const totalPages = Math.ceil(deliveries.length / limit);
         setTotalPages(totalPages);
-    }, [currentPage, tableSales]);
+    }, [currentPage,deliveries]);
 
-// vbles para abrir el retiro 
-    const handleCloseModalViewRetiro = () => setShowModalViewRetiro(false);
-    const handleShowModalViewRetiro = () => setShowModalViewRetiro(true);
+    // vbles para abrir el delivery
+    const handleCloseModalViewSale = () => setShowModalViewSale(false);
+    const handleShowModalViewSale = () => setShowModalViewSale(true);
 
-
-    const findRetiro = async (_id) => {
+    const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/sales/${_id}`);
-        setSaleRetiro(response.data);
+        const response = await axios.get(`http://localhost:4000/api/deliveries/${_id}`);
+        setSaleFind(response.data);
         setIsLoading(false);
-        handleShowModalViewRetiro();
+        handleShowModalViewSale();
         console.log(response.data)
     }
 
-    const alertaBorrarRetiro = (_id) => {
+    const alertaBorrarEntrega = (_id) => {
         swal({
             title: "Esta seguro?",
             text: "Se perdera el dato de la compra...",
@@ -56,49 +55,46 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    deleteSale(_id)
+                    deleteDelivery(_id)
                 }
             });
     }
 
-
-    const deleteSale = async (_id) => {
+    const deleteDelivery = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`https://cocobackend.herokuapp.com/api/sales/${_id}`, { headers });
-        await getSales();
+        await axios.delete(`http://localhost:4000/api/deliveries/${_id}`, { headers });
+        await getDeliveries();
         setIsLoading(false);
     };
 
-
-    const refreshSales = async () => {
+    const refreshDeliverys = async () => {
         setIsLoading(true);
-        await getSales();
+        await getDeliveries();
         setIsLoading(false);
     };
 
+    const [filtro, setFiltro] = useState('');
 
-    const [busqueda, setBusqueda] = useState('');
-
-    const filterSales = (e) => {
+    const filterDelivery = (e) => {
         const keyword = e.target.value;
         if (keyword !== '') {
-            const results = tableSales.filter((sale) => {
-                return sale.buyerData.buyerName.includes(keyword.toLowerCase())
-                    || sale.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
+            const results = deliveries.filter((delivery) => {
+                return delivery.buyerData.buyerName.includes(keyword.toLowerCase())
+                    || delivery.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
             });
-            setTableSales(results);
+            setDeliveries(results);
         } else {
-            setTableSales(tableSales);
+            setDeliveries(deliveries);
         }
-        setBusqueda(keyword);
+        setFiltro(keyword);
     };
-
 
     return (
         <Container>
-            <h4>Tabla de Retiros</h4>
+            <h4>Tabla de Envios</h4>
+
             <div className="d-flex justify-content-between align-items-center my-2">
                 <form className="search-form " >
                     <div className="input-group search-table">
@@ -106,16 +102,16 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                             className="search-icon"
                             id="basic-addon1"><VscSearch /></span>
                         <input
-                            value={busqueda}
+                            value={filtro}
                             type="text"
                             className="col-11 search-input"
                             placeholder="Buscar"
                             aria-describedby="basic-addon1"
-                            onChange={filterSales}
+                            onChange={filterDelivery}
                         />
                     </div>
                 </form>
-                <button onClick={() => refreshSales()} className=" my-2 p-0 circle-btn">
+                <button onClick={() => refreshDeliverys()} className=" my-2 p-0 circle-btn">
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
@@ -125,18 +121,18 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                         <th>Fecha</th>
                         <th>Cliente</th>
                         <th>Pago</th>
-                        <th>Retira el dia</th>
+                        <th>Entrega</th>
                         <th>Productos</th>
                         <th>Total</th>
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
                 <tbody >
-                    {currentSales.length === 0 ?
+                    {currentDeliveries.length === 0 ?
                         <tr>
                             <td colSpan="6">No hay ventas registradas</td>
                         </tr> :
-                        currentSales.map(({
+                        currentDeliveries.map(({
                             buyerData: {
                                 buyerName,
                                 registerBuy,
@@ -146,9 +142,8 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                 payMethod,
                             },
                             productsList
-
-                            , _id }, tab) => (
-                            <tr className="text-center " key={tab}>
+                            , _id }, tabe) => (
+                            <tr className="text-center " key={tabe}>
                                 <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerName}</td>
                                 <td>{payMethod}</td>
@@ -170,8 +165,8 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                     {(productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)} €
                                 </td>
                                 <td>
-                                    <button className="ms-3 circle-btn" onClick={() => alertaBorrarRetiro(_id)} ><FaEraser className="mb-1" /></button>
-                                    <button className="m-auto circle-btn" onClick={() => findRetiro(_id)} ><AiFillEye className="mb-1" /></button>
+                                    <button className="ms-3 circle-btn" onClick={() => alertaBorrarEntrega(_id)} ><FaEraser className="mb-1" /></button>
+                                    <button className="m-auto circle-btn" onClick={() => findSale(_id)} ><AiFillEye className="mb-1" /></button>
                                 </td>
                             </tr>
                         ))}
@@ -185,10 +180,10 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                 />
             </div>
 
-             <ModalViewRetiro
-                closeModalRetiro={handleCloseModalViewRetiro}
-                showModalViewRetiro={showModalViewRetiro}
-                saleRetiro={saleRetiro}
+            <ModalViewSale
+                closeModal={handleCloseModalViewSale}
+                showModalViewSale={showModalViewSale}
+                saleFind={saleFind}
             />
 
             {

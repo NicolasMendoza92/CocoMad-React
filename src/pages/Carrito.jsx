@@ -7,7 +7,7 @@ import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
 
-export default function Carrito({ cart, setCart, user }) {
+export default function Carrito({ cart, setCart, user, setFinalPrice }) {
 
     const history = useHistory();
     const [envio, setEnvio] = useState('');
@@ -30,7 +30,8 @@ export default function Carrito({ cart, setCart, user }) {
     let total = cart.reduce((total, { product, quantity }) => total + product.price * quantity, 0);
 
 
-    const totalAmount = Number(total + envio - ajuste)
+    const totalAmount = Number(total + envio - ajuste);
+    setFinalPrice(totalAmount.toFixed(2))
 
     const ajusteAlfajores = () => {
         if (total === 9) {

@@ -19,6 +19,7 @@ export const NavbarAdmin = () => {
                             <Nav.Link as={NavLink} to="/userList">Usuarios</Nav.Link>
                             <Nav.Link as={NavLink} to="/messageList">Mensajes</Nav.Link>
                             <Nav.Link as={NavLink} to="/saleList">Ventas</Nav.Link>
+                            <Nav.Link as={NavLink} to="/deliveryList">Entregas</Nav.Link>
                             <Nav.Link as={NavLink} to="/">Ir al Landing</Nav.Link>
                             <Nav.Link onClick={logout} >Cerrar Sesion</Nav.Link>
                         </Nav>
