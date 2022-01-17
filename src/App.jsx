@@ -45,7 +45,6 @@ function App() {
   const [deliveries, setDeliveries] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', []);
-  const [finalPrice,setFinalPrice] = useState('');
 
   const [showSideCart, setShowSideCart] = useState(false);
 
@@ -201,8 +200,7 @@ function App() {
         <Route path="/carrito">
           <Carrito
             user={user}
-            cart={cart} setCart={setCart}
-            setFinalPrice={setFinalPrice} />
+            cart={cart} setCart={setCart} />
         </Route>
 
         <Route path="/login" >
@@ -240,15 +238,13 @@ function App() {
         {isAdmin && (
           <Route path="/saleList" >
             <SaleList
-              getSales={getSales} tableSales={tableSales} setTableSales={setTableSales}
-              finalPrice={finalPrice} />
+              getSales={getSales} tableSales={tableSales} setTableSales={setTableSales} />
           </Route>
         )}
         {isAdmin && (
           <Route path="/deliveryList" >
             <DeliveryList
-              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}
-              finalPrice={finalPrice} />
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries} />
           </Route>
         )}
 

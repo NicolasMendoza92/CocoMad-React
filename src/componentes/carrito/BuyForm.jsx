@@ -78,6 +78,17 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         e.stopPropagation();
 
         try {
+            const newEmail = {
+                buyerEmail: input.buyerEmail,
+                buyerName: input.buyerName,
+                buyerLastName: input.buyerLastName,
+                buyerCelphone: input.buyerCelphone,
+                deliveryDate: input.deliveryDate,
+                deliveryHour: input.deliveryHour,
+                pickUp: input.pickUp,
+                payMethod: input.payMethod,
+                productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
+            }
             const newBuy = {
                 buyerData: {
                     buyerEmail: input.buyerEmail,
@@ -118,10 +129,13 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
             }
             if (pickUpLocal === "si") {
                 await axios.post('http://localhost:4000/api/sales/', newBuy);
+                console.log(newBuy)
+                console.log(newEmail)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
                 }).then(() => {
+                    axios.post('http://localhost:4000/api/emails/', newEmail);
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
@@ -132,6 +146,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     title: "Compra Exitosa !",
                     icon: "success",
                 }).then(() => {
+                    axios.post('http://localhost:4000/api/emails/', newEmail);
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
@@ -154,6 +169,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         }
 
     }
+
 
 
     return (
