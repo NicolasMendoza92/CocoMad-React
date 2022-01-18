@@ -37,11 +37,13 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         const newInput = { ...input, [name]: value };
 
         if (newInput.payMethod === "transferencia") {
-            setPayment("transferencia")
+            setPayment("transferencia");
         } else if (newInput.payMethod === "bizum") {
-            setPayment("bizum")
+            setPayment("bizum");
+        } else if (newInput.payMethod === "efectivo") {
+            setPayment("efectivo");
         } else {
-            setPayment("efectivo")
+            setPayment('');
         }
         setInput(newInput);
     }
@@ -52,8 +54,8 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
         if (newPickUp.pickUp === "si") {
             setPickUpLocal("si");
         } else if ((newPickUp.pickUp === "no")) {
-            setPickUpLocal("no")
-            swal('Las tarifas y alcance de envio es aplicado segun la app GLOVO.')
+            setPickUpLocal("no");
+            swal('Las tarifas y alcance de envio es aplicado segun la app GLOVO.');
         }
         setInput(newPickUp);
     }
@@ -384,7 +386,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                 }
                                 {payment === "transferencia" &&
                                     <div>
-                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN <b>XXXXX</b></h5>
+                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN: <b>ES17 0081 5244 9500 0184 0789</b></h5>
                                         <p> Puedes enviarnos un mensaje para coordinar
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
@@ -420,7 +422,8 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                             Debes pedir con 2 dias de anticipacion
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="validationCustom20">
+
+                    <Form.Group className="mb-3" controlId="validationCustom22">
                         <h5 className="mt-2">Rango de entrega</h5>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
@@ -477,7 +480,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                                 }
                                 {payment === "transferencia" &&
                                     <div>
-                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN <b>XXXXX</b></h5>
+                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN: <b>ES17 0081 5244 9500 0184 0789</b></h5>
                                         <p> Puedes enviarnos un mensaje para coordinar
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
