@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Accordion, Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
-import swal from 'sweetalert';
 import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
