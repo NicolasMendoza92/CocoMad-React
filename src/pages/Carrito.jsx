@@ -71,7 +71,6 @@ export default function Carrito({ cart, setCart, user }) {
             setAjuste(1.90);
         } else {
             setAjuste(0);
-            swal('No se encontro descuento aplicable :(')
         }
     }
 
