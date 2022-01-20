@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 import './productDetail.css';
 
-export const ProductDetail = ({ product, cart, setCart, setShowSideCart}) => {
+export const ProductDetail = ({ product, cart, setCart, setShowSideCart }) => {
 
   const history = useHistory();
 
@@ -32,31 +32,36 @@ export const ProductDetail = ({ product, cart, setCart, setShowSideCart}) => {
 
   return (
     <>
-      <Row className="details-product-bg" style={{
-        backgroundImage: `url(${product.imageDetail})`
-      }}>
-        <Col className="columna-detalle col-11 col-md-10 col-lg-8 col-xl-5 text-center">
-          <span className="product-name">{product.name}</span>
-          <h2 className="mt-3 product-description">{product.description}</h2>
-          <p className="mt-1 product-price ">{product.price} €</p>
-          <div className="mb-2">
-            <button
-              disabled={isInCart}
-              className={isInCart ? 'col-9 added-cart-btn-detail ' : ' col-9 add-cart-btn-detail'}
-              onClick={addToCart} >
-              {isInCart ? (
-                'Añadido al Carrito'
-              ) : (
-                'Añadir al Carrito'
-              )}
-            </button>
-          </div>
-          <div className="mb-2">
-            <button onClick={backToShop} className="add-cart-btn-detail" > Volver a Productos</button>
+      <Row className="d-flex justify-content-center">
+        <Col className="columna-detalle col-12 col-md-10 col-lg-8 col-xl-6 text-center">
+          <p className="mb-0 product-name">{product.name}</p>
+          <p className="mb-0">{product.category}</p>
+          <p className="mt-2 product-description">{product.description}</p>
+          <p className="mt-1 product-price">{product.price} €</p>
+          <div className="d-flex justify-content-around">
+            <div className="mb-2">
+              <button
+                disabled={isInCart}
+                className={isInCart ? 'added-cart-btn-detail ' : 'add-cart-btn-detail'}
+                onClick={addToCart} >
+                {isInCart ? (
+                  'Añadido al Carrito'
+                ) : (
+                  'Añadir al Carrito'
+                )}
+              </button>
+            </div>
+            <div className="mb-2">
+              <button onClick={backToShop} className="back-cart-btn-detail" > Volver al Shop</button>
+            </div>
           </div>
         </Col>
+        <Col className="card-img-detalle col-12 col-md-10 col-lg-8 col-xl-6 text-center">
+          <Card className="card-img-detalle">
+            <Card.Img className="img-detalle p-1" variant="top" src={product.imageDetail} />
+          </Card>
+        </Col>
       </Row>
-
     </>
   );
 };

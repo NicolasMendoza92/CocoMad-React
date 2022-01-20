@@ -55,7 +55,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
             setPickUpLocal("si");
         } else if ((newPickUp.pickUp === "no")) {
             setPickUpLocal("no");
-            swal('Las tarifas y alcance de envio es aplicado segun la app GLOVO.');
+            swal('!Atencion Coquito!','Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
         }
         setInput(newPickUp);
     }

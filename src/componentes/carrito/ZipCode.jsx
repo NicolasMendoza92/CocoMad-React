@@ -1,21 +1,14 @@
 
-import React, { useState } from 'react'
-import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import { BsFillCalculatorFill } from 'react-icons/bs'
+import React from 'react'
+import {  Form } from 'react-bootstrap'
 import swal from 'sweetalert';
 
 export const ZipCode = ({ setEnvio }) => {
 
-    const [send, setSend] = useState('');
-
     const changeCode = (e) => {
         const { value, name } = e.target;
         const codPostal = { [name]: value }
-        const newSend = codPostal
-        setSend(newSend);
-    }
-
-    const calcularEnvio = () => {
+        const send = codPostal
 
         if (send.zip === "28040" || send.zip === "28003" || send.zip === "28004" || send.zip === "28005" || send.zip === "28008"
             || send.zip === "28010" || send.zip === "28011" || send.zip === "28012" || send.zip === "28013" || send.zip === "28014"
@@ -32,18 +25,19 @@ export const ZipCode = ({ setEnvio }) => {
         } else if (send.zip === "28021" || send.zip === "28022" || send.zip === "28024" || send.zip === "28029" || send.zip === "28032"
             || send.zip === "28033" || send.zip === "280304" || send.zip === "28035" || send.zip === "28037" || send.zip === "28044"
             || send.zip === "28046" || send.zip === "28050" || send.zip === "28054" || send.zip === "28055") {
-            setEnvio(14.00)
+            setEnvio(14.00);
         } else if (send.zip === "28052" || send.zip === "28051" || send.zip === "28048" || send.zip === "28049" || send.zip === "28042") {
-            setEnvio(15.20)
-        } else (
-            swal('Porfavor selecciona un Codigo')
-        )
-
+            setEnvio(15.20);
+        } else {
+            setEnvio(0)
+            swal('Porfavor selecciona un Codigo') 
+        }
     }
+
 
     return (
         <div className='m-1 d-flex flex-column justify-content-center'>
-            <p className='m-1 text-center'>Estima el precio del envio</p>
+            <p className='m-1 text-center'>Calcula el precio del envio</p>
             <div className="mb-3 d-flex align-items-center justify-content-center" >
                 <Form.Select
                     className="codigo-postal text-center"
@@ -109,21 +103,6 @@ export const ZipCode = ({ setEnvio }) => {
                     <option value="28054">28054</option>
                     <option value="28055">28055</option>
                 </Form.Select>
-                <OverlayTrigger
-                    placement="right"
-                    delay={{ show: 200, hide: 300 }}
-                    overlay={
-                        (props) => (
-                            <Tooltip id="button-tooltip" {...props}>
-                                Estimar
-                            </Tooltip>)
-                    }
-                >
-                    <Button className='m-1' variant="outline" onClick={calcularEnvio}>
-                        <BsFillCalculatorFill />
-                    </Button>
-                </OverlayTrigger>
-
             </div>
 
         </div>

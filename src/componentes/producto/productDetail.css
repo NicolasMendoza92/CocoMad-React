@@ -1,25 +1,21 @@
-.details-product-bg {
-    height: 65vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    margin: 0;
-}
+
 .columna-detalle{
     align-self: center;
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    background-color: #232b3a88;
     border: 1px solid rgba(255, 255, 255, 0.125);
-    margin-left: 1rem;
+}
+.card-img-detalle{
+  background-color:none;
+  border: none;
+}
+.img-detalle{
+  max-height: 700px;
 }
 .product-name{
     font-family:'Julius Sans One', sans-serif;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     border-bottom: 3px solid rgb(146, 210, 226);
     display: inline-block;
-    color:white;
+    color:black;
 }
 .product-description{
     font-family: 'Montserrat', sans-serif;
@@ -27,15 +23,17 @@
     padding: 0.5rem;
     font-weight: bold;
     line-height: 50px;
-    color:white;
+    color:black;
     border-bottom: 3px solid rgb(146, 210, 226);
 }
 .product-price{
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    color:white;
+    font-size: 2rem;
+    padding: 1rem;
+    color:rgb(71, 71, 71);
     font-weight: bold;
     line-height: 1rem;
+    border-bottom: 3px solid rgb(146, 210, 226);
 }
 .add-cart-btn-detail {
     background: rgb(146, 210, 226);
@@ -63,11 +61,21 @@
   
   }
 
-  .glass-card {
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    background-color: #232b3a88;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+  .back-cart-btn-detail {
+    background: rosybrown;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
+  }
+  .back-cart-btn-detail:hover {
+    background: white;
+    color: rosybrown;
+    border-color: rosybrown;
+    font-size: 18px;
+    font-family: 'Julius Sans One', sans-serif;
+    transition: 0.4s;
   }
 
   /* PARTE DE BOX ARMABLES */

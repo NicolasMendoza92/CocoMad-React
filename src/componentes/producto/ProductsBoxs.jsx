@@ -47,11 +47,11 @@ export const ProductsBoxs = () => {
                 <Card onClick={moveToWhatsApp} className="card-productos m-2">
                     <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
                         <Card.Img className="img-product" variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637682094/cocoMAD/_MG_5488_fnwcaa.png" />
-                        <div className="overlay">ARMAR CAJA</div>
+                        <div className="overlay">ARMA CAJA ESPECIAL</div>
                     </div>
                     <Card.Body className="card-description" >
                         <p className="category-product text-center">
-                            CAJA DE ALFAJORES
+                            CAJA ESPECIAL 
                         </p>
                         <p className="name-product text-center">
                             Consultar Sabores
@@ -62,11 +62,11 @@ export const ProductsBoxs = () => {
                 <Card onClick={moveToWhatsApp} className="card-productos m-2">
                     <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
                         <Card.Img className="img-product" variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1641211769/cocoMAD/empanadas_2_ssfbik.png" />
-                        <div className="overlay">ARMAR CAJA</div>
+                        <div className="overlay">PEDIR EMPANADAS</div>
                     </div>
                     <Card.Body className="card-description" >
                         <p className="category-product text-center">
-                            EMPANADAS TUCUMANAS
+                            EMPANADAS TUCUMANAS "LA ZAMBITA"
                         </p>
                         <p className="name-product text-center">
                             Consultar Sabores

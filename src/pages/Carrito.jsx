@@ -3,15 +3,22 @@ import React, { useState } from 'react';
 import { Accordion, Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
+import swal from 'sweetalert';
 import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
+import { ModalDescuento } from '../componentes/carrito/ModalDescuento';
 
 export default function Carrito({ cart, setCart, user }) {
 
     const history = useHistory();
     const [envio, setEnvio] = useState('');
     const [ajuste, setAjuste] = useState('');
+
+    const [showModalDescuento, setShowModalDescuento] = useState(false);
+
+    const handleCloseModalDescuento = () => setShowModalDescuento(false);
+    const handleShowModalDescuento = () => setShowModalDescuento(true);
 
     const scrollToTop = () => {
         window.scrollTo(0, 250);
@@ -22,28 +29,49 @@ export default function Carrito({ cart, setCart, user }) {
             if (productCart.product._id === _id) {
                 return { ...productCart, quantity };
             }
-            return productCart
+            return productCart;
         });
         setCart(updateCart);
+        setAjuste(0);
     };
 
+    // el parametro "total" es mi acumulador, y en el segundo ponemos a donde accedemos, como es un objeto queremos que nos acumule producto y cantidad ---> despues devolvemos el acumulador "total + (la multiplicacion del precio x cant) y despues devuelve un numero "0" 
     let total = cart.reduce((total, { product, quantity }) => total + product.price * quantity, 0);
 
-
+    // total que pagara el cliente
     const totalAmount = Number(total + envio - ajuste);
 
+    // Formulas para aplicar los descuentos de Premiums
+
+    let reductionP = cart.filter(producto => producto.product.category === "Alfajores Premium");
+
+    let cantPrem = reductionP.reduce((cantPrem, { quantity }) => cantPrem + quantity, 0);
+    let totalPrem = reductionP.reduce((totalPrem, { product, quantity }) => totalPrem + product.price * quantity, 0);
+
+    // Formulas para aplicar los descuentos de Clasicos
+    let reductionC = cart.filter(producto => producto.product.category === "Alfajores Clasicos");
+
+    let cantClas = reductionC.reduce((cantClas, { quantity }) => cantClas + quantity, 0);
+    let totalClas = reductionC.reduce((totalClas, { product, quantity }) => totalClas + product.price * quantity, 0);
+
     const ajusteAlfajores = () => {
-        if (total === 9) {
-            setAjuste(0.50)
-        } else if (total === 18) {
-            setAjuste(1.50)
-        } else if (total === 7.20) {
-            setAjuste(0.40)
-        } else if (total === 14.40) {
-            setAjuste(1.90)
+
+        if (((cantClas >= 3 && cantPrem >= 3) && (cantClas < 6 && cantPrem < 6)) && (totalClas + totalPrem) >= 8.10) {
+            setAjuste(0.60);
+        } else if (((cantClas >= 6 && cantPrem >= 6) && (cantClas < 12 && cantPrem < 12)) && (totalClas + totalPrem) >= 16.20) {
+            setAjuste(1.70)
+        }
+        else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.19 && totalClas < 14.40)) {
+            setAjuste(0.40);
+        } else if (cantClas >= 12 && totalClas >= 14.40) {
+            setAjuste(1.50);
+        } else if ((cantPrem >= 6 && cantPrem < 12) && (totalPrem >= 9 && totalPrem < 18)) {
+            setAjuste(0.50);
+        } else if (cantPrem >= 12 && totalPrem >= 18) {
+            setAjuste(1.90);
         } else {
-            setAjuste('')
-            alert('producto sin descuento')
+            setAjuste(0);
+            swal('No se encontro descuento aplicable :(')
         }
     }
 
@@ -92,19 +120,17 @@ export default function Carrito({ cart, setCart, user }) {
                         }
                     </div>
                     <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
-                        <div>
-                            <h2 style={{ color: 'black', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>TOTAL: {total.toFixed(2)} € </h2>
-                            <Card.Text>
-                                <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA COMPRANDO</button>
-                            </Card.Text>
-                        </div>
+                        <h3 style={{ color: 'black', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>SUBTOTAL: {total.toFixed(2)} € </h3>
+                        <Card.Text>
+                            <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA COMPRANDO</button>
+                        </Card.Text>
                     </div>
                 </div>
             </div>
             {/* PAGAR PRODUCTO ACORDION */}
             {cart.length !== 0 &&
                 <Accordion className="mb-3">
-                    <Accordion.Item className="accordion-buy" eventKey="0">
+                    <Accordion.Item className="accordion-buy" eventKey="0" onClick={ajusteAlfajores}>
                         <Accordion.Header>
                             Proceder a la compra
                         </Accordion.Header>
@@ -118,17 +144,21 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                     <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
                                         <h5>SubTotal:</h5>
-                                        <h5>{total.toFixed(2)} </h5>
+                                        <h5>{total.toFixed(2)} € </h5>
                                     </div>
                                     <div className="m-2 d-flex justify-content-around">
                                         <h5>Envio:</h5>
                                         <h5> {envio} € </h5>
                                     </div>
-                                    <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
-                                        <p>Aplique descuento por Combo</p>
-                                        <button onClick={ajusteAlfajores}>Ajustar</button>
-                                        <p style={{ color: 'green' }}> -{ajuste}</p>
+                                    <div className="m-2 d-flex justify-content-around">
+                                        <h5>Descuento:</h5>
+                                        <p style={{ color: 'green' }}>-{ajuste} €</p>
                                     </div>
+                                    <div className="m-2 d-flex flex-column align-items-center pt-3 border-subtotal-total">
+                                        <p className='descuento'>Conoce los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b> </button> por <b>Caja de Alfajores</b>, si es que realizo un pedido de 6u o 12u de diferente Tipo.</p>
+                                        <button className='boton-artesanal-cel mb-1' onClick={ajusteAlfajores}>Ajustar</button>
+                                    </div>
+
                                     <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
                                         <h3>Total</h3>
                                         <h3> {totalAmount.toFixed(2)} €</h3>
@@ -142,6 +172,11 @@ export default function Carrito({ cart, setCart, user }) {
                     </Accordion.Item>
                 </Accordion>
             }
+
+            <ModalDescuento
+                closeModal={handleCloseModalDescuento}
+                showModalDescuento={showModalDescuento}
+            />
 
         </Container>
     );

@@ -13,9 +13,9 @@ export const CartSideModal = ({ productCart, cart, setCart, changeQuantity }) =>
     const oneMore = () => {
         changeQuantity(productCart.product._id, productCart.quantity + 1);
         if (productCart.product.category ==="Alfajores Premium" && (productCart.quantity === 5 || productCart.quantity === 11)) {
-          swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
         } else if (productCart.product.category ==="Alfajores Clasicos" && (productCart.quantity === 5 || productCart.quantity === 11)){
-          swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
         } 
     
       };
@@ -23,9 +23,9 @@ export const CartSideModal = ({ productCart, cart, setCart, changeQuantity }) =>
       const oneLess = () => {
         changeQuantity(productCart.product._id, productCart.quantity - 1);
         if (productCart.product.category ==="Alfajores Premium" && (productCart.quantity === 7 || productCart.quantity === 13)) {
-          swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
         } else if (productCart.product.category ==="Alfajores Clasicos" && (productCart.quantity === 7 || productCart.quantity === 13)){
-          swal('Por favor elija la opcion de Docena o Media Docena del mismo sabor en el shop, para ajustar el precio');
+          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
         } 
       };
 
@@ -42,7 +42,7 @@ export const CartSideModal = ({ productCart, cart, setCart, changeQuantity }) =>
                 <Card.Text className="text-center m-2 " >
                     {productCart.product.name}
                     <br />
-                    <b className="mt-1">${productCart.product.price}</b>
+                    <b className="mt-1">{productCart.product.price}€</b>
                 </Card.Text>
                 <div className="m-2 ">
                     <button
