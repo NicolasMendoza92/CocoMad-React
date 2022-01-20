@@ -39,7 +39,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
     const findRetiro = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/sales/${_id}`);
+        const response = await axios.get(`https://cocobackend.herokuapp.com/api/sales/${_id}`);
         setSaleRetiro(response.data);
         setIsLoading(false);
         handleShowModalViewRetiro();

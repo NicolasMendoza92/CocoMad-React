@@ -125,7 +125,7 @@ function App() {
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/sales/');
+      const response = await axios.get('https://cocobackend.herokuapp.com/api/sales/');
       setSales(response.data);
       setTableSales(response.data);
     } catch (error) {
@@ -139,7 +139,7 @@ function App() {
   // Traigo los datos de direccion ventas que hacen los usuarios
   const getDeliveries = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/deliveries/');
+      const response = await axios.get('https://cocobackend.herokuapp.com/api/deliveries/');
       setDeliveries(response.data);
     } catch (error) {
       console.error(error);
