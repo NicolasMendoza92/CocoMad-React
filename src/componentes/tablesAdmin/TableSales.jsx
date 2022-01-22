@@ -32,7 +32,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
         setTotalPages(totalPages);
     }, [currentPage, tableSales]);
 
-// vbles para abrir el retiro 
+    // vbles para abrir el retiro 
     const handleCloseModalViewRetiro = () => setShowModalViewRetiro(false);
     const handleShowModalViewRetiro = () => setShowModalViewRetiro(true);
 
@@ -43,7 +43,6 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
         setSaleRetiro(response.data);
         setIsLoading(false);
         handleShowModalViewRetiro();
-        console.log(response.data)
     }
 
     const alertaBorrarRetiro = (_id) => {
@@ -127,7 +126,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                         <th>Pago</th>
                         <th>Retira el dia</th>
                         <th>Productos</th>
-                        <th>Total</th>
+                        <th>SubTotal</th>
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
@@ -167,7 +166,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                 )}
                                 </td>
                                 <td className="d-flex align-items-center justify-content-center" >
-                                    {(productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)} €
+                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)}    €
                                 </td>
                                 <td>
                                     <button className="ms-3 circle-btn" onClick={() => alertaBorrarRetiro(_id)} ><FaEraser className="mb-1" /></button>
@@ -185,7 +184,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                 />
             </div>
 
-             <ModalViewRetiro
+            <ModalViewRetiro
                 closeModalRetiro={handleCloseModalViewRetiro}
                 showModalViewRetiro={showModalViewRetiro}
                 saleRetiro={saleRetiro}

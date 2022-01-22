@@ -7,13 +7,12 @@ import { leerDeLocalStorage } from '../../utils/localStorage'
 import { ZipCode } from './ZipCode'
 
 
-export const BuyForm = ({ user, cart, setEnvio, envio}) => {
+export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
-    console.log(envio)
 
     // Formula para editar el datepicker
     const disablePastDate = () => {
@@ -90,7 +89,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio}) => {
                 deliveryHour: input.deliveryHour,
                 pickUp: input.pickUp,
                 payMethod: input.payMethod,
-                precioEnvio: envio,
+                sendPrice: envio,
+                discount: ajuste, 
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             const newBuy = {
@@ -105,6 +105,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio}) => {
                     deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
                     payMethod: input.payMethod,
+                    discount:ajuste,
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
@@ -120,6 +121,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio}) => {
                     deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
                     payMethod: input.payMethod,
+                    discount:ajuste,
                 },
                 buyerShipping: {
                     buyerAddress1: input.buyerAddress1,
@@ -127,12 +129,13 @@ export const BuyForm = ({ user, cart, setEnvio, envio}) => {
                     buyerCity: input.buyerCity,
                     buyerState: input.buyerState,
                     buyerZip: input.buyerZip,
+                    sendPrice: envio,
                     buyerShippingIntructions: input.buyerShippingInstructions,
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             if (pickUpLocal === "si") {
-                await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
+                await axios.post('http://localhost:4000/api/sales/', newBuy);
                 console.log(newBuy)
                 console.log(newEmail)
                 swal({
@@ -145,8 +148,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio}) => {
                     window.scrollTo(0, 150);
                 });
             } else if (pickUpLocal === "no") {
-                await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
+                await axios.post('http://localhost:4000/api/deliveries/', newDelivery);
                 console.log(newEmail)
+                console.log(newDelivery)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",

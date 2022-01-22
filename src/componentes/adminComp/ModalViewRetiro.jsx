@@ -2,12 +2,12 @@ import React from 'react'
 import { ListGroup, ListGroupItem, Modal, Table } from 'react-bootstrap'
 
 
-export const ModalViewRetiro = ({ showModalViewRetiro, closeModalRetiro, saleRetiro }) => {
+export const ModalViewRetiro = ({ showModalViewRetiro, closeModalRetiro, saleRetiro, }) => {
 
     const { buyerData, productsList, buyerConditions } = saleRetiro;
 
     const subTotal = productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0);
-    const total = subTotal
+    const total = subTotal - buyerConditions.discount
 
     const mapProductsList = productsList.map(({ producto, quantity }, prodList) => (
         <Table size="sm" key={prodList} >
@@ -57,6 +57,10 @@ export const ModalViewRetiro = ({ showModalViewRetiro, closeModalRetiro, saleRet
                             <div className="m-2 d-flex justify-content-around pt-3 border-subtotal-total">
                                 <h5>SubTotal:</h5>
                                 <h5>{subTotal.toFixed(2)} €</h5>
+                            </div>
+                            <div className="m-2 d-flex justify-content-around">
+                                <h5>Descuento:</h5>
+                                <h5> {buyerConditions.discount} €</h5>
                             </div>
                             <div className="m-2 d-flex justify-content-around pt-5 border-subtotal-total">
                                 <h3>Total: </h3>

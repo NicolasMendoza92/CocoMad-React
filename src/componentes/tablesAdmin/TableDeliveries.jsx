@@ -10,7 +10,7 @@ import { SpinnerCM } from '../spinner/SpinnerCM';
 import { ModalViewSale } from '../adminComp/ModalViewSale';
 import { PaginationTable } from '../paginacion/PaginationTable';
 
-export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => {
+export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
@@ -18,7 +18,8 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
 
-    const [currentDeliveries,setCurrentDeliveries]=useState([]);
+
+    const [currentDeliveries, setCurrentDeliveries] = useState([]);
 
     useEffect(() => {
         const limit = 10;
@@ -30,7 +31,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => 
 
         const totalPages = Math.ceil(deliveries.length / limit);
         setTotalPages(totalPages);
-    }, [currentPage,deliveries]);
+    }, [currentPage, deliveries]);
 
     // vbles para abrir el delivery
     const handleCloseModalViewSale = () => setShowModalViewSale(false);
@@ -42,7 +43,6 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => 
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
-        console.log(response.data)
     }
 
     const alertaBorrarEntrega = (_id) => {
@@ -123,7 +123,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => 
                         <th>Pago</th>
                         <th>Entrega</th>
                         <th>Productos</th>
-                        <th>Total</th>
+                        <th>SubTotal</th>
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
@@ -140,6 +140,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => 
                             buyerConditions: {
                                 deliveryDate,
                                 payMethod,
+                                discount,
                             },
                             productsList
                             , _id }, tabe) => (
@@ -162,7 +163,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => 
                                 )}
                                 </td>
                                 <td className="d-flex align-items-center justify-content-center" >
-                                    {(productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)).toFixed(2)} €
+                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)} €
                                 </td>
                                 <td>
                                     <button className="ms-3 circle-btn" onClick={() => alertaBorrarEntrega(_id)} ><FaEraser className="mb-1" /></button>
