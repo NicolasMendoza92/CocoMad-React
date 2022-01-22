@@ -1,7 +1,6 @@
 
 import { Card } from 'react-bootstrap'
 import { MdOutlineClose } from 'react-icons/md';
-import swal from 'sweetalert';
 
 export const CartSideModal = ({ productCart, cart, setCart, changeQuantity }) => {
 
@@ -12,21 +11,10 @@ export const CartSideModal = ({ productCart, cart, setCart, changeQuantity }) =>
 
     const oneMore = () => {
         changeQuantity(productCart.product._id, productCart.quantity + 1);
-        if (productCart.product.category ==="Alfajores Premium" && (productCart.quantity === 5 || productCart.quantity === 11)) {
-          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
-        } else if (productCart.product.category ==="Alfajores Clasicos" && (productCart.quantity === 5 || productCart.quantity === 11)){
-          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
-        } 
-    
       };
     
       const oneLess = () => {
         changeQuantity(productCart.product._id, productCart.quantity - 1);
-        if (productCart.product.category ==="Alfajores Premium" && (productCart.quantity === 7 || productCart.quantity === 13)) {
-          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
-        } else if (productCart.product.category ==="Alfajores Clasicos" && (productCart.quantity === 7 || productCart.quantity === 13)){
-          swal('Si su pedido es 6u o 12u del mismo sabor, por favor elija la opcion de Docena o Media Docena en el shop, para ajustar el precio');
-        } 
       };
 
     const isCartZero = productCart.quantity <= 1;

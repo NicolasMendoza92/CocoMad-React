@@ -5,13 +5,11 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartSideButton } from "../componentes/cartSide/CartSideButton";
 import { ProductDetail } from "../componentes/producto/ProductDetail";
-import { SliderProducts } from "../componentes/sliderProducts/SliderProducts";
 
 
 const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
 
     const [product, setProduct] = useState([]);
-
     const { productId } = useParams();
 
     useEffect(() => {
@@ -24,13 +22,13 @@ const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
         getProduct();
     }, [productId]);
 
+
     return (
         <>
             <div>
                 <ProductDetail product={product} cart={cart} setCart={setCart} setShowSideCart={setShowSideCart} />
             </div>
             <div className="mt-5 text-center">
-                <SliderProducts />
                 <CartSideButton
                     setCart={setCart}
                     cart={cart}

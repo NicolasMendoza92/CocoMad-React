@@ -66,7 +66,10 @@ export const ProductsBoxs = () => {
                     </div>
                     <Card.Body className="card-description" >
                         <p className="category-product text-center">
-                            EMPANADAS TUCUMANAS "LA ZAMBITA"
+                            "LA ZAMBITA"
+                        </p>
+                        <p className="name-product text-center">
+                            EMPANADAS TUCUMANAS
                         </p>
                         <p className="name-product text-center">
                             Consultar Sabores

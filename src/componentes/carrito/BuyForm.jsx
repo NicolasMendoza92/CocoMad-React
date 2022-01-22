@@ -137,7 +137,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     title: "Compra Exitosa !",
                     icon: "success",
                 }).then(() => {
-                    axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                    axios.post('http://localhost:4000/api/emails/', newEmail);
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
@@ -148,7 +148,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                     title: "Compra Exitosa !",
                     icon: "success",
                 }).then(() => {
-                    axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                    axios.post('http://localhost:4000/api/emails/', newEmail);
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
