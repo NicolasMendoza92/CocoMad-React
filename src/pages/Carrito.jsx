@@ -199,7 +199,7 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} />
+                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} />
                                 </div>
                             </div>
                         </Accordion.Body>

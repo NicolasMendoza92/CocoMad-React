@@ -10,7 +10,7 @@ import { SpinnerCM } from '../spinner/SpinnerCM';
 import { ModalViewSale } from '../adminComp/ModalViewSale';
 import { PaginationTable } from '../paginacion/PaginationTable';
 
-export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) => {
+export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries}) => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [saleFind, setSaleFind] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
@@ -38,7 +38,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`https://cocobackend.herokuapp.com/deliveries/${_id}`);
+        const response = await axios.get(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();

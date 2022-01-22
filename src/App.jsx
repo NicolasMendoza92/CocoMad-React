@@ -32,8 +32,6 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import DeliveryList from './pages/pagesAdmin/DeliveryList';
 
 
-
-
 function App() {
 
   const tokenLocalData = leerDeLocalStorage('token') || {};
@@ -244,7 +242,7 @@ function App() {
         {isAdmin && (
           <Route path="/deliveryList" >
             <DeliveryList
-              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries} />
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}/>
           </Route>
         )}
 

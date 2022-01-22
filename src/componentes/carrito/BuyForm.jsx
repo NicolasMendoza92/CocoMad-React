@@ -7,12 +7,13 @@ import { leerDeLocalStorage } from '../../utils/localStorage'
 import { ZipCode } from './ZipCode'
 
 
-export const BuyForm = ({ user, cart, setEnvio }) => {
+export const BuyForm = ({ user, cart, setEnvio, envio}) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
+    console.log(envio)
 
     // Formula para editar el datepicker
     const disablePastDate = () => {
@@ -89,6 +90,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                 deliveryHour: input.deliveryHour,
                 pickUp: input.pickUp,
                 payMethod: input.payMethod,
+                precioEnvio: envio,
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             const newBuy = {
@@ -144,6 +146,7 @@ export const BuyForm = ({ user, cart, setEnvio }) => {
                 });
             } else if (pickUpLocal === "no") {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
+                console.log(newEmail)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
