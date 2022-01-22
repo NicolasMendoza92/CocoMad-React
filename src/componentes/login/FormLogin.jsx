@@ -2,7 +2,7 @@ import React from 'react'
 import swal from 'sweetalert'
 import axios from 'axios';
 import { Card, Form } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { guardarEnLocalStorage } from '../../utils/localStorage';
 
@@ -64,20 +64,20 @@ export const FormLogin = ({requestUserData, cart}) => {
             }
             else if (error.response.data) {
                 swal("Datos Incorrectos", "Asegurate de tener los permisos", "warning")
-                // swal({
-                //     title: "Datos Incorrectos / Usuario No Registrado",
-                //     text: (error.response.data),
-                //     icon: "error",
-                //     buttons: ["No, Gracias", "Registrate!"],
-                //     dangerMode: true,
-                // })
-                //     .then((willDelete) => {
-                //         if (willDelete) {
-                //             history.push('/register')
-                //         } else {
-                //             swal("Sera en otra Ocacion!");
-                //         }
-                //     });
+                swal({
+                    title: "Datos Incorrectos / Usuario No Registrado",
+                    text: (error.response.data),
+                    icon: "error",
+                    buttons: ["No, Gracias", "Registrate!"],
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            history.push('/register')
+                        } else {
+                            swal("Sera en otra Ocacion!");
+                        }
+                    });
             } else {
                 alert('Error de conexion');
             }
@@ -120,12 +120,12 @@ export const FormLogin = ({requestUserData, cart}) => {
                     </Form.Group>
                     <button type="submit" className="responsive-login-btn">Iniciar Sesion</button>
                 </Form>
-                {/* <div className="d-flex flex-column">
+                <div className="d-flex flex-column">
                     <div className="d-flex flex-column align-items-center justify-content-center crea-cuenta mt-2">
                         <p className="mb-1 text-black ">¿Aun no tienes cuenta?</p>
                         <Link as={NavLink} to="/register">Create una!</Link>
                     </div>
-                </div> */}
+                </div>
             </Card.Body>
         </Card >
     )

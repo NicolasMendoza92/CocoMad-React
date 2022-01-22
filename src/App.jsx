@@ -11,6 +11,7 @@ import Nosotros from './pages/Nosotros'
 import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
 import Login from './pages/Login';
+import Registro from './pages/Registro';
 // import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
 import Perfil from './pages/Perfil';
@@ -37,9 +38,9 @@ function App() {
   const tokenLocalData = leerDeLocalStorage('token') || {};
 
   const [user, setUser] = useState({});
+  // vbles de la pagina y admin
   const [products, setProducts] = useState([]);
   const [messages, setMessages] = useState([]);
-  const [sales, setSales] = useState([]);
   const [deliveries, setDeliveries] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', []);
@@ -124,7 +125,6 @@ function App() {
   const getSales = async () => {
     try {
       const response = await axios.get('https://cocobackend.herokuapp.com/api/sales/');
-      setSales(response.data);
       setTableSales(response.data);
     } catch (error) {
       console.error(error);
@@ -205,16 +205,13 @@ function App() {
           <Login requestUserData={requestUserData} cart={cart} />
         </Route>
 
-        {/* <Route path="/register" >
+        <Route path="/register" >
           <Registro />
-        </Route> */}
+        </Route>
 
         {tokenLocalData.token &&
           <Route path="/perfil" >
-            <Perfil requestUserData={requestUserData} user={user}
-              sales={sales}
-              setSales={setSales}
-              getSales={getSales} />
+            <Perfil requestUserData={requestUserData} user={user}/>
           </Route>
         }
         {/* Admin pages */}

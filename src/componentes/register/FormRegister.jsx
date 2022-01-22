@@ -122,13 +122,14 @@ export const FormRegister = () => {
                 />
             </Form.Group>
             <Form.Group className="mb-3 row align-items-center justify-content-center" controlId="formBasicClass">
-                <label className="col-11 col-md-6 text-center">Conoces CocoMad?</label>
+                <label className="col-11 col-md-6 text-center">Conoces la Tienda?</label>
                 <Form.Select
                     className="col-11 col-md-9 text-center"
                     name="knowcoco"
                     onChange={(e) => handleChange(e)}
+                    defaultValue={'default'}
                     required>
-                    <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                    <option value="default" disabled >Elige...</option>
                     <option value="si">Si</option>
                     <option value="no">No</option>
                     <option value="ire">No, pero quiero ir!</option>
