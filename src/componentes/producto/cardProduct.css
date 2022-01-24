@@ -58,11 +58,11 @@
 @media screen and (max-width:480px){
   .category-product {
     font-size: 9px;
-    height: 1 rem;
+    height: 1rem;
   }
   .name-product {
-    font-size: 14px;
-    height: 1 rem;
+    font-size: 11px;
+    height: 1rem;
   }
 }
 

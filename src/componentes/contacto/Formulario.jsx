@@ -28,6 +28,7 @@ export const Formulario = () => {
                 title: "Mensaje enviado con exito !",
                 icon: "success",
             });
+            e.target.reset();
         } catch (error) {
             if (error.response.data) {
                 swal("Faltan datos", "Completar los campos obligatorios", "warning");
