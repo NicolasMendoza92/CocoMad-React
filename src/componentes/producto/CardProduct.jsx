@@ -45,7 +45,7 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
                     <p className="category-product text-center">
                         {product.category}
                     </p>
-                    <p className="name-product text-center">
+                    <p className="mb-1 name-product text-center">
                         {product.name}
                     </p>
                     <p className="price-product text-center">
