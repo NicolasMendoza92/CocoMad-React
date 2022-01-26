@@ -260,8 +260,15 @@
 
 .nav-logo-desktop{
 max-width: 100px;
-
 }
+
+.nav-logo-desktop:hover{
+    max-width: 100px;
+    transition-duration: 10ms;
+    content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210954/cocoMAD/cocomad_logo_celeste_1_pccjhr.png);
+  
+    }
+
 .login-register {
     position: relative;
     top: 0;

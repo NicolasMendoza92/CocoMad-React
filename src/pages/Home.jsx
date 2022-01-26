@@ -63,6 +63,34 @@ let sliderMensajes = [
       "Las propietarias son dos hermanas argentinas Luciana y Constanza que son unas genias y han convertido su pasión en un negocio , y eso se nota. Desde que entras por la puerta te reciben con dulzura y cariño. El cafe está exquisito y tienen montón de tartas riquísimas, la mítica chocotorta , tarta de queso con frutos rojos, banana , con dulce de leche, pasta flora, alfajores de todo tipo caseros , los mejores de Madrid . también tienen salado croissant de jamón y queso , sandwhiches de miga, empanadas. Super recomendable! Para desayunar, merendar o almorzar",
     nombre: "Mercedes, ES",
   },
+  {
+    id: "9",
+    titulo: "Calido y Casero",
+    descripcion:
+      "La mejor pastelería argentina en Madrid. Productos de primera calidad y caseros. Un hermoso ambiente y excelente atención. Super recomendado como visita obligatoria por la ciudad capital.",
+    nombre: "Andrea Gutierrez, ES",
+  },
+  {
+    id: "10",
+    titulo: "Visita Obligatoria!",
+    descripcion:
+      "Excelentes productos! Se nota la calidad de los insumos, la dedicación y el amor que le ponen a lo que hacen! Obligatoria visita cada vez que voy a Madrid! Gracias por tantas cosas ricas!",
+    nombre: "Federico Wagner, AR",
+  },
+  {
+    id: "11",
+    titulo: "Lugar que Enamora",
+    descripcion:
+      "Te sientes en casa sin duda!!  bonito , cómodo,  rico , muy lindas y amables uno de los lugares que me ha enamorado de Madrid",
+    nombre: "Greta Ortega, ES",
+  },
+  {
+    id: "12",
+    titulo: "Impresionante Todo!",
+    descripcion:
+      "Un rincón argentino en Madrid. Con excelente productos, muy ricos. Todo fresco. Todo riquísimo! El cheesecake de Banana, 100 puntos. Y los alfajores pff.. impresionantes. Bah todo..",
+    nombre: "Juan Manuel Oubiña, ES",
+  },
 ];
 
 
@@ -70,7 +98,7 @@ const cardsHome = [
   {
     image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
     title: "COCO ALFAJORES",
-    sentence: "LOS COCO ALFAJORES SON LOS FAVORITOS DE LA CLIENTELA",
+    sentence: "LOS COCO ALFAJORES SON LOS FAVORITOS DE NUESTROS COCOFANS",
   },
   {
     image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154707/cocoMAD/tortas_g15ap8.jpg",

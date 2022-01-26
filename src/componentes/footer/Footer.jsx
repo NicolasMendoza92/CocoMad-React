@@ -20,6 +20,7 @@ export const Footer = () => {
                 && splitLocation[1] !== "messageList"
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
+                && splitLocation[1] !== "deliveryList"
                 &&
                 <div className="mt-auto footer">
                     <div className="row text-center justify-content-start links mx-3">
@@ -64,6 +65,7 @@ export const Footer = () => {
             {splitLocation[1] === "messageList" && <FooterAdmin />}
             {splitLocation[1] === "userList" && <FooterAdmin />}
             {splitLocation[1] === "saleList" && <FooterAdmin />}
+            {splitLocation[1] === "deliveryList" && <FooterAdmin />}
         </>
     )
 }

@@ -9,11 +9,12 @@ export const FooterAdmin = () => {
     };
     return (
         <div className="mt-auto footer-admin">
-            <div className="row text-center align-items-center">
+            <div className="d-flex text-center align-items-center">
                 <Nav className="me-auto">
                     <Nav.Link href="/userList">Usuarios</Nav.Link>
                     <Nav.Link href="/messageList">Mensajes</Nav.Link>
                     <Nav.Link href="/saleList">Ventas</Nav.Link>
+                    <Nav.Link href="/deliveryList">Entregas</Nav.Link>
                 </Nav>
             </div>
             <div className="d-flex align-items-center justify-content-between">

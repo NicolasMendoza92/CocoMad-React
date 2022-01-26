@@ -58,7 +58,7 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, search, c
                     />
                 </div>
                 :
-                <Card className="no-results-card text-center text-dark-50 p-5 m-5">
+                <Card className="no-results-card text-center p-5 m-5">
                     <Card.Title>Producto no encontrado</Card.Title>
                 </Card>
             }

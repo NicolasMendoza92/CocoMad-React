@@ -142,7 +142,7 @@ export default function Carrito({ cart, setCart, user }) {
                 <div className="row justify-content-center align-items-center">
                     <div className="text-center" >
                         {cart.length === 0 ?
-                            <Card className="text-center text-dark-50 p-5 m-5 no-result-card">
+                            <Card className="text-center text-dark-50 p-5 m-5 no-results-card">
                                 <Card.Title>Tu carrito esta vacio</Card.Title>
                             </Card>
                             :

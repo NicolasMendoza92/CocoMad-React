@@ -1,19 +1,53 @@
 .card-home {
-    border: none;
     font-family: 'Julius Sans One', sans-serif;
     cursor: pointer;
     border: none;
 }
-.card-home:hover{
-    box-shadow: 9px 9px 11px 2px rgb(231, 170, 107);
-    transition: 0.7s;
-}
+
 
 .titulo-card-home{
     font-size: 30px;
 }
+@media screen and (max-width: 766px) {
+    .titulo-card-home{
+        font-size: 20px;
+    }
+    .text-card-home{
+        font-size: 15px;
+    }
+  }
 
-.glass-card {
+.overlay {
+    position: absolute;
+    border: none;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bold;
+    bottom: 0;
+    background: rgb(146, 210, 226);
+    background: rgb(146, 210, 226);
+    color: whitesmoke;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+    
+  }
+  
+  .container-photo-home {
+      border: none;
+  }
+
+  .container-photo-home:hover .overlay {
+    opacity: 1;
+    border: none;
+  }
+  
+/* glass card css */
+
+  .glass-card {
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
     background-color: #232b3a88;

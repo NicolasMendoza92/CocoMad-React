@@ -8,7 +8,7 @@ export function SliderProducts() {
   return (
     <>
       <h3 className="text-center mas-vendidos d-flex justify-content-center align-items-center">LOS PREFERIDOS DE NUESTROS COCOFANS</h3>
-      <div className='slider-products'>
+      <div className='slider-products my-3'>
         <ReactCardCarousel autoplay={true} autoplay_speed={3500}>
           <div className='card-slider' >
             <Card.Img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/alfajor_de_coco_qoidxm.png" alt="Card image" />

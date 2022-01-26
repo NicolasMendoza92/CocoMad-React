@@ -163,6 +163,15 @@ body {
   font-weight: 900;
 }
 
+.no-results-card-login{
+  border: 0.8px solid  rosybrown !important ;
+  font-family: 'Julius Sans One', sans-serif;
+  padding: 10px;
+}
+.no-results-card-login .h5{
+  font-size: 15px;
+}
+
 
 /* Estilo de pag home  */
 .tarjetas {
@@ -193,7 +202,6 @@ body {
     font-size: 12px;
   }
 }
-
 /* estilo pag contacto */
 
 .form-contacto {
@@ -329,11 +337,13 @@ background: none;
 
 }
 
-.no-result-card{
+.no-results-card{
   border: 0.8px solid  rosybrown !important ;
   font-family: 'Julius Sans One', sans-serif;
   font-weight: bolder;
 }
+
+
 .wap-icon{
   color:#25d366;
   font-size: 1.5rem;

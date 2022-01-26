@@ -20,12 +20,12 @@ export const CardsHome = ({ cardsHome }) => {
             </div>
             <div data-aos="fade-up" className="col-12 col-lg-4 d-flex flex-column justify-content-between">
                 {mapCardsHome[1]}
-                <Card as={Link} to="/contacto" className="bg-dark text-white mb-2 card-home">
+                <Card as={Link} to="/contacto" className="bg-dark text-white mb-2 container-photo-home">
                     <Card.Img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154689/cocoMAD/feca_qdmavt.jpg" alt="Card image" />
-                    <Card.ImgOverlay className="text-center d-flex flex-column align-items-center justify-content-center py-5 px-4">
-                        <div className="glass-card">
+                    <Card.ImgOverlay className="text-center d-flex flex-column align-items-center justify-content-center py-5 px-4 card-home">
+                        <div className="overlay">
                             <Card.Title className="titulo-card-home">COCO CAFECITO</Card.Title>
-                            <Card.Text>
+                            <Card.Text className='text-card-home'>
                             ESPECIALES PARA ACOMPAÑAR CUALQUIERA DE NUESTROS ALFAJORES Y TARTAS EN EL LOCAL
                             </Card.Text>
                         </div>
