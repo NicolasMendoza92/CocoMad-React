@@ -117,7 +117,7 @@ export default function UploadProduts({ getProducts }) {
                                             <option value="Bizcochos">Bizcochos</option>
                                             <option value="Salado">Salado</option>
                                             <option value="Desayunos">Desayunos </option>
-                                            <option value="Boxs Armados">Box Armados</option>
+                                            <option value="Box Armados">Box Armados</option>
                                         </select>
                                     </Form.Group>
                                 </Col>

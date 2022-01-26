@@ -343,11 +343,11 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             onChange={(e) => handleChange(e)}
                             defaultValue={'default'}
                             required>
-                            <option value="default" disabled>Elije una opcion</option>
-                            <option value="9a11">9:00 am - 11:00 am</option>
-                            <option value="11a13">11:00 am - 13:00 pm</option>
-                            <option value="16a18">16:30 pm - 18:00 pm</option>
-                            <option value="18a20">18:00 pm - 20:00 pm</option>
+                           <option value="default" disabled>Elije una opcion</option>
+                            <option value="9am a 11am">9:00 am - 11:00 am</option>
+                            <option value="11am a 13pm">11:00 am - 13:00 pm</option>
+                            <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
+                            <option value="18pm a 20pm">18:30 pm - 20:00 pm</option>
                         </Form.Select>
                     </Form.Group>
 
@@ -439,10 +439,10 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             defaultValue={'default'}
                             required>
                             <option value="default" disabled>Elije una opcion</option>
-                            <option value="9a11">9:00 am - 11:00 am</option>
-                            <option value="11a13">11:00 am - 13:00 pm</option>
-                            <option value="16a18">16:30 pm - 18:00 pm</option>
-                            <option value="18a20">18:00 pm - 20:00 pm</option>
+                            <option value="9am a 11am">9:00 am - 11:00 am</option>
+                            <option value="11am a 13pm">11:00 am - 13:00 pm</option>
+                            <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
+                            <option value="18pm a 20pm">18:30 pm - 20:00 pm</option>
                         </Form.Select>
                     </Form.Group>
 

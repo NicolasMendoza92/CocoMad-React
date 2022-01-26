@@ -3,6 +3,7 @@ import { Accordion, Container } from 'react-bootstrap';
 import './historia.css';
 
 export const HistoriaAcord = () => {
+
     return (
         <Container className="d-lg-none ">
             <div className="d-flex flex-column justify-content-center about">
@@ -12,6 +13,9 @@ export const HistoriaAcord = () => {
                         <Accordion.Body>
                             ♥️Como muchos de vosotros sabéis, este proyecto lo empecé hace más de un laaargo año... (Lu).
                             Pero tuvo una nueva incorporación cuando hace un mes atrás llegó Coni, mi hermana, para acompañarme y ayudarme a que este emprendimiento siga creciendo y llevando alegría por medio de nuestros productos a todos los que nos eligen día a día 🤩.
+                        </Accordion.Body>
+                        <Accordion.Body>
+                        Hoy somos socias!!. Cada dia nos esforzamos para mantener nuestro negocio con alegria y buena disposicion. 
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
@@ -32,7 +36,7 @@ export const HistoriaAcord = () => {
                         <Accordion.Body>
                             ✔️ Literalmente hacemos todo nosotras, desde comprar, atender la tienda, cocinar, llevar la parte impositiva, las redes sociales, hablar con proveedores, contestar sus mensajes 🤣🤣. Así que les agradecemos por la paciencia y también pedirles perdón por algún error que hayamos podido cometer 🙌. <br />
                             ✔️Nos completamos y ayudamos en las fortalezas y debilidades de cada una 💫, tanto profesionales como personales.Este equipo llegó para quedarse y para llenar de alfajores Madrid🥳. <br />
-                            ✔️Obvio que también hay un equipo detrás que no se ve: la familia que esta a la distancia, los amigos que nos apoyan en el día a día, nuestro co-equipers de @la.zambita y @lavidaenrosafloristeria y muchos más que nos ayudaron a seguir adelante en este camino 👏.
+                            ✔️Obvio que también hay un equipo detrás que no se ve: la familia que esta a la distancia, los amigos que nos apoyan en el día a día, nuestro co-equipers de <a href="https://www.instagram.com/la.zambita/?hl=es">La Zambita</a> y <a href="https://www.instagram.com/lavidaenrosafloristeria/?hl=es">lavidaenrosafloristeria</a> y muchos más que nos ayudaron a seguir adelante en este camino 👏.
                             Gracias a este país hermoso, tierra de nuestro querido abuelo Fermin, que no sólo nos da la posibilidad de habitarlo sino de emprender 🌸. <br />
                             •G R A C I A S por apostar a nosotras•
                         </Accordion.Body>

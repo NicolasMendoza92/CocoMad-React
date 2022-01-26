@@ -180,12 +180,23 @@
     border-right: none;
   }
 }
-.img-buy-data{
+
+.prod-data-list{
   width: 8rem;
-  height: 8rem;
+  height: 5rem;
+}
+.img-buy-data{
+  width: 5rem;
+  height: 5rem;
   padding: 5px;
   background-color: none;
 }
+.name-buy-data{
+font-size: 12px;
+}
+.cant-buy-data{
+  font-size: 14px;
+  }
 .border-subtotal-total {
   border-top: 1.5px solid black;
 }
@@ -205,7 +216,7 @@
   color: white !important;
   font-family: 'Julius Sans One', sans-serif !important;
   border: 1px solid rosybrown;
-  font-size: 20px;
+  font-size: 10px;
   padding: 0.5rem 1rem;
   width: 40%;
 }
@@ -228,7 +239,7 @@
   width: 1.3px;
   height: 1.5em;
   min-width: 1.3em;
-  right: -110px;
+  right: -75px;
   bottom: 22px;
   z-index: 0;
 }
