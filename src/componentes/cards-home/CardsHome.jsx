@@ -26,7 +26,7 @@ export const CardsHome = ({ cardsHome }) => {
                         <div className="overlay">
                             <Card.Title className="titulo-card-home">COCO CAFECITO</Card.Title>
                             <Card.Text className='text-card-home'>
-                            ESPECIALES PARA ACOMPAÑAR CUALQUIERA DE NUESTROS ALFAJORES Y TARTAS EN EL LOCAL
+                            ESPECIALES PARA ACOMPAÑAR CUALQUIERA DE NUESTROS ALFAJORES Y TARTAS EN LA TIENDA
                             </Card.Text>
                         </div>
                     </Card.ImgOverlay>
