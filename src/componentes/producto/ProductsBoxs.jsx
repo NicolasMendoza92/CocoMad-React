@@ -61,6 +61,21 @@ export const ProductsBoxs = () => {
 
                 <Card onClick={moveToWhatsApp} className="card-productos m-2">
                     <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
+                        <Card.Img className="img-product" variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1643564629/cocoMAD/tartas_especiales_xbtqe6.png" />
+                        <div className="overlay">TARTAS ESPECIALES</div>
+                    </div>
+                    <Card.Body className="card-description" >
+                        <p className="category-product text-center">
+                            TARTAS GRANDES
+                        </p>
+                        <p className="name-product text-center">
+                            14-16 Porciones
+                        </p>
+                    </Card.Body>
+                </Card>
+
+                <Card onClick={moveToWhatsApp} className="card-productos m-2">
+                    <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
                         <Card.Img className="img-product" variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1641211769/cocoMAD/empanadas_2_ssfbik.png" />
                         <div className="overlay">PEDIR EMPANADAS</div>
                     </div>
