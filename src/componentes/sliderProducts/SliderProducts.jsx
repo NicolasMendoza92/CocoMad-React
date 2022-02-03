@@ -11,7 +11,7 @@ export function SliderProducts() {
       <div className='slider-products my-3'>
         <ReactCardCarousel autoplay={true} autoplay_speed={3500}>
           <div className='card-slider' >
-            <Card.Img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/alfajor_de_coco_qoidxm.png" alt="Card image" />
+            <Card.Img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/clasicos%20/alfajor_de_coco_qoidxm.png" alt="Card image" />
             <Card.ImgOverlay>
               <p>ALFAJORES DE COCO</p>
             </Card.ImgOverlay>
@@ -23,7 +23,7 @@ export function SliderProducts() {
             </Card.ImgOverlay>
           </div>
           <div className='card-slider' >
-            <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/alfajor_maizena_aksv2o.png" />
+            <Card.Img variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1639821244/cocoMAD/clasicos%20/alfajor_maizena_aksv2o.png" />
             <Card.ImgOverlay>
               <p>ALFAJOR DE MAIZENA</p>
             </Card.ImgOverlay>
