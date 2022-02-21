@@ -140,26 +140,26 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             }
             if (pickUpLocal === "si") {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
+                axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newBuy)
                 console.log(newEmail)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
                 }).then(() => {
-                    axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
                 });
             } else if (pickUpLocal === "no") {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
+                axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
                 console.log(newDelivery)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
-                }).then(() => {
-                    axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                }).then(() => {                 
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);

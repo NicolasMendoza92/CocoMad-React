@@ -189,7 +189,7 @@ export default function Carrito({ cart, setCart, user }) {
                                         <p style={{ color: 'green' }}>-{ajuste} €</p>
                                     </div>
                                     <div className="m-2 d-flex flex-column align-items-center pt-3 border-subtotal-total">
-                                        <p className='descuento'>Haz click para conocer los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b> </button> por <b>Caja de Alfajores</b>, si es que realizo un pedido de 6u o 12u de diferente Tipo.</p>
+                                        <p className='descuento'> <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >Haz click </b> </button> para conocer los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b> </button> por <b>Caja de Alfajores</b>, si es que realizo un pedido de 6u o 12u de diferente Tipo.</p>
                                         <button className='boton-artesanal-cel mb-1' onClick={ajusteAlfajores}>Ajustar</button>
                                     </div>
 

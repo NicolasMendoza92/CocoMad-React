@@ -30,6 +30,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
 
   const moveCart = () => {
     history.push('/carrito');
+    window.scrollTo(0, 0);
   };
 
   return (

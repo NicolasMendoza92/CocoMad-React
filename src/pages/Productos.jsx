@@ -6,7 +6,6 @@ import { CardsProducts } from '../componentes/producto/CardsProducts'
 import { ProductsBoxs } from '../componentes/producto/ProductsBoxs';
 import { ProductSearch } from '../componentes/producto/ProductSearch';
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
-import { SliderProducts } from '../componentes/sliderProducts/SliderProducts';
 
 
 export default function Productos({ products, setProducts, search, setSearch, cart, setCart, setShowSideCart, showSideCart}) {
@@ -53,7 +52,6 @@ export default function Productos({ products, setProducts, search, setSearch, ca
         </Row>
       </Container>
       <ProductsBoxs cart={cart} setCart={setCart}/>
-      <SliderProducts />
       <CartSideButton
         setCart={setCart}
         cart={cart}

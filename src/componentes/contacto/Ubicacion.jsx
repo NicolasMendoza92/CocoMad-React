@@ -9,9 +9,9 @@ export const Ubicacion = () => {
     return (
         <div className="apertura my-3 text-center">
             <h2>Ven a conocer nuestra Tienda</h2>
-            <div className="d-flex align-items-center mb-2">
+            <div className="d-flex flex-column align-items-center mb-2">
                 <p className="mb-0 ms-2"><b>Visitanos en:</b> Calle Evaristo San Miguel 9, Madrid, España</p>
-                <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" className="mx-2"> ¿Donde es? <FaMapMarkerAlt /> </a>
+                <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" className="mx-2"> <b>Ver en el Mapa!</b><FaMapMarkerAlt /></a>
             </div>
             <div className="d-flex flex-column mb-2">
                 <h2>Estamos abiertos al publico de Lunes a Sabados</h2>
