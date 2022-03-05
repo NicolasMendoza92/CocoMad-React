@@ -31,7 +31,7 @@ export const MyPurchase = ({ getSales, sales, setSales }) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`https://cocobackend.herokuapp.com/api/sales/${_id}`, { headers });
+        await axios.delete(`http://localhost:4000/api/sales/${_id}`, { headers });
         await getSales();
         setIsLoading(false);
     };
