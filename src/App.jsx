@@ -30,6 +30,7 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
 import DeliveryList from './pages/pagesAdmin/DeliveryList';
+import Tartas from './componentes/tartas/Tartas';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
 
   const [user, setUser] = useState({});
   const [products, setProducts] = useState([]);
+  const [tartas, setTartas] = useState([]);
   const [messages, setMessages] = useState([]);
   const [sales, setSales] = useState([]);
   const [deliveries, setDeliveries] = useState([]);
@@ -90,6 +92,20 @@ function App() {
 
   useEffect(() => {
     getProducts();
+  }, [])
+
+  // get tartas de la API 
+  const getTartas = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/tartas/');
+      setTartas(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getTartas();
   }, [])
 
   // definimos estado aparte para traer usuarios para admin
@@ -176,6 +192,14 @@ function App() {
             setShowSideCart={setShowSideCart} />
         </Route>
 
+        <Route path="/tartas">
+          <Tartas
+          tartas={tartas}
+          setCart={setCart}
+            showSideCart={showSideCart}
+            setShowSideCart={setShowSideCart}
+           />
+        </Route>
         <Route path="/productos">
           <Productos
             products={products}
@@ -242,7 +266,7 @@ function App() {
         {isAdmin && (
           <Route path="/deliveryList" >
             <DeliveryList
-              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}/>
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries} />
           </Route>
         )}
 

@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { CartSideButton } from '../componentes/cartSide/CartSideButton';
+import { NavbarProducts } from '../componentes/navbar/NavbarProducts';
 import { CardsProducts } from '../componentes/producto/CardsProducts'
 import { ProductsBoxs } from '../componentes/producto/ProductsBoxs';
 import { ProductSearch } from '../componentes/producto/ProductSearch';
@@ -24,6 +25,7 @@ export default function Productos({ products, setProducts, search, setSearch, ca
   return (
     <div>
       <Container>
+        <NavbarProducts/>
         <Row>
           <Col className="col-12 col-md-6">
           <Sidebar
