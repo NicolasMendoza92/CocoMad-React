@@ -10,17 +10,15 @@ export const HistoriaAcord = () => {
                 <Accordion defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header><h2>Nuestra Historia</h2></Accordion.Header>
-                        <Accordion.Body>
+                        <Accordion.Body className='acordion-text'>
                             ♥️Como muchos de vosotros sabéis, este proyecto lo empecé hace más de un laaargo año... (Lu).
-                            Pero tuvo una nueva incorporación cuando hace un mes atrás llegó Coni, mi hermana, para acompañarme y ayudarme a que este emprendimiento siga creciendo y llevando alegría por medio de nuestros productos a todos los que nos eligen día a día 🤩.
-                        </Accordion.Body>
-                        <Accordion.Body>
+                            Pero tuvo una nueva incorporación cuando hace un mes atrás llegó Coni, mi hermana, para acompañarme y ayudarme a que este emprendimiento siga creciendo y llevando alegría por medio de nuestros productos a todos los que nos eligen día a día 🤩. <br></br>
                         Hoy somos socias!!. Cada dia nos esforzamos para mantener nuestro negocio con alegria y buena disposicion. 
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
                         <Accordion.Header> <h2>¿Quienes Somos?</h2></Accordion.Header>
-                        <Accordion.Body>
+                        <Accordion.Body className='acordion-text'>
                             <ul className="listas-desordenadas">
                                 <li> ✔️Somos de <a href="https://es.wikipedia.org/wiki/Provincia_de_Tucum%C3%A1n">Tucumán</a> la provincia mas pequeña de Argentina :)</li>
                                 <li>✔️Nos encanta hablar 😂</li>
@@ -33,7 +31,7 @@ export const HistoriaAcord = () => {
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
                         <Accordion.Header> <h2>¿Como trabajamos?</h2></Accordion.Header>
-                        <Accordion.Body>
+                        <Accordion.Body className='acordion-text'>
                             ✔️ Literalmente hacemos todo nosotras, desde comprar, atender la tienda, cocinar, llevar la parte impositiva, las redes sociales, hablar con proveedores, contestar sus mensajes 🤣🤣. Así que les agradecemos por la paciencia y también pedirles perdón por algún error que hayamos podido cometer 🙌. <br />
                             ✔️Nos completamos y ayudamos en las fortalezas y debilidades de cada una 💫, tanto profesionales como personales.Este equipo llegó para quedarse y para llenar de alfajores Madrid🥳. <br />
                             ✔️Obvio que también hay un equipo detrás que no se ve: la familia que esta a la distancia, los amigos que nos apoyan en el día a día, nuestro co-equipers de <a href="https://www.instagram.com/la.zambita/?hl=es">La Zambita</a> y <a href="https://www.instagram.com/lavidaenrosafloristeria/?hl=es">lavidaenrosafloristeria</a> y muchos más que nos ayudaron a seguir adelante en este camino 👏.

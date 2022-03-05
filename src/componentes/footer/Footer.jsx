@@ -23,9 +23,9 @@ export const Footer = () => {
                 && splitLocation[1] !== "deliveryList"
                 &&
                 <div className="mt-auto footer">
-                    <div className="row text-center justify-content-start links mx-3">
-                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
-                            <p>CONTACTO</p>
+                    <div className="row text-center justify-content-around links mx-3">
+                        <div className="d-flex flex-column align-items-center col-12 col-md-3 my-2 p-2">
+                            <p>SIGUENOS</p>
                             <hr />
                             <div className="my-2">
                                 <a href="https://wa.me/c/34635790277" target="blank"> <FaWhatsapp className="social-icon" /> </a>
@@ -37,17 +37,17 @@ export const Footer = () => {
                                 <a href="https://toogoodtogo.es/es/">TooGoodToGo</a>
                             </div>
                         </div>
-                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                        <div className="d-flex flex-column align-items-center col-12 col-md-3 my-2 p-2">
                             <p>LINKS PARA NAVEGAR</p>
                             <hr />
                             <a href="/productos">PRODUCTOS</a>
                             <a href="/nosotros">NOSOTROS</a>
                             <a href="/contacto">CONTACTO</a>
                         </div>
-                        <div className="d-flex flex-column align-items-start col-12 col-md-3 my-2 p-2">
+                        <div className="d-flex flex-column align-items-center col-12 col-md-3 my-2 p-2">
                             <p>VISITANOS</p>
                             <hr />
-                            <div className="d-flex flex-column align-items-start direccion">
+                            <div className="d-flex flex-column align-items-center direccion">
                                 <p>Calle Evaristo San Miguel 9</p>
                                 <p>Madrid 28008</p>
                                 <p>España </p>

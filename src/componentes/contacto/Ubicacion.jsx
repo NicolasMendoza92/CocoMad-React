@@ -8,7 +8,7 @@ export const Ubicacion = () => {
 
     return (
         <div className="apertura my-3 text-center">
-            <h2>Ven a conocer nuestra Tienda</h2>
+            <h2>VEN A CONOCER NUESTRA TIENDA</h2>
             <div className="d-flex flex-column align-items-center mb-2">
                 <p className="mb-0 ms-2"><b>Visitanos en:</b> Calle Evaristo San Miguel 9, Madrid, España</p>
                 <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" className="mx-2"> <b>Ver en el Mapa!</b><FaMapMarkerAlt /></a>

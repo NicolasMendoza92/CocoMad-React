@@ -1,9 +1,11 @@
 .card-home {
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Montserrat', sans-serif;;
     cursor: pointer;
     border: none;
 }
-
+.text-card-home{
+  font-family: 'Montserrat', sans-serif;;
+}
 
 .titulo-card-home{
     font-size: 30px;
@@ -20,8 +22,7 @@
 .overlay {
     position: absolute;
     border: none;
-    font-family: 'Julius Sans One', sans-serif;
-    font-weight: bold;
+    font-family:'Montserrat', sans-serif;;
     bottom: 0;
     background: rgb(146, 210, 226);
     background: rgb(146, 210, 226);
@@ -38,6 +39,7 @@
   
   .container-photo-home {
       border: none;
+      font-family: 'Montserrat', sans-serif;
   }
 
   .container-photo-home:hover .overlay {

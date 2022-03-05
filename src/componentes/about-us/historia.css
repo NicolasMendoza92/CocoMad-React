@@ -1,10 +1,22 @@
 .about{
     font-family: 'Julius Sans One', sans-serif;
+    
+}
+
+.about p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 .listas-desordenadas{
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;;
     list-style: none;
+    font-weight: bold;
+}
+.acordion-text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 .img-carrousel{

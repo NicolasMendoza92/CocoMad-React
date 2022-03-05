@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CardHome } from './CardHome';
 import Aos from 'aos';
+import "./cardHome.css"
 import "aos/dist/aos.css";
 
 export const CardsHome = ({ cardsHome }) => {
@@ -30,7 +31,7 @@ export const CardsHome = ({ cardsHome }) => {
                         <div className="overlay">
                             <Card.Title className="titulo-card-home">COCO CAFECITO</Card.Title>
                             <Card.Text className='text-card-home'>
-                            ESPECIALES PARA ACOMPAÑAR CUALQUIERA DE NUESTROS ALFAJORES Y TARTAS EN LA TIENDA
+                            Especiales para acompañar nuestros productos en la Tienda!
                             </Card.Text>
                         </div>
                     </Card.ImgOverlay>

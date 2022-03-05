@@ -30,11 +30,13 @@ export const HistoriaCarrousel = () => {
                 </div>
                 <div  data-aos="fade-up">
                     <h2>¿Como Trabajamos?</h2>
+                    <p>
                     ✔️ Literalmente hacemos todo nosotras, desde comprar, atender la tienda, cocinar, llevar la parte impositiva, las redes sociales, hablar con proveedores, contestar sus mensajes 🤣🤣. Así que les agradecemos por la paciencia y también pedirles perdón por algún error que hayamos podido cometer 🙌. <br />
                     ✔️Nos completamos y ayudamos en las fortalezas y debilidades de cada una 💫, tanto profesionales como personales.Este equipo llegó para quedarse y para llenar de alfajores Madrid🥳. <br />
                     ✔️Obvio que también hay un equipo detrás que no se ve: la familia que esta a la distancia, los amigos que nos apoyan en el día a día, nuestro co-equipers de @la.zambita y @lavidaenrosafloristeria y muchos más que nos ayudaron a seguir adelante en este camino 👏.
                     Gracias a este país hermoso, tierra de nuestro querido abuelo Fermin, que no sólo nos da la posibilidad de habitarlo sino de emprender 🌸. <br />
                     •G R A C I A S por apostar a nosotras•
+                    </p>
                 </div>
             </div>
             <div  data-aos="fade-up" className="col-12 col-xxl-6 d-flex justify-content-center p-2">
