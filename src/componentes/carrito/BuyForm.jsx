@@ -382,7 +382,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                         required>
                                         <option value="default" disabled>Elije una opcion</option>
                                         <option value="bizum">Bizum</option>
-                                        <option value="transferencia">Trasnferencia</option>
+                                        <option value="transferencia">Transferencia</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "bizum" &&

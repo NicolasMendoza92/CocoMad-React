@@ -10,14 +10,14 @@ import { FaHandHoldingHeart, FaHome,FaShoppingBag} from 'react-icons/fa';
 let sliderMensajes = [
   {
     id: "1",
-    titulo: "Rico y Calido!",
+    titulo: "Rico y Cálido!",
     descripcion:
       "El cafe más rico de Madrid y el croissant con jamón y queso un espectáculo. Las chicas son súper cálidas y atentas. Volveré pronto por el nugaton... y más cafe! 🤣 Gracias",
     nombre: "Florencia, ES",
   },
   {
     id: "2",
-    titulo: "Atencion y Calidad",
+    titulo: "Atención y Calidad",
     descripcion:
       "Todo increíble. De los mejores café que he probado en Madrid, se nota la calidad. Todos los productos caseros. La atención inmejorable",
     nombre: "Mary de Olivera, ES",
@@ -52,7 +52,7 @@ let sliderMensajes = [
   },
   {
     id: "7",
-    titulo: "Atencion Magistral",
+    titulo: "Atención Magistral",
     descripcion:
       "Precioso lugar, muy buena atención por las chicas como siempre! Muy ricas las tortas y los alfajores ",
     nombre: "Ivana Badaloti, ES",
@@ -98,7 +98,7 @@ let sliderMensajes = [
 const cardsHome = [
   {
     image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-    title: "COCO ALFAJORES",
+    title: "#COCOALFAJORES",
     sentence: "Los favoritos de nuestros CocoFans!",
   },
   {
@@ -119,20 +119,20 @@ export default function Home() {
     <>
       <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center mt-2 mb-2">
         <h1> ¡QUIERO TODO!</h1>
-        <p>Con tan solo un click puedes disfrutarlo!!</p>
+        <p>Con tan solo un click, lo puedes disfrutar.</p>
       </div>
       <Container>
         <CardsHome cardsHome={cardsHome} />
       </Container>
       <div data-aos="fade-up"className="tarjetas-icons ">
         <Row>
-          <Col md={4} lg={4} className='social-icon-home'><FaHandHoldingHeart /> <p> Atendemos con el corazon</p></Col>
+          <Col md={4} lg={4} className='social-icon-home'><FaHandHoldingHeart /> <p> Atendemos con el corazón</p></Col>
           <Col md={4} lg={4} className='social-icon-home'><FaHome/><p> Productos Artesanos 100% </p></Col>
           <Col md={4} lg={4} className='social-icon-home'><FaShoppingBag/><p>Disfrutalo en tu casa!</p></Col>
         </Row>
       </div>
       <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center mt-3">
-        <h1>❤ ESTAMOS MUY AGRADECIDOS CON NUSTROS COCOFANS ❤ </h1>
+        <h1>❤ ESTAMOS MUY AGRADECIDOS CON NUESTROS COCOFANS ❤ </h1>
       </div>
       <Container>
         <div data-aos="fade-up" className="p-2 mb-4">

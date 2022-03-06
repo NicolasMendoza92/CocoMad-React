@@ -93,7 +93,7 @@ export const FormLogin = ({requestUserData, cart}) => {
         <Card className="form-login">
             <Card.Body className="card-login-form">
                 <div className="d-flex flex-column align-items-center">
-                    <h3><b>Bienvenido a COCOMAD</b> </h3>
+                    <h3><b>Bienvenido a CocoMad</b> </h3>
                 </div>
                 <Form
                     noValidate

@@ -150,6 +150,9 @@ body {
   border: solid 1px rgb(146, 210, 226);
   font-family: 'Montserrat', sans-serif;
 }
+.tarjeta-login h4{
+  font-weight: bold;
+}
 
 .crea-cuenta a {
   color: black;
