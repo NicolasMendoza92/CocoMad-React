@@ -113,7 +113,7 @@ export default function UploadProduts({ getProducts }) {
                                             <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                                             <option value="Alfajores Premium">Alfajores Premium</option>
                                             <option value="Alfajores Grandes">Alfajores Grandes</option>
-                                            <option value="Tartas">Tartas</option>
+                                            <option value="Tartas Medianas">Tartas Medianas</option>
                                             <option value="Bizcochos">Bizcochos</option>
                                             <option value="Salado">Salado</option>
                                             <option value="Desayunos">Desayunos </option>
