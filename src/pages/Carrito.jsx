@@ -166,13 +166,13 @@ export default function Carrito({ cart, setCart, user }) {
                 <Accordion className="mb-3">
                     <Accordion.Item className="accordion-buy" eventKey="0" onClick={ajusteAlfajores}>
                         <Accordion.Header>
-                            Proceder a la compra
+                            Realizar el Pedido
                         </Accordion.Header>
                         <Accordion.Body className="px-0">
                             <div className="row row-cols-1 row-cols-lg-2 mx-0 mt-3">
                                 {/* LISTADO DE DATOS DE COMPRA */}
                                 <div className="d-flex flex-column align-items-between datos-compra-div mx-auto">
-                                    <h3 className="m-2 text-center ">DATOS DE LA COMPRA</h3>
+                                    <h3 className="m-2 text-center ">DATOS DEL PEDIDO</h3>
                                     <div>
                                         {mapCompra}
                                     </div>

@@ -36,12 +36,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
 
-        if (newInput.payMethod === "transferencia") {
-            setPayment("transferencia");
-        } else if (newInput.payMethod === "bizum") {
-            setPayment("bizum");
-        } else if (newInput.payMethod === "efectivo") {
-            setPayment("efectivo");
+        if (newInput.payMethod === "WhatsApp") {
+            setPayment("WhatsApp");
         } else {
             setPayment('');
         }
@@ -340,7 +336,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="validationCustom20">
-                        <h5 className="mt-2">Rango de entrega</h5>
+                        <h5 className="mt-2">Rango horario</h5>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
@@ -371,9 +367,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 Continuar
                             </Accordion.Header>
                             <Accordion.Body>
-                                <h5>Pago</h5>
                                 <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                                    <label>¿Como Quiere Pagar?</label>
+                                    <label>Coordina el pago</label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -381,35 +376,27 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                         defaultValue={'default'}
                                         required>
                                         <option value="default" disabled>Elije una opcion</option>
-                                        <option value="bizum">Bizum</option>
-                                        <option value="transferencia">Transferencia</option>
+                                        <option value="WhatsApp">Por WhatsApp</option>
                                     </Form.Select>
                                 </Form.Group>
-                                {payment === "bizum" &&
-                                    <div>
-                                        <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b></h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
+                                {payment === "WhatsApp" &&
+                                    <div className='mb-2'>
+                                        <h5>Coordina con nosotros el metodo de pago</h5>
+                                        <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                    </div>
-                                }
-                                {payment === "transferencia" &&
-                                    <div>
-                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN: <b>ES17 0081 5244 9500 0184 0789</b></h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
-                                            <a href="https://wa.me/c/34635790277" target="blank" >
-                                                <FaWhatsappSquare className="wap-icon" />
-                                            </a>
-                                        </p>
+                                        <span style={{color: "grey"}}>Te llegara un correo con los datos de tu pedido.</span>
                                     </div>
                                 }
 
                                 {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
+                                <div className='d-flex justify-content-center'>
                                 <button className="boton-comprar" type="submit">
-                                    Comprar
+                                    Solicitar Pedido
                                 </button>
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
@@ -435,7 +422,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="validationCustom22">
-                        <h5 className="mt-2">Rango de entrega</h5>
+                        <h5 className="mt-2">Rango horario</h5>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
@@ -457,9 +444,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 Continuar
                             </Accordion.Header>
                             <Accordion.Body>
-                                <h5>Pago</h5>
-                                <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                                    <label>¿Como Quiere Pagar?</label>
+                            <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
+                            <label>Coordina el pago</label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -467,43 +453,28 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                         defaultValue={'default'}
                                         required>
                                         <option value="default" disabled>Elije una opcion</option>
-                                        <option value="efectivo">Pagare el dia del retiro</option>
-                                        <option value="bizum">Bizum Ahora</option>
-                                        <option value="transferencia">Transferencia</option>
+                                        <option value="WhatsApp">Por WhatsApp</option>
                                     </Form.Select>
                                 </Form.Group>
-                                {payment === "efectivo" &&
-                                    <div>
-                                        <h5>Eligiras el metodo de pago el dia que retires tu producto</h5>
-                                        <p>TE ESPERAMOS !</p>
-                                    </div>
-                                }
-
-                                {payment === "bizum" &&
-                                    <div>
-                                        <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b> </h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
+                                {payment === "WhatsApp" &&
+                                    <div className='mb-2'>
+                                        <h5>Coordina con nosotros el metodo de pago</h5>
+                                        <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                    </div>
-                                }
-                                {payment === "transferencia" &&
-                                    <div>
-                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN: <b>ES17 0081 5244 9500 0184 0789</b></h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
-                                            <a href="https://wa.me/c/34635790277" target="blank" >
-                                                <FaWhatsappSquare className="wap-icon" />
-                                            </a>
-                                        </p>
+                                        <span style={{color: "grey"}}>Te llegara un correo con los datos del pedido.</span>
                                     </div>
                                 }
 
                                 {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
+                                <div className='d-flex flex-column justify-content-center align-items-center'>
                                 <button className="boton-comprar" type="submit">
-                                    Comprar
+                                    Solicitar Pedido
                                 </button>
+                                
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
