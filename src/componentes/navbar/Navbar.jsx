@@ -68,7 +68,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                 </div>
                                 <div className="logo-container" >
                                     <Link as={NavLink} to="/"  >
-                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210952/cocoMAD/cocomad_logo_blanco_1_qxhyqg.png" alt="img logo" className="nav-logo-desktop" />
+                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png" alt="img logo" className="nav-logo-desktop" />
                                     </Link>
                                 </div>
                                 <div className="d-flex align-items-center login-register  ">
