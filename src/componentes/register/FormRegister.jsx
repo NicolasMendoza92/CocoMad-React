@@ -30,7 +30,7 @@ export const FormRegister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:4000/api/auth/register', input);
+            await axios.post('https://cocobackend.herokuapp.com/api/auth/register', input);
             swal({
                 title: "Excelente!",
                 text: "Te has registrado con exito!",

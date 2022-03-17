@@ -38,7 +38,7 @@ export const TableProducts = ({tableProducts, getProducts, setTableProducts}) =>
 
     const findProduct = async (_id) => {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:4000/api/products/${_id}`);
+        const response = await axios.get(`https://cocobackend.herokuapp.com/api/products/${_id}`);
         setProductFind(response.data);
         setIsLoading(false);
         handleShowModalEditar();
@@ -48,7 +48,7 @@ export const TableProducts = ({tableProducts, getProducts, setTableProducts}) =>
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/products/${_id}`, { headers });
+        await axios.delete(`https://cocobackend.herokuapp.com/api/products/${_id}`, { headers });
         await getProducts();
         setIsLoading(false);
     };

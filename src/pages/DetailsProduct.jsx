@@ -15,7 +15,7 @@ const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
     useEffect(() => {
         const getProduct = async () => {
             const response = await axios.get(
-                `http://localhost:4000/api/products/${productId}`
+                `https://cocobackend.herokuapp.com/api/products/${productId}`
             );
             setProduct(response.data);
         }

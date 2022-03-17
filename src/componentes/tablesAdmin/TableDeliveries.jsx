@@ -64,7 +64,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/deliveries/${_id}`, { headers });
+        await axios.delete(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`, { headers });
         await getDeliveries();
         setIsLoading(false);
     };
