@@ -79,10 +79,12 @@ function App() {
   // definimos estado aparte para setear productos de admin
   const [tableProducts, setTableProducts] = useState([]);
   const getProducts = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get('https://cocobackend.herokuapp.com/api/products/');
       setProducts(response.data);
       setTableProducts(response.data);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
     }
