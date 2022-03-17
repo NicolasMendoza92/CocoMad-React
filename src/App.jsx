@@ -20,6 +20,8 @@ import ProductList from './pages/pagesAdmin/ProductList';
 import MessageList from './pages/pagesAdmin/MessageList';
 import UserList from './pages/pagesAdmin/UserList';
 import SaleList from './pages/pagesAdmin/SaleList';
+import DeliveryList from './pages/pagesAdmin/DeliveryList';
+import AdminBoard from './pages/pagesAdmin/AdminBoard';
 
 // Componentes 
 import { Footer } from './componentes/footer/Footer';
@@ -29,7 +31,6 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 // utils
 import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
-import DeliveryList from './pages/pagesAdmin/DeliveryList';
 
 
 function App() {
@@ -220,6 +221,11 @@ function App() {
           </Route>
         }
         {/* Admin pages */}
+        {isAdmin && (
+          <Route path="/adminBoard" >
+            <AdminBoard />
+          </Route>
+        )}
         {isAdmin && (
           <Route path="/productList" >
             <ProductList tableProducts={tableProducts} setTableProducts={setTableProducts} getProducts={getProducts} />

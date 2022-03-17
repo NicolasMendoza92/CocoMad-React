@@ -36,6 +36,7 @@ export const Header = ({user, setSearch, cart}) => {
         && splitLocation[1] !== "messageList"
         && splitLocation[1] !== "saleList"
         && splitLocation[1] !== "deliveryList"
+        && splitLocation[1] !== "adminBoard"
         &&
         <div className={`header-style-${currentlocation}`}>
           <Navbar user={user} setSearch={setSearch} cart={cart} />
@@ -64,6 +65,7 @@ export const Header = ({user, setSearch, cart}) => {
       {splitLocation[1] === "userList" && <SubHeader user={user}  />}
       {splitLocation[1] === "saleList" && <SubHeader user={user}  />}
       {splitLocation[1] === "deliveryList" && <SubHeader user={user}  />}
+      {splitLocation[1] === "adminBoard" && <SubHeader user={user}  />}
     </>
   );
 }
