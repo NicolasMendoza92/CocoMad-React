@@ -239,6 +239,10 @@ body {
     font-size: 12px;
   }
 }
+.img-card-prod{
+  max-width: 18rem;
+  max-height: 18rem;
+}
 /* estilo pag contacto */
 .form-contact-container{
 background-color: #f8f9fa;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import { CarouselHome } from '../componentes/carousel/CarouselHome';
@@ -139,6 +139,31 @@ export default function Home() {
           <CarouselHome sliderMensajes={sliderMensajes} />
         </div>
       </Container>
+      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center">
+        <h1>❤ ENTÉRATE QUE DICEN DE NOSOTROS ❤ </h1>
+      </div>
+      <div data-aos="fade-up" className=" my-2 mx-1 p-0 d-flex flex-wrap justify-content-center" >
+        <Card className='m-2'style={{ width: '18rem' }}>
+          <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637266067/cocoMAD/IMG_4975_tjp22y.jpg" />
+          <Card.Body className='text-center'>
+            <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold' }}>Alfajores Argentinos y completamente artesanales</Card.Title>
+            <Card.Text>
+            Todo se soluciona con una buena dosis de dulce de leche». Una de las ‘Frases del día’ que, Luciana...
+            </Card.Text>
+            <a href="https://madriddiferente.com/tiendas/moncloa-tiendas/los-alfajores-argentinos-y-artesanales-de-cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button></a>
+          </Card.Body>
+        </Card>
+        <Card className='m-2' style={{ width: '18rem' }}>
+          <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg" />
+          <Card.Body className='text-center'>
+            <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold'}}>Mi cita con Madrid, Alfajores Argentinos </Card.Title>
+            <Card.Text>
+            El protagonista del post de hoy es un producto argentino que se utiliza en casi todos los productos...
+            </Card.Text>
+            <a href="https://micitaconmadrid.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   )
 }
