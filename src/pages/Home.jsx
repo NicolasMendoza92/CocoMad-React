@@ -158,7 +158,7 @@ export default function Home() {
       </div>
       <div data-aos="fade-up" className=" my-2 mx-1 p-0 d-flex flex-wrap justify-content-center" >
         <Card className='m-2'style={{ width: '18rem' }}>
-          <Card.Img className='img-product' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637266067/cocoMAD/IMG_4975_tjp22y.jpg" />
+          <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637266067/cocoMAD/IMG_4975_tjp22y.jpg" />
           <Card.Body className='text-center'>
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold' }}>Alfajores Argentinos y completamente artesanales</Card.Title>
             <Card.Text>
@@ -168,7 +168,7 @@ export default function Home() {
           </Card.Body>
         </Card>
         <Card className='m-2' style={{ width: '18rem' }}>
-          <Card.Img className='img-product' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg" />
+          <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg" />
           <Card.Body className='text-center'>
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold'}}>Mi cita con Madrid, Alfajores Argentinos </Card.Title>
             <Card.Text>
