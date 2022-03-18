@@ -189,8 +189,8 @@ body {
 }
 
 .tarjetas h1{
-  font-weight: bold;
   color: whitesmoke;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .tarjetas p {
@@ -230,13 +230,13 @@ body {
 @media screen and (max-width: 996px) {
 
   .social-icon-home p{
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 
 @media screen and (max-width: 766px) {
   .tarjetas p {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 

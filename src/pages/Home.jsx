@@ -109,21 +109,7 @@ let sliderMensajes = [
 ];
 
 
-const cardsHome = [
-  {
-    image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-    title: "#COCOALFAJORES",
-    sentence: "Los favoritos de nuestros CocoFans!",
-  },
-  {
-    image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154707/cocoMAD/tortas_g15ap8.jpg",
-    title: "COCO TARTAS",
-    sentence: "Ideal para reuniones y festejos",
-  }
-]
-
-
-export default function Home() {
+export default function Home({setSearch}) {
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
@@ -136,7 +122,7 @@ export default function Home() {
         <p>Con tan solo un click, lo puedes disfrutar.</p>
       </div>
       <Container>
-        <CardsHome cardsHome={cardsHome} />
+        <CardsHome setSearch={setSearch}/>
       </Container>
       <div data-aos="fade-up" className="tarjetas-icons ">
         <Row>

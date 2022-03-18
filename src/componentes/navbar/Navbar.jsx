@@ -88,7 +88,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                             menuVariant="light"
                                         >
                                             <NavDropdown.Item
-                                                className="text-center" as={NavLink} to="/productList">
+                                                className="text-center" as={NavLink} to="/adminBoard">
                                                 <CgProfile className="mb-1" /> AdminBoard
                                             </NavDropdown.Item>
                                             <NavDropdown.Divider />

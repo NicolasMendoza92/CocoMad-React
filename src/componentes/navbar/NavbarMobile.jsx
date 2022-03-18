@@ -48,7 +48,7 @@ export const NavbarMobile = ({ setShow, show, user }) => {
           <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
             <p>Bienvenido Sr/a {user.name} </p>
             <div>
-              <Nav.Link as={NavLink} to="/productList" onClick={handleClose}>
+              <Nav.Link as={NavLink} to="/adminBoard" onClick={handleClose}>
                 <button className="boton-artesanal-cel px-4" >AdminBoard</button>
               </Nav.Link>
             </div>

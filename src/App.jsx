@@ -168,7 +168,7 @@ function App() {
         cart={cart} />
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <Home setSearch={setSearch}/>
         </Route>
 
         <Route path="/detalle/:productId">
