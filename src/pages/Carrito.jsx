@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Accordion, Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
+import swal from 'sweetalert';
 import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
@@ -53,6 +54,10 @@ export default function Carrito({ cart, setCart, user }) {
     let cantClas = reductionC.reduce((cantClas, { quantity }) => cantClas + quantity, 0);
     let totalClas = reductionC.reduce((totalClas, { product, quantity }) => totalClas + product.price * quantity, 0);
 
+    const noDiscount = () => {
+        swal('Vaya :( Parece que tu pedido no contiene productos con descuento aplicable.')
+    }
+
     const ajusteAlfajores = () => {
 
         if (((cantClas >= 3 && cantPrem >= 3) && (cantClas < 6 && cantPrem < 6)) && (totalClas + totalPrem) >= 8.10) {
@@ -65,7 +70,7 @@ export default function Carrito({ cart, setCart, user }) {
             setAjuste(2.00);
         }
         // ajuste de 12 premium y 6 clasicos
-        else if (((totalClas + totalPrem) >= 25.20)  && ((totalClas + totalPrem) < 32.40)) {
+        else if (((totalClas + totalPrem) >= 25.20) && ((totalClas + totalPrem) < 32.40)) {
             setAjuste(2.30);
         }
         // ajuste de 12 premium y 12 clasicos
@@ -73,27 +78,27 @@ export default function Carrito({ cart, setCart, user }) {
             setAjuste(3.40);
         }
         // ajuste de 18 clasicos y 12 premiums
-        else if (((totalClas + totalPrem) >= 39.59) && ((totalClas + totalPrem) < 41.40))  {
+        else if (((totalClas + totalPrem) >= 39.59) && ((totalClas + totalPrem) < 41.40)) {
             setAjuste(3.80);
         }
-         // ajuste de 18 premium y 12 clasicos
-         else if (((totalClas + totalPrem) >= 41.40) && ((totalClas + totalPrem) < 48.59))   {
+        // ajuste de 18 premium y 12 clasicos
+        else if (((totalClas + totalPrem) >= 41.40) && ((totalClas + totalPrem) < 48.59)) {
             setAjuste(3.90);
         }
-         // ajuste de 18 premium y 18 clasicos
-         else if (((totalClas + totalPrem) >= 48.59) && ((totalClas + totalPrem) < 55.80))   {
+        // ajuste de 18 premium y 18 clasicos
+        else if (((totalClas + totalPrem) >= 48.59) && ((totalClas + totalPrem) < 55.80)) {
             setAjuste(4.30);
         }
         // ajuste de 24 clsicos y 18 premiums
-        else if (((totalClas + totalPrem) >= 55.80) && ((totalClas + totalPrem) < 57.59))   {
+        else if (((totalClas + totalPrem) >= 55.80) && ((totalClas + totalPrem) < 57.59)) {
             setAjuste(5.40);
         }
-          // ajuste de 24 premiums y 18 clasicos 
-          else if (((totalClas + totalPrem) >= 57.59) && ((totalClas + totalPrem) < 64.80))  {
+        // ajuste de 24 premiums y 18 clasicos 
+        else if (((totalClas + totalPrem) >= 57.59) && ((totalClas + totalPrem) < 64.80)) {
             setAjuste(5.70);
         }
         // ajuste de 24 premiums y 24 clasicos 
-        else if ((totalClas + totalPrem) >= 64.80)  {
+        else if ((totalClas + totalPrem) >= 64.80) {
             setAjuste(6.80);
         }
         else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.19 && totalClas < 14.39)) {
@@ -106,6 +111,7 @@ export default function Carrito({ cart, setCart, user }) {
             setAjuste(1.90);
         } else {
             setAjuste(0);
+            noDiscount();
         }
     }
 
@@ -164,7 +170,7 @@ export default function Carrito({ cart, setCart, user }) {
             {/* PAGAR PRODUCTO ACORDION */}
             {cart.length !== 0 &&
                 <Accordion className="mb-3">
-                    <Accordion.Item className="accordion-buy" eventKey="0" onClick={ajusteAlfajores}>
+                    <Accordion.Item className="accordion-buy" eventKey="0">
                         <Accordion.Header>
                             Realizar el Pedido
                         </Accordion.Header>
@@ -189,7 +195,7 @@ export default function Carrito({ cart, setCart, user }) {
                                         <p style={{ color: 'green' }}>-{ajuste} €</p>
                                     </div>
                                     <div className="m-2 d-flex flex-column align-items-center pt-3 border-subtotal-total">
-                                        <p className='descuento'> <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >Haz click </b> </button> para conocer los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b> </button> por <b>Caja de Alfajores</b>, si es que realizo un pedido de 6u o 12u de diferente Tipo.</p>
+                                        <p className='descuento'>Si tu pedido fue de <b>Alfajores</b>, haz click <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} > aqui</b> </button> para conocer los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b> </button></p>
                                         <button className='boton-artesanal-cel mb-1' onClick={ajusteAlfajores}>Ajustar</button>
                                     </div>
 
