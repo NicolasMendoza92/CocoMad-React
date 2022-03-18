@@ -60,6 +60,7 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, search, c
                 :
                 <Card className="no-results-card text-center p-5 m-5">
                     <Card.Title>Producto no encontrado</Card.Title>
+                    <Card.Text>Intentalo de nuevo quitando los filtros</Card.Text>
                 </Card>
             }
 

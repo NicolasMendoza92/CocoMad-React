@@ -84,6 +84,14 @@
    margin-bottom: 2rem;
    background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
 }
+.header-style-404{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   transition: 0.5s;
+   margin-bottom: 2rem;
+   background-color: grey;
+}
 
 /* Estilos para las admin board */
 .header-style-productList{

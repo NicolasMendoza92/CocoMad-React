@@ -31,6 +31,7 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 // utils
 import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { Error404 } from './pages/Error404';
 
 
 function App() {
@@ -158,8 +159,6 @@ function App() {
     );
   }
 
-
-
   return (
     <div className="footer-fix">
       <Header
@@ -255,7 +254,7 @@ function App() {
         )}
 
         <Route path="/404">
-          404
+          <Error404/>
         </Route>
 
         <Route path="*">

@@ -17,7 +17,7 @@ export const Historia = () => {
                 <p> <b>Somos dos hermanas Lu y Coni  :) </b> </p>
             </div>
             <div data-aos="fade-up">
-                <p> Luciana emigró a España en el 2017 para estudiar un máster en busca de mejorar sus estudios académicos. Decidió emprender con la tienda a fines del 2019, dando así inicio a CocoMad el 30 de diciembre de dicho año. La tienda era muy pequeña y estaba ubicada en el barrio de La Guindalera. El objetivo era enamorar el público madrileño y a todo aquel que viva en Madrid a través de los alfajores, del dulce de leche y otros sabores típicos argentinos. 
+                <p> Luciana emigró a España en el 2017 para estudiar un máster en busca de mejorar sus estudios académicos. Decidió emprender con la tienda a fines del 2019, dando así inicio a CocoMad el 30 de diciembre de dicho año. La tienda era muy pequeña y estaba ubicada en el barrio de La Guindalera. El objetivo era enamorar el público madrileño y a todo aquel que viva en Madrid a través de los <a href="https://es.wikipedia.org/wiki/Alfajor_(Latinoam%C3%A9rica)#:~:text=Esta%20variedad%20se%20compone%20de,de%20chocolate%20y%20diferentes%20rellenos." target="_blank" rel="noreferrer">alfajores</a>, del dulce de leche y otros sabores típicos argentinos. 
                 </p>
             </div>
             <div data-aos="fade-up" >

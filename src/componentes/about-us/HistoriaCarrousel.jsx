@@ -20,7 +20,7 @@ export const HistoriaCarrousel = () => {
                     <p> Somos de <a href="https://es.wikipedia.org/wiki/Provincia_de_Tucum%C3%A1n">Tucumán</a>, la provincia más pequeña de Argentina, ubicada al norte de Argentina. Amamos cocinar, hablar y siempre intentamos dar lo mejor de nosotras para que puedan sentirse como en casa.
                     </p>
                     <p>
-                    ☑️Lu: es Lic. En Comunicación Social y trabajó en periodismo, marketing y comunicación política. Previo a España, también vivió en Brasil y en Estados Unidos. <br />
+                    ☑️Lu es Lic. En Comunicación Social y trabajó en periodismo, marketing y comunicación política. Previo a España, también vivió en Brasil y en Estados Unidos. <br />
                     ☑️Coni es Ingeniera Industrial, trabajó en empresas nacionales de renombre con puestos de gran responsabilidad relacionados al área de planificación y logística.
                     </p>
                 </div>
@@ -39,14 +39,14 @@ export const HistoriaCarrousel = () => {
                 <Carousel variant="dark" className="d-flex justify-content-center img-carrousel">
                     <Carousel.Item>
                         <img
-                            className="d-block w-100"
+                            className="d-block w-100 "
                             src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635353154/cocoMAD/nosotrasnew_zriwi1.jpg"
                             alt="First slide"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
-                            className="d-block w-100"
+                            className="d-block w-100 "
                             src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637318094/cocoMAD/_MG_5263_wfo1wt.png"
                             alt="Second slide"
                         />

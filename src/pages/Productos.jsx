@@ -32,8 +32,8 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               selectCategory={selectCategory}
               selectPrice={selectPrice}
               onselectCat={clearFilterCategory}
-              onselectPri={clearFilterPrice} />
-              
+              onselectPri={clearFilterPrice} 
+              setSearch={setSearch} />             
           </Col>
           <Col className='col-12 col-md-6'>
           <ProductSearch setSearch={setSearch} />
