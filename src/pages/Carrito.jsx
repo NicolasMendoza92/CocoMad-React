@@ -156,7 +156,7 @@ export default function Carrito({ cart, setCart, user }) {
                     <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
                         <h3 style={{ color: 'black', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>SUBTOTAL: {total.toFixed(2)} € </h3>
                         <Card.Text>
-                            <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA COMPRANDO</button>
+                            <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA PIDIENDO</button>
                         </Card.Text>
                     </div>
                 </div>
