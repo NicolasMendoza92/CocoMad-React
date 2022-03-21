@@ -60,55 +60,69 @@ export default function Carrito({ cart, setCart, user }) {
 
     const ajusteAlfajores = () => {
 
-        if (((cantClas >= 3 && cantPrem >= 3) && (cantClas < 6 && cantPrem < 6)) && (totalClas + totalPrem) >= 8.10) {
-            setAjuste(0.60);
-        } else if (((cantClas >= 6 && cantPrem >= 6) && (cantClas < 12 && cantPrem < 12)) && (totalClas + totalPrem) >= 16.20) {
-            setAjuste(1.70)
+        // ajuste de mix (3y3)
+        if (((cantClas >= 3 && cantPrem >= 3) && (cantClas < 6 && cantPrem < 6)) && (totalClas + totalPrem) >= 8.70) {
+            setAjuste(0.50);
+            // ajuste de mix (6y6)
+        } else if (((cantClas >= 6 && cantPrem >= 6) && (cantClas < 12 && cantPrem < 12)) && (totalClas + totalPrem) >= 17.40) {
+            setAjuste(1.40)
         }
         // ajuste de 12 clasicos y 6 premium
-        else if (((totalClas + totalPrem) >= 23.40) && ((totalClas + totalPrem) < 25.20)) {
-            setAjuste(2.00);
+        else if (((totalClas + totalPrem) >= 25.20) && ((totalClas + totalPrem) < 27.00)) {
+            setAjuste(2.70);
         }
         // ajuste de 12 premium y 6 clasicos
-        else if (((totalClas + totalPrem) >= 25.20) && ((totalClas + totalPrem) < 32.40)) {
-            setAjuste(2.30);
+        else if (((totalClas + totalPrem) >= 27) && ((totalClas + totalPrem) < 34.80)) {
+            setAjuste(2.00);
         }
         // ajuste de 12 premium y 12 clasicos
-        else if (((totalClas + totalPrem) >= 32.40) && ((totalClas + totalPrem) < 39.59)) {
-            setAjuste(3.40);
-        }
-        // ajuste de 18 clasicos y 12 premiums
-        else if (((totalClas + totalPrem) >= 39.59) && ((totalClas + totalPrem) < 41.40)) {
+        else if (((totalClas + totalPrem) >= 34.80) && ((totalClas + totalPrem) < 42.60)) {
             setAjuste(3.80);
         }
+        // ajuste de 18 clasicos y 12 premiums
+        else if (((totalClas + totalPrem) >= 42.60) && ((totalClas + totalPrem) < 44.40)) {
+            setAjuste(4.10);
+        }
         // ajuste de 18 premium y 12 clasicos
-        else if (((totalClas + totalPrem) >= 41.40) && ((totalClas + totalPrem) < 48.59)) {
-            setAjuste(3.90);
+        else if (((totalClas + totalPrem) >= 44.40) && ((totalClas + totalPrem) < 52.20)) {
+            setAjuste(4.40);
         }
         // ajuste de 18 premium y 18 clasicos
-        else if (((totalClas + totalPrem) >= 48.59) && ((totalClas + totalPrem) < 55.80)) {
-            setAjuste(4.30);
+        else if (((totalClas + totalPrem) >= 52.20) && ((totalClas + totalPrem) < 55.80)) {
+            setAjuste(4.70);
         }
         // ajuste de 24 clsicos y 18 premiums
-        else if (((totalClas + totalPrem) >= 55.80) && ((totalClas + totalPrem) < 57.59)) {
-            setAjuste(5.40);
+        else if (((totalClas + totalPrem) >= 60) && ((totalClas + totalPrem) < 61.80)) {
+            setAjuste(6.50);
         }
         // ajuste de 24 premiums y 18 clasicos 
-        else if (((totalClas + totalPrem) >= 57.59) && ((totalClas + totalPrem) < 64.80)) {
-            setAjuste(5.70);
+        else if (((totalClas + totalPrem) >= 61.80) && ((totalClas + totalPrem) < 69.60)) {
+            setAjuste(5.80);
         }
         // ajuste de 24 premiums y 24 clasicos 
-        else if ((totalClas + totalPrem) >= 64.80) {
-            setAjuste(6.80);
+        else if (((totalClas + totalPrem) >= 69.60) && ((totalClas + totalPrem) < 77.40)) {
+            setAjuste(7.60);
         }
-        else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.19 && totalClas < 14.39)) {
-            setAjuste(0.40);
-        } else if (cantClas >= 12 && totalClas >= 14.39) {
-            setAjuste(1.50);
-        } else if ((cantPrem >= 6 && cantPrem < 12) && (totalPrem >= 9 && totalPrem < 18)) {
-            setAjuste(0.50);
-        } else if (cantPrem >= 12 && totalPrem >= 18) {
-            setAjuste(1.90);
+        // ajuste de 30 clasicos y 24 premiums 
+        else if (((totalClas + totalPrem) >= 77.40) && ((totalClas + totalPrem) < 79.20)) {
+            setAjuste(7.90);
+        }
+        // ajuste de 30 premiums y 24 clasicos 
+        else if (((totalClas + totalPrem) >= 79.20) && ((totalClas + totalPrem) < 87.00)) {
+            setAjuste(8.20);
+        }
+        // ajuste de 30 premiums y 30 clasicos 
+        else if ((totalClas + totalPrem) >= 87.00) {
+            setAjuste(8.50);
+        }
+        else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.80 && totalClas < 15.60)) {
+            setAjuste(0.30);
+        } else if (cantClas >= 12 && totalClas >= 15.60) {
+            setAjuste(2.10);
+        } else if ((cantPrem >= 6 && cantPrem < 12) && (totalPrem >= 9.60 && totalPrem < 19.20)) {
+            setAjuste(0.60);
+        } else if (cantPrem >= 12 && totalPrem >= 19.20) {
+            setAjuste(1.70);
         } else {
             setAjuste(0);
             noDiscount();

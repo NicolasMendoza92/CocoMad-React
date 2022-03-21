@@ -136,7 +136,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             }
             if (pickUpLocal === "si") {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
-                axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                await axios.post('http://localhost:4000/api/emails/', newEmail);
+                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newBuy)
                 console.log(newEmail)
                 swal({
@@ -149,7 +150,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 });
             } else if (pickUpLocal === "no") {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
-                axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                await axios.post('http://localhost:4000/api/emails/', newEmail);
+                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
                 console.log(newDelivery)
                 swal({
@@ -308,6 +310,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             <FloatingLabel controlId="floatingZip" label="Codigo Postal">
                                 <Form.Control type="text"
                                     maxLength="8"
+                                    minLength="5"
                                     name="buyerZip"
                                     onChange={(e) => handleChange(e)}
                                     required />

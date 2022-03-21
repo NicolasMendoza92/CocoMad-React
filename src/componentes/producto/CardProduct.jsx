@@ -22,8 +22,13 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
     const quantity = 1
     const addToCart = () => {
         setCart((cart) => cart.concat({ product, quantity }));
-        setShowSideCart(true);
+        if(cart.length <= 0) {
+            setShowSideCart(true);
+        } else 
+        setShowSideCart(false);
     };
+
+    // logica para cambiar nombre de boton si esta o no agregado al carrito 
 
     useEffect(() => {
         const inCart = cart.find((productCart) => productCart.product._id === product._id);
