@@ -30,6 +30,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
 
   const moveCart = () => {
     history.push('/carrito');
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -56,7 +57,7 @@ export const CartSideButton = ({ cart, setCart, showSideCart, setShowSideCart })
             {mapSideCarrito}
           </div>
           <h3 style={{ color: 'black', fontFamily:'Julius Sans One' }}>SUBTOTAL: {total.toFixed(2)} €</h3>
-          <button onClick={handleClose} className="boton-artesanal-cel" aria-label="Close">CONTINUA COMPRANDO</button> <br />
+          <button onClick={handleClose} className="boton-artesanal-cel" aria-label="Close">CONTINUA PIDIENDO</button> <br />
           <button onClick={moveCart} className="boton-artesanal-cel mt-2">IR AL CARRITO</button>
         </Offcanvas.Body>
       </Offcanvas>

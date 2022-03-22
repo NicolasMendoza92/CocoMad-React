@@ -54,6 +54,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <>
                     <nav>
@@ -68,7 +69,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                 </div>
                                 <div className="logo-container" >
                                     <Link as={NavLink} to="/"  >
-                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210952/cocoMAD/cocomad_logo_blanco_1_qxhyqg.png" alt="img logo" className="nav-logo-desktop" />
+                                        <img id="main-img" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png" alt="img logo" className="nav-logo-desktop" />
                                     </Link>
                                 </div>
                                 <div className="d-flex align-items-center login-register  ">
@@ -87,7 +88,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                             menuVariant="light"
                                         >
                                             <NavDropdown.Item
-                                                className="text-center" as={NavLink} to="/productList">
+                                                className="text-center" as={NavLink} to="/adminBoard">
                                                 <CgProfile className="mb-1" /> AdminBoard
                                             </NavDropdown.Item>
                                             <NavDropdown.Divider />
@@ -150,6 +151,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <NavbarMobile setShow={setShow} show={show} user={user} />
             }
@@ -158,6 +160,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "saleList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "deliveryList" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}
         </>
     );
 }

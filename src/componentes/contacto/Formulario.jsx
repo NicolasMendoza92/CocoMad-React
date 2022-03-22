@@ -28,6 +28,7 @@ export const Formulario = () => {
                 title: "Mensaje enviado con exito !",
                 icon: "success",
             });
+            e.target.reset();
         } catch (error) {
             if (error.response.data) {
                 swal("Faltan datos", "Completar los campos obligatorios", "warning");
@@ -46,7 +47,7 @@ export const Formulario = () => {
         <Form
             noValidate validated={validated}
             onSubmit={handleSubmit}
-            className="form-contacto my-5"
+            className="form-contacto my-2"
         >
             <Form.Group className="mb-3 row align-items-center justify-content-center">
                 <label className="text-center col-11 col-md-3">Nombre </label>

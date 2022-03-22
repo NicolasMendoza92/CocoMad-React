@@ -14,41 +14,39 @@ export const HistoriaCarrousel = () => {
     return (
 
         <div className="row gx-3 gy-2 p-3 about">
-            <div  className="col-12 col-xxl-6 p-2 d-none d-lg-block">
-                <div  data-aos="fade-up">
+            <div className="col-12 col-xxl-6 p-2 d-none d-lg-block">
+                <div data-aos="fade-up">
                     <h2>¿Quienes Somos?</h2>
-                    <p>
-                        ☑️Lu es Licenciada en Comunicación Social y trabajó en periodismo, marketing y política. También vivió en Brasil 🇧🇷 y en Estados Unidos 🇺🇸. Vivo hace 3 años y medio en Madrid. <br />
-                        ☑️Coni es Ingeniera Industrial, trabajó en empresarias nacionales de renombre con puestos de responsabilidad a los cuales renunció para apostar a este y otros proyectos en 🇪🇸.
+                    <p> Somos de <a href="https://es.wikipedia.org/wiki/Provincia_de_Tucum%C3%A1n">Tucumán</a>, la provincia más pequeña de Argentina, ubicada al norte de Argentina. Amamos cocinar, hablar y siempre intentamos dar lo mejor de nosotras para que puedan sentirse como en casa.
                     </p>
-                    <ul className="listas-desordenadas">
-                        <li> ✔️Somos de <a href="https://es.wikipedia.org/wiki/Provincia_de_Tucum%C3%A1n">Tucumán</a> la provincia mas pequeña de Argentina :)</li>
-                        <li>✔️Nos encanta hablar 😂</li>
-                        <li>✔️Amamos cocinar</li>
-                        <li>✔️Intentamos dar lo mejor de nosotras y aprender de todos sus comentarios</li>
-                    </ul>
+                    <p>
+                    ☑️Lu es Lic. En Comunicación Social y trabajó en periodismo, marketing y comunicación política. Previo a España, también vivió en Brasil y en Estados Unidos. <br />
+                    ☑️Coni es Ingeniera Industrial, trabajó en empresas nacionales de renombre con puestos de gran responsabilidad relacionados al área de planificación y logística.
+                    </p>
                 </div>
-                <div  data-aos="fade-up">
-                    <h2>¿Como Trabajamos?</h2>
-                    ✔️ Literalmente hacemos todo nosotras, desde comprar, atender la tienda, cocinar, llevar la parte impositiva, las redes sociales, hablar con proveedores, contestar sus mensajes 🤣🤣. Así que les agradecemos por la paciencia y también pedirles perdón por algún error que hayamos podido cometer 🙌. <br />
-                    ✔️Nos completamos y ayudamos en las fortalezas y debilidades de cada una 💫, tanto profesionales como personales.Este equipo llegó para quedarse y para llenar de alfajores Madrid🥳. <br />
-                    ✔️Obvio que también hay un equipo detrás que no se ve: la familia que esta a la distancia, los amigos que nos apoyan en el día a día, nuestro co-equipers de @la.zambita y @lavidaenrosafloristeria y muchos más que nos ayudaron a seguir adelante en este camino 👏.
-                    Gracias a este país hermoso, tierra de nuestro querido abuelo Fermin, que no sólo nos da la posibilidad de habitarlo sino de emprender 🌸. <br />
-                    •G R A C I A S por apostar a nosotras•
+                <div data-aos="fade-up">
+                    <h2>¿Cómo Trabajamos?</h2>
+                    <p>
+                    Somos un equipazo. Al ser un emprendimiento pequeño, cada una realiza la parte que mejor sabe hacer. <br />
+                        ✔️Nos encargamos de proveedores, atender a tienda, cocinar, limpiar, coordinar los mensajes y llevar las redes sociales para estar siempre al día con nuestros #CocoFans y de esta forma podamos atender de forma personalizada las demandas y dudas de nuestros clientes. <br />
+                        ✔️Nos completamos y ayudamos en las fortalezas de cada una..<br />
+                        ✔️Por supuesto, tenemos el apoyo constante de nuestra familia y amigos que nos ayudan en el día a día con cualquier inconveniente que se nos pueda presentar.. <br />
+                        •G R A C I A S por apostar siempre a nosotras•
+                    </p>
                 </div>
             </div>
-            <div  data-aos="fade-up" className="col-12 col-xxl-6 d-flex justify-content-center p-2">
+            <div data-aos="fade-up" className="col-12 col-xxl-6 d-flex justify-content-center p-2">
                 <Carousel variant="dark" className="d-flex justify-content-center img-carrousel">
                     <Carousel.Item>
                         <img
-                            className="d-block w-100"
+                            className="d-block w-100 "
                             src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1635353154/cocoMAD/nosotrasnew_zriwi1.jpg"
                             alt="First slide"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
-                            className="d-block w-100"
+                            className="d-block w-100 "
                             src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637318094/cocoMAD/_MG_5263_wfo1wt.png"
                             alt="Second slide"
                         />

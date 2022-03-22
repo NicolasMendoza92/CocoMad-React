@@ -3,7 +3,8 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   font-family: 'Julius Sans One', sans-serif;
+   font-weight: bold;
+   font-family: 'Montserrat', sans-serif;
  }
  .apertura a {
    font-weight: 600;
@@ -18,7 +19,7 @@
 
  .apertura li {
    list-style: none;
-   font-family: 'Julius Sans One', sans-serif;
+   font-family: 'Montserrat', sans-serif;
  }
  
  

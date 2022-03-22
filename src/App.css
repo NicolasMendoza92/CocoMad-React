@@ -92,18 +92,18 @@ body {
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   color: whitesmoke;
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .form-register {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* estilo de login */
 
 .form-login {
   color: rgb(146, 210, 226);
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   border: solid rgb(146, 210, 226);
 }
 .card-login-form{
@@ -148,7 +148,10 @@ body {
 
 .tarjeta-login{
   border: solid 1px rgb(146, 210, 226);
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+.tarjeta-login h4{
+  font-weight: bold;
 }
 
 .crea-cuenta a {
@@ -163,6 +166,15 @@ body {
   font-weight: 900;
 }
 
+.no-results-card-login{
+  border: 0.8px solid  rosybrown !important ;
+  font-family: 'Julius Sans One', sans-serif;
+  padding: 10px;
+}
+.no-results-card-login .h5{
+  font-size: 15px;
+}
+
 
 /* Estilo de pag home  */
 .tarjetas {
@@ -173,12 +185,12 @@ body {
   border: none;
   padding: 2rem;
   background-color: rgb(146, 210, 226);
-  font-family: 'Julius Sans One', sans-serif;
+  font-family:'Montserrat', sans-serif;
 }
 
-.tarjetas h4{
-  font-weight: bold;
+.tarjetas h1{
   color: whitesmoke;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .tarjetas p {
@@ -187,24 +199,66 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
+.tarjetas-icons{
+  background-size: cover !important;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 2rem;
+  background-color: rgb(231, 170, 107);
+  font-family:'Montserrat', sans-serif;;
+}
+.social-icon-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;  
+  font-size: 5rem;
+  color: rgb(255, 255, 255);
+  transition-duration: 0.5s;
+}
+.social-icon-home p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:2rem;
+  color: rgb(255, 255, 255);
+}
+@media screen and (max-width: 996px) {
 
-@media screen and (max-width: 766px) {
-  .tarjetas p {
-    font-size: 12px;
+  .social-icon-home p{
+    font-size: 18px;
   }
 }
 
-/* estilo pag contacto */
+@media screen and (max-width: 766px) {
+  .tarjetas p {
+    font-size: 13px;
+  }
+}
 
+.img-card-prod{
+  max-width: 18rem;
+    max-height: 18rem;
+}
+
+/* estilo pag contacto */
+.form-contact-container{
+background-color: #f8f9fa;
+}
 .form-contacto {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Montserrat', sans-serif;;
   color: rgb(146, 210, 226);
-  font-weight: 600;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .text-format {
   padding: 3rem;
-  font-family: 'Julius Sans One', sans-serif;
+  font-family:  'Julius Sans One', sans-serif;
   text-align: center;
 }
 
@@ -219,6 +273,9 @@ body {
 
 .text-format p {
   text-align: justify;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 
@@ -329,13 +386,20 @@ background: none;
 
 }
 
-.no-result-card{
+.no-results-card{
   border: 0.8px solid  rosybrown !important ;
   font-family: 'Julius Sans One', sans-serif;
   font-weight: bolder;
 }
+
+
 .wap-icon{
   color:#25d366;
   font-size: 1.5rem;
   margin-left: 5px;
 }
+
+  .error404{
+    width: 100%;
+    height: auto;
+  }

@@ -21,6 +21,8 @@ import ProductList from './pages/pagesAdmin/ProductList';
 import MessageList from './pages/pagesAdmin/MessageList';
 import UserList from './pages/pagesAdmin/UserList';
 import SaleList from './pages/pagesAdmin/SaleList';
+import DeliveryList from './pages/pagesAdmin/DeliveryList';
+import AdminBoard from './pages/pagesAdmin/AdminBoard';
 
 // Componentes 
 import { Footer } from './componentes/footer/Footer';
@@ -30,7 +32,7 @@ import { SpinnerCM } from './componentes/spinner/SpinnerCM';
 // utils
 import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
-import DeliveryList from './pages/pagesAdmin/DeliveryList';
+import { Error404 } from './pages/Error404';
 
 
 function App() {
@@ -80,10 +82,12 @@ function App() {
   // definimos estado aparte para setear productos de admin
   const [tableProducts, setTableProducts] = useState([]);
   const getProducts = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get('https://cocobackend.herokuapp.com/api/products/');
       setProducts(response.data);
       setTableProducts(response.data);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -155,8 +159,6 @@ function App() {
     );
   }
 
-
-
   return (
     <div className="footer-fix">
       <Header
@@ -165,7 +167,7 @@ function App() {
         cart={cart} />
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <Home setSearch={setSearch}/>
         </Route>
 
         <Route path="/detalle/:productId">
@@ -216,6 +218,11 @@ function App() {
         }
         {/* Admin pages */}
         {isAdmin && (
+          <Route path="/adminBoard" >
+            <AdminBoard />
+          </Route>
+        )}
+        {isAdmin && (
           <Route path="/productList" >
             <ProductList tableProducts={tableProducts} setTableProducts={setTableProducts} getProducts={getProducts} />
           </Route>
@@ -244,7 +251,7 @@ function App() {
         )}
 
         <Route path="/404">
-          404
+          <Error404/>
         </Route>
 
         <Route path="*">

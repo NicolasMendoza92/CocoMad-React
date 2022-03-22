@@ -38,6 +38,7 @@ export const NavbarSmall = ({ user, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <>
                     <nav>
@@ -52,7 +53,7 @@ export const NavbarSmall = ({ user, cart }) => {
                                 </div>
                                 <div className="logo-container-small" >
                                     <Link as={NavLink} to="/"  >
-                                        <img id="main-img-small" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210957/cocoMAD/cocomad_logo_rose_1_jkbvbz.png" alt="img logo" className="nav-logo-desktop" />
+                                        <img id="main-img-small" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png" alt="img logo" className="nav-logo-desktop" />
                                     </Link>
                                 </div>
                                 <div className="d-flex align-items-center login-register  ">
@@ -131,6 +132,7 @@ export const NavbarSmall = ({ user, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <NavbarMobile setShow={setShow} show={show} user={user} />
             }
@@ -139,6 +141,7 @@ export const NavbarSmall = ({ user, cart }) => {
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "saleList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "deliveryList" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}
         </>
     );
 }

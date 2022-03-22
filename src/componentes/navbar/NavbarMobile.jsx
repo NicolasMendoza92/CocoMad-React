@@ -25,7 +25,7 @@ export const NavbarMobile = ({ setShow, show, user }) => {
         <Offcanvas.Header className="responsive-navbar-header">
           <div className="logo-container-responsive" >
             <Nav.Link as={NavLink} to="/" onClick={handleClose}>
-              <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210954/cocoMAD/cocomad_logo_celeste_1_pccjhr.png" alt="img logo" className="nav-logo-desktop" />
+              <img src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png" alt="img logo" className="nav-logo-desktop" />
             </Nav.Link>
           </div>
           <button type="button" aria-label="Close" className="navbar-button mx-1" onClick={handleClose} ><VscClose /></button>
@@ -48,7 +48,7 @@ export const NavbarMobile = ({ setShow, show, user }) => {
           <Offcanvas.Header className="d-flex flex-column text-center bienvenido-user">
             <p>Bienvenido Sr/a {user.name} </p>
             <div>
-              <Nav.Link as={NavLink} to="/productList" onClick={handleClose}>
+              <Nav.Link as={NavLink} to="/adminBoard" onClick={handleClose}>
                 <button className="boton-artesanal-cel px-4" >AdminBoard</button>
               </Nav.Link>
             </div>

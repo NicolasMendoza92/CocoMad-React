@@ -114,7 +114,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                         />
                     </div>
                 </form>
-                <button onClick={() => refreshSales()} className=" my-2 p-0 circle-btn">
+                <button onClick={() => refreshSales()} className="btn-primary my-2 p-0">
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>

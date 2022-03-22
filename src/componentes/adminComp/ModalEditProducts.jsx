@@ -93,11 +93,11 @@ export default function ModalEditProducts(props) {
                                 <option value="Alfajores Clasicos">Alfajores Clasicos</option>
                                 <option value="Alfajores Premium">Alfajores Premium</option>
                                 <option value="Alfajores Grandes">Alfajores Grandes</option>
-                                <option value="Tartas">Tartas</option>
+                                <option value="Tartas Medianas">Tartas Medianas</option>
                                 <option value="Bizcochos">Bizcochos</option>
                                 <option value="Salado">Salado</option>
                                 <option value="Desayunos">Desayunos </option>
-                                <option value="Boxs">Box Armados</option>
+                                <option value="Box Armados">Box Armados</option>
                             </select>
                         </Form.Group>
                         <Form.Group className="mb-3 row" controlId="price">

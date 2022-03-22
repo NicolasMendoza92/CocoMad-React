@@ -55,17 +55,6 @@
   margin-bottom: 0;
 }
 
-@media screen and (max-width:480px){
-  .category-product {
-    font-size: 9px;
-    height: 1 rem;
-  }
-  .name-product {
-    font-size: 14px;
-    height: 1 rem;
-  }
-}
-
 .name-product {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -131,7 +120,7 @@
   }
 
   .name-product {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .price-product {
@@ -153,4 +142,12 @@
   font-size: 12px;
   padding: 12px;
 }
+}
+
+
+@media screen and (max-width:500px){
+  .category-product {
+    font-size: 9px;
+    height: 1rem;
+  }
 }

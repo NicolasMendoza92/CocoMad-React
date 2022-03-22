@@ -17,10 +17,14 @@
 }
 
 .social-icon {
-   font-size: 1.5rem;
+   font-size: 4rem;
    margin: 0 10px;
    color: rgb(255, 255, 255);
    transition-duration: 0.5s;
+}
+.social-icon-whats {
+   font-size: 1.5rem;
+   color: rgb(255, 255, 255);
 }
 
 @media only screen and (max-width: 992px) {
@@ -33,7 +37,7 @@
    }
 
    .social-icon {
-      font-size: 1.5rem;
+      font-size: 3rem;
    }
 }
 
@@ -92,6 +96,7 @@
 
 .botom-footer{
    background-color: grey;
+   padding: 10px;
 }
 @media only screen and (max-width: 640px) {
    .botom-footer {

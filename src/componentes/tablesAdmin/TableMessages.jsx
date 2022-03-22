@@ -79,21 +79,22 @@ export const TableMessages = ({ messages, getMessages, setMessages }) => {
     return (
         <Container>
             <div className="d-flex justify-content-between align-items-center my-2">
-                <form>
-                    <div>
+            <form className="search-form " >
+                    <div className="input-group search-table">
                         <span
+                        className="search-icon"
                             id="basic-addon1"><VscSearch /></span>
                         <input
                             value={busqueda}
                             type="text"
-                            className="col-11"
+                            className="col-11 search-input"
                             placeholder="Buscar"
                             aria-describedby="basic-addon1"
                             onChange={filter}
                         />
                     </div>
                 </form>
-                <button onClick={() => refreshMessages()} className=" my-2 p-0">
+                <button onClick={() => refreshMessages()} className="btn-primary my-2 p-0">
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>

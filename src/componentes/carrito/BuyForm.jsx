@@ -36,12 +36,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
 
-        if (newInput.payMethod === "transferencia") {
-            setPayment("transferencia");
-        } else if (newInput.payMethod === "bizum") {
-            setPayment("bizum");
-        } else if (newInput.payMethod === "efectivo") {
-            setPayment("efectivo");
+        if (newInput.payMethod === "WhatsApp") {
+            setPayment("WhatsApp");
         } else {
             setPayment('');
         }
@@ -66,9 +62,13 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         const today = new Date();
         const dateDelivery = new Date(newDate.deliveryDate);
         today.setDate(today.getDate() + 2);
+        console.log(dateDelivery.toDateString())
         if (dateDelivery < today) {
             swal('Debes realizar el pedido con 48hs de anticipacion');
-        } else {
+        } else if(dateDelivery.toDateString().includes('Sun')){
+            swal('¡ATENCION! Domingos no entregamos. Por favor selecciona otra fecha')
+        }
+         else {
             swal("Excelente!", "", "success")
         }
         setInput(newDate);
@@ -135,27 +135,29 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             if (pickUpLocal === "si") {
-                await axios.post('http://localhost:4000/api/sales/', newBuy);
+                await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
+                await axios.post('http://localhost:4000/api/emails/', newEmail);
+                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newBuy)
                 console.log(newEmail)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
                 }).then(() => {
-                    axios.post('http://localhost:4000/api/emails/', newEmail);
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
                 });
             } else if (pickUpLocal === "no") {
-                await axios.post('http://localhost:4000/api/deliveries/', newDelivery);
+                await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
+                await axios.post('http://localhost:4000/api/emails/', newEmail);
+                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
                 console.log(newDelivery)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
-                }).then(() => {
-                    axios.post('http://localhost:4000/api/emails/', newEmail);
+                }).then(() => {                 
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
@@ -308,6 +310,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             <FloatingLabel controlId="floatingZip" label="Codigo Postal">
                                 <Form.Control type="text"
                                     maxLength="8"
+                                    minLength="5"
                                     name="buyerZip"
                                     onChange={(e) => handleChange(e)}
                                     required />
@@ -336,18 +339,18 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="validationCustom20">
-                        <h5 className="mt-2">Rango de entrega</h5>
+                        <h5 className="mt-2">Rango horario</h5>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
                             onChange={(e) => handleChange(e)}
                             defaultValue={'default'}
                             required>
-                            <option value="default" disabled>Elije una opcion</option>
-                            <option value="9a11">9:00 am - 11:00 am</option>
-                            <option value="11a13">11:00 am - 13:00 pm</option>
-                            <option value="16a18">16:30 pm - 18:00 pm</option>
-                            <option value="18a20">18:00 pm - 20:00 pm</option>
+                           <option value="default" disabled>Elije una opcion</option>
+                            <option value="9am a 11am">9:00 am - 11:00 am</option>
+                            <option value="11am a 13pm">11:00 am - 13:00 pm</option>
+                            <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
+                            <option value="18pm a 20pm">18:30 pm - 20:00 pm</option>
                         </Form.Select>
                     </Form.Group>
 
@@ -367,9 +370,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 Continuar
                             </Accordion.Header>
                             <Accordion.Body>
-                                <h5>Pago</h5>
                                 <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                                    <label>¿Como Quiere Pagar?</label>
+                                    <label>Coordina el pago</label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -377,35 +379,27 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                         defaultValue={'default'}
                                         required>
                                         <option value="default" disabled>Elije una opcion</option>
-                                        <option value="bizum">Bizum</option>
-                                        <option value="transferencia">Trasnferencia</option>
+                                        <option value="WhatsApp">Por WhatsApp</option>
                                     </Form.Select>
                                 </Form.Group>
-                                {payment === "bizum" &&
-                                    <div>
-                                        <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b></h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
+                                {payment === "WhatsApp" &&
+                                    <div className='mb-2'>
+                                        <h5>Coordina con nosotros el metodo de pago</h5>
+                                        <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                    </div>
-                                }
-                                {payment === "transferencia" &&
-                                    <div>
-                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN: <b>ES17 0081 5244 9500 0184 0789</b></h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
-                                            <a href="https://wa.me/c/34635790277" target="blank" >
-                                                <FaWhatsappSquare className="wap-icon" />
-                                            </a>
-                                        </p>
+                                        <span style={{color: "grey"}}>Te llegara un correo con los datos de tu pedido.</span>
                                     </div>
                                 }
 
                                 {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
+                                <div className='d-flex justify-content-center'>
                                 <button className="boton-comprar" type="submit">
-                                    Comprar
+                                    Solicitar Pedido
                                 </button>
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
@@ -431,7 +425,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="validationCustom22">
-                        <h5 className="mt-2">Rango de entrega</h5>
+                        <h5 className="mt-2">Rango horario</h5>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
@@ -439,10 +433,10 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             defaultValue={'default'}
                             required>
                             <option value="default" disabled>Elije una opcion</option>
-                            <option value="9a11">9:00 am - 11:00 am</option>
-                            <option value="11a13">11:00 am - 13:00 pm</option>
-                            <option value="16a18">16:30 pm - 18:00 pm</option>
-                            <option value="18a20">18:00 pm - 20:00 pm</option>
+                            <option value="9am a 11am">9:00 am - 11:00 am</option>
+                            <option value="11am a 13pm">11:00 am - 13:00 pm</option>
+                            <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
+                            <option value="18pm a 20pm">18:30 pm - 20:00 pm</option>
                         </Form.Select>
                     </Form.Group>
 
@@ -453,9 +447,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 Continuar
                             </Accordion.Header>
                             <Accordion.Body>
-                                <h5>Pago</h5>
-                                <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                                    <label>¿Como Quiere Pagar?</label>
+                            <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
+                            <label>Coordina el pago</label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -463,43 +456,28 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                         defaultValue={'default'}
                                         required>
                                         <option value="default" disabled>Elije una opcion</option>
-                                        <option value="efectivo">Pagare el dia del retiro</option>
-                                        <option value="bizum">Bizum Ahora</option>
-                                        <option value="transferencia">Transferencia</option>
+                                        <option value="WhatsApp">Por WhatsApp</option>
                                     </Form.Select>
                                 </Form.Group>
-                                {payment === "efectivo" &&
-                                    <div>
-                                        <h5>Eligiras el metodo de pago el dia que retires tu producto</h5>
-                                        <p>TE ESPERAMOS !</p>
-                                    </div>
-                                }
-
-                                {payment === "bizum" &&
-                                    <div>
-                                        <h5>Envia un Bizum con Motivo "CocoMad Compra" al <b>+34635790277</b> </h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
+                                {payment === "WhatsApp" &&
+                                    <div className='mb-2'>
+                                        <h5>Coordina con nosotros el metodo de pago</h5>
+                                        <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                    </div>
-                                }
-                                {payment === "transferencia" &&
-                                    <div>
-                                        <h5>Realiza la trasferencia bancaria con concepto: "CocoMad Compra" al IBAN: <b>ES17 0081 5244 9500 0184 0789</b></h5>
-                                        <p> Puedes enviarnos un mensaje para coordinar
-                                            <a href="https://wa.me/c/34635790277" target="blank" >
-                                                <FaWhatsappSquare className="wap-icon" />
-                                            </a>
-                                        </p>
+                                        <span style={{color: "grey"}}>Te llegara un correo con los datos del pedido.</span>
                                     </div>
                                 }
 
                                 {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
+                                <div className='d-flex flex-column justify-content-center align-items-center'>
                                 <button className="boton-comprar" type="submit">
-                                    Comprar
+                                    Solicitar Pedido
                                 </button>
+                                
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>

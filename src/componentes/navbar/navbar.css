@@ -1,6 +1,4 @@
-.logo{
-    font-size: 25px;
-}
+
 .link-nav{
     color: aliceblue;
     background-color: none;
@@ -247,21 +245,28 @@
  /* cambio de imagen logo en cel */
  @media only screen and (max-width: 768px){
      #main-img{
-        content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210952/cocoMAD/cocomad_logo_blanco_1_qxhyqg.png);
+        content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png);
      }
  }
 
   /* cambio de imagen logo en cel nav Small */
   @media only screen and (max-width: 768px){
     #main-img-small{
-       content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638210957/cocoMAD/cocomad_logo_rose_1_jkbvbz.png);
+       content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png);
     }
 }
 
 .nav-logo-desktop{
-max-width: 100px;
-
+max-width: 120px;
 }
+
+.nav-logo-desktop:hover{
+    max-width: 120px;
+    transition-duration: 10ms;
+    content:url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1647437646/cocoMAD/LOGO_CON_CIRCULO-02_1_ya2rd3.png);
+  
+    }
+
 .login-register {
     position: relative;
     top: 0;

@@ -39,7 +39,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`);
+        const response = await axios.get(`http://localhost:4000/api/deliveries/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
@@ -111,7 +111,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                         />
                     </div>
                 </form>
-                <button onClick={() => refreshDeliverys()} className=" my-2 p-0 circle-btn">
+                <button onClick={() => refreshDeliverys()} className="btn-primary my-2 p-0">
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>

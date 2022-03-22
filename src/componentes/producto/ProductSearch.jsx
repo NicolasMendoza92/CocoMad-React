@@ -18,7 +18,7 @@ export const ProductSearch = ({ setSearch }) => {
                 <div className="input-group mb-3">
                     <button
                         className="search-icon-product"
-                        id="basic-addon1" >
+                        id="basic-addon1" disabled >
                         <VscSearch />
                     </button>
                     <input
