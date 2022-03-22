@@ -136,8 +136,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             }
             if (pickUpLocal === "si") {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
-                // await axios.post('http://localhost:4000/api/emails/', newEmail);
-                await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                await axios.post('http://localhost:4000/api/emails/', newEmail);
+                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newBuy)
                 console.log(newEmail)
                 swal({
@@ -150,8 +150,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 });
             } else if (pickUpLocal === "no") {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
-                // await axios.post('http://localhost:4000/api/emails/', newEmail);
-                await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                await axios.post('http://localhost:4000/api/emails/', newEmail);
+                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
                 console.log(newDelivery)
                 swal({
