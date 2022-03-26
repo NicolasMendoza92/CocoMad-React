@@ -12,8 +12,8 @@ import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
 import Login from './pages/Login';
 import Registro from './pages/Registro';
-// import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
+import Favorite from './pages/Favorite';
 import Perfil from './pages/Perfil';
 import DetailsProduct from './pages/DetailsProduct';
 // Admin pages
@@ -34,7 +34,6 @@ import { leerDeLocalStorage } from "./utils/localStorage";
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { Error404 } from './pages/Error404';
 
-
 function App() {
 
   const tokenLocalData = leerDeLocalStorage('token') || {};
@@ -46,6 +45,7 @@ function App() {
   const [deliveries, setDeliveries] = useState([]);
 
   const [cart, setCart] = useLocalStorage('cart', []);
+  const [favorites, setFavorites] = useLocalStorage('favorites', []);
 
   const [showSideCart, setShowSideCart] = useState(false);
 
@@ -163,6 +163,7 @@ function App() {
     <div className="footer-fix">
       <Header
         user={user}
+        favorites={favorites}
         setSearch={setSearch}
         cart={cart} />
       <Switch>
@@ -185,6 +186,7 @@ function App() {
             search={search}
             setSearch={setSearch}
             cart={cart} setCart={setCart}
+            favorites={favorites} setFavorites={setFavorites}
             showSideCart={showSideCart}
             setShowSideCart={setShowSideCart} />
         </Route>
@@ -203,6 +205,14 @@ function App() {
             cart={cart} setCart={setCart} />
         </Route>
 
+        <Route path="/favorite" >
+          <Favorite
+            favorites={favorites}
+            setFavorites={setFavorites}
+            cart={cart}
+            setCart={setCart} />
+        </Route>
+
         <Route path="/login" >
           <Login requestUserData={requestUserData} cart={cart} />
         </Route>
@@ -213,7 +223,7 @@ function App() {
 
         {tokenLocalData.token &&
           <Route path="/perfil" >
-            <Perfil requestUserData={requestUserData} user={user}/>
+            <Perfil requestUserData={requestUserData} user={user} />
           </Route>
         }
         {/* Admin pages */}

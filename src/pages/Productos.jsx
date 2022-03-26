@@ -8,7 +8,7 @@ import { ProductSearch } from '../componentes/producto/ProductSearch';
 import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 
 
-export default function Productos({ products, setProducts, search, setSearch, cart, setCart, setShowSideCart, showSideCart}) {
+export default function Productos({ products, setProducts, search, setSearch, cart, setCart, setShowSideCart, showSideCart, favorites, setFavorites}) {
 
   const [selectCategory, setSelectCategory] = useState('');
   const [selectPrice, setSelectPrice] = useState('');
@@ -47,6 +47,8 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               search={search}
               cart={cart}
               setCart={setCart}
+              favorites={favorites}
+              setFavorites={setFavorites}
               setShowSideCart={setShowSideCart} />
           </Col>
         </Row>

@@ -4,13 +4,40 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Card } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
 import './cardProduct.css';
 
-export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
+export const CardProduct = ({ product, cart, setCart, setShowSideCart, favorites, setFavorites }) => {
 
     const [isInCart, setIsInCart] = useState(false);
+    const [isFavorites, setIsFavorites] = useState(false)
 
     const history = useHistory();
+
+    // Funcion para para productos a favoritos
+    const addFavorite = () => {
+        setFavorites((favList) => favList.concat({ product }))
+    }
+    const removeFavorite = () => {
+        setFavorites((favList) => favList.filter((fav) => fav.product._id !== product._id));
+
+    };
+    const toggleFavorite = () => {
+        const isFavored = favorites.some((fav) => fav.product._id === product._id);
+        if (isFavored) {
+            removeFavorite()
+        } else {
+            addFavorite()
+        }
+    }
+    useEffect(() => {
+        const isFavorites = favorites.some((fav) => fav.product._id === product._id);
+        if (isFavorites) {
+            setIsFavorites(true);
+        } else {
+            setIsFavorites(false)
+        };
+    }, [favorites, product]);
 
     // funcion para ir al detalle
     const verDetalle = () => {
@@ -22,10 +49,10 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
     const quantity = 1
     const addToCart = () => {
         setCart((cart) => cart.concat({ product, quantity }));
-        if(cart.length <= 0) {
+        if (cart.length <= 0) {
             setShowSideCart(true);
-        } else 
-        setShowSideCart(false);
+        } else
+            setShowSideCart(false);
     };
 
     // logica para cambiar nombre de boton si esta o no agregado al carrito 
@@ -41,7 +68,7 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
 
     return (
         <div className="productos my-2 mx-1 p-0" >
-            <Card onClick={verDetalle}  className="card-productos">
+            <Card onClick={verDetalle} className="card-productos">
                 <div className="mt-1 d-flex align-items-start justify-content-center container-photo">
                     <Card.Img className="img-product" variant="top" src={product.image} />
                     <div className="overlay">Ver Detalle</div>
@@ -58,19 +85,22 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart }) => {
                     </p>
                 </Card.Body>
             </Card>
-            <div className="d-flex align-items-center justify-content-center">
+            <div className="d-flex align-items-center justify-content-center bg-white">
                 <button
                     disabled={isInCart}
-                    className={isInCart ? 'added-cart-btn' : 'add-cart-btn'}
+                    className={isInCart ? 'col-9 added-cart-btn' : 'col-9 add-cart-btn'}
                     onClick={addToCart} >
                     {isInCart ? (
-                        'Agregado al Carrito'
+                        'Añadido al Carrito'
                     ) : (
-                        'Agregar al Carrito'
+                        'Añadir al Carrito'
                     )}
                 </button>
+                <button className="col-3 add-fav-btn" onClick={toggleFavorite} >
+                    <FaHeart className={isFavorites ? "is-favorite" : "no-favorite"} />
+                </button>
             </div >
-        </div>
+        </div >
     )
 }
 

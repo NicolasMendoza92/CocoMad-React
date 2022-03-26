@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash, BsCartFill } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { CgProfile } from 'react-icons/cg'
-import { FaShareSquare } from 'react-icons/fa';
+import { FaShareSquare, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import './navbar.css';
 import { NavbarAdmin } from './NavbarAdmin';
@@ -13,7 +13,7 @@ import { NavbarMobile } from './NavbarMobile';
 import { NavbarSearch } from './NavbarSearch';
 
 
-export const Navbar = ({ user, setSearch, cart }) => {
+export const Navbar = ({ user, setSearch, cart, favorites }) => {
 
     const history = useHistory();
 
@@ -120,6 +120,12 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
                                         {cart.length > 0 &&
                                             <span className="swym-header--count">{cart.length}</span>
+                                        }
+                                         <Nav.Link  className="link-nav" as={NavLink} to="/favorite" exact>
+                                            {splitLocation[1] === "favorite" ? <FaHeart /> : <FaRegHeart />}</Nav.Link>
+                                        {
+                                            favorites.length > 0 &&
+                                            <span className="swym-header--count">{favorites.length}</span>
                                         }
                                     </div>
                                 </div>

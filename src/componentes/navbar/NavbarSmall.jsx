@@ -4,16 +4,16 @@ import { useLocation } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import { BsCartDash, BsCartFill } from 'react-icons/bs'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { CgProfile } from 'react-icons/cg'  
+import { CgProfile } from 'react-icons/cg'
 import { NavbarMobile } from './NavbarMobile';
 import './navbar.css';
 import { NavbarAdmin } from './NavbarAdmin';
-import { FaShareSquare } from 'react-icons/fa';
+import { FaShareSquare, FaRegHeart, FaHeart } from 'react-icons/fa';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const NavbarSmall = ({ user, cart }) => {
+export const NavbarSmall = ({ user, cart, favorites }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -29,7 +29,7 @@ export const NavbarSmall = ({ user, cart }) => {
         localStorage.removeItem('token');
         window.location.href = '/';
     }
-    
+
 
     return (
         <>
@@ -102,9 +102,16 @@ export const NavbarSmall = ({ user, cart }) => {
                                     <div className="d-flex align-items-center">
                                         <Nav.Link className="link-nav-small" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
-                                            {cart.length > 0 &&
-                                                <span className="swym-header--count-small">{cart.length}</span>
-                                            }
+                                        {cart.length > 0 &&
+                                            <span className="swym-header--count-small">{cart.length}</span>
+                                        }
+                                        <Nav.Link className="link-nav-small" as={NavLink} to="/favorite" exact>
+                                            {splitLocation[1] === "favorite" ? <FaHeart /> : <FaRegHeart />}</Nav.Link>
+                                        {
+                                            favorites.length > 0 &&
+                                            <span className="swym-header--count">{favorites.length}</span>
+                                        }
+
                                     </div>
                                 </div>
                             </div>

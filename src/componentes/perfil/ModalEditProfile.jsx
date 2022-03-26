@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 
 
 
-export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUserData }) => {    
+export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUserData, onChangeImg }) => {    
         
     const [input, setInput] = useState({ name: user.name, lastName: user.lastName, email: user.email});
 
@@ -19,6 +19,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
         e.preventDefault();
         try {
              await axios.put(`https://cocobackend.herokuapp.com/api/profile/${user._id}`, input);
+             console.log(input)
              swal("Perfil editado con exito", "", "success");
             await requestUserData();
             closeModal();
@@ -69,6 +70,16 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
                             defaultValue={user.email}
                             type="email"
                             required
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3 row align-items-center justify-content-center" >
+                        <label className="col-11 col-md-3 align-items-center">Imagen</label>
+                        <input
+                            id="file-input"
+                            className="col-11 col-md-9 form-input"
+                            accept="image/png, image/jpeg"
+                            type="file"
+                            onChange={onChangeImg}
                         />
                     </Form.Group>
                     <hr />

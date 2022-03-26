@@ -8,14 +8,14 @@ import { Card, ListGroup, OverlayTrigger, Popover} from "react-bootstrap";
 import { FiSettings } from "react-icons/fi";
 import { SpinnerCM } from "../spinner/SpinnerCM";
 import { ModalEditProfile } from "./ModalEditProfile";
-
+import { beforeUpload, getBase64 } from "../../utils/loadImg";
 
 
 const exampleImage =
   "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634755567/th_ji3jqh.jpg";
 
 
-export const MyProfileView = ({ user, requestUserData }) => {
+export const MyProfileView = ({ user, requestUserData}) => {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
@@ -53,6 +53,24 @@ export const MyProfileView = ({ user, requestUserData }) => {
     history.push("/");
     setIsLoading(false);
     window.location.reload();
+  };
+
+  const onChangeImg = async (e) => {
+    const img = e.target.files[0];
+    if (!beforeUpload(img)) return;
+    const base64 = await getBase64(img);
+    console.log(base64)
+    // setImage(base64);
+    const tokenLocal = leerDeLocalStorage("token") || {};
+    const headers = { "x-auth-token": tokenLocal.token };
+    await axios.put(
+      "http://localhost:4000/api/users/image",
+      { image: base64 },
+      {
+        headers,
+      }
+    );
+    await requestUserData();
   };
 
   return (
@@ -121,6 +139,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
           user={user}
           showModalEditar={showModalEditar}
           requestUserData={requestUserData}
+          onChangeImg={onChangeImg}
         />
       )}
 

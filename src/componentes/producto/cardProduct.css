@@ -80,15 +80,31 @@
   background: rgb(146, 210, 226);
   color: whitesmoke;
   border-color: whitesmoke;
-  width: 100%;
   font-size: 18px;
   font-weight: bold;
   font-family: 'Julius Sans One', sans-serif;
 }
+.add-fav-btn {
+  background: rgb(146, 210, 226);
+  color: whitesmoke;
+  border-color: whitesmoke;
+  font-size: 18px;
+}
+
+.add-fav-btn:hover {
+  background: whitesmoke;
+  color: rgb(146, 210, 226);
+  
+}
+.add-fav-btn:hover .no-favorite {
+  color: rgb(146, 210, 226);
+}
+.is-favorite {
+  color: rgb(231, 170, 107);
+}
 
 .added-cart-btn {
   background: whitesmoke;
-  width: 100%;
   color: rgb(146, 210, 226);
   border-color: rgb(146, 210, 226);
   font-size: 18px;

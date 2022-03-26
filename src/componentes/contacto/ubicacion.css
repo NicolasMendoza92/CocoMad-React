@@ -11,6 +11,11 @@
    text-decoration: none;
    color: #212529;
  }
+ .apertura h2 {
+  font-weight: 600;
+  text-decoration: none;
+  color: #212529;
+}
 
  .apertura a:hover {
    text-decoration: none;

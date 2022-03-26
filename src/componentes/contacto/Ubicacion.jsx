@@ -17,7 +17,7 @@ export const Ubicacion = () => {
                 <h2>Estamos abiertos al publico de Lunes a Sabados</h2>
                 <ul>
                     <li> <b style={{color:"rgb(146, 210, 226)"}}> Lunes:</b> 12:00 am a 20:00 pm</li>
-                    <li><b style={{color:"rgb(146, 210, 226)"}}>Martes a Viernes:</b>  8:30 am a 13:00pm y de 16:30pm a 20:00 pm</li>
+                    <li><b style={{color:"rgb(146, 210, 226)"}}>Martes a Viernes:</b>  8:30 am a 13:00 pm y de 16:30 pm a 20:00 pm</li>
                     <li> <b style={{color:"rgb(146, 210, 226)"}}>Sabados:</b>  10:30 am a 18:30 pm </li>
                 </ul>
                 <p className="mb-0 ms-2">Seguinos en <a href="https://www.instagram.com/cocomadbakery/" target="blank" style={{color:"rgb(231, 170, 107)"}} >Instagram</a> y enterate de actualizaciones de horarios </p>
