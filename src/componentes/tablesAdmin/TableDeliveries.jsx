@@ -39,7 +39,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/deliveries/${_id}`);
+        const response = await axios.get(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
@@ -163,7 +163,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                                 )}
                                 </td>
                                 <td className="d-flex align-items-center justify-content-center" >
-                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)} €
+                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)} €
                                 </td>
                                 <td>
                                     <button className="ms-3 circle-btn" onClick={() => alertaBorrarEntrega(_id)} ><FaEraser className="mb-1" /></button>

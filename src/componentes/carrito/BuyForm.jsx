@@ -136,9 +136,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             }
             if (pickUpLocal === "si") {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
-                await axios.post('http://localhost:4000/api/emails/', newEmail);
-                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
-                console.log(newBuy)
+                // await axios.post('http://localhost:4000/api/emails/', newEmail);
+                await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
                 swal({
                     title: "Compra Exitosa !",
@@ -150,10 +149,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 });
             } else if (pickUpLocal === "no") {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
-                await axios.post('http://localhost:4000/api/emails/', newEmail);
-                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+                // await axios.post('http://localhost:4000/api/emails/', newEmail);
+                await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
-                console.log(newDelivery)
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -371,7 +369,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             </Accordion.Header>
                             <Accordion.Body>
                                 <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                                    <label>Coordina el pago</label>
+                                    <label> <b>Coordina el pago</b></label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -384,7 +382,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 </Form.Group>
                                 {payment === "WhatsApp" &&
                                     <div className='mb-2'>
-                                        <h5>Coordina con nosotros el metodo de pago</h5>
+                                        <h5>Ya casi Terminamos! Coordina el Pago con nosotros.</h5>
                                         <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
@@ -448,7 +446,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             </Accordion.Header>
                             <Accordion.Body>
                             <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                            <label>Coordina el pago</label>
+                            <label> <b>Coordina el pago</b></label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -461,7 +459,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 </Form.Group>
                                 {payment === "WhatsApp" &&
                                     <div className='mb-2'>
-                                        <h5>Coordina con nosotros el metodo de pago</h5>
+                                        <h5>Ya casi Terminamos! Coordina el Pago con nosotros.</h5>
                                         <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
