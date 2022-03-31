@@ -4,12 +4,14 @@ import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
+import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 
 
 export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
+    const[isLoading, setIsLoading] = useState(false);
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
@@ -76,6 +78,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
 
 
     const handleSubmit = async (e) => {
+        setIsLoading(true);
         e.preventDefault();
         e.stopPropagation();
 
@@ -140,6 +143,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newBuy)
                 console.log(newEmail)
+                setIsLoading(false);
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -154,6 +158,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
                 console.log(newDelivery)
+                setIsLoading(false);
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -173,6 +178,12 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 alert('error de conexion')
             }
         }
+
+        if (isLoading) {
+            return (
+              <SpinnerCM />
+            );
+          }
 
         setValidated(true);
         if (setValidated === true) {
