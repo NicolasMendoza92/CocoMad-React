@@ -7,7 +7,7 @@ export const Ubicacion = () => {
 
 
     return (
-        <div className="apertura my-3 text-center">
+        <div className="apertura my-3 text-center mt-5 mb-5">
             <h2>VEN A CONOCER NUESTRA TIENDA</h2>
             <div className="d-flex flex-column align-items-center mb-2">
                 <p className="mb-0 ms-2"><b style={{color:"rgb(146, 210, 226)"}}>Visitanos en:</b> Calle Evaristo San Miguel 9, Madrid, España</p>

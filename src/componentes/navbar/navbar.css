@@ -74,7 +74,6 @@
 
  /* NAVBAR POSTITIONS */
 .contenedor {
-    position: relative;
     display: flex;
     width: 100%;
 }

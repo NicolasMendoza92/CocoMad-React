@@ -117,21 +117,21 @@ export default function Home({setSearch}) {
 
   return (
     <>
-      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center mt-2 mb-2">
+      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center mt-5 mb-5">
         <h1> ¡QUIERO TODO!</h1>
         <p>Con tan solo un click, lo puedes disfrutar.</p>
       </div>
       <Container>
         <CardsHome setSearch={setSearch}/>
       </Container>
-      <div data-aos="fade-up" className="tarjetas-icons ">
+      <div data-aos="fade-up" className="tarjetas-icons mt-5 mb-5 ">
         <Row>
           <Col md={4} lg={4} className='social-icon-home'><FaHandHoldingHeart /> <p> Atendemos con el corazón</p></Col>
           <Col md={4} lg={4} className='social-icon-home'><FaHome /><p> Productos Artesanos 100% </p></Col>
           <Col md={4} lg={4} className='social-icon-home'><FaShoppingBag /><p>Disfrutalo en tu casa!</p></Col>
         </Row>
       </div>
-      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center mt-3">
+      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center p-3 mt-3">
         <h1>❤ ESTAMOS MUY AGRADECIDOS CON NUESTROS COCOFANS ❤ </h1>
       </div>
       <Container>
@@ -145,7 +145,7 @@ export default function Home({setSearch}) {
       <div data-aos="fade-up" className=" my-2 mx-1 p-0 d-flex flex-wrap justify-content-center" >
         <Card className='m-2'style={{ width: '18rem' }}>
           <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637266067/cocoMAD/IMG_4975_tjp22y.jpg" />
-          <Card.Body className='text-center'>
+          <Card.Body className='text-center d-flex flex-column justify-content-evenly'>
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold' }}>Alfajores Argentinos y completamente artesanales</Card.Title>
             <Card.Text>
             Todo se soluciona con una buena dosis de dulce de leche». Una de las ‘Frases del día’ que, Luciana...
@@ -155,7 +155,7 @@ export default function Home({setSearch}) {
         </Card>
         <Card className='m-2' style={{ width: '18rem' }}>
           <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg" />
-          <Card.Body className='text-center'>
+          <Card.Body className='text-center d-flex flex-column justify-content-evenly'>
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold'}}>Mi cita con Madrid, Alfajores Argentinos </Card.Title>
             <Card.Text>
             El protagonista del post de hoy es un producto argentino que se utiliza en casi todos los productos...
