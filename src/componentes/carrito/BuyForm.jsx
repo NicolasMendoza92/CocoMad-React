@@ -4,12 +4,14 @@ import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import swal from 'sweetalert'
 import { leerDeLocalStorage } from '../../utils/localStorage'
+import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 
 
 export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
+    const[isLoading, setIsLoading] = useState(false);
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
@@ -51,7 +53,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             setPickUpLocal("si");
         } else if ((newPickUp.pickUp === "no")) {
             setPickUpLocal("no");
-            swal('!Atencion Coquito!','Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
+            swal('!Atención Coquito!','Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
         }
         setInput(newPickUp);
     }
@@ -64,9 +66,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         today.setDate(today.getDate() + 2);
         console.log(dateDelivery.toDateString())
         if (dateDelivery < today) {
-            swal('Debes realizar el pedido con 48hs de anticipacion');
+            swal('Debes realizar el pedido con 48hs de anticipación, por favor selecciona otra fecha.');
         } else if(dateDelivery.toDateString().includes('Sun')){
-            swal('¡ATENCION! Domingos no entregamos. Por favor selecciona otra fecha')
+            swal('¡ATENCIÓN! Domingos no entregamos. Por favor selecciona otra fecha.')
         }
          else {
             swal("Excelente!", "", "success")
@@ -78,7 +80,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
-
+        setIsLoading(true);
         try {
             const newEmail = {
                 buyerEmail: input.buyerEmail,
@@ -136,9 +138,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             }
             if (pickUpLocal === "si") {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
-                // await axios.post('http://localhost:4000/api/emails/', newEmail);
                 await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
+                setIsLoading(false);
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -149,9 +151,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 });
             } else if (pickUpLocal === "no") {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
-                // await axios.post('http://localhost:4000/api/emails/', newEmail);
                 await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
+                setIsLoading(false);
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -179,12 +181,19 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
 
     }
 
+    if (isLoading) {
+        return (
+          <SpinnerCM />
+        );
+      }
+
+
 
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <div className="row row-cols-1">
-                <h5 className="mt-2">Informacion del Contacto</h5>
+                <h3 className="mt-2">Información de contacto</h3>
             </div>
             <Form.Group className="mb-3" controlId="validationCustom01">
                 <FloatingLabel controlId="floatingEmail" label="Email">
@@ -236,14 +245,14 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 </FloatingLabel>
             </Form.Group>
             <Form.Group as={Col} controlId="validationCustom13">
-                <label>¿Retira del local?</label>
+                <label><b>¿Recoge en Tienda?</b></label>
                 <Form.Select
                     className="col-11 col-md-9 text-center"
                     name="pickUp"
                     onChange={(e) => handlePickUp(e)}
                     defaultValue={'default'}
                     required>
-                    <option value="default" disabled>Elije una opcion</option>
+                    <option value="default" disabled>Elige una opción</option>
                     <option value="si">Si</option>
                     <option value="no">No</option>
                 </Form.Select>
@@ -253,7 +262,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 <div>
                     <ZipCode setEnvio={setEnvio} />
 
-                    <h5 className="mt-2">Dirección de envio</h5>
+                    <h5 className="mt-2">Dirección de envío</h5>
                     <Form.Group className="mb-3" controlId="validationCustom05">
                         <FloatingLabel controlId="floatingAddress1" label="Dirección...Calle,Paseo...">
                             <Form.Control type="text"
@@ -320,9 +329,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     </Row>
 
                     <Form.Group className="mb-3" controlId="validationCustom02">
-                        <h5 className="mt-2">Fecha de entrega</h5>
+                        <h4 className="mt-2">Fecha de entrega</h4>
                         <Form.Text className="text-muted">
-                            Haz tu pedido con 48 horas de anticipacion <b>¡Domingos No Entregamos!</b>
+                            Haz tu pedido con 48 horas de anticipación <b>¡Domingos No Entregamos!</b>
                         </Form.Text>
                         <Form.Control
                             type="date"
@@ -332,19 +341,19 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             required
                         />
                         <Form.Control.Feedback type="invalid">
-                            Debes pedir con 2 dias de anticipacion
+                            Debes pedir con 2 dias de anticipación
                         </Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="validationCustom20">
-                        <h5 className="mt-2">Rango horario</h5>
+                        <h4 className="mt-2">Rango horario</h4>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
                             onChange={(e) => handleChange(e)}
                             defaultValue={'default'}
                             required>
-                           <option value="default" disabled>Elije una opcion</option>
+                           <option value="default" disabled>Elige una opción</option>
                             <option value="9am a 11am">9:00 am - 11:00 am</option>
                             <option value="11am a 13pm">11:00 am - 13:00 pm</option>
                             <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
@@ -369,26 +378,26 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             </Accordion.Header>
                             <Accordion.Body>
                                 <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                                    <label> <b>Coordina el pago</b></label>
+                                    <label> <h4>Coordinar el pago</h4></label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
                                         onChange={(e) => handleChange(e)}
                                         defaultValue={'default'}
                                         required>
-                                        <option value="default" disabled>Elije una opcion</option>
+                                        <option value="default" disabled>Elige una opción</option>
                                         <option value="WhatsApp">Por WhatsApp</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "WhatsApp" &&
                                     <div className='mb-2'>
-                                        <h5>Ya casi Terminamos! Coordina el Pago con nosotros.</h5>
+                                        <h5>Ya casi Terminamos!</h5>
                                         <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                        <span style={{color: "grey"}}>Te llegara un correo con los datos de tu pedido.</span>
+                                        <span style={{color: "grey"}}>Luego de hacer tu pedido, recibirás un correo con los datos.</span>
                                     </div>
                                 }
 
@@ -406,7 +415,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             {pickUpLocal === "si" &&
                 <>
                     <Form.Group className="mb-3" controlId="validationCustom02">
-                        <h5 className="mt-2">Fecha de retiro</h5>
+                        <h4 className="mt-2">Fecha de retiro</h4>
                         <Form.Text className="text-muted">
                             Haz tu pedido con 48 horas de anticipacion <b>¡Domingos No Entregamos!</b>
                         </Form.Text>
@@ -423,14 +432,14 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="validationCustom22">
-                        <h5 className="mt-2">Rango horario</h5>
+                        <h4 className="mt-2">Rango horario</h4>
                         <Form.Select
                             className="col-11 col-md-9 text-center"
                             name="deliveryHour"
                             onChange={(e) => handleChange(e)}
                             defaultValue={'default'}
                             required>
-                            <option value="default" disabled>Elije una opcion</option>
+                            <option value="default" disabled>Elige una opción</option>
                             <option value="9am a 11am">9:00 am - 11:00 am</option>
                             <option value="11am a 13pm">11:00 am - 13:00 pm</option>
                             <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
@@ -446,26 +455,26 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             </Accordion.Header>
                             <Accordion.Body>
                             <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                            <label> <b>Coordina el pago</b></label>
+                            <label> <h4>Coordinar el pago</h4></label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
                                         onChange={(e) => handleChange(e)}
                                         defaultValue={'default'}
                                         required>
-                                        <option value="default" disabled>Elije una opcion</option>
+                                        <option value="default" disabled>Elige una opción</option>
                                         <option value="WhatsApp">Por WhatsApp</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "WhatsApp" &&
                                     <div className='mb-2'>
-                                        <h5>Ya casi Terminamos! Coordina el Pago con nosotros.</h5>
+                                        <h5>Ya casi Terminamos!</h5>
                                         <p className='mb-0'> Envianos un mensaje 
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                        <span style={{color: "grey"}}>Te llegara un correo con los datos del pedido.</span>
+                                        <span style={{color: "grey"}}>Luego de hacer tu pedido, recibirás un correo con los datos.</span>
                                     </div>
                                 }
 

@@ -128,10 +128,12 @@
   }
   .add-cart-btn {
     font-size: 10px;
+    height: 30px;
   }
 
   .added-cart-btn {
     font-size: 10px;
+    height: 30px;
   }
 
   .add-cart-btn:hover {

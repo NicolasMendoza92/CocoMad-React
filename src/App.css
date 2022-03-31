@@ -341,16 +341,25 @@ background: none;
   margin-bottom: 0;
 }
 .tabla-descuentos{
-  font-family:'Julius Sans One', sans-serif ;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 /* spinner */
 .spinner-style {
-  position: fixed;
-  top: 50%;
-  right: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 2;
   color: rgb(146, 210, 226) !important;
+}
+
+
+@media screen and (max-width: 766px) {
+  .spinner-style {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .spinner-style .spinner-border {
