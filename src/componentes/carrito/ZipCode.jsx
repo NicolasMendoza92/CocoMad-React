@@ -37,7 +37,7 @@ export const ZipCode = ({ setEnvio }) => {
 
     return (
         <div className='m-1 d-flex flex-column justify-content-center'>
-            <p className='m-1 text-center'>Calcula el precio del envio</p>
+            <p className='m-1 text-center'>Calcula tu envío</p>
             <div className="mb-3 d-flex align-items-center justify-content-center" >
                 <Form.Select
                     className="codigo-postal text-center"

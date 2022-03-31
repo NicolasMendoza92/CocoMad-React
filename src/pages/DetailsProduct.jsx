@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartSideButton } from "../componentes/cartSide/CartSideButton";
 import { ProductDetail } from "../componentes/producto/ProductDetail";
-import { SpinnerCM } from "../componentes/spinner/SpinnerCM";
+import { SpinnerCMDetail } from "../componentes/spinner/SpinnerCMDetail";
 
 
 const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
@@ -28,7 +28,7 @@ const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
 
     if (isLoading) {
         return (
-          <SpinnerCM />
+          <SpinnerCMDetail />
         );
       }
 

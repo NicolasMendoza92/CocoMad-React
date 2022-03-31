@@ -166,7 +166,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                 )}
                                 </td>
                                 <td className="d-flex align-items-center justify-content-center" >
-                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)}    €
+                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)}    €
                                 </td>
                                 <td>
                                     <button className="ms-3 circle-btn" onClick={() => alertaBorrarRetiro(_id)} ><FaEraser className="mb-1" /></button>

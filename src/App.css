@@ -23,11 +23,13 @@ body {
   border: 2px solid rgb(204, 204, 204) !important;
   z-index: 5;
 }
-.cart-side-icon{
+
+.cart-side-icon {
   color: rgb(204, 204, 204);
   font-size: 1.3rem;
 }
-.cart-side-icon-add{
+
+.cart-side-icon-add {
   color: rgb(86, 205, 235);
   font-size: 1.3rem;
 }
@@ -54,19 +56,23 @@ body {
 .search-product {
   width: 50%;
 }
+
 @media screen and (max-width: 996px) {
   .search-product {
-      width: 100%;
+    width: 100%;
   }
 }
+
 .search-input-product {
-  border:1px solid rosybrown;
+  border: 1px solid rosybrown;
   border-radius: 0 1rem 1rem 0;
   cursor: pointer;
 }
+
 .search-input-product:focus {
   outline: none;
 }
+
 .search-icon-product {
   border: 1px solid rosybrown;
   border-radius: 1rem 0 0 1rem;
@@ -107,7 +113,8 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border: solid rgb(146, 210, 226);
 }
-.card-login-form{
+
+.card-login-form {
   border: solid 1px rgb(146, 210, 226);
 }
 
@@ -141,17 +148,19 @@ body {
   background-color: white;
   color: #3b5998;
 }
-.responsive-login-whatsapp{
-  color:#25d366;
+
+.responsive-login-whatsapp {
+  color: #25d366;
   font-size: 2.5rem;
 }
 
 
-.tarjeta-login{
+.tarjeta-login {
   border: solid 1px rgb(146, 210, 226);
   font-family: 'Montserrat', sans-serif;
 }
-.tarjeta-login h4{
+
+.tarjeta-login h4 {
   font-weight: bold;
 }
 
@@ -167,12 +176,13 @@ body {
   font-weight: 900;
 }
 
-.no-results-card-login{
-  border: 0.8px solid  rosybrown !important ;
+.no-results-card-login {
+  border: 0.8px solid rosybrown !important;
   font-family: 'Julius Sans One', sans-serif;
   padding: 10px;
 }
-.no-results-card-login .h5{
+
+.no-results-card-login .h5 {
   font-size: 15px;
 }
 
@@ -186,10 +196,10 @@ body {
   border: none;
   padding: 2rem;
   background-color: rgb(146, 210, 226);
-  font-family:'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.tarjetas h1{
+.tarjetas h1 {
   color: whitesmoke;
   font-family: 'Julius Sans One', sans-serif;
 }
@@ -200,7 +210,8 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
-.tarjetas-icons{
+
+.tarjetas-icons {
   background-size: cover !important;
   overflow: hidden;
   width: 100%;
@@ -208,29 +219,33 @@ body {
   border: none;
   padding: 2rem;
   background-color: rgb(231, 170, 107);
-  font-family:'Montserrat', sans-serif;;
+  font-family: 'Montserrat', sans-serif;
+  ;
 }
+
 .social-icon-home {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: center;  
+  align-content: center;
   font-size: 5rem;
   color: rgb(255, 255, 255);
   transition-duration: 0.5s;
 }
+
 .social-icon-home p {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size:2rem;
+  font-size: 2rem;
   color: rgb(255, 255, 255);
 }
+
 @media screen and (max-width: 996px) {
 
-  .social-icon-home p{
+  .social-icon-home p {
     font-size: 18px;
   }
 }
@@ -239,17 +254,22 @@ body {
   .tarjetas p {
     font-size: 13px;
   }
+
+  .tarjetas h1 {
+    font-size: 22px;
+  }
 }
 
-.img-card-prod{
+.img-card-prod {
   max-width: 18rem;
-    max-height: 18rem;
+  max-height: 18rem;
 }
 
 /* estilo pag contacto */
-.form-contact-container{
-background-color: #f8f9fa;
+.form-contact-container {
+  background-color: #f8f9fa;
 }
+
 .form-contacto {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: rgb(146, 210, 226);
@@ -259,7 +279,7 @@ background-color: #f8f9fa;
 
 .text-format {
   padding: 3rem;
-  font-family:  'Julius Sans One', sans-serif;
+  font-family: 'Julius Sans One', sans-serif;
   text-align: center;
 }
 
@@ -327,26 +347,46 @@ background-color: #f8f9fa;
 }
 
 /* Pagina de carrito  */
-.descuento{
+.descuento {
   font-size: 12px;
 }
 
-.btn-descuento{
-border: none;
-margin: none;
-background: none;
+.btn-descuento {
+  border: none;
+  margin: none;
+  background: none;
 }
 
-.obs{
+.obs {
   font-size: 12px;
   margin-bottom: 0;
 }
-.tabla-descuentos{
-  font-family:'Julius Sans One', sans-serif ;
+
+.tabla-descuentos {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 /* spinner */
 .spinner-style {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30%;
+  z-index: 2;
+  color: rgb(146, 210, 226) !important;
+}
+
+
+@media screen and (max-width: 766px) {
+  .spinner-style {
+    margin-top: 30%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.spinner-style-details {
   position: fixed;
   top: 50%;
   right: 48%;
@@ -378,29 +418,31 @@ background: none;
   color: rgb(146, 210, 226);
   box-shadow: 4px 3px 2px rgba(58, 57, 57, 0.575), 4px 4px 5px rgba(112, 112, 112, 0.493);
 }
-.btn-config{
-  background:grey;
 
-}
-.btn-config:hover{
-  background:whitesmoke;
+.btn-config {
+  background: grey;
 
 }
 
-.no-results-card{
-  border: 0.8px solid  rosybrown !important ;
+.btn-config:hover {
+  background: whitesmoke;
+
+}
+
+.no-results-card {
+  border: 0.8px solid rosybrown !important;
   font-family: 'Julius Sans One', sans-serif;
   font-weight: bolder;
 }
 
 
-.wap-icon{
-  color:#25d366;
+.wap-icon {
+  color: #25d366;
   font-size: 1.5rem;
   margin-left: 5px;
 }
 
-  .error404{
-    width: 100%;
-    height: auto;
-  }
+.error404 {
+  width: 100%;
+  height: auto;
+}

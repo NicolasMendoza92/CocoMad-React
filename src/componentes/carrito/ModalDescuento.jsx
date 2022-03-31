@@ -13,7 +13,7 @@ export const ModalDescuento = ({ showModalDescuento, closeModal }) => {
                     <Modal.Title style={{ color: 'rgb(146, 210, 226)', fontFamily: 'Julius Sans One'}}>Cajas con Descuento</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className='text-center'>
-                    <p>Si tu pedido, contiene una de las siguientes combinaciones, debes hacer click en "Ajustar" para aplicar descuento.</p>
+                    <p>Si tu pedido contiene una de las siguientes combinaciones, debes hacer click en "Ajustar" para aplicar descuento.</p>
                     <Table striped bordered hover className='text-center tabla-descuentos'>
                         <thead>
                             <tr>
