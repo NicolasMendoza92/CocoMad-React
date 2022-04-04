@@ -47,7 +47,6 @@ export default function Carrito({ cart, setCart, user }) {
 
     let cantPrem = reductionP.reduce((cantPrem, { quantity }) => cantPrem + quantity, 0);
     let totalPrem = reductionP.reduce((totalPrem, { product, quantity }) => totalPrem + product.price * quantity, 0);
-
     // Formulas para aplicar los descuentos de Clasicos
     let reductionC = cart.filter(producto => producto.product.category === "Alfajores Clasicos");
 
@@ -72,8 +71,8 @@ export default function Carrito({ cart, setCart, user }) {
             setAjuste(2.70);
         }
         // ajuste de 12 premium y 6 clasicos
-        else if (((totalClas + totalPrem) >= 27) && ((totalClas + totalPrem) < 34.80)) {
-            setAjuste(2.00);
+        else if (((totalClas + totalPrem) >= 27.00) && ((totalClas + totalPrem) < 34.80)) {
+            setAjuste(2.30);
         }
         // ajuste de 12 premium y 12 clasicos
         else if (((totalClas + totalPrem) >= 34.80) && ((totalClas + totalPrem) < 42.60)) {
@@ -89,7 +88,7 @@ export default function Carrito({ cart, setCart, user }) {
         }
         // ajuste de 18 premium y 18 clasicos
         else if (((totalClas + totalPrem) >= 52.20) && ((totalClas + totalPrem) < 55.80)) {
-            setAjuste(4.70);
+            setAjuste(5.00);
         }
         // ajuste de 24 clsicos y 18 premiums
         else if (((totalClas + totalPrem) >= 60) && ((totalClas + totalPrem) < 61.80)) {
@@ -97,7 +96,7 @@ export default function Carrito({ cart, setCart, user }) {
         }
         // ajuste de 24 premiums y 18 clasicos 
         else if (((totalClas + totalPrem) >= 61.80) && ((totalClas + totalPrem) < 69.60)) {
-            setAjuste(5.80);
+            setAjuste(6.10);
         }
         // ajuste de 24 premiums y 24 clasicos 
         else if (((totalClas + totalPrem) >= 69.60) && ((totalClas + totalPrem) < 77.40)) {
@@ -113,10 +112,10 @@ export default function Carrito({ cart, setCart, user }) {
         }
         // ajuste de 30 premiums y 30 clasicos 
         else if ((totalClas + totalPrem) >= 87.00) {
-            setAjuste(8.50);
+            setAjuste(8.80);
         }
         else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.80 && totalClas < 15.60)) {
-            setAjuste(0.30);
+            setAjuste(0.60);
         } else if (cantClas >= 12 && totalClas >= 15.60) {
             setAjuste(2.10);
         } else if ((cantPrem >= 6 && cantPrem < 12) && (totalPrem >= 9.60 && totalPrem < 19.20)) {
