@@ -44,7 +44,7 @@ export const ModalViewSale = ({ showModalViewSale, closeModal, saleFind}) => {
                         <h5> <u>Datos de envio</u> </h5>
                         <ListGroup className="list-group-flush text-start">
                             <ListGroupItem>Retira del Local:  {buyerConditions.pickUp}</ListGroupItem>
-                            <ListGroupItem>Dia de Envio:{new Date(buyerConditions.deliveryDate).getUTCDate()}/{new Date(buyerConditions.deliveryDate).getUTCMonth() + 1}/{new Date(buyerConditions.deliveryDate).getUTCFullYear()}</ListGroupItem>
+                            <ListGroupItem>Dia de Envio:{(new Date(buyerConditions.deliveryDate).toDateString()).slice(0,-11)}</ListGroupItem>
                             <ListGroupItem>Rango:  {buyerConditions.deliveryHour}</ListGroupItem>
                             <ListGroupItem>Metodo de Pago:  {buyerConditions.payMethod}</ListGroupItem>
                         </ListGroup>

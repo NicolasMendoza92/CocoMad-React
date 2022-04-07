@@ -51,6 +51,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         const newPickUp = { ...input, [name]: value };
         if (newPickUp.pickUp === "si") {
             setPickUpLocal("si");
+            setEnvio('');
         } else if ((newPickUp.pickUp === "no")) {
             setPickUpLocal("no");
             swal('!Atención Coquito!','Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
@@ -140,7 +141,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
                 await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
-                setIsLoading(false);
+                
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -153,10 +154,11 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
                 await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
-                setIsLoading(false);
+                
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
+             
                 }).then(() => {                 
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
@@ -169,6 +171,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             console.error(error);
             if (error.response.data) {
                 swal("Faltan datos", "Completar los campos obligatorios", "warning");
+                setIsLoading(false);
             } else {
                 alert('error de conexion')
             }

@@ -120,8 +120,8 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                     <tr className="text-center " >
                         <th>Fecha</th>
                         <th>Cliente</th>
-                        <th>Pago</th>
-                        <th>Entrega</th>
+                        <th>Dia</th>
+                        <th>Retiro</th>
                         <th>Productos</th>
                         <th>SubTotal</th>
                         <th colSpan="2">Actions</th>
@@ -147,7 +147,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                             <tr className="text-center " key={tabe}>
                                 <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerName}</td>
-                                <td>{payMethod}</td>
+                                <td>{(new Date(deliveryDate).toDateString()).slice(0,-11)}</td>
                                 <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
                                 <td>{productsList.map(({ producto, quantity }, prod) => (
                                     <Table size="sm" key={prod}>
