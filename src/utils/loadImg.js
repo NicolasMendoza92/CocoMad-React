@@ -4,6 +4,7 @@ export function getBase64(img) {
         const reader = new FileReader();
         reader.addEventListener('load', () => resolve(reader.result));
         reader.readAsDataURL(img);
+        reader.onerror = error => reject(error);    
     });
 }
 

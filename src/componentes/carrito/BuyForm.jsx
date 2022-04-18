@@ -112,6 +112,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
+            
             const newDelivery = {
                 buyerData: {
                     buyerEmail: input.buyerEmail,

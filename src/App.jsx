@@ -164,6 +164,7 @@ function App() {
       <Header
         user={user}
         favorites={favorites}
+        setFavorites={setFavorites}
         setSearch={setSearch}
         cart={cart} />
       <Switch>
@@ -210,7 +211,8 @@ function App() {
             favorites={favorites}
             setFavorites={setFavorites}
             cart={cart}
-            setCart={setCart} />
+            setCart={setCart}
+            requestUserData={requestUserData} />
         </Route>
 
         <Route path="/login" >

@@ -346,6 +346,28 @@ body {
   font-family: 'Julius Sans One', sans-serif;
 }
 
+.boton-artesanal-fav {
+  background: rgb(146, 210, 226);
+  padding: 10px;
+  color: whitesmoke;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 25px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+.boton-artesanal-fav:hover {
+  background: whitesmoke;
+  transition-duration: 0.5s;
+  padding: 5px;
+  color: rosybrown;
+  border-color: whitesmoke;
+  border-radius: 0.25rem;
+  font-size: 25px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+
 /* Pagina de carrito  */
 .descuento {
   font-size: 12px;

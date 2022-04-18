@@ -3,9 +3,7 @@ import { Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardFavProduct } from '../componentes/favorites/CardFavProduct';
 
-
-
-function Favorite({ favorites, setFavorites, cart, setCart }) {
+function Favorite({ favorites, setFavorites, cart, setCart, requestUserData }) {
 
     //fn limpia productos del favoritos
     const clearFavorites = () => {
@@ -22,9 +20,9 @@ function Favorite({ favorites, setFavorites, cart, setCart }) {
     return (
         <Container>
             <div className="d-flex justify-content-between align-items-center">
-            <h2 className="my-2" style={{ color: 'rgb(146, 210, 226)', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>Tus favoritos</h2>
+                <h2 className="my-2" style={{ color: 'rgb(146, 210, 226)', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>Tus favoritos</h2>
 
-                    <button className="clean-cart my-2" onClick={clearFavorites}><MdOutlineCleaningServices /></button>
+                <button className="clean-cart my-2" onClick={clearFavorites}><MdOutlineCleaningServices /></button>
 
             </div>
             {favorites.length === 0 ?
@@ -36,7 +34,11 @@ function Favorite({ favorites, setFavorites, cart, setCart }) {
                     <div className="d-flex flex-wrap justify-content-center">
                         {mapFavorites}
                     </div>
+                    {/* <div className="d-flex flex-wrap justify-content-center">
+                        <button  className="boton-artesanal-fav p-3 my-2" aria-label="Close">Guardar Favoritos</button>
+                    </div> */}
                 </div>
+
             }
         </Container>
     )

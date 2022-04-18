@@ -4,13 +4,14 @@ import { MdOutlineClose } from 'react-icons/md'
 import { useHistory } from 'react-router-dom';
 
 
-export const CardFavProduct = ({ favProduct, setFavorites, favorites }) => {
+export const CardFavProduct = ({ favProduct, setFavorites, favorites}) => {
 
     const history = useHistory();
 
-    const removeFavorite = () => {
+    const removeFavorite = (e) => {
         const filterFavorite = favorites.filter((fav) => fav.product._id !== favProduct.product._id);
         setFavorites(filterFavorite);
+
     };
 
     // funcion para ir al detalle
