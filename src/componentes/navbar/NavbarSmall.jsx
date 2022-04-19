@@ -99,17 +99,20 @@ export const NavbarSmall = ({ user, cart, favorites }) => {
                                         </NavDropdown>
                                     }
 
-                                    <div className="d-flex align-items-center">
+                                    <div className="d-flex align-items-center position-relative">
                                         <Nav.Link className="link-nav-small" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
-                                        {cart.length > 0 &&
+                                        {
+                                            cart.length > 0 &&
                                             <span className="swym-header--count-small">{cart.length}</span>
                                         }
+                                    </div>
+                                    <div className="d-flex align-items-center position-relative">
                                         <Nav.Link className="link-nav-small" as={NavLink} to="/favorite" exact>
                                             {splitLocation[1] === "favorite" ? <FaHeart /> : <FaRegHeart />}</Nav.Link>
                                         {
                                             favorites.length > 0 &&
-                                            <span className="swym-header--count">{favorites.length}</span>
+                                            <span className="swym-header--count-small">{favorites.length}</span>
                                         }
 
                                     </div>

@@ -164,7 +164,6 @@ function App() {
       <Header
         user={user}
         favorites={favorites}
-        setFavorites={setFavorites}
         setSearch={setSearch}
         cart={cart} />
       <Switch>

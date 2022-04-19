@@ -28,7 +28,7 @@ export const Navbar = ({ user, setSearch, cart, favorites }) => {
     const handleShow = () => setShow(true);
 
     const logout = () => {
-        localStorage.removeItem('token');
+        localStorage.clear();
         window.location.href = '/';
     }
 
@@ -118,10 +118,13 @@ export const Navbar = ({ user, setSearch, cart, favorites }) => {
                                     <div className="d-flex align-items-center position-relative">
                                         <Nav.Link className="link-nav" as={NavLink} to="/carrito" exact>
                                             {splitLocation[1] === "carrito" ? <BsCartFill /> : <BsCartDash />} </Nav.Link>
-                                        {cart.length > 0 &&
+                                        {
+                                            cart.length > 0 &&
                                             <span className="swym-header--count">{cart.length}</span>
                                         }
-                                         <Nav.Link  className="link-nav" as={NavLink} to="/favorite" exact>
+                                    </div>
+                                    <div className="d-flex align-items-center position-relative">
+                                        <Nav.Link className="link-nav" as={NavLink} to="/favorite" exact>
                                             {splitLocation[1] === "favorite" ? <FaHeart /> : <FaRegHeart />}</Nav.Link>
                                         {
                                             favorites.length > 0 &&

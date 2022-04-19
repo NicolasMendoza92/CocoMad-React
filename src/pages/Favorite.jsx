@@ -3,7 +3,7 @@ import { Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { CardFavProduct } from '../componentes/favorites/CardFavProduct';
 
-function Favorite({ favorites, setFavorites, cart, setCart, requestUserData }) {
+function Favorite({ favorites, setFavorites, cart, setCart }) {
 
     //fn limpia productos del favoritos
     const clearFavorites = () => {
@@ -34,9 +34,6 @@ function Favorite({ favorites, setFavorites, cart, setCart, requestUserData }) {
                     <div className="d-flex flex-wrap justify-content-center">
                         {mapFavorites}
                     </div>
-                    {/* <div className="d-flex flex-wrap justify-content-center">
-                        <button  className="boton-artesanal-fav p-3 my-2" aria-label="Close">Guardar Favoritos</button>
-                    </div> */}
                 </div>
 
             }

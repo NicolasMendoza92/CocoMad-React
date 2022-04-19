@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-export const CardSelectedFavs = ({favProduct,favorites}) => {
+export const CardSelectedFavs = ({favProduct}) => {
   return (
     <div>
             <div className="productos mx-3" >
