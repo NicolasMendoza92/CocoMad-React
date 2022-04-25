@@ -165,7 +165,9 @@ function App() {
         user={user}
         favorites={favorites}
         setSearch={setSearch}
-        cart={cart} />
+        setFavorites={setFavorites}
+        cart={cart}
+        setCart={setCart} />
       <Switch>
         <Route path="/" exact>
           <Home setSearch={setSearch}/>

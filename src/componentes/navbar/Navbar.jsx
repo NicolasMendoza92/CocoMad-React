@@ -13,7 +13,7 @@ import { NavbarMobile } from './NavbarMobile';
 import { NavbarSearch } from './NavbarSearch';
 
 
-export const Navbar = ({ user, setSearch, cart, favorites }) => {
+export const Navbar = ({ user, setSearch, cart, favorites, setFavorites, setCart}) => {
 
     const history = useHistory();
 
@@ -29,6 +29,8 @@ export const Navbar = ({ user, setSearch, cart, favorites }) => {
 
     const logout = () => {
         localStorage.clear();
+        setFavorites([]);
+        setCart([]);
         window.location.href = '/';
     }
 

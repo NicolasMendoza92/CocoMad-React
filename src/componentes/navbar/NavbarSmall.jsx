@@ -13,7 +13,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 
 
 
-export const NavbarSmall = ({ user, cart, favorites }) => {
+export const NavbarSmall = ({ user, cart, favorites, setFavorites, setCart }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
 
@@ -27,6 +27,8 @@ export const NavbarSmall = ({ user, cart, favorites }) => {
 
     const logout = () => {
         localStorage.removeItem('token');
+        setFavorites([]);
+        setCart([]);
         window.location.href = '/';
     }
 

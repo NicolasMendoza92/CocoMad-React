@@ -7,7 +7,7 @@ import { useLocation } from 'react-router';
 import { SubHeader } from './SubHeader';
 
 
-export const Header = ({user, setSearch, cart, favorites}) => {
+export const Header = ({user, setSearch, cart, favorites, setFavorites, setCart}) => {
 
   // Se usa useLocation para poder cambiar el estilo de la pagina 
   const path = useLocation().pathname;
@@ -41,7 +41,7 @@ export const Header = ({user, setSearch, cart, favorites}) => {
         && splitLocation[1] !== "adminBoard"
         &&
         <div className={`header-style-${currentlocation}`}>
-          <Navbar user={user} setSearch={setSearch} cart={cart}  favorites={favorites}/>
+          <Navbar user={user} setSearch={setSearch} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>
           <div className="h-50 d-flex flex-column justify-content-between align-items-center">
             <div className="my-5 text-center efecto-artesanal">
               { splitLocation[1] === "" && <h2> Alfajores Argentinos & Más, productos hechos con amor</h2>}
@@ -57,13 +57,13 @@ export const Header = ({user, setSearch, cart, favorites}) => {
 
       }
 
-      {splitLocation[1] === "login" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
-      {splitLocation[1] === "register" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
-      {splitLocation[1] === "carrito" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
-      {splitLocation[1] === "favorite" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
-      {splitLocation[1] === "detalle" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
-      {splitLocation[1] === "perfil" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
-      {splitLocation[1] === "404" && <SubHeader user={user} cart={cart} favorites={favorites}/>}
+      {splitLocation[1] === "login" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
+      {splitLocation[1] === "register" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
+      {splitLocation[1] === "carrito" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
+      {splitLocation[1] === "favorite" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
+      {splitLocation[1] === "detalle" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
+      {splitLocation[1] === "perfil" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
+      {splitLocation[1] === "404" && <SubHeader user={user} cart={cart} setCart={setCart} favorites={favorites} setFavorites={setFavorites}/>}
       {splitLocation[1] === "productList" && <SubHeader user={user} />}
       {splitLocation[1] === "messageList" && <SubHeader user={user}  />}
       {splitLocation[1] === "userList" && <SubHeader user={user}  />}

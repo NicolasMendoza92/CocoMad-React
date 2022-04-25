@@ -3,7 +3,7 @@ import { NavbarSmall } from '../navbar/NavbarSmall';
 import { useLocation } from 'react-router';
 import './header.css';
 
-export const SubHeader = ({user, setSerch, cart, favorites}) => {
+export const SubHeader = ({user, setSerch, cart, favorites, setFavorites, setCart}) => {
 
      // Se usa useLocation para poder cambiar el estilo de la pagina 
   const path = useLocation().pathname;
@@ -12,7 +12,7 @@ export const SubHeader = ({user, setSerch, cart, favorites}) => {
     return (
 
         <div className={`header-style-${currentlocation}`}>
-        <NavbarSmall user={user} setSerch={setSerch} cart={cart} favorites={favorites}/>
+        <NavbarSmall user={user} setSerch={setSerch} cart={cart} favorites={favorites} setFavorites={setFavorites} setCart={setCart}/>
         </div>
   
     )
