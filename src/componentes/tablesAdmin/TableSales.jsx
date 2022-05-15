@@ -13,7 +13,7 @@ import { ModalViewRetiro } from '../adminComp/ModalViewRetiro';
 export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [saleRetiro, setSaleRetiro] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
+    const [saleRetiro, setSaleRetiro] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: {} });
     const [showModalViewRetiro, setShowModalViewRetiro] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -81,14 +81,20 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
     const [busqueda, setBusqueda] = useState('');
 
     const filterSales = (e) => {
+        e.preventDefault();
         const keyword = e.target.value;
-        if (keyword !== '') {
-            const results = tableSales.filter((sale) => {
-                return sale.buyerData.buyerName.includes(keyword.toLowerCase())
+       
+        if(keyword === ''){
+            refreshSales();
+        }
+        else if (keyword !== '') {
+            const results = tableSales.filter((sale) =>{
+                return sale.buyerData.buyerName.toLowerCase().includes(keyword.toLowerCase())
                     || sale.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
             });
             setTableSales(results);
-        } else {
+        }
+         else {
             setTableSales(tableSales);
         }
         setBusqueda(keyword);
@@ -123,8 +129,8 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                     <tr className="text-center " >
                         <th>Fecha</th>
                         <th>Cliente</th>
-                        <th>Pago</th>
-                        <th>Retira el dia</th>
+                        <th>Dia</th>
+                        <th>Retiro</th>
                         <th>Productos</th>
                         <th>SubTotal</th>
                         <th colSpan="2">Actions</th>
@@ -145,12 +151,11 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                 payMethod,
                             },
                             productsList
-
                             , _id }, tab) => (
                             <tr className="text-center " key={tab}>
                                 <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerName}</td>
-                                <td>{payMethod}</td>
+                                <td>{(new Date(deliveryDate).toDateString()).slice(0, -11)}</td>
                                 <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
                                 <td>{productsList.map(({ producto, quantity }, prod) => (
                                     <Table size="sm" key={prod}>

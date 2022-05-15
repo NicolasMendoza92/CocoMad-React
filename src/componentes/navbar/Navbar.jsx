@@ -61,7 +61,7 @@ export const Navbar = ({ user, setSearch, cart, favorites, setFavorites, setCart
                 <>
                     <nav>
                         <Container bg="none" className="py-2">
-                            <div className="d-flex align-items-center justify-content-between contenedor " >
+                            <div className=" contenedor " >
                                 <div className="d-block d-md-none ">
                                     <button
                                         className="navbar-button"

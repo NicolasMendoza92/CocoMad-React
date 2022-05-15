@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import swal from 'sweetalert'
+import './cartStyles.css';
 import { leerDeLocalStorage } from '../../utils/localStorage'
 import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
@@ -40,7 +41,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
 
         if (newInput.payMethod === "WhatsApp") {
             setPayment("WhatsApp");
-        } else {
+        } 
+        else {
             setPayment('');
         }
         setInput(newInput);
@@ -51,10 +53,11 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         const newPickUp = { ...input, [name]: value };
         if (newPickUp.pickUp === "si") {
             setPickUpLocal("si");
+            setEnvio('');
         } else if ((newPickUp.pickUp === "no")) {
             setPickUpLocal("no");
             swal('!Atención Coquito!','Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
-        }
+        } 
         setInput(newPickUp);
     }
 
@@ -142,7 +145,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
                 await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
-                setIsLoading(false);
+                
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
@@ -155,10 +158,11 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
                 await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
                 console.log(newEmail)
-                setIsLoading(false);
+                
                 swal({
                     title: "Compra Exitosa !",
                     icon: "success",
+             
                 }).then(() => {                 
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
@@ -170,7 +174,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         } catch (error) {
             console.error(error);
             if (error.response.data) {
-                swal("Faltan datos", "Completar los campos obligatorios", "warning");
+                swal(JSON.stringify(error.response.data));
+                setIsLoading(false);
             } else {
                 alert('error de conexion')
             }
@@ -244,7 +249,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
             </Row>
             <Form.Group className="mb-3" controlId="validationCustom16">
                 <FloatingLabel controlId="floatingPhone" label="Teléfono">
-                    <Form.Control type="text"
+                    <Form.Control type="number"
                         name="buyerCelphone"
                         onChange={(e) => handleChange(e)}
                         maxLength="25"
@@ -276,7 +281,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             <Form.Control type="text"
                                 name="buyerAddress1"
                                 onChange={(e) => handleChange(e)}
-                                maxLength="35"
+                                maxLength="40"
                                 required />
                         </FloatingLabel>
                         <Form.Control.Feedback type="invalid">
@@ -288,7 +293,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                             <Form.Control type="text"
                                 name="buyerAddress2"
                                 onChange={(e) => handleChange(e)}
-                                maxLength="30"
+                                maxLength="35"
                                 required />
 
                         </FloatingLabel>
@@ -302,7 +307,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 <Form.Control type="text"
                                     name="buyerCity"
                                     onChange={(e) => handleChange(e)}
-                                    maxLength="35"
+                                    maxLength="20"
                                     required />
                             </FloatingLabel>
                             <Form.Control.Feedback type="invalid">
@@ -314,7 +319,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                                 <Form.Control type="text"
                                     name="buyerState"
                                     onChange={(e) => handleChange(e)}
-                                    maxLength="35"
+                                    maxLength="20"
                                     required />
                             </FloatingLabel>
                             <Form.Control.Feedback type="invalid">
@@ -323,7 +328,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridZip">
                             <FloatingLabel controlId="floatingZip" label="Codigo Postal">
-                                <Form.Control type="text"
+                                <Form.Control type="number"
                                     maxLength="8"
                                     minLength="5"
                                     name="buyerZip"
