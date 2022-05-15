@@ -13,7 +13,7 @@ export const Formulario = () => {
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        if (newInput.senderName.length < 30 && newInput.senderEmail.length < 35 && newInput.senderIg.length < 35 && newInput.message.length < 200) {
+        if (newInput.senderName.length < 30 && newInput.senderEmail.length < 35 && newInput.senderIg.length < 35 && newInput.message.length < 250) {
             setInput(newInput);
         } else {
             swal('Alcanzaste el numero maximo de caracteres')
@@ -21,22 +21,26 @@ export const Formulario = () => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+            e.preventDefault();
+            e.stopPropagation();
+        
         try {
-            await axios.post('https://cocobackend.herokuapp.com/api/messages/', input);
+            await axios.post('https://cocobackend.herokuapp.com/api/messages', input);
             swal({
                 title: "Mensaje enviado con exito !",
                 icon: "success",
             });
             e.target.reset();
+            setInput();
+            setValidated(true)
         } catch (error) {
             if (error.response.data) {
-                swal("Faltan datos", "Completar los campos obligatorios", "warning");
+                swal(JSON.stringify(error.response.data))
             } else {
                 alert('error de conexion')
             }
         }
-        setValidated(true);
+
         if (setValidated === true) {
             e.target.reset();
         }
@@ -89,14 +93,14 @@ export const Formulario = () => {
                     name="message"
                     required
                     minLength="15"
-                    maxLength="200"
+                    maxLength="250"
                     rows={3}
                     onChange={(e) => handleChange(e)}
                 />
             </Form.Group>
             <hr />
             <div className="d-flex flex-column align-items-center align-items-md-center justify-content-center">
-                <button className="boton-artesanal-cel">Contactanos</button>
+                <button type='submit' className="boton-artesanal-cel">Contactanos</button>
             </div>
         </Form>
     )

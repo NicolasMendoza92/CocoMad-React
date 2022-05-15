@@ -20,7 +20,6 @@ export const CardProduct = ({ product, cart, setCart, setShowSideCart, favorites
     }
     const removeFavorite = () => {
         setFavorites((favList) => favList.filter((fav) => fav.product._id !== product._id));
-
     };
     const toggleFavorite = () => {
         const isFavored = favorites.some((fav) => fav.product._id === product._id);

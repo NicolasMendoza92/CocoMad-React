@@ -4,18 +4,26 @@ import swal from "sweetalert";
 import "./myProfileView.css";
 import { useHistory } from "react-router-dom";
 import { leerDeLocalStorage } from "../../utils/localStorage";
-import { Card, ListGroup, OverlayTrigger, Popover} from "react-bootstrap";
+import { Card, ListGroup, OverlayTrigger, Popover } from "react-bootstrap";
 import { FiSettings } from "react-icons/fi";
 import { SpinnerCM } from "../spinner/SpinnerCM";
 import { ModalEditProfile } from "./ModalEditProfile";
 import { beforeUpload, getBase64 } from "../../utils/loadImg";
+import Lottie from "react-lottie";
 
 
 const exampleImage =
   "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1634755567/th_ji3jqh.jpg";
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
-export const MyProfileView = ({ user, requestUserData}) => {
+export const MyProfileView = ({ user, requestUserData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
@@ -60,7 +68,6 @@ export const MyProfileView = ({ user, requestUserData}) => {
     if (!beforeUpload(img)) return;
     const base64 = await getBase64(img);
     console.log(base64)
-    // setImage(base64);
     const tokenLocal = leerDeLocalStorage("token") || {};
     const headers = { "x-auth-token": tokenLocal.token };
     await axios.put(
@@ -87,8 +94,19 @@ export const MyProfileView = ({ user, requestUserData}) => {
               {user.name} {user.lastName}
             </Card.Title>
             <ListGroup variant="flush">
-              <ListGroup.Item>
-                
+              <ListGroup.Item className="d-flex flex">
+              <label htmlFor="file-input" className="label-change-avatar">
+                <input 
+                  id="file-input"
+                  className="file-input"
+                  accept="image/png, image/jpeg"
+                  type="file"
+                  onChange={onChangeImg}
+                />{" "}
+                <div >
+                  <Lottie options={{...defaultOptions }} />
+                </div>
+                </label>
               </ListGroup.Item>
               <ListGroup.Item>
                 {user.role === "admin" ? "Administrador " : "Cliente "}
@@ -139,7 +157,6 @@ export const MyProfileView = ({ user, requestUserData}) => {
           user={user}
           showModalEditar={showModalEditar}
           requestUserData={requestUserData}
-          onChangeImg={onChangeImg}
         />
       )}
 

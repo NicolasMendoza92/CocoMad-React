@@ -6,7 +6,7 @@ import { Link, NavLink, useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { guardarEnLocalStorage } from '../../utils/localStorage';
 
-export const FormLogin = ({requestUserData, cart}) => {
+export const FormLogin = ({ requestUserData, cart }) => {
 
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
@@ -42,7 +42,7 @@ export const FormLogin = ({requestUserData, cart}) => {
             } else {
                 swal('Bienvenido al Mundo CocoMad ' + name);
             }
-            await requestUserData(); 
+            await requestUserData();
             //El push redirecciona a la pantalla indicada en el parametro.
             if (cart.length !== 0) {
                 history.push('/carrito');
@@ -50,35 +50,26 @@ export const FormLogin = ({requestUserData, cart}) => {
             } else {
                 history.push('/');
             }
-        } 
+        }
         catch (error) {
             console.error(error);
             if (input.email === '' && input.password === '') {
                 swal("Faltan datos", "Completar los campos obligatorios", "warning")
             }
             else if (input.email === '') {
-                swal('completa el email')
+                swal('Completa el email')
             }
             else if (input.password === '') {
-                swal('completa la contraseña')
+                swal('Completa la contraseña')
             }
+            else if (input.email.indexOf('@') === -1) {
+                swal('Coloca Email valido')
+            }
+
             else if (error.response.data) {
-                swal("Datos Incorrectos", "Asegurate de tener los permisos", "warning")
-                swal({
-                    title: "Datos Incorrectos / Usuario No Registrado",
-                    text: (error.response.data),
-                    icon: "error",
-                    buttons: ["No, Gracias", "Registrate!"],
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            history.push('/register')
-                        } else {
-                            swal("Sera en otra Ocacion!");
-                        }
-                    });
+                swal( JSON.stringify(error.response.data))
             } else {
+
                 alert('Error de conexion');
             }
         }
@@ -102,7 +93,8 @@ export const FormLogin = ({requestUserData, cart}) => {
                     className="text-center">
                     <Form.Group className="mb-3" controlId="formGroupEmail">
                         <Form.Label> <b>Email</b></Form.Label>
-                        <Form.Control
+                        <input
+                            className='form-control'
                             name="email"
                             type="email"
                             placeholder="Ingresa el correo"

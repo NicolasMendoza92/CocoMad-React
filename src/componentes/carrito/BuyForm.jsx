@@ -247,7 +247,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                     <Form.Control type="text"
                         name="buyerCelphone"
                         onChange={(e) => handleChange(e)}
-                        maxLength="40"
+                        maxLength="25"
                         required
                     />
                 </FloatingLabel>

@@ -56,7 +56,7 @@ export const FormRegister = () => {
                 swal('completa la contraseña')
             }
             else if (input.knowcoco === '') {
-                swal('completa este campo')
+                swal('Completa el campo "know Coco"')
             }
             else {
                 swal(JSON.stringify(error.response.data));

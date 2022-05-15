@@ -8,6 +8,8 @@ import { CardSelectedFavs } from './CardSelectedFavs';
 
 export const MyFavs = ({ requestUserData }) => {
 
+    // Funcion para guardar favoritos en cada usuario. 
+
     const favorites = leerDeLocalStorage('favorites') || [];
 
     const saveFavorites = async (e) => {
@@ -34,6 +36,7 @@ export const MyFavs = ({ requestUserData }) => {
         }
     }
 
+    
     const mapSelectedFavorites = favorites?.map((favProduct, i) => (
         <CardSelectedFavs
             key={i} favProduct={favProduct} favorites={favorites}
