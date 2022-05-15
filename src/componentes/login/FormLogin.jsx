@@ -63,22 +63,9 @@ export const FormLogin = ({requestUserData, cart}) => {
                 swal('completa la contraseña')
             }
             else if (error.response.data) {
-                swal("Datos Incorrectos", "Asegurate de tener los permisos", "warning")
-                // swal({
-                //     title: "Datos Incorrectos / Usuario No Registrado",
-                //     text: (error.response.data),
-                //     icon: "error",
-                //     buttons: ["No, Gracias", "Registrate!"],
-                //     dangerMode: true,
-                // })
-                //     .then((willDelete) => {
-                //         if (willDelete) {
-                //             history.push('/register')
-                //         } else {
-                //             swal("Sera en otra Ocacion!");
-                //         }
-                //     });
+                swal( JSON.stringify(error.response.data))
             } else {
+
                 alert('Error de conexion');
             }
         }
