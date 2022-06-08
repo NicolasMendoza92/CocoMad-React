@@ -2,18 +2,24 @@ import './sidebar.css';
 import React from 'react'
 import { CloseButton } from 'react-bootstrap';
 
-export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onselectPri, setSelectPrice, selectPrice, setSearch }) => {
+export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onselectPri, setSelectPrice, selectPrice, setSearch, currentPage, setCurrentPage }) => {
 
     const filtrarCategoria = (e) => {
-        const category = e.target.value;
-        setSelectCategory(category);
-        setSearch('');
+        if (currentPage !== 1 || currentPage === 1) {
+            setCurrentPage(1)
+            const category = e.target.value;
+            setSelectCategory(category);
+            setSearch('');
+        }
     }
 
     const filtrarPrecio = (e) => {
-        const price = e.target.value;
-        setSelectPrice(price);
-        setSearch('');
+        if (currentPage !== 1 || currentPage === 1) {
+            setCurrentPage(1)
+            const price = e.target.value;
+            setSelectPrice(price);
+            setSearch('');
+        }
     }
 
     const clearSelectCat = () => {
@@ -55,7 +61,7 @@ export const Sidebar = ({ setSelectCategory, selectCategory, onselectCat, onsele
                 <div className="col-12 col-lg-6 mt-2">
                     <div className="d-flex">
                         <label className="m-2"> <b>Precio</b></label>
-                        <select onChange={filtrarPrecio}  defaultValue={'default'} className="form-select" >
+                        <select onChange={filtrarPrecio} defaultValue={'default'} className="form-select" >
                             <option value="default" disabled>Rango...</option>
                             <option value="10">Hasta 10€</option>
                             <option value="15">Hasta 15€</option>

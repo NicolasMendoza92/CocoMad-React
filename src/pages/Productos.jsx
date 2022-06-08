@@ -10,6 +10,7 @@ import { Sidebar } from '../componentes/sidebarProduct/Sidebar'
 
 export default function Productos({ products, setProducts, search, setSearch, cart, setCart, setShowSideCart, showSideCart}) {
 
+  const [currentPage, setCurrentPage] = useState(1);
   const [selectCategory, setSelectCategory] = useState('');
   const [selectPrice, setSelectPrice] = useState('');
 
@@ -33,10 +34,12 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               selectPrice={selectPrice}
               onselectCat={clearFilterCategory}
               onselectPri={clearFilterPrice} 
-              setSearch={setSearch} />             
+              setSearch={setSearch}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage} />             
           </Col>
           <Col className='col-12 col-md-6'>
-          <ProductSearch setSearch={setSearch} />
+          <ProductSearch setSearch={setSearch} currentPage={currentPage} setCurrentPage={setCurrentPage} />
           </Col>
           <Col className="col-12">
             <CardsProducts
@@ -47,7 +50,9 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               search={search}
               cart={cart}
               setCart={setCart}
-              setShowSideCart={setShowSideCart} />
+              setShowSideCart={setShowSideCart} 
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}/>
           </Col>
         </Row>
       </Container>
