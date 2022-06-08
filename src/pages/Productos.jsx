@@ -12,6 +12,7 @@ export default function Productos({ products, setProducts, search, setSearch, ca
 
   const [selectCategory, setSelectCategory] = useState('');
   const [selectPrice, setSelectPrice] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const clearFilterCategory = (value) => {
     setSelectCategory(value);
@@ -20,6 +21,8 @@ export default function Productos({ products, setProducts, search, setSearch, ca
   const clearFilterPrice = (value) => {
     setSelectPrice(value);
   }
+
+
 
   return (
     <div>
@@ -33,10 +36,12 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               selectPrice={selectPrice}
               onselectCat={clearFilterCategory}
               onselectPri={clearFilterPrice} 
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
               setSearch={setSearch} />             
           </Col>
           <Col className='col-12 col-md-6'>
-          <ProductSearch setSearch={setSearch} />
+          <ProductSearch setSearch={setSearch} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
           </Col>
           <Col className="col-12">
             <CardsProducts
@@ -47,7 +52,9 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               search={search}
               cart={cart}
               setCart={setCart}
-              setShowSideCart={setShowSideCart} />
+              setShowSideCart={setShowSideCart}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}/>
           </Col>
         </Row>
       </Container>

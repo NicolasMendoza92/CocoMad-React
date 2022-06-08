@@ -4,9 +4,8 @@ import { Card } from 'react-bootstrap';
 import { PaginationStore } from '../paginacion/PaginationStore';
 import { CardProduct } from './CardProduct';
 
-export const CardsProducts = ({ products, selectCategory, selectPrice, search, cart, setCart, setShowSideCart}) => {
+export const CardsProducts = ({ products, selectCategory, selectPrice, search, cart, setCart, setShowSideCart, currentPage, setCurrentPage}) => {
 
-    const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [currentProducts, setCurrentProducts] = useState([]);
 
@@ -29,12 +28,15 @@ export const CardsProducts = ({ products, selectCategory, selectPrice, search, c
         } else {
             searchProducts = filteredProducts;
         }
+
         const productsSlice = searchProducts.slice(start, end);
         setCurrentProducts(productsSlice);
 
         const totalPages = Math.ceil(searchProducts.length / limit);
         setTotalPages(totalPages);
+
     }, [products, currentPage, search, selectCategory, selectPrice]);
+
 
     const mapProducts = currentProducts?.map((product) => (<CardProduct
         key={product._id} 
