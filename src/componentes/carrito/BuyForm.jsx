@@ -67,7 +67,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
         const today = new Date();
         const dateDelivery = new Date(newDate.deliveryDate);
         today.setDate(today.getDate() + 2);
-        console.log(dateDelivery.toDateString())
+        // console.log(dateDelivery.toDateString())
         if (dateDelivery < today) {
             swal('Debes realizar el pedido con 48hs de anticipación, por favor selecciona otra fecha.');
         } else if(dateDelivery.toDateString().includes('Sun')){

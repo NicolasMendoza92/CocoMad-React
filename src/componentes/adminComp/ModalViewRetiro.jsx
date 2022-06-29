@@ -40,10 +40,10 @@ export const ModalViewRetiro = ({ showModalViewRetiro, closeModalRetiro, saleRet
                             <ListGroupItem>{buyerData.buyerCelphone}</ListGroupItem>
                         </ListGroup>
                         <hr />
-                        <h5> <u>Datos de envio</u> </h5>
+                        <h5> <u>Datos de entrega</u> </h5>
                         <ListGroup className="list-group-flush text-start">
                             <ListGroupItem>Retira del Local:  {buyerConditions.pickUp}</ListGroupItem>
-                            <ListGroupItem>Dia de Envio:{(new Date(buyerConditions.deliveryDate).toDateString()).slice(0,-11)}</ListGroupItem>
+                            <ListGroupItem>Dia de Retiro:{(new Date(buyerConditions.deliveryDate).toDateString()).slice(0,-11)}</ListGroupItem>
                             <ListGroupItem>Rango:  {buyerConditions.deliveryHour}</ListGroupItem>
                             <ListGroupItem>Metodo de Pago:  {buyerConditions.payMethod}</ListGroupItem>
                         </ListGroup>

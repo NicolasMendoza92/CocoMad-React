@@ -160,7 +160,7 @@ export default function Home({setSearch}) {
             <Card.Text>
             El protagonista del post de hoy es un producto argentino que se utiliza en casi todos los productos...
             </Card.Text>
-            <a href="https://micitaconmadrid.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
+            <a href="https://tucitaconmadrid.wordpress.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
           </Card.Body>
         </Card>
       </div>
