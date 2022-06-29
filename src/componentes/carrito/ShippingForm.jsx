@@ -1,9 +1,8 @@
-import axios from 'axios'
+
 import React, { useState } from 'react'
 import { Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import swal from 'sweetalert'
 import './cartStyles.css';
-import { leerDeLocalStorage } from '../../utils/localStorage'
 import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 import { useStateValue } from '../../StateProvider'
@@ -11,8 +10,8 @@ import { actionTypes } from '../../utils/reducer'
 
 
 
-export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setPayment, setActiveStep }) => {
-    const tokenLocal = leerDeLocalStorage('token') || {};
+export const ShippingForm = ({ cart, setEnvio, envio, ajuste, setActiveStep }) => {
+
     const [isLoading, setIsLoading] = useState(false);
 
     const [pickUpLocal, setPickUpLocal] = useState('');
@@ -32,22 +31,12 @@ export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setP
     const [validated, setValidated] = useState(false);
 
     const [input, setInput] = useState({
-        buyerEmail: user.email, buyerName: user.name,
-        buyerLastName: user.lastName, buyerCelphone: '', buyerAddress1: '', buyerAddress2: '', buyerCity: '',
-        buyerState: '', buyerZip: '', deliveryDate: '', deliveryHour: '', pickUp: '', buyerShippingInstructions: '', payMethod: ''
-    });
+        buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '',
+        deliveryDate: '', deliveryHour: '', pickUp: '', buyerShippingInstructions: '' });
 
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
-        if (newInput.payMethod === "WhatsApp") {
-            setPayment("WhatsApp");
-        } else if (newInput.payMethod === "Tarjeta") {
-            setPayment("Tarjeta")
-        }
-        else {
-            setPayment('');
-        }
         setInput(newInput);
     }
 
@@ -88,47 +77,33 @@ export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setP
         e.stopPropagation();
         setIsLoading(true);
         try {
-            const newEmail = {
-                buyerEmail: input.buyerEmail,
-                buyerName: input.buyerName,
-                buyerLastName: input.buyerLastName,
-                buyerCelphone: input.buyerCelphone,
-                deliveryDate: input.deliveryDate,
-                deliveryHour: input.deliveryHour,
-                pickUp: input.pickUp,
-                payMethod: input.payMethod,
-                sendPrice: envio,
-                discount: ajuste,
-                productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
-            }
-            const newBuy = {
-                buyerData: {
-                    buyerEmail: input.buyerEmail,
-                    buyerName: input.buyerName,
-                    buyerLastName: input.buyerLastName,
-                    buyerCelphone: input.buyerCelphone,
-                },
+            // const newEmail = {
+            //     buyerEmail: input.buyerEmail,
+            //     buyerName: input.buyerName,
+            //     buyerLastName: input.buyerLastName,
+            //     buyerCelphone: input.buyerCelphone,
+            //     deliveryDate: input.deliveryDate,
+            //     deliveryHour: input.deliveryHour,
+            //     pickUp: input.pickUp,
+            //     payMethod: input.payMethod,
+            //     sendPrice: envio,
+            //     discount: ajuste,
+            //     productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
+            // }
+            const newBuyerShipp = {
                 buyerConditions: {
                     deliveryDate: input.deliveryDate,
                     deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
-                    payMethod: input.payMethod,
                     discount: ajuste,
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
-            const newDelivery = {
-                buyerData: {
-                    buyerEmail: input.buyerEmail,
-                    buyerName: input.buyerName,
-                    buyerLastName: input.buyerLastName,
-                    buyerCelphone: input.buyerCelphone,
-                },
+            const newBuyerDelivery = {
                 buyerConditions: {
                     deliveryDate: input.deliveryDate,
                     deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
-                    payMethod: input.payMethod,
                     discount: ajuste,
                 },
                 buyerShipping: {
@@ -142,64 +117,29 @@ export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setP
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
-            if (pickUpLocal === "si" && payment === "WhatsApp") {
-                await axios.post('https://cocobackend.herokuapp.com/api/sales/', newBuy);
-                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
+            if (pickUpLocal === "si") {
+
                 dispatch({
                     type: actionTypes.SET_SHIPPINGDATA,
-                    shippingData: newBuy
-                  });
+                    shippingData: newBuyerShipp
+                });
                 console.log(shippingData)
-                swal({
-                    title: "Pedido Exitoso!",
-                    icon: "success",
-                }).then(() => {
-                    localStorage.removeItem('cart');
-                    window.location.href = '/productos';
-                    window.scrollTo(0, 150);
-                });
-            } else if (pickUpLocal === "no" && payment === "WhatsApp") {
-                await axios.post('https://cocobackend.herokuapp.com/api/deliveries/', newDelivery);
-                // await axios.post('https://cocobackend.herokuapp.com/api/emails/', newEmail);
-                dispatch({
-                    type: actionTypes.SET_SHIPPINGDATA,
-                    shippingData: newDelivery
-                  });
-                swal({
-                    title: "Pedido Exitoso!",
-                    icon: "success",
+                setActiveStep(2)
+                setValidated(true)
 
-                }).then(() => {
-                    localStorage.removeItem('cart');
-                    window.location.href = '/productos';
-                    window.scrollTo(0, 150);
-                });
-            }
-            else if (pickUpLocal === "si" && payment === "Tarjeta") {
-                dispatch({
-                    type: actionTypes.SET_SHIPPINGDATA,
-                    shippingData: newBuy,
-                  });
-                  setActiveStep(1);
-                  console.log(shippingData)
-            }
-            else if (pickUpLocal === "no" && payment === "Tarjeta") {
-                dispatch({
-                    type: actionTypes.SET_SHIPPINGDATA,
-                    shippingData: newDelivery,
-                  });
-                  setActiveStep(1);
-            }
+            } else if (pickUpLocal === "no") {
 
+                dispatch({
+                    type: actionTypes.SET_SHIPPINGDATA,
+                    shippingData: newBuyerDelivery
+                });
+                setActiveStep(2)
+                setValidated(true)
+            }
 
         } catch (error) {
             console.error(error);
-            if (error.response.data) {
-                swal(JSON.stringify(error.response.data));
-                setIsLoading(false);
-            } else {
-                alert('error de conexion')
-            }
+            alert('error de conexion')
         }
 
         setValidated(true);
@@ -221,55 +161,6 @@ export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setP
                 <div className="row row-cols-1">
                     <h3 className="mt-2">Información de contacto</h3>
                 </div>
-                <Form.Group className="mb-3" controlId="validationCustom01">
-                    <FloatingLabel controlId="floatingEmail" label="Email">
-                        <Form.Control type="email"
-                            name="buyerEmail"
-                            onChange={(e) => handleChange(e)}
-                            defaultValue={tokenLocal.token ? user.email : ""}
-                            maxLength="35"
-                            required
-                        />
-                    </FloatingLabel>
-                </Form.Group>
-                <Row className="mb-3">
-                    <Form.Group as={Col} controlId="validationCustom03">
-                        <FloatingLabel controlId="floatingName" label="Nombre">
-                            <Form.Control type="text"
-                                name="buyerName"
-                                onChange={(e) => handleChange(e)}
-                                defaultValue={tokenLocal.token ? user.name : ""}
-                                maxLength="20"
-                                required />
-                        </FloatingLabel>
-                        <Form.Control.Feedback type="invalid">
-                            Necesitamos tu Nombre
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="validationCustom04">
-                        <FloatingLabel controlId="floatingLastName" label="Apellido">
-                            <Form.Control type="text"
-                                name="buyerLastName"
-                                onChange={(e) => handleChange(e)}
-                                defaultValue={tokenLocal.token ? user.lastName : ""}
-                                maxLength="20"
-                                required />
-                        </FloatingLabel>
-                        <Form.Control.Feedback type="invalid">
-                            Necesitamos tu Apellido
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                </Row>
-                <Form.Group className="mb-3" controlId="validationCustom16">
-                    <FloatingLabel controlId="floatingPhone" label="Teléfono">
-                        <Form.Control type="number"
-                            name="buyerCelphone"
-                            onChange={(e) => handleChange(e)}
-                            maxLength="40"
-                            required
-                        />
-                    </FloatingLabel>
-                </Form.Group>
                 <Form.Group as={Col} controlId="validationCustom13">
                     <label><b>¿Recoge en Tienda?</b></label>
                     <Form.Select
@@ -395,25 +286,11 @@ export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setP
                                 onChange={(e) => handleChange(e)}
                                 rows={3} />
                         </Form.Group>
-
-                        {/* Continuar Compra */}
-                        <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                            <label> <h4>Metodo de pago</h4></label>
-                            <Form.Select
-                                className="col-11 col-md-9 text-center"
-                                name="payMethod"
-                                onChange={(e) => handleChange(e)}
-                                defaultValue={'default'}
-                                required>
-                                <option value="default" disabled>Elige una opción</option>
-                                <option value="WhatsApp">Por WhatsApp</option>
-                                <option value="Tarjeta">Con Tarjeta</option>
-                            </Form.Select>
-                        </Form.Group>
+                       
                         {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
                         <div className='d-flex justify-content-center'>
                             <button className="boton-comprar" type="submit">
-                                Solicitar Pedido
+                                Ir al Pago 
                             </button>
                         </div>
                     </div>
@@ -452,26 +329,11 @@ export const ShippingForm = ({ user, cart, setEnvio, envio, ajuste,payment, setP
                                 <option value="18pm a 20pm">18:30 pm - 20:00 pm</option>
                             </Form.Select>
                         </Form.Group>
-
-                        {/* Continuar Compra */}
-
-                        <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                            <label> <h4>Metodo de pago</h4></label>
-                            <Form.Select
-                                className="col-11 col-md-9 text-center"
-                                name="payMethod"
-                                onChange={(e) => handleChange(e)}
-                                defaultValue={'default'}
-                                required>
-                                <option value="default" disabled>Elige una opción</option>
-                                <option value="WhatsApp">Por WhatsApp</option>
-                                <option value="Tarjeta">Con Tarjeta</option>
-                            </Form.Select>
-                        </Form.Group>
+                       
                         {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
                         <div className='d-flex flex-column justify-content-center align-items-center'>
                             <button className="boton-comprar" type="submit">
-                                Solicitar Pedido
+                                Ir al Pago
                             </button>
 
                         </div>
