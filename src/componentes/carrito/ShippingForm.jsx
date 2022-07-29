@@ -32,7 +32,8 @@ export const ShippingForm = ({ cart, setEnvio, envio, ajuste, setActiveStep }) =
 
     const [input, setInput] = useState({
         buyerAddress1: '', buyerAddress2: '', buyerCity: '', buyerState: '', buyerZip: '',
-        deliveryDate: '', deliveryHour: '', pickUp: '', buyerShippingInstructions: '' });
+        deliveryDate: '', deliveryHour: '', pickUp: '', buyerShippingInstructions: ''
+    });
 
     const handleChange = (e) => {
         const { value, name } = e.target;
@@ -91,30 +92,24 @@ export const ShippingForm = ({ cart, setEnvio, envio, ajuste, setActiveStep }) =
             //     productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             // }
             const newBuyerShipp = {
-                buyerConditions: {
-                    deliveryDate: input.deliveryDate,
-                    deliveryHour: input.deliveryHour,
-                    pickUp: input.pickUp,
-                    discount: ajuste,
-                },
+                deliveryDate: input.deliveryDate,
+                deliveryHour: input.deliveryHour,
+                pickUp: input.pickUp,
+                discount: ajuste,
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             const newBuyerDelivery = {
-                buyerConditions: {
-                    deliveryDate: input.deliveryDate,
-                    deliveryHour: input.deliveryHour,
-                    pickUp: input.pickUp,
-                    discount: ajuste,
-                },
-                buyerShipping: {
-                    buyerAddress1: input.buyerAddress1,
-                    buyerAddress2: input.buyerAddress2,
-                    buyerCity: input.buyerCity,
-                    buyerState: input.buyerState,
-                    buyerZip: input.buyerZip,
-                    sendPrice: envio,
-                    buyerShippingIntructions: input.buyerShippingInstructions,
-                },
+                deliveryDate: input.deliveryDate,
+                deliveryHour: input.deliveryHour,
+                pickUp: input.pickUp,
+                discount: ajuste,
+                buyerAddress1: input.buyerAddress1,
+                buyerAddress2: input.buyerAddress2,
+                buyerCity: input.buyerCity,
+                buyerState: input.buyerState,
+                buyerZip: input.buyerZip,
+                sendPrice: envio,
+                buyerShippingIntructions: input.buyerShippingInstructions,
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             if (pickUpLocal === "si") {
@@ -286,11 +281,11 @@ export const ShippingForm = ({ cart, setEnvio, envio, ajuste, setActiveStep }) =
                                 onChange={(e) => handleChange(e)}
                                 rows={3} />
                         </Form.Group>
-                       
+
                         {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
                         <div className='d-flex justify-content-center'>
                             <button className="boton-comprar" type="submit">
-                                Ir al Pago 
+                                Ir al Pago
                             </button>
                         </div>
                     </div>
@@ -329,7 +324,7 @@ export const ShippingForm = ({ cart, setEnvio, envio, ajuste, setActiveStep }) =
                                 <option value="18pm a 20pm">18:30 pm - 20:00 pm</option>
                             </Form.Select>
                         </Form.Group>
-                       
+
                         {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
                         <div className='d-flex flex-column justify-content-center align-items-center'>
                             <button className="boton-comprar" type="submit">

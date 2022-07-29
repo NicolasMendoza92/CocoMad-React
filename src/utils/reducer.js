@@ -1,7 +1,7 @@
 export const initialState = {
-    shippingData: [],
-    contactData: [], 
-    buyData: [],
+    shippingData: {},
+    contactData: {}, 
+    purchaseData: {},
   };
 
   export const actionTypes = {
@@ -25,16 +25,16 @@ const reducer = (state, action) => {
             ...state,
             contactData: action.contactData,
           };
-          case "SET_BUYDATA":
-          return {
-            ...state,
-            buyData: action.buyData,
-          };
       case "SET_PAYMENT_MESSAGE":
         return {
           ...state,
           paymentMessage: action.paymentMessage,
         };
+        case "SET_BUYDATA":
+          return {
+            ...state,
+            purchaseData: action.purchaseData,
+          };
       default:
         return state;
     }

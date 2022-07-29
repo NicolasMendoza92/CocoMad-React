@@ -12,8 +12,6 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste }) => {
     const stepClasses = ["Datos de Contacto","Datos de Envio", "Metodo de Pago"];
     const [activeStep, setActiveStep] = useState(0);
     
-
-    console.log(activeStep)
     // cambia el nro del stepActive cuando hago click , cuando llame a la fn  me suma/resta en uno
     const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1)
     const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1)

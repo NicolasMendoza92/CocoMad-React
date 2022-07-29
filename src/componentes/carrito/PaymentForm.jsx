@@ -1,54 +1,43 @@
 
 import { CardElement, Elements, useStripe, useElements } from "@stripe/react-stripe-js";
-import { FaWhatsappSquare } from 'react-icons/fa'
 import { loadStripe } from "@stripe/stripe-js";
 import axios from 'axios';
-import { Form, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useState } from "react";
-import { useStateValue } from "../../StateProvider";
-import { actionTypes } from "../../utils/reducer";
 import { SpinnerCM } from "../spinner/SpinnerCM";
+import swal from "sweetalert";
 
 export const PaymentForm = () => {
 
     const [isLoading, setIsLoading] = useState(false);
-    // Validaciones reactBoot
-    const [validated, setValidated] = useState(false);
 
-    const [{ buyData }, dispatch] = useStateValue();
+    // const [payment, setPayment] = useState('');
 
-    const [input, setInput] = useState({ payMethod: '' });
-    
-    const [payment, setPayment] = useState('');
-
-    const handleChangePay = (e) => {
-        const { value, name } = e.target;
-        const newInput = { ...input, [name]: value };
-        if (newInput.payMethod === "WhatsApp") {
-            setPayment("WhatsApp");
-        } else if (newInput.payMethod === "Tarjeta") {
-            setPayment("Tarjeta")
-        }
-        else {
-            setPayment('');
-        }
-        setInput(newInput);
+  
+    const moveToWhatsApp = () => {
+        swal({
+            title: "Coordinaras el pago por WhatsApp... ¿Estas de acuerdo?",
+            icon: "warning",
+            buttons: true,
+            succesMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    whatsApp();
+                } else {
+                    swal("Excelente! Continua con el pago");
+                }
+            });
     }
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setIsLoading(true);
 
-        const newSell = {
-            payMethod: input.payMethod,
-        };
-        dispatch({
-            type: actionTypes.SET_SHIPPINGDATA,
-            buyData: newSell,
+    const whatsApp = async () => {
+        swal("Perfecto, vamos a coordinar tu pago por WhatsApp.")
+        setIsLoading(true)
+        .then((value) => {
+            const newWindow = window.open('https://wa.me/c/34635790277');
+            if (newWindow) newWindow.opener = null
         });
-        console.log(buyData)
-
-        setValidated(true);
+        setIsLoading(false)
     }
 
 
@@ -109,62 +98,30 @@ export const PaymentForm = () => {
             };
         }
 
-        return <Form className='d-flex flex-column justify-content-center align-content-center' onSubmit={validateCard}>
+        return <form className='d-flex flex-column justify-content-center align-content-center' onSubmit={validateCard}>
             <CardElement options={CARD_ELEMENT_OPTIONS} />
             <button className='my-3 d-flex justify-content-center btn btn-success text-center'>
                 Comprar
             </button>
-        </Form>
+        </form>
     }
+
     return (
         <div className='container'>
             <h2 className='m-2 text-center'>¡Ya casi Terminamos!</h2>
+            <div className="p-2 d-flex flex-column">
+                <div className='p-2 m-2'>
 
-            <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                    <label> <h4>Metodo de pago</h4></label>
-                    <Form.Select
-                        className="col-11 col-md-9 text-center"
-                        name="payMethod"
-                        onChange={(e) => handleChangePay(e)}
-                        defaultValue={'default'}
-                        required>
-                        <option value="default" disabled>Elige una opción</option>
-                        <option value="WhatsApp">Por WhatsApp</option>
-                        <option value="Tarjeta">Con Tarjeta</option>
-                    </Form.Select>
-                </Form.Group>
+                    <h5>Pago por Tarjeta</h5>
+                    <p>Coloca los datos de tu Tarjeta Credito/Debito</p>
+                    <Elements stripe={stripePromise} className="m-2" >
+                        <CheckoutForm />
+                    </Elements>
+                </div>
 
 
-                {payment === "WhatsApp" &&
-                    <>
-                        <div className='mb-2'>
-                            <h5>Pago por WhatsApp</h5>
-                            <p className='mb-0'> Envianos un mensaje para coordinar el pago
-                                <a href="https://wa.me/c/34635790277" target="blank" >
-                                    <FaWhatsappSquare className="wap-icon" />
-                                </a>
-                            </p>
-                            <span style={{ color: "grey" }}>El pedido no se realizara hasta que el pago no haya sido finalizado. Recibirás un correo con los datos.</span>
-                        </div>
-                        <button type="submit" className="my-3 d-flex justify-content-center btn btn-success text-center" >Pedir</button>
-                    </>
-                }
-
-                {payment === "Tarjeta" &&
-                    <>
-                        <div className='p-2 m-2'>
-
-                            <h5>Pago por Tarjeta</h5>
-                            <p>Coloca los datos de tu Tarjeta Credito/Debito</p>
-                            <Elements stripe={stripePromise} className="m-2" >
-                                <CheckoutForm />
-                            </Elements>
-                        </div>
-                    </>
-                }
-
-            </Form>
+                <Button onClick={moveToWhatsApp} className="m-2 btn btn-success" >Coorindar por WhatsApp</Button>
+            </div>
         </div>
     )
 }

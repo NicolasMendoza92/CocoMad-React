@@ -36,17 +36,15 @@ export const ContactForm = ({ user, setActiveStep }) => {
         e.stopPropagation();
         setIsLoading(true);
 
-        const newBuyerContact = {
-            buyerData: {
+        const buyerData = {
                 buyerEmail: input.buyerEmail,
                 buyerName: input.buyerName,
                 buyerLastName: input.buyerLastName,
                 buyerCelphone: input.buyerCelphone,
-            }
         };
         dispatch({
-            type: actionTypes.SET_SHIPPINGDATA,
-            contactData: newBuyerContact
+            type: actionTypes.SET_CONTACTDATA,
+            contactData: buyerData,
         });
         console.log(contactData)
 
