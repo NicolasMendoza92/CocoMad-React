@@ -48,7 +48,7 @@ export const CardsHome = ({ setSearch }) => {
                         <div className="overlay">
                             <Card.Title className="titulo-card-home">COCO TARTAS</Card.Title>
                             <Card.Text className='text-card-home'>
-                                LIdeal para reuniones y festejos
+                                Ideal para reuniones y festejos
                             </Card.Text>
                         </div>
                     </Card.ImgOverlay>
