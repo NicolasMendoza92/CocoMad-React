@@ -2,15 +2,10 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import swal from 'sweetalert';
 import './productDetail.css';
-// import { ModalAlfajores } from "./ModalAlfajores";
+
 
 
 export const ProductsBoxs = () => {
-
-    // const [showModalAlfajores, setShowModalAlfajores] = useState(false);
-
-    // const handleCloseModalAlfajores = () => setShowModalAlfajores(false);
-    // const handleShowModalAlfajores = () => setShowModalAlfajores(true);
 
     const whatsApp = async () => {
         swal("Perfecto, vamos a coordinar tu pedido por WhatsApp.")
@@ -92,10 +87,6 @@ export const ProductsBoxs = () => {
                     </Card.Body>
                 </Card>
             </div>
-
-            {/* <ModalAlfajores
-                handleCloseModalAlfajores={handleCloseModalAlfajores}
-                showModalAlfajores={showModalAlfajores} /> */}
         </>
     )
 }

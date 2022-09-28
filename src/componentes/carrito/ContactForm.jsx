@@ -6,14 +6,34 @@ import { leerDeLocalStorage } from '../../utils/localStorage'
 import { SpinnerCM } from '../spinner/SpinnerCM'
 import { useStateValue } from '../../StateProvider'
 import { actionTypes } from '../../utils/reducer'
+import swal from 'sweetalert'
+import axios from 'axios';
+import { Box, Modal} from '@mui/material';
+import { FaTruck } from 'react-icons/fa';
+import { AiFillShop } from 'react-icons/ai';
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
-
-export const ContactForm = ({ user, setActiveStep }) => {
+export const ContactForm = ({ user, setActiveStep, setPickUpLocal, setEnvio }) => {
     const tokenLocal = leerDeLocalStorage('token') || {};
     const [isLoading, setIsLoading] = useState(false);
 
-    const [{ contactData }, dispatch] = useStateValue();
+    const [{ buyerData }, dispatch] = useStateValue();
+
+    // Abre el modal del envio
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     // Validaciones reactBoot
     const [validated, setValidated] = useState(false);
@@ -30,29 +50,50 @@ export const ContactForm = ({ user, setActiveStep }) => {
         setInput(newInput);
     }
 
+    const deliveryHome = () => {
+        swal('!Atención Coquito!', 'Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
+        setPickUpLocal('no');
+        setActiveStep(1)
+    }
+
+    const pickUpStore = () => {
+        setPickUpLocal('si');
+        setEnvio(0);
+        setActiveStep(1)
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
         setIsLoading(true);
-
-        const buyerData = {
+        try {
+            const contactData = {
                 buyerEmail: input.buyerEmail,
                 buyerName: input.buyerName,
                 buyerLastName: input.buyerLastName,
                 buyerCelphone: input.buyerCelphone,
-        };
-        dispatch({
-            type: actionTypes.SET_CONTACTDATA,
-            contactData: buyerData,
-        });
-        console.log(contactData)
-
-        setActiveStep(1)
-        setValidated(true);
+            }
+            await axios.post('http://localhost:4000/api/contact/', contactData);
+            console.log(contactData)
+            dispatch({
+                type: actionTypes.SET_CONTACTDATA,
+                buyerData: contactData,
+            });
+            console.log(buyerData)
+            setValidated(true);
+            handleOpen();
+        } catch (error) {
+            if (error.response.data) {
+                swal(JSON.stringify(error.response.data))
+            } else {
+                alert('error de conexion')
+            }
+        }
+        setIsLoading(false);
     }
 
-   
+
     if (isLoading) {
         return (
             <SpinnerCM />
@@ -110,7 +151,6 @@ export const ContactForm = ({ user, setActiveStep }) => {
                             name="buyerCelphone"
                             onChange={(e) => handleChange(e)}
                             maxLength="40"
-                            required
                         />
                     </FloatingLabel>
                 </Form.Group>
@@ -119,10 +159,22 @@ export const ContactForm = ({ user, setActiveStep }) => {
                     <button className="boton-comprar" type="submit">
                         Siguiente
                     </button>
-
                 </div>
 
             </Form>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>                
+                        <div className='d-flex flex-column justify-content-center m-4 '>
+                            <button onClick={pickUpStore} className='btn-delivery m-2'><AiFillShop className='delivery-icon' />Recoge en tienda </button>
+                            <button onClick={deliveryHome} className='btn-delivery m-2'><FaTruck className='delivery-icon' />Entrega a domicilio</button>
+                        </div>
+                </Box>
+            </Modal>
         </div>
     )
 }

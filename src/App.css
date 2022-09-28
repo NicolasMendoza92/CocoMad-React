@@ -345,6 +345,29 @@ body {
   font-family: 'Julius Sans One', sans-serif;
 }
 
+.btn-delivery {
+  background: rgb(146, 210, 226);
+  padding: 5px;
+  color: whitesmoke;
+  border-color: rgb(146, 210, 226);
+  border-radius: 0.25rem;
+  font-size: 18px;
+  font-family: 'Julius Sans One', sans-serif;
+  transition: 0.4s;
+}
+.btn-delivery:hover {
+  background:rosybrown ;
+  transition-duration: 0.5s;
+  padding: 5px;
+  color: rgb(146, 210, 226);
+  border-radius: 0.25rem;
+  font-size: 18px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.btn-delivery-none{
+  display: none;
+}
+
 /* Pagina de carrito  */
 .descuento {
   font-size: 12px;
@@ -434,6 +457,12 @@ body {
   font-weight: bolder;
 }
 
+.delivery-icon{
+  font-size: 3.5rem;
+  margin: 0 10px;
+  color: rgb(255, 255, 255);
+  transition-duration: 0.5s;
+}
 
 .wap-icon {
   color: #25d366;
