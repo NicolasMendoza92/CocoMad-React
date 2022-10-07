@@ -33,7 +33,7 @@ export const ProductsBoxs = () => {
                 if (willDelete) {
                     whatsApp();
                 } else {
-                    swal("Excelente! Continua navegando en nuestro Shop Online");
+                    swal("Excelente! Continua navegando en nuestra Web");
                 }
             });
     }
