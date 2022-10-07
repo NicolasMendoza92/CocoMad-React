@@ -1,19 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { Container, Table } from 'react-bootstrap';
-import { AiFillEye } from 'react-icons/ai';
-import { FaEraser, FaHistory } from 'react-icons/fa';
 import { VscSearch } from 'react-icons/vsc';
-import swal from 'sweetalert';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
 import { PaginationTable } from '../paginacion/PaginationTable';
-import { ModalViewRetiro } from '../adminComp/ModalViewRetiro';
+import { FaHistory } from 'react-icons/fa';
 
 export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [saleRetiro, setSaleRetiro] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: {} });
+    const [saleRetiro, setSaleRetiro] = useState({ });
     const [showModalViewRetiro, setShowModalViewRetiro] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -39,25 +36,10 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
     const findRetiro = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`https://cocobackend.herokuapp.com/api/sales/${_id}`);
+        const response = await axios.get(`http://localhost:4000/api/pickUp/${_id}`);
         setSaleRetiro(response.data);
         setIsLoading(false);
         handleShowModalViewRetiro();
-    }
-
-    const alertaBorrarRetiro = (_id) => {
-        swal({
-            title: "Esta seguro?",
-            text: "Se perdera el dato de la compra...",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    deleteSale(_id)
-                }
-            });
     }
 
 
@@ -65,7 +47,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`https://cocobackend.herokuapp.com/api/sales/${_id}`, { headers });
+        await axios.delete(`http://localhost:4000/api/pickUp/${_id}`, { headers });
         await getSales();
         setIsLoading(false);
     };
@@ -89,8 +71,8 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
         }
         else if (keyword !== '') {
             const results = tableSales.filter((sale) =>{
-                return sale.buyerData.buyerName.toLowerCase().includes(keyword.toLowerCase())
-                    || sale.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
+                return sale.buyerName.toLowerCase().includes(keyword.toLowerCase())
+                    || sale.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
             });
             setTableSales(results);
         }
@@ -136,50 +118,6 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                         <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
-                <tbody >
-                    {currentSales.length === 0 ?
-                        <tr>
-                            <td colSpan="6">No hay ventas registradas</td>
-                        </tr> :
-                        currentSales.map(({
-                            buyerData: {
-                                buyerName,
-                                registerBuy,
-                            },
-                            buyerConditions: {
-                                deliveryDate,
-                                payMethod,
-                            },
-                            productsList
-                            , _id }, tab) => (
-                            <tr className="text-center " key={tab}>
-                                <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
-                                <td>{buyerName}</td>
-                                <td>{(new Date(deliveryDate).toDateString()).slice(0, -11)}</td>
-                                <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
-                                <td>{productsList.map(({ producto, quantity }, prod) => (
-                                    <Table size="sm" key={prod}>
-                                        <thead>
-                                            <tr className="row">
-                                                <td className="col-6">{producto.name}</td>
-                                                <td className="col-3">{quantity} u</td>
-                                                <td className="col-3">{producto.price} €</td>
-                                            </tr>
-                                        </thead>
-                                    </Table>
-                                )
-                                )}
-                                </td>
-                                <td className="d-flex align-items-center justify-content-center" >
-                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)}    €
-                                </td>
-                                <td>
-                                    <button className="ms-3 circle-btn" onClick={() => alertaBorrarRetiro(_id)} ><FaEraser className="mb-1" /></button>
-                                    <button className="m-auto circle-btn" onClick={() => findRetiro(_id)} ><AiFillEye className="mb-1" /></button>
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
             </Table>
             <div className="d-flex justify-content-center ">
                 <PaginationTable
@@ -188,12 +126,6 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                     totalPages={totalPages}
                 />
             </div>
-
-            <ModalViewRetiro
-                closeModalRetiro={handleCloseModalViewRetiro}
-                showModalViewRetiro={showModalViewRetiro}
-                saleRetiro={saleRetiro}
-            />
 
             {
                 isLoading && (

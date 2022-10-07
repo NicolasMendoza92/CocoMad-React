@@ -1,70 +1,58 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react'
-import { Container, Table } from 'react-bootstrap';
-import { AiFillEye } from 'react-icons/ai';
-import { FaEraser, FaHistory } from 'react-icons/fa';
-import { VscSearch } from 'react-icons/vsc';
-import swal from 'sweetalert';
+import { useState } from 'react'
+import { Container } from 'react-bootstrap';
 import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
-import { ModalViewSale } from '../adminComp/ModalViewSale';
-import { PaginationTable } from '../paginacion/PaginationTable';
+import { DataGrid } from '@mui/x-data-grid';
+import DeliveryList from '../../pages/pagesAdmin/DeliveryList';
+
+
 
 export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) => {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [saleFind, setSaleFind] = useState({ buyerData: {}, buyerConditions: {}, productsList: [], buyerShipping: [] });
-    const [showModalViewSale, setShowModalViewSale] = useState(false);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
 
-
-    const [currentDeliveries, setCurrentDeliveries] = useState([]);
-
-    useEffect(() => {
-        const limit = 10;
-        const start = 0 + currentPage * limit - limit;
-        const end = start + limit;
-
-        const productosSlice = deliveries.slice(start, end);
-        setCurrentDeliveries(productosSlice);
-
-        const totalPages = Math.ceil(deliveries.length / limit);
-        setTotalPages(totalPages);
-    }, [currentPage, deliveries]);
-
-    // vbles para abrir el delivery
-    const handleCloseModalViewSale = () => setShowModalViewSale(false);
-    const handleShowModalViewSale = () => setShowModalViewSale(true);
+    const columns = [
+        { field: 'id', headerName: 'Fecha', width: 100 },
+        { field: 'lastName', headerName: 'Cliente', width: 130 },
+        { field: 'firstName', headerName: 'Entrega', width: 130 },
+        {
+            field: 'age',
+            headerName: 'Total',
+            type: 'number',
+            width: 90,
+        },
+        {
+            field: 'product',
+            headerName: 'Producto',
+            width: 200,
+        },
+    ];
+    
+    const rows = [
+        { id: 1, lastName: 'snow', firstName: 'Jon', age: 35, product: 'banana' },
+        { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
+        { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
+        { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
+        { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
+        { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
+        { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
+        { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
+        { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+    ];
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`);
-        setSaleFind(response.data);
+        const response = await axios.get(`http://localhost:4000/api/shipment/${_id}`);
+        console.log(response.data)
         setIsLoading(false);
-        handleShowModalViewSale();
-    }
-
-    const alertaBorrarEntrega = (_id) => {
-        swal({
-            title: "Esta seguro?",
-            text: "Se perdera el dato de la compra...",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    deleteDelivery(_id)
-                }
-            });
     }
 
     const deleteDelivery = async (_id) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`, { headers });
+        await axios.delete(`http://localhost:4000/api/shipment/${_id}`, { headers });
         await getDeliveries();
         setIsLoading(false);
     };
@@ -75,117 +63,19 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
         setIsLoading(false);
     };
 
-    const [filtro, setFiltro] = useState('');
-
-    const filterDelivery = (e) => {
-        const keyword = e.target.value;
-        if (keyword !== '') {
-            const results = deliveries.filter((delivery) => {
-                return delivery.buyerData.buyerName.includes(keyword.toLowerCase())
-                    || delivery.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
-            });
-            setDeliveries(results);
-        } else {
-            setDeliveries(deliveries);
-        }
-        setFiltro(keyword);
-    };
 
     return (
         <Container>
-            <h4>Tabla de Envios</h4>
 
-            <div className="d-flex justify-content-between align-items-center my-2">
-                <form className="search-form " >
-                    <div className="input-group search-table">
-                        <span
-                            className="search-icon"
-                            id="basic-addon1"><VscSearch /></span>
-                        <input
-                            value={filtro}
-                            type="text"
-                            className="col-11 search-input"
-                            placeholder="Buscar"
-                            aria-describedby="basic-addon1"
-                            onChange={filterDelivery}
-                        />
-                    </div>
-                </form>
-                <button onClick={() => refreshDeliverys()} className="btn-primary my-2 p-0">
-                    <FaHistory className="p-0  mb-1" />
-                </button>
-            </div>
-            <Table bordered hover >
-                <thead>
-                    <tr className="text-center " >
-                        <th>Fecha</th>
-                        <th>Cliente</th>
-                        <th>Dia</th>
-                        <th>Retiro</th>
-                        <th>Productos</th>
-                        <th>SubTotal</th>
-                        <th colSpan="2">Actions</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    {currentDeliveries.length === 0 ?
-                        <tr>
-                            <td colSpan="6">No hay ventas registradas</td>
-                        </tr> :
-                        currentDeliveries.map(({
-                            buyerData: {
-                                buyerName,
-                                registerBuy,
-                            },
-                            buyerConditions: {
-                                deliveryDate,
-                                payMethod,
-                                discount,
-                            },
-                            productsList
-                            , _id }, tabe) => (
-                            <tr className="text-center " key={tabe}>
-                                <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
-                                <td>{buyerName}</td>
-                                <td>{(new Date(deliveryDate).toDateString()).slice(0,-11)}</td>
-                                <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
-                                <td>{productsList.map(({ producto, quantity }, prod) => (
-                                    <Table size="sm" key={prod}>
-                                        <thead>
-                                            <tr className="row">
-                                                <td className="col-6">{producto.name}</td>
-                                                <td className="col-3">{quantity} u</td>
-                                                <td className="col-3">{producto.price} €</td>
-                                            </tr>
-                                        </thead>
-                                    </Table>
-                                )
-                                )}
-                                </td>
-                                <td className="d-flex align-items-center justify-content-center" >
-                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)} €
-                                </td>
-                                <td>
-                                    <button className="ms-3 circle-btn" onClick={() => alertaBorrarEntrega(_id)} ><FaEraser className="mb-1" /></button>
-                                    <button className="m-auto circle-btn" onClick={() => findSale(_id)} ><AiFillEye className="mb-1" /></button>
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
-            </Table>
-            <div className="d-flex justify-content-center ">
-                <PaginationTable
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    totalPages={totalPages}
+            <div style={{ height: 400, width: '100%' }}>
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection
                 />
             </div>
-
-            <ModalViewSale
-                closeModal={handleCloseModalViewSale}
-                showModalViewSale={showModalViewSale}
-                saleFind={saleFind}
-            />
 
             {
                 isLoading && (
