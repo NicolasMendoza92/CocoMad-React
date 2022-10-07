@@ -9,7 +9,7 @@ import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 
 
-export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
+export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
     const[isLoading, setIsLoading] = useState(false);
@@ -89,13 +89,13 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 buyerEmail: input.buyerEmail,
                 buyerName: input.buyerName,
                 buyerLastName: input.buyerLastName,
-                buyerCelphone: input.buyerCelphone,
                 deliveryDate: input.deliveryDate,
                 deliveryHour: input.deliveryHour,
                 pickUp: input.pickUp,
                 payMethod: input.payMethod,
                 sendPrice: envio,
                 discount: ajuste, 
+                totalPurchase:totalAmount, 
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             const newBuy = {
@@ -145,7 +145,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 console.log(newEmail)
                 
                 swal({
-                    title: "Compra Exitosa !",
+                    title: "Pedido Exitoso !",
                     icon: "success",
                 }).then(() => {
                     localStorage.removeItem('cart');
@@ -158,7 +158,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste}) => {
                 console.log(newEmail)
                 
                 swal({
-                    title: "Compra Exitosa !",
+                    title: "Pedido Exitoso !",
                     icon: "success",
              
                 }).then(() => {                 
