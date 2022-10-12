@@ -41,7 +41,9 @@ export default function Productos({ products, setProducts, search, setSearch, ca
           <Col className='col-12 col-md-6'>
           <ProductSearch setSearch={setSearch} currentPage={currentPage} setCurrentPage={setCurrentPage} />
           </Col>
-          <Col className="col-12">
+        </Row>
+      </Container>
+      <div className="m-3">
             <CardsProducts
               products={products}
               setProducts={setProducts}
@@ -53,9 +55,7 @@ export default function Productos({ products, setProducts, search, setSearch, ca
               setShowSideCart={setShowSideCart} 
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}/>
-          </Col>
-        </Row>
-      </Container>
+          </div >
       <ProductsBoxs cart={cart} setCart={setCart}/>
       <CartSideButton
         setCart={setCart}
