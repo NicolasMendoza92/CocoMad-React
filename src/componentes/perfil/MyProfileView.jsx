@@ -47,7 +47,7 @@ export const MyProfileView = ({ user, requestUserData }) => {
     const tokenLocal = leerDeLocalStorage("token") || {};
     const headers = { "x-auth-token": tokenLocal.token };
     localStorage.removeItem("token");
-    await axios.delete(`https://cocobackend.herokuapp.com/api/users/${user._id}`, {
+    await axios.delete(`http://localhost:4000/api/users/${user._id}`, {
       headers,
     });
     history.push("/");

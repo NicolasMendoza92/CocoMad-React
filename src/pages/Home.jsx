@@ -145,11 +145,7 @@ export default function Home({setSearch}) {
       <div data-aos="fade-up" className=" my-2 mx-1 p-0 d-flex flex-wrap justify-content-center" >
         <Card className='m-2'style={{ width: '18rem' }}>
           <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637266067/cocoMAD/IMG_4975_tjp22y.jpg" />
-<<<<<<< HEAD
-          <Card.Body className='text-center'>
-=======
           <Card.Body className='text-center d-flex flex-column justify-content-evenly'>
->>>>>>> main
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold' }}>Alfajores Argentinos y completamente artesanales</Card.Title>
             <Card.Text>
             Todo se soluciona con una buena dosis de dulce de leche». Una de las ‘Frases del día’ que, Luciana...
@@ -159,20 +155,12 @@ export default function Home({setSearch}) {
         </Card>
         <Card className='m-2' style={{ width: '18rem' }}>
           <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg" />
-<<<<<<< HEAD
-          <Card.Body className='text-center'>
-=======
           <Card.Body className='text-center d-flex flex-column justify-content-evenly'>
->>>>>>> main
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold'}}>Mi cita con Madrid, Alfajores Argentinos </Card.Title>
             <Card.Text>
             El protagonista del post de hoy es un producto argentino que se utiliza en casi todos los productos...
             </Card.Text>
-<<<<<<< HEAD
-            <a href="https://micitaconmadrid.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
-=======
             <a href="https://tucitaconmadrid.wordpress.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
->>>>>>> main
           </Card.Body>
         </Card>
       </div>

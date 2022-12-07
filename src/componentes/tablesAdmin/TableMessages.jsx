@@ -49,7 +49,7 @@ export const TableMessages = ({ messages, getMessages, setMessages }) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`https://cocobackend.herokuapp.com/api/messages/${_id}`, { headers });
+        await axios.delete(`http://localhost:4000/api/messages/${_id}`, { headers });
         await getMessages();
         setIsLoading(false);
     };
