@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import { CarouselHome } from '../componentes/carousel/CarouselHome';
 import { CardsHome } from '../componentes/cards-home/CardsHome';
 import { useEffect } from 'react';
-import { FaHandHoldingHeart, FaHome,FaShoppingBag} from 'react-icons/fa';
+import { FaHandHoldingHeart, FaHome, FaShoppingBag } from 'react-icons/fa';
 
 let sliderMensajes = [
   {
@@ -38,7 +38,7 @@ let sliderMensajes = [
   },
   {
     id: "5",
-    titulo: "Todo impecable, siempre fresco",
+    titulo: "Siempre rico, siempre fresco",
     descripcion:
       "Todo riquísimo y cada tanto tienen cosas nuevas. Todo casero y la atención de sus dueñas, excepcional. También venden otros productos como yerba y las empanadas de La Zambita.",
     nombre: "Ka Grimm, ES",
@@ -66,7 +66,7 @@ let sliderMensajes = [
   },
   {
     id: "9",
-    titulo: "Calido y Casero",
+    titulo: "Cálido y Casero",
     descripcion:
       "La mejor pastelería argentina en Madrid. Productos de primera calidad y caseros. Un hermoso ambiente y excelente atención. Super recomendado como visita obligatoria por la ciudad capital.",
     nombre: "Andrea Gutierrez, ES",
@@ -92,24 +92,24 @@ let sliderMensajes = [
       "Un rincón argentino en Madrid. Con excelente productos, muy ricos. Todo fresco. Todo riquísimo! El cheesecake de Banana, 100 puntos. Y los alfajores pff.. impresionantes. Bah todo..",
     nombre: "Juan Manuel Oubiña, ES",
   },
+  {
+    id: "13",
+    titulo: "Riquisimo!",
+    descripcion:
+    "Riquisimo todo!!! Dulce y salado. Volveremos al rincon argentino de Argüelles. Muchisimas gracias ❤️❤️✨",
+    nombre: "Jesica Langenheim, ES",
+  },
+  {
+    id: "14",
+    titulo: "Un viaje de Ida",
+    descripcion:
+      "El mejor nugaton de Madrid, Buena ubicacion para luego hacer turismo. Excelente atencion y la comida es autentica Argentina: calidad, cantidad y mucho dulce de leche. Prueben los alfajores banados de chocolate blanco con centro de frambuesa...... un viaje de ida!!",
+    nombre: "Khiara Marozzi, ES",
+  },
 ];
 
 
-const cardsHome = [
-  {
-    image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154643/cocoMAD/alfajores_s47mob.jpg",
-    title: "#COCOALFAJORES",
-    sentence: "Los favoritos de nuestros CocoFans!",
-  },
-  {
-    image: "https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154707/cocoMAD/tortas_g15ap8.jpg",
-    title: "COCO TARTAS",
-    sentence: "Ideal para reuniones y festejos",
-  }
-]
-
-
-export default function Home() {
+export default function Home({setSearch}) {
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
@@ -117,25 +117,25 @@ export default function Home() {
 
   return (
     <>
-      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center mt-2 mb-2">
+      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center mt-5 mb-5">
         <h1> ¡QUIERO TODO!</h1>
         <p>Con tan solo un click, lo puedes disfrutar.</p>
       </div>
       <Container>
-        <CardsHome cardsHome={cardsHome} />
+        <CardsHome setSearch={setSearch}/>
       </Container>
-      <div data-aos="fade-up"className="tarjetas-icons ">
+      <div data-aos="fade-up" className="tarjetas-icons mt-5 mb-5 ">
         <Row>
           <Col md={4} lg={4} className='social-icon-home'><FaHandHoldingHeart /> <p> Atendemos con el corazón</p></Col>
-          <Col md={4} lg={4} className='social-icon-home'><FaHome/><p> Productos Artesanos 100% </p></Col>
-          <Col md={4} lg={4} className='social-icon-home'><FaShoppingBag/><p>Disfrutalo en tu casa!</p></Col>
+          <Col md={4} lg={4} className='social-icon-home'><FaHome /><p> Productos Artesanos 100% </p></Col>
+          <Col md={4} lg={4} className='social-icon-home'><FaShoppingBag /><p>Disfrutalo en tu casa!</p></Col>
         </Row>
       </div>
-      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center mt-3">
+      <div data-aos="fade-up" className="tarjetas d-flex flex-column justify-content-center align-items-center text-center p-3 mt-3">
         <h1>❤ ESTAMOS MUY AGRADECIDOS CON NUESTROS COCOFANS ❤ </h1>
       </div>
       <Container>
-        <div data-aos="fade-up" className="p-2 mb-4">
+        <div data-aos="fade-up" className="p-2">
           <CarouselHome sliderMensajes={sliderMensajes} />
         </div>
       </Container>
@@ -145,7 +145,11 @@ export default function Home() {
       <div data-aos="fade-up" className=" my-2 mx-1 p-0 d-flex flex-wrap justify-content-center" >
         <Card className='m-2'style={{ width: '18rem' }}>
           <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1637266067/cocoMAD/IMG_4975_tjp22y.jpg" />
+<<<<<<< HEAD
           <Card.Body className='text-center'>
+=======
+          <Card.Body className='text-center d-flex flex-column justify-content-evenly'>
+>>>>>>> main
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold' }}>Alfajores Argentinos y completamente artesanales</Card.Title>
             <Card.Text>
             Todo se soluciona con una buena dosis de dulce de leche». Una de las ‘Frases del día’ que, Luciana...
@@ -155,12 +159,20 @@ export default function Home() {
         </Card>
         <Card className='m-2' style={{ width: '18rem' }}>
           <Card.Img className='img-card-prod' variant="top" src="https://res.cloudinary.com/dcx1rcwvu/image/upload/v1632154538/cocoMAD/alfacococolor_oqpj7r.jpg" />
+<<<<<<< HEAD
           <Card.Body className='text-center'>
+=======
+          <Card.Body className='text-center d-flex flex-column justify-content-evenly'>
+>>>>>>> main
             <Card.Title style={{ fontFamily: 'Montserrat', fontWeight:'bold'}}>Mi cita con Madrid, Alfajores Argentinos </Card.Title>
             <Card.Text>
             El protagonista del post de hoy es un producto argentino que se utiliza en casi todos los productos...
             </Card.Text>
+<<<<<<< HEAD
             <a href="https://micitaconmadrid.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
+=======
+            <a href="https://tucitaconmadrid.wordpress.com/2020/10/11/cocomad-bakery/" target="_blank" rel="noreferrer"><button className='boton-artesanal-cel'>Leer Mas</button> </a>
+>>>>>>> main
           </Card.Body>
         </Card>
       </div>

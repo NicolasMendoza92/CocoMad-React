@@ -30,7 +30,7 @@ export const FormRegister = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:4000/api/auth/register', input);
+            await axios.post('https://cocobackend.herokuapp.com/api/auth/register', input);
             swal({
                 title: "Excelente!",
                 text: "Te has registrado con exito!",
@@ -56,7 +56,7 @@ export const FormRegister = () => {
                 swal('completa la contraseña')
             }
             else if (input.knowcoco === '') {
-                swal('completa este campo')
+                swal('completa el campo "know Coco"')
             }
             else {
                 swal(JSON.stringify(error.response.data));

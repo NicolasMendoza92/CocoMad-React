@@ -30,7 +30,7 @@ export default function UploadProduts({ getProducts }) {
 
         if (form.checkValidity() === true) {
             setIsLoading(true);
-            await axios.post("http://localhost:4000/api/products/", input);
+            await axios.post("https://cocobackend.herokuapp.com/api/products/", input);
             swal("Excelente", "Producto agregado", "success");
             await getProducts();
             setIsLoading(false);

@@ -1,7 +1,7 @@
 .productos {
   color: #333;
   margin-bottom: 3rem;
-  width: 18rem;
+  width: 25rem;
 }
 
 .card-productos {
@@ -21,8 +21,8 @@
 }
 
 .img-product {
-  width: 18rem;
-  height: 18rem;
+  width: 25rem;
+  height: 25rem;
 }
 
 .overlay {
@@ -128,10 +128,12 @@
   }
   .add-cart-btn {
     font-size: 10px;
+    height: 30px;
   }
 
   .added-cart-btn {
     font-size: 10px;
+    height: 30px;
   }
 
   .add-cart-btn:hover {

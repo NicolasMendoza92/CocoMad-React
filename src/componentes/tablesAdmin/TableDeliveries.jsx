@@ -39,7 +39,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
 
     const findSale = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/deliveries/${_id}`);
+        const response = await axios.get(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`);
         setSaleFind(response.data);
         setIsLoading(false);
         handleShowModalViewSale();
@@ -64,7 +64,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/deliveries/${_id}`, { headers });
+        await axios.delete(`https://cocobackend.herokuapp.com/api/deliveries/${_id}`, { headers });
         await getDeliveries();
         setIsLoading(false);
     };
@@ -120,8 +120,8 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                     <tr className="text-center " >
                         <th>Fecha</th>
                         <th>Cliente</th>
-                        <th>Pago</th>
-                        <th>Entrega</th>
+                        <th>Dia</th>
+                        <th>Retiro</th>
                         <th>Productos</th>
                         <th>SubTotal</th>
                         <th colSpan="2">Actions</th>
@@ -147,7 +147,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                             <tr className="text-center " key={tabe}>
                                 <td>{new Date(registerBuy).getUTCDate()}/{new Date(registerBuy).getUTCMonth() + 1}/{new Date(registerBuy).getUTCFullYear()}</td>
                                 <td>{buyerName}</td>
-                                <td>{payMethod}</td>
+                                <td>{(new Date(deliveryDate).toDateString()).slice(0,-11)}</td>
                                 <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
                                 <td>{productsList.map(({ producto, quantity }, prod) => (
                                     <Table size="sm" key={prod}>
@@ -163,7 +163,7 @@ export const TableDeliveries = ({ deliveries, setDeliveries, getDeliveries }) =>
                                 )}
                                 </td>
                                 <td className="d-flex align-items-center justify-content-center" >
-                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0)} €
+                                    {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)} €
                                 </td>
                                 <td>
                                     <button className="ms-3 circle-btn" onClick={() => alertaBorrarEntrega(_id)} ><FaEraser className="mb-1" /></button>

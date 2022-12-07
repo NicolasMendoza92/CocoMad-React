@@ -15,7 +15,7 @@ export const HistoriaAcord = () => {
                                 <p> <b>Somos dos hermanas Lu y Coni  :) </b> </p>
                             </div>
                             <div className="p-1">
-                                <p> <b> Luciana</b> emigró a España en el 2017 para estudiar un máster en busca de mejorar sus estudios académicos. Decidió emprender con la tienda a fines del 2019, dando así inicio a CocoMad el 30 de diciembre de dicho año. La tienda era muy pequeña y estaba ubicada en el barrio de La Guindalera. El objetivo era enamorar el público madrileño y a todo aquel que viva en Madrid a través de los alfajores, del dulce de leche y otros sabores típicos argentinos.
+                                <p> <b> Luciana</b> emigró a España en el 2017 para estudiar un máster en busca de mejorar sus estudios académicos. Decidió emprender con la tienda a fines del 2019, dando así inicio a CocoMad el 30 de diciembre de dicho año. La tienda era muy pequeña y estaba ubicada en el barrio de La Guindalera. El objetivo era enamorar el público madrileño y a todo aquel que viva en Madrid a través de los <a href="https://es.wikipedia.org/wiki/Alfajor_(Latinoam%C3%A9rica)#:~:text=Esta%20variedad%20se%20compone%20de,de%20chocolate%20y%20diferentes%20rellenos." target="_blank" rel="noreferrer">alfajores</a>, del dulce de leche y otros sabores típicos argentinos.
                                 </p>
                             </div>
                             <div className="p-1">
@@ -46,7 +46,7 @@ export const HistoriaAcord = () => {
                             <p> Somos de <a href="https://es.wikipedia.org/wiki/Provincia_de_Tucum%C3%A1n">Tucumán</a>, la provincia más pequeña de Argentina, ubicada al norte de Argentina. Amamos cocinar, hablar y siempre intentamos dar lo mejor de nosotras para que puedan sentirse como en casa.
                             </p>
                             <p>
-                                ☑️Lu: es Lic. En Comunicación Social y trabajó en periodismo, marketing y comunicación política. Previo a España, también vivió en Brasil y en Estados Unidos. <br />
+                                ☑️Lu es Lic. En Comunicación Social y trabajó en periodismo, marketing y comunicación política. Previo a España, también vivió en Brasil y en Estados Unidos. <br />
                                 ☑️Coni es Ingeniera Industrial, trabajó en empresas nacionales de renombre con puestos de gran responsabilidad relacionados al área de planificación y logística.
                             </p>
                         </Accordion.Body>

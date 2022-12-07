@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Accordion, Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
+import swal from 'sweetalert';
 import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
@@ -46,66 +47,84 @@ export default function Carrito({ cart, setCart, user }) {
 
     let cantPrem = reductionP.reduce((cantPrem, { quantity }) => cantPrem + quantity, 0);
     let totalPrem = reductionP.reduce((totalPrem, { product, quantity }) => totalPrem + product.price * quantity, 0);
-
     // Formulas para aplicar los descuentos de Clasicos
     let reductionC = cart.filter(producto => producto.product.category === "Alfajores Clasicos");
 
     let cantClas = reductionC.reduce((cantClas, { quantity }) => cantClas + quantity, 0);
     let totalClas = reductionC.reduce((totalClas, { product, quantity }) => totalClas + product.price * quantity, 0);
 
+    const noDiscount = () => {
+        swal('Vaya :( Parece que tu pedido no contiene productos con descuento aplicable.')
+    }
+
     const ajusteAlfajores = () => {
 
-        if (((cantClas >= 3 && cantPrem >= 3) && (cantClas < 6 && cantPrem < 6)) && (totalClas + totalPrem) >= 8.10) {
-            setAjuste(0.60);
-        } else if (((cantClas >= 6 && cantPrem >= 6) && (cantClas < 12 && cantPrem < 12)) && (totalClas + totalPrem) >= 16.20) {
-            setAjuste(1.70)
+        // ajuste de mix (3y3)
+        if (((cantClas >= 3 && cantPrem >= 3) && (cantClas < 6 && cantPrem < 6)) && (totalClas + totalPrem) >= 8.70) {
+            setAjuste(0.50);
+            // ajuste de mix (6y6)
+        } else if (((cantClas >= 6 && cantPrem >= 6) && (cantClas < 12 && cantPrem < 12)) && (totalClas + totalPrem) >= 17.40) {
+            setAjuste(1.40)
         }
         // ajuste de 12 clasicos y 6 premium
-        else if (((totalClas + totalPrem) >= 23.40) && ((totalClas + totalPrem) < 25.20)) {
-            setAjuste(2.00);
+        else if (((totalClas + totalPrem) >= 25.20) && ((totalClas + totalPrem) < 27.00)) {
+            setAjuste(2.70);
         }
         // ajuste de 12 premium y 6 clasicos
-        else if (((totalClas + totalPrem) >= 25.20)  && ((totalClas + totalPrem) < 32.40)) {
+        else if (((totalClas + totalPrem) >= 27.00) && ((totalClas + totalPrem) < 34.80)) {
             setAjuste(2.30);
         }
         // ajuste de 12 premium y 12 clasicos
-        else if (((totalClas + totalPrem) >= 32.40) && ((totalClas + totalPrem) < 39.59)) {
-            setAjuste(3.40);
-        }
-        // ajuste de 18 clasicos y 12 premiums
-        else if (((totalClas + totalPrem) >= 39.59) && ((totalClas + totalPrem) < 41.40))  {
+        else if (((totalClas + totalPrem) >= 34.80) && ((totalClas + totalPrem) < 42.60)) {
             setAjuste(3.80);
         }
-         // ajuste de 18 premium y 12 clasicos
-         else if (((totalClas + totalPrem) >= 41.40) && ((totalClas + totalPrem) < 48.59))   {
-            setAjuste(3.90);
+        // ajuste de 18 clasicos y 12 premiums
+        else if (((totalClas + totalPrem) >= 42.60) && ((totalClas + totalPrem) < 44.40)) {
+            setAjuste(4.10);
         }
-         // ajuste de 18 premium y 18 clasicos
-         else if (((totalClas + totalPrem) >= 48.59) && ((totalClas + totalPrem) < 55.80))   {
-            setAjuste(4.30);
+        // ajuste de 18 premium y 12 clasicos
+        else if (((totalClas + totalPrem) >= 44.40) && ((totalClas + totalPrem) < 52.20)) {
+            setAjuste(4.40);
+        }
+        // ajuste de 18 premium y 18 clasicos
+        else if (((totalClas + totalPrem) >= 52.20) && ((totalClas + totalPrem) < 55.80)) {
+            setAjuste(5.00);
         }
         // ajuste de 24 clsicos y 18 premiums
-        else if (((totalClas + totalPrem) >= 55.80) && ((totalClas + totalPrem) < 57.59))   {
-            setAjuste(5.40);
+        else if (((totalClas + totalPrem) >= 60) && ((totalClas + totalPrem) < 61.80)) {
+            setAjuste(6.50);
         }
-          // ajuste de 24 premiums y 18 clasicos 
-          else if (((totalClas + totalPrem) >= 57.59) && ((totalClas + totalPrem) < 64.80))  {
-            setAjuste(5.70);
+        // ajuste de 24 premiums y 18 clasicos 
+        else if (((totalClas + totalPrem) >= 61.80) && ((totalClas + totalPrem) < 69.60)) {
+            setAjuste(6.10);
         }
         // ajuste de 24 premiums y 24 clasicos 
-        else if ((totalClas + totalPrem) >= 64.80)  {
-            setAjuste(6.80);
+        else if (((totalClas + totalPrem) >= 69.60) && ((totalClas + totalPrem) < 77.40)) {
+            setAjuste(7.60);
         }
-        else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.19 && totalClas < 14.39)) {
-            setAjuste(0.40);
-        } else if (cantClas >= 12 && totalClas >= 14.39) {
-            setAjuste(1.50);
-        } else if ((cantPrem >= 6 && cantPrem < 12) && (totalPrem >= 9 && totalPrem < 18)) {
-            setAjuste(0.50);
-        } else if (cantPrem >= 12 && totalPrem >= 18) {
-            setAjuste(1.90);
+        // ajuste de 30 clasicos y 24 premiums 
+        else if (((totalClas + totalPrem) >= 77.40) && ((totalClas + totalPrem) < 79.20)) {
+            setAjuste(7.90);
+        }
+        // ajuste de 30 premiums y 24 clasicos 
+        else if (((totalClas + totalPrem) >= 79.20) && ((totalClas + totalPrem) < 87.00)) {
+            setAjuste(8.20);
+        }
+        // ajuste de 30 premiums y 30 clasicos 
+        else if ((totalClas + totalPrem) >= 87.00) {
+            setAjuste(8.80);
+        }
+        else if ((cantClas >= 6 && cantClas < 12) && (totalClas >= 7.80 && totalClas < 15.60)) {
+            setAjuste(0.60);
+        } else if (cantClas >= 12 && totalClas >= 15.60) {
+            setAjuste(2.10);
+        } else if ((cantPrem >= 6 && cantPrem < 12) && (totalPrem >= 9.60 && totalPrem < 19.20)) {
+            setAjuste(0.60);
+        } else if (cantPrem >= 12 && totalPrem >= 19.20) {
+            setAjuste(1.70);
         } else {
             setAjuste(0);
+            noDiscount();
         }
     }
 
@@ -156,7 +175,7 @@ export default function Carrito({ cart, setCart, user }) {
                     <div className="m-2 text-center col-12 col-lg-3" style={{ width: '18rem' }}>
                         <h3 style={{ color: 'black', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>SUBTOTAL: {total.toFixed(2)} € </h3>
                         <Card.Text>
-                            <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA COMPRANDO</button>
+                            <button onClick={continueToBuy} className="boton-artesanal-cel my-2" aria-label="Close">CONTINUA PIDIENDO</button>
                         </Card.Text>
                     </div>
                 </div>
@@ -164,7 +183,7 @@ export default function Carrito({ cart, setCart, user }) {
             {/* PAGAR PRODUCTO ACORDION */}
             {cart.length !== 0 &&
                 <Accordion className="mb-3">
-                    <Accordion.Item className="accordion-buy" eventKey="0" onClick={ajusteAlfajores}>
+                    <Accordion.Item className="accordion-buy" eventKey="0">
                         <Accordion.Header>
                             Realizar el Pedido
                         </Accordion.Header>
@@ -189,7 +208,7 @@ export default function Carrito({ cart, setCart, user }) {
                                         <p style={{ color: 'green' }}>-{ajuste} €</p>
                                     </div>
                                     <div className="m-2 d-flex flex-column align-items-center pt-3 border-subtotal-total">
-                                        <p className='descuento'> <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >Haz click </b> </button> para conocer los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b> </button> por <b>Caja de Alfajores</b>, si es que realizo un pedido de 6u o 12u de diferente Tipo.</p>
+                                        <p className='descuento'>Si tu pedido fue de <b>Alfajores</b>, haz click <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} > aqui</b> </button> para conocer los <button className='btn-descuento' onClick={handleShowModalDescuento}> <b style={{ color: 'green' }} >descuentos</b>. </button></p>
                                         <button className='boton-artesanal-cel mb-1' onClick={ajusteAlfajores}>Ajustar</button>
                                     </div>
 
@@ -199,7 +218,7 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} ajuste={ajuste} />
+                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} ajuste={ajuste} totalAmount={totalAmount}/>
                                 </div>
                             </div>
                         </Accordion.Body>

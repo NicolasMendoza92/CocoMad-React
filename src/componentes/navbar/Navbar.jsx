@@ -54,11 +54,12 @@ export const Navbar = ({ user, setSearch, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <>
                     <nav>
                         <Container bg="none" className="py-2">
-                            <div className="d-flex align-items-center justify-content-between contenedor " >
+                            <div className=" contenedor " >
                                 <div className="d-block d-md-none ">
                                     <button
                                         className="navbar-button"
@@ -87,7 +88,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                             menuVariant="light"
                                         >
                                             <NavDropdown.Item
-                                                className="text-center" as={NavLink} to="/productList">
+                                                className="text-center" as={NavLink} to="/adminBoard">
                                                 <CgProfile className="mb-1" /> AdminBoard
                                             </NavDropdown.Item>
                                             <NavDropdown.Divider />
@@ -150,6 +151,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <NavbarMobile setShow={setShow} show={show} user={user} />
             }
@@ -158,6 +160,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "saleList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "deliveryList" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}
         </>
     );
 }

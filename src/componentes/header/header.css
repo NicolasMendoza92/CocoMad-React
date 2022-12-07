@@ -84,6 +84,14 @@
    margin-bottom: 2rem;
    background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
 }
+.header-style-404{
+   background-size: cover !important;
+   overflow: hidden;
+   width: 100%;
+   transition: 0.5s;
+   margin-bottom: 2rem;
+   background-color: grey;
+}
 
 /* Estilos para las admin board */
 .header-style-productList{
@@ -101,43 +109,28 @@
 .header-style-deliveryList{
    width: 100%;
 }
+.header-style-adminBoard{
+   width: 100%;
+}
 
 
 /* Efectos del DIV header  */
- .efecto-artesanal h1 {
-    font-size: 110px;
+ .efecto-artesanal h2 {
+    font-size: 70px;
     font-family:'Montserrat', sans-serif;
     color: white;
-    padding: 2rem;
+    padding: 1rem;
    transition: 0.5s;
 
  }
- 
- 
- /* .efecto-artesanal {
-    animation: efecto-artesanal 2.2s cubic-bezier(0.77, 0, 0.7, 1);
-   transition: 0.5s;
-
- } */
- 
- @keyframes efecto-artesanal {
-    0% {
-       transform: translateY(450px);
-    }
- }
- 
+   
  @media only screen and (max-width: 1050px) {
-    .efecto-artesanal h1 {
-       font-size: 30px;
+    .efecto-artesanal h2 {
+       font-size: 40px;
     }
     .efecto-artesanal p {
        font-size: 15px;
     }
-    @keyframes efecto-artesanal {
-      0% {
-         transform: translateY(200px);
-      }
-   }
  }
 
 

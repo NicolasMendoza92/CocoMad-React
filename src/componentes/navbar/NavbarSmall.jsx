@@ -38,6 +38,7 @@ export const NavbarSmall = ({ user, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <>
                     <nav>
@@ -131,6 +132,7 @@ export const NavbarSmall = ({ user, cart }) => {
                 && splitLocation[1] !== "userList"
                 && splitLocation[1] !== "saleList"
                 && splitLocation[1] !== "deliveryList"
+                && splitLocation[1] !== "adminBoard"
                 &&
                 <NavbarMobile setShow={setShow} show={show} user={user} />
             }
@@ -139,6 +141,7 @@ export const NavbarSmall = ({ user, cart }) => {
             {splitLocation[1] === "userList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "saleList" && <NavbarAdmin user={user} />}
             {splitLocation[1] === "deliveryList" && <NavbarAdmin user={user} />}
+            {splitLocation[1] === "adminBoard" && <NavbarAdmin user={user} />}
         </>
     );
 }

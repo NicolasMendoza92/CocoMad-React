@@ -24,7 +24,7 @@ export const ProductsBoxs = () => {
     const moveToWhatsApp = () => {
         swal({
             title: "Coordinaras el pedido por WhatsApp... ¿Estas de acuerdo?",
-            text: "Para armar cajas especiales debes quedar de acuerdo por otro medio, ya que son muy especificas",
+            text: "Para armar cajas especiales debes quedar de acuerdo por otro medio, ya que, son pedidos muy especificos",
             icon: "warning",
             buttons: true,
             succesMode: true,
@@ -33,7 +33,7 @@ export const ProductsBoxs = () => {
                 if (willDelete) {
                     whatsApp();
                 } else {
-                    swal("Excelente! Continua navegando en nuestro Shop Online");
+                    swal("Excelente! Continua navegando en nuestra Web");
                 }
             });
     }

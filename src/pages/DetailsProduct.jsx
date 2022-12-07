@@ -5,23 +5,32 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { CartSideButton } from "../componentes/cartSide/CartSideButton";
 import { ProductDetail } from "../componentes/producto/ProductDetail";
+import { SpinnerCMDetail } from "../componentes/spinner/SpinnerCMDetail";
 
 
 const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
 
     const [product, setProduct] = useState([]);
+    const[isLoading, setIsLoading] = useState(false);
     const { productId } = useParams();
 
     useEffect(() => {
         const getProduct = async () => {
+            setIsLoading(true);
             const response = await axios.get(
-                `http://localhost:4000/api/products/${productId}`
+                `https://cocobackend.herokuapp.com/api/products/${productId}`
             );
             setProduct(response.data);
+            setIsLoading(false);
         }
         getProduct();
     }, [productId]);
 
+    if (isLoading) {
+        return (
+          <SpinnerCMDetail />
+        );
+      }
 
     return (
         <>
