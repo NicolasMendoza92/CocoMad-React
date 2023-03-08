@@ -39,7 +39,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
     const findRetiro = async (_id) => {
         setIsLoading(true)
-        const response = await axios.get(`http://localhost:4000/api/sales/${_id}`);
+        const response = await axios.get(`https://cocomadbackend.onrender.com/api/sales/${_id}`);
         setSaleRetiro(response.data);
         setIsLoading(false);
         handleShowModalViewRetiro();
@@ -65,7 +65,7 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
         setIsLoading(true);
         const tokenLocal = leerDeLocalStorage('token') || {};
         const headers = { 'x-auth-token': tokenLocal.token };
-        await axios.delete(`http://localhost:4000/api/sales/${_id}`, { headers });
+        await axios.delete(`https://cocomadbackend.onrender.com/api/sales/${_id}`, { headers });
         await getSales();
         setIsLoading(false);
     };

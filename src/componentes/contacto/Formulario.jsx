@@ -23,7 +23,7 @@ export const Formulario = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:4000/api/messages/', input);
+            await axios.post('https://cocomadbackend.onrender.com/api/messages/', input);
             swal({
                 title: "Mensaje enviado con exito !",
                 icon: "success",

@@ -61,7 +61,7 @@ function App() {
     try {
       if (tokenLocal.token) {
         const headers = { 'x-auth-token': tokenLocal.token };
-        const response = await axios.get('http://localhost:4000/api/auth', { headers });
+        const response = await axios.get('https://cocomadbackend.onrender.com/api/auth', { headers });
         setUser(response.data);
       }
       setIsLoading(false);
@@ -83,7 +83,7 @@ function App() {
   const getProducts = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get('http://localhost:4000/api/products/');
+      const response = await axios.get('https://cocomadbackend.onrender.com/api/products/');
       setProducts(response.data);
       setTableProducts(response.data);
       setIsLoading(false);
@@ -100,7 +100,7 @@ function App() {
   const [tableUsers, setTableUsers] = useState([]);
   const getUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/users/');
+      const response = await axios.get('https://cocomadbackend.onrender.com/api/users/');
       setTableUsers(response.data)
     } catch (error) {
       console.error(error);
@@ -113,7 +113,7 @@ function App() {
   // Traigo los Mensajes que postean los usuarios
   const getMessages = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/messages/');
+      const response = await axios.get('https://cocomadbackend.onrender.com/api/messages/');
       setMessages(response.data)
     } catch (error) {
       console.error(error)
@@ -127,7 +127,7 @@ function App() {
   const [tableSales, setTableSales] = useState([]);
   const getSales = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/sales/');
+      const response = await axios.get('https://cocomadbackend.onrender.com/api/sales/');
       setSales(response.data);
       setTableSales(response.data);
     } catch (error) {
@@ -141,7 +141,7 @@ function App() {
   // Traigo los datos de direccion ventas que hacen los usuarios
   const getDeliveries = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/deliveries/');
+      const response = await axios.get('https://cocomadbackend.onrender.com/api/deliveries/');
       setDeliveries(response.data);
     } catch (error) {
       console.error(error);
