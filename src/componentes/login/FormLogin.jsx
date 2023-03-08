@@ -22,7 +22,7 @@ export const FormLogin = ({requestUserData, cart}) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };
         if (newInput.email.length < 35
-            && newInput.password.length < 15) {
+            && newInput.password.length < 30) {
             setInput(newInput);
         } else {
             swal('Alcanzaste el numero maximo de caracteres')
