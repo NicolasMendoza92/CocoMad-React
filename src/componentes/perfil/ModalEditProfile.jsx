@@ -18,7 +18,7 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-             await axios.put(`https://cocobackend.herokuapp.com/api/profile/${user._id}`, input);
+             await axios.put(`http://localhost:4000/api/profile/${user._id}`, input);
              swal("Perfil editado con exito", "", "success");
             await requestUserData();
             closeModal();
