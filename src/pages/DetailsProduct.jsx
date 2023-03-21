@@ -18,7 +18,7 @@ const DetailsProduct = ({ cart, setCart, setShowSideCart, showSideCart }) => {
         const getProduct = async () => {
             setIsLoading(true);
             const response = await axios.get(
-                `http://localhost:4000/api/products/${productId}`
+                `http://localhost:4000git/api/products/${productId}`
             );
             setProduct(response.data);
             setIsLoading(false);
