@@ -1,39 +1,83 @@
-import {PaymentElement, useStripe, useElements} from '@stripe/react-stripe-js';
+
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from 'axios';
+import { Button } from 'react-bootstrap';
+import { useStateValue } from '../../StateProvider';
+import { actionTypes } from '../../utils/reducer';
 
 
-const CheckoutForm = () => {
-    const stripe = useStripe();
-    const elements = useElements();
+const CheckoutForm = ({ totalAmount }) => {
 
-    
-  const handleSubmit = async (event) => {
+  const [{ paymentMessage }, dispatch] = useStateValue();
 
-    event.preventDefault();
+  const stripe = useStripe();
+  const elements = useElements();
 
-    if (!stripe || !elements) {
-
-      return;
-    }
-
-    const result = await stripe.confirmPayment({
-
-      elements,
-      confirmParams: {
-        return_url: "https://example.com/order/123/complete",
+  const CARD_ELEMENT_OPTIONS = {
+    iconStyle: "solid",
+    hidePostalCode: true,
+    style: {
+      base: {
+        iconColor: "rgb(240, 57, 122)",
+        color: "#333",
+        fontSize: "18px",
+        "::placeholder": {
+          color: "#ccc",
+        },
       },
+      invalid: {
+        color: "#e5424d",
+        ":focus": {
+          color: "#303238",
+        },
+      },
+    },
+  };
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
     });
+    // si la tarjeta es valida entonces -->
+    if (!error) {
+      console.log(paymentMethod);
+      const { id } = paymentMethod;
+      try {
+        const { data } = await axios.post(
+          "http://localhost:4000/api/payment/",
+          {
+            id,
+            amount: totalAmount,
+          }
+        );
 
-    if (result.error) {
+        console.log(data);
+        dispatch({
+          type: actionTypes.SET_PAYMENT_MESSAGE,
+          paymentMessage: data.message,
+        });
+        console.log(paymentMessage);
+        if (data.message === "Successful Payment") {
+          dispatch({
+            type: actionTypes.EMPTY_BASKET,
+            basket: [],
+          });
+        }
 
-      console.log(result.error.message);
-    } else {
+        elements.getElement(CardElement).clear();
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <PaymentElement />
-      <button disabled={!stripe}>Submit</button>
+    <form className='d-flex flex-column justify-content-center' onSubmit={handleSubmit}>
+      <CardElement options={CARD_ELEMENT_OPTIONS} />
+      <Button className="m-2 p-2 btn btn-success" type='submit'>Pagar</Button>
     </form>
   );
 };

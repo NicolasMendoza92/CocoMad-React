@@ -28,6 +28,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount }) =>
             </Stepper>
             {activeStep <= 0 && 
             <>       
+            <PaymentForm totalAmount={totalAmount}/>
             <ContactForm user={user} setActiveStep={setActiveStep} setPickUpLocal={setPickUpLocal} setEnvio={setEnvio}/>
             </>
             }

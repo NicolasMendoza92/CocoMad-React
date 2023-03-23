@@ -46,25 +46,20 @@ export const PaymentForm = ({totalAmount}) => {
 
     // importar desde la API -  aca contectamos Stripe a react project. 
     const stripePromise = loadStripe("pk_test_51L03wdJW4asUB98JlYSwSbTVz2jcknEwstil9RLZrFdVzVy0BopCQicvKBtA8yEoWVAZUWVSGeTZ8wgCfgumynwi00iRE9BKgD");
-    const options = {
-        // passing the client secret obtained from the server
-        clientSecret: '{{CLIENT_SECRET}}',
-      };
 
 
     return (
         <div className='container'>
             <h2 className='m-2 text-center'>¡Ya casi Terminamos!</h2>
-            <div className="p-2 d-flex flex-column">
+            <div className="p-2 d-flex flex-column text-center">
                 <div className='p-2 m-2'>
-
                     <h5>Pago por Tarjeta</h5>
-                    <p>Coloca los datos de tu Tarjeta Credito/Debito</p>
-                    <Elements stripe={stripePromise} options={options} className="m-2" >
-                        <CheckoutForm />
+                    <p>Coloca los datos de tu tarjeta Credito/Debito</p>
+                    <Elements stripe={stripePromise} className="m-2" >
+                        <CheckoutForm totalAmount={totalAmount} />
                     </Elements>
                 </div>
-                <Button onClick={moveToWhatsApp} className="m-2 btn btn-success" >Coorindar por WhatsApp</Button>
+                <Button onClick={moveToWhatsApp} className="m-2 btn btn-secondary" >Coorindar por WhatsApp</Button>
             </div>
         </div>
     )
