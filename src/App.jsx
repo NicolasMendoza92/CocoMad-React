@@ -11,7 +11,7 @@ import Nosotros from './pages/Nosotros'
 import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
 import Login from './pages/Login';
-// import Registro from './pages/Registro';
+import Registro from './pages/Registro';
 import Carrito from './pages/Carrito';
 import Perfil from './pages/Perfil';
 import DetailsProduct from './pages/DetailsProduct';
@@ -207,9 +207,9 @@ function App() {
           <Login requestUserData={requestUserData} cart={cart} />
         </Route>
 
-        {/* <Route path="/register" >
+        <Route path="/register" >
           <Registro />
-        </Route> */}
+        </Route>
 
         {tokenLocalData.token &&
           <Route path="/perfil" >

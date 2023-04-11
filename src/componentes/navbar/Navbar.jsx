@@ -77,7 +77,7 @@ export const Navbar = ({ user, setSearch, cart }) => {
                                         &&
                                         <>
                                             <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/login" exact>Inicia Sesion</Nav.Link>
-                                            {/* <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link> */}
+                                            <Nav.Link className="link-nav-log d-none d-md-block" activeClassName="link-active-log" as={NavLink} to="/register" exact>Registrate</Nav.Link>
                                         </>
                                     }
                                     {user.role === 'admin' &&
