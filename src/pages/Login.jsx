@@ -7,9 +7,6 @@ export default function Login({ requestUserData, cart }) {
   return (
     <>
       <Container>
-        <Card className="no-results-card-login text-center">
-          <Card.Title>¡Atencion! Solo tienen usuario los administradores. Proximamente seras parte de nuestra Cultura :)</Card.Title>
-        </Card>
         <Row className="mb-5">
           <Col className="col-9 d-flex flex-column justify-content-between mx-auto my-3">
             <FormLogin requestUserData={requestUserData} cart={cart} />
@@ -19,6 +16,9 @@ export default function Login({ requestUserData, cart }) {
           </Col>
         </Row>
       </Container>
+      <Card className="no-results-card-login text-center">
+        <Card.Title>Login as admin user:admin@gmail.com - password:123456</Card.Title>
+      </Card>
     </>
   );
 }
