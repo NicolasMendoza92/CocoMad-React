@@ -96,7 +96,7 @@ export const TableUsers = ({tableUsers, user, setTableUsers, getUsers}) => {
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table bordered hover>
+            <Table responsive bordered hover>
                 <thead>
                     <tr className="text-center" >
                         <th>Nombre</th>

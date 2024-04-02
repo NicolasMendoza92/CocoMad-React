@@ -62,19 +62,17 @@
   }
 
   .back-cart-btn-detail {
-    background: rosybrown;
+    background: rgb(141, 140, 140);
     color: whitesmoke;
     border-color: whitesmoke;
     font-size: 18px;
-    font-family: 'Julius Sans One', sans-serif;
     transition: 0.4s;
   }
   .back-cart-btn-detail:hover {
     background: white;
-    color: rosybrown;
-    border-color: rosybrown;
+    color: rgb(141, 140, 140);
+    border-color: rgb(141, 140, 140);
     font-size: 18px;
-    font-family: 'Julius Sans One', sans-serif;
     transition: 0.4s;
   }
 

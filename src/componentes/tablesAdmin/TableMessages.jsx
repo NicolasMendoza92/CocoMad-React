@@ -99,7 +99,7 @@ export const TableMessages = ({ messages, getMessages, setMessages }) => {
                 </button>
             </div>
             <span className="text-center mb-3">Pagina {currentPage} de {totalPages}</span>
-            <Table bordered hover>
+            <Table responsive bordered hover>
                 <thead>
                     <tr className="text-center " >
                         <th>Nombre</th>

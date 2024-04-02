@@ -51,7 +51,7 @@ export const Footer = () => {
                                 <p>Calle Evaristo San Miguel 9</p>
                                 <p>Madrid 28008</p>
                                 <p>España </p>
-                                <a href="https://goo.gl/maps/UZGbBXefVtGrcYVs5" target="blank" >Quiero Ir! <FaMapMarkerAlt /></a>
+                                <a href="https://maps.app.goo.gl/JSAWxzwBmAXECHHr5" target="blank" >Quiero Ir! <FaMapMarkerAlt /></a>
                             </div>
                         </div>
                     </div>

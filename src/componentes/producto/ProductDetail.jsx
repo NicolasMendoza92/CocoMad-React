@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import { FaArrowLeft } from 'react-icons/fa';
 
 import './productDetail.css';
 
@@ -52,7 +53,9 @@ export const ProductDetail = ({ product, cart, setCart, setShowSideCart }) => {
               </button>
             </div>
             <div className="mb-2">
-              <button onClick={backToShop} className="back-cart-btn-detail" > Volver al Shop</button>
+              <button onClick={backToShop} className="back-cart-btn-detail" > 
+              <FaArrowLeft/>
+              </button>
             </div>
           </div>
         </Col>

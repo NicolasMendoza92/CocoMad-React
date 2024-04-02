@@ -83,18 +83,18 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
     const filterSales = (e) => {
         e.preventDefault();
         const keyword = e.target.value;
-       
-        if(keyword === ''){
+
+        if (keyword === '') {
             refreshSales();
         }
         else if (keyword !== '') {
-            const results = tableSales.filter((sale) =>{
+            const results = tableSales.filter((sale) => {
                 return sale.buyerData.buyerName.toLowerCase().includes(keyword.toLowerCase())
                     || sale.buyerConditions.deliveryDate.toLowerCase().includes(keyword.toLowerCase())
             });
             setTableSales(results);
         }
-         else {
+        else {
             setTableSales(tableSales);
         }
         setBusqueda(keyword);
@@ -124,14 +124,16 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                     <FaHistory className="p-0  mb-1" />
                 </button>
             </div>
-            <Table bordered hover >
+            <Table responsive bordered hover >
                 <thead>
                     <tr className="text-center " >
                         <th>Fecha</th>
                         <th>Cliente</th>
                         <th>Dia</th>
                         <th>Retiro</th>
-                        <th>Productos</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>$ Unidad</th>
                         <th>SubTotal</th>
                         <th colSpan="2">Actions</th>
                     </tr>
@@ -157,19 +159,9 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                 <td>{buyerName}</td>
                                 <td>{(new Date(deliveryDate).toDateString()).slice(0, -11)}</td>
                                 <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
-                                <td>{productsList.map(({ producto, quantity }, prod) => (
-                                    <Table size="sm" key={prod}>
-                                        <thead>
-                                            <tr className="row">
-                                                <td className="col-6">{producto.name}</td>
-                                                <td className="col-3">{quantity} u</td>
-                                                <td className="col-3">{producto.price} €</td>
-                                            </tr>
-                                        </thead>
-                                    </Table>
-                                )
-                                )}
-                                </td>
+                                <td>{productsList.map(({ producto }) => ( <>{producto.name} </>))}</td>
+                                <td>{productsList.map(({  quantity }) => ( <>{quantity} u</>))}</td>
+                                <td>{productsList.map(({ producto }) => ( <>{producto.price} € </>))}</td>
                                 <td className="d-flex align-items-center justify-content-center" >
                                     {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)}    €
                                 </td>
@@ -196,10 +188,10 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
             />
 
             {
-                isLoading && (
-                    <SpinnerCM />
-                )
-            }
+        isLoading && (
+            <SpinnerCM />
+        )
+    }
 
         </Container >
     )
