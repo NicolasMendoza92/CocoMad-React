@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import swal from 'sweetalert'
@@ -9,13 +9,28 @@ import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 
 
-export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => {
+
+export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
-    const[isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [isSuccess, setIsSuccess] = useState(false);
+console.log(isSuccess)
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
+
+
+    useEffect(() => {
+        if (typeof window === 'undefined') {
+            return;
+        }
+        if (window?.location.href.includes('success')) {
+            setIsSuccess(true);
+            localStorage.removeItem('cart');
+        }
+    }, []);
 
     // Formula para editar el datepicker
     const disablePastDate = () => {
@@ -41,9 +56,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
 
         if (newInput.payMethod === "WhatsApp") {
             setPayment("WhatsApp");
-        } 
+        }
         else {
-            setPayment('');
+            setPayment('Tarjeta');
         }
         setInput(newInput);
     }
@@ -56,8 +71,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
             setEnvio('');
         } else if ((newPickUp.pickUp === "no")) {
             setPickUpLocal("no");
-            swal('!Atención Coquito!','Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
-        } 
+            swal('!Atención Coquito!', 'Las tarifas y alcance de envio es aplicado segun la app GLOVO. Nosotros nos encargamos de solicitarlo por ti y enviarte tu pedido. El precio puede ser diferente si lo gestionas tu mismo.', 'warning');
+        }
         setInput(newPickUp);
     }
 
@@ -70,10 +85,10 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
         // console.log(dateDelivery.toDateString())
         if (dateDelivery < today) {
             swal('Debes realizar el pedido con 48hs de anticipación, por favor selecciona otra fecha.');
-        } else if(dateDelivery.toDateString().includes('Sun')){
+        } else if (dateDelivery.toDateString().includes('Sun')) {
             swal('¡ATENCIÓN! Domingos no entregamos. Por favor selecciona otra fecha.')
         }
-         else {
+        else {
             swal("Excelente!", "", "success")
         }
         setInput(newDate);
@@ -94,8 +109,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                 pickUp: input.pickUp,
                 payMethod: input.payMethod,
                 sendPrice: envio,
-                discount: ajuste, 
-                totalPurchase:totalAmount, 
+                discount: ajuste,
+                totalPurchase: totalAmount,
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
             const newBuy = {
@@ -110,7 +125,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                     deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
                     payMethod: input.payMethod,
-                    discount:ajuste,
+                    discount: ajuste,
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
@@ -126,7 +141,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                     deliveryHour: input.deliveryHour,
                     pickUp: input.pickUp,
                     payMethod: input.payMethod,
-                    discount:ajuste,
+                    discount: ajuste,
                 },
                 buyerShipping: {
                     buyerAddress1: input.buyerAddress1,
@@ -139,11 +154,16 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                 },
                 productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
             }
-            if (pickUpLocal === "si") {
+            const newStripe = {
+                buyerEmail: input.buyerEmail,
+                sendPrice: envio,
+                totalPurchase: totalAmount,
+                productsList: cart.map((cartItem) => ({ productId: cartItem.product._id, quantity: cartItem.quantity }))
+            }
+            if (pickUpLocal === "si" & payment === "WhatsApp") {
                 await axios.post('https://cocomadbackend.onrender.com/api/sales/', newBuy);
                 await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
-                console.log(newEmail)
-                
+
                 swal({
                     title: "Pedido Exitoso !",
                     icon: "success",
@@ -152,20 +172,40 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
                 });
-            } else if (pickUpLocal === "no") {
+            } else if (pickUpLocal === "no" & payment === "WhatsApp") {
                 await axios.post('https://cocomadbackend.onrender.com/api/deliveries/', newDelivery);
                 await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
-                console.log(newEmail)
-                
+
                 swal({
                     title: "Pedido Exitoso !",
                     icon: "success",
-             
-                }).then(() => {                 
+
+                }).then(() => {
                     localStorage.removeItem('cart');
                     window.location.href = '/productos';
                     window.scrollTo(0, 150);
                 });
+            }
+            else if (pickUpLocal === "no" & payment === "Tarjeta") {
+                const response = await axios.post('http://localhost:4000/api/payment', newStripe)
+                if (response.data.url) {
+                    window.location.href = response.data.url;
+                }
+                if (isSuccess) {
+                    await axios.post('https://cocomadbackend.onrender.com/api/deliveries/', newDelivery);
+                    await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
+                }
+
+            }
+            else if (pickUpLocal === "si" & payment === "Tarjeta") {
+                const response = await axios.post('http://localhost:4000/api/payment', newStripe)
+                if (response.data.url) {
+                    window.location.href = response.data.url;
+                }
+                if (isSuccess) {
+                    await axios.post('https://cocomadbackend.onrender.com/api/sales/', newBuy);
+                    await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
+                }
             }
 
 
@@ -188,9 +228,9 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
 
     if (isLoading) {
         return (
-          <SpinnerCM />
+            <SpinnerCM />
         );
-      }
+    }
 
 
 
@@ -358,7 +398,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                             onChange={(e) => handleChange(e)}
                             defaultValue={'default'}
                             required>
-                           <option value="default" disabled>Elige una opción</option>
+                            <option value="default" disabled>Elige una opción</option>
                             <option value="9am a 11am">9:00 am - 11:00 am</option>
                             <option value="11am a 13pm">11:00 am - 13:00 pm</option>
                             <option value="17pm a 18pm">17:00 pm - 18:30 pm</option>
@@ -392,25 +432,32 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                                         required>
                                         <option value="default" disabled>Elige una opción</option>
                                         <option value="WhatsApp">Por WhatsApp</option>
+                                        <option value="Tarjeta">Pagar Ahora</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "WhatsApp" &&
                                     <div className='mb-2'>
                                         <h5>Ya casi Terminamos!</h5>
-                                        <p className='mb-0'> Envianos un mensaje 
+                                        <p className='mb-0'> Envianos un mensaje
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                        <span style={{color: "grey"}}>Luego de hacer tu pedido, recibirás un correo con los datos.</span>
+                                        <span style={{ color: "grey" }}>Luego de hacer tu pedido, recibirás un correo con los datos.</span>
+                                    </div>
+                                }
+                                {payment === "Tarjeta" &&
+                                    <div className='mb-2'>
+                                        <h5>Ya casi Terminamos!</h5>
+                                        <span style={{ color: "grey" }}>Seras transferido a nuestro proveedor de servicios de pago.</span>
                                     </div>
                                 }
 
                                 {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
                                 <div className='d-flex justify-content-center'>
-                                <button className="boton-comprar" type="submit">
-                                    Solicitar Pedido
-                                </button>
+                                    <button className="boton-comprar" type="submit">
+                                        Solicitar Pedido
+                                    </button>
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>
@@ -459,8 +506,8 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                                 Continuar
                             </Accordion.Header>
                             <Accordion.Body>
-                            <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
-                            <label> <h4>Coordinar el pago</h4></label>
+                                <Form.Group as={Col} controlId="validationCustom12" className='mb-2'>
+                                    <label> <h4>Coordinar el pago</h4></label>
                                     <Form.Select
                                         className="col-11 col-md-9 text-center"
                                         name="payMethod"
@@ -469,26 +516,33 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount}) => 
                                         required>
                                         <option value="default" disabled>Elige una opción</option>
                                         <option value="WhatsApp">Por WhatsApp</option>
+                                        <option value="Tarjeta">Pagar Ahora</option>
                                     </Form.Select>
                                 </Form.Group>
                                 {payment === "WhatsApp" &&
                                     <div className='mb-2'>
                                         <h5>Ya casi Terminamos!</h5>
-                                        <p className='mb-0'> Envianos un mensaje 
+                                        <p className='mb-0'> Envianos un mensaje
                                             <a href="https://wa.me/c/34635790277" target="blank" >
                                                 <FaWhatsappSquare className="wap-icon" />
                                             </a>
                                         </p>
-                                        <span style={{color: "grey"}}>Luego de hacer tu pedido, recibirás un correo con los datos.</span>
+                                        <span style={{ color: "grey" }}>Luego de hacer tu pedido, recibirás un correo con los datos.</span>
+                                    </div>
+                                }
+                                {payment === "Tarjeta" &&
+                                    <div className='mb-2'>
+                                        <h5>Ya casi Terminamos!</h5>
+                                        <span style={{ color: "grey" }}>Seras transferido a nuestro proveedor de servicios de pago.</span>
                                     </div>
                                 }
 
                                 {/* BOTON SUBMIT PARA COMPLETAR EL FORMULARIO*/}
                                 <div className='d-flex flex-column justify-content-center align-items-center'>
-                                <button className="boton-comprar" type="submit">
-                                    Solicitar Pedido
-                                </button>
-                                
+                                    <button className="boton-comprar" type="submit">
+                                        Solicitar Pedido
+                                    </button>
+
                                 </div>
                             </Accordion.Body>
                         </Accordion.Item>

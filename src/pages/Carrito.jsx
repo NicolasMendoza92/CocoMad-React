@@ -12,6 +12,7 @@ import { ModalDescuento } from '../componentes/carrito/ModalDescuento';
 export default function Carrito({ cart, setCart, user }) {
 
     const history = useHistory();
+    
     const [envio, setEnvio] = useState('');
     const [ajuste, setAjuste] = useState('');
 

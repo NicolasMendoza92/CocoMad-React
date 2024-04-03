@@ -34,6 +34,7 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 import { Error404 } from './pages/Error404';
 
 
+
 function App() {
 
   const tokenLocalData = leerDeLocalStorage('token') || {};
@@ -167,7 +168,7 @@ function App() {
         cart={cart} />
       <Switch>
         <Route path="/" exact>
-          <Home setSearch={setSearch}/>
+          <Home setSearch={setSearch} />
         </Route>
 
         <Route path="/detalle/:productId">
@@ -249,12 +250,12 @@ function App() {
         {isAdmin && (
           <Route path="/deliveryList" >
             <DeliveryList
-              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries}/>
+              getDeliveries={getDeliveries} setDeliveries={setDeliveries} deliveries={deliveries} />
           </Route>
         )}
 
         <Route path="/404">
-          <Error404/>
+          <Error404 />
         </Route>
 
         <Route path="*">

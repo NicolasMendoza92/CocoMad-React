@@ -31,6 +31,8 @@ export const Header = ({user, setSearch, cart}) => {
         && splitLocation[1] !== "perfil"
         && splitLocation[1] !== "carrito"
         && splitLocation[1] !== "detalle"
+        && splitLocation[1] !== "success"
+        && splitLocation[1] !== "cancel"
         && splitLocation[1] !== "404"
         && splitLocation[1] !== "productList"
         && splitLocation[1] !== "userList"
@@ -60,6 +62,8 @@ export const Header = ({user, setSearch, cart}) => {
       {splitLocation[1] === "register" && <SubHeader user={user} cart={cart}/>}
       {splitLocation[1] === "carrito" && <SubHeader user={user} cart={cart}/>}
       {splitLocation[1] === "detalle" && <SubHeader user={user} cart={cart}/>}
+      {splitLocation[1] === "success" && <SubHeader user={user} cart={cart}/>}
+      {splitLocation[1] === "cancel" && <SubHeader user={user} cart={cart}/>}
       {splitLocation[1] === "perfil" && <SubHeader user={user} cart={cart}/>}
       {splitLocation[1] === "404" && <SubHeader user={user} cart={cart}/>}
       {splitLocation[1] === "productList" && <SubHeader user={user} />}
