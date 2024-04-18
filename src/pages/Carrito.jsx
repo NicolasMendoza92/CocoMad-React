@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Accordion, Card, Container } from 'react-bootstrap';
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { useHistory } from 'react-router';
@@ -8,13 +8,60 @@ import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
 import { ModalDescuento } from '../componentes/carrito/ModalDescuento';
+import { FaWhatsappSquare } from 'react-icons/fa'
+import { leerDeLocalStorage } from '../utils/localStorage';
+import axios from 'axios';
+import PDFView from '../componentes/carrito/DocuPDF';
 
 export default function Carrito({ cart, setCart, user }) {
 
     const history = useHistory();
-    
+    const emailInfo = leerDeLocalStorage('email') || {};
+
     const [envio, setEnvio] = useState('');
     const [ajuste, setAjuste] = useState('');
+
+    const [isSuccess, setIsSuccess] = useState(false);
+
+    const sendEmail = async () => {
+        try {
+            const newEmail = {
+                buyerEmail: emailInfo.newEmail.buyerEmail,
+                buyerLastName: emailInfo.newEmail.buyerLastName,
+                buyerName: emailInfo.newEmail.buyerName,
+                deliveryDate: emailInfo.newEmail.deliveryDate,
+                deliveryHour: emailInfo.newEmail.deliveryHour,
+                discount: emailInfo.newEmail.discount,
+                payMethod: emailInfo.newEmail.payMethod,
+                pickUp: emailInfo.newEmail.pickUp,
+                productsList: emailInfo.newEmail.productsList,
+                sendPrice: emailInfo.newEmail.sendPrice,
+                totalPurchase: emailInfo.newEmail.totalPurchase
+            };
+            console.log(newEmail)
+            await axios.post('http://localhost:4000/api/emails/', newEmail);
+            localStorage.removeItem('email');
+            swal({
+                title: "Email enviado !",
+                icon: "success",
+            }).then(() => {
+                window.location.href = '/carrito';
+            });
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        if (typeof window === 'undefined') {
+            return;
+        }
+        if (window?.location.href.includes('success')) {
+            setIsSuccess(true);
+            localStorage.removeItem('cart');
+        }
+    }, []);
 
     const [showModalDescuento, setShowModalDescuento] = useState(false);
 
@@ -150,6 +197,44 @@ export default function Carrito({ cart, setCart, user }) {
     />
     ));
 
+
+    if (isSuccess) {
+
+        return (
+            <>
+                <Container>
+                    <div className="row row-cols-1">
+                        <h1 className="m-2">Pedido Exitoso :) </h1>
+                        <h4 className='m-2'> Gracias por confiar en nosotros </h4>
+                        <div className='flex flex-wrap'>
+                            <p style={{ color: "grey" }}> Enviar información de la compra por correo</p>
+                            <button onClick={sendEmail} className='boton-artesanal-cel p-2' >Enviar correo</button>
+
+                        </div>
+                    </div>
+                    <Accordion className="m-2">
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>
+                                Ver PDF de compra
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <PDFView />
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
+                    <div className='flex '>
+                        <p style={{ color: "grey" }}> Puedes ponerte en contacto con nosotros si lo deseas.</p>
+                        <a href="https://wa.me/c/34635790277" target="blank" className='w-auto' style={{ textDecoration: "none", color: 'gray' }}  >
+                            Ir a WhatsApp <FaWhatsappSquare className="wap-icon" />
+                        </a>
+                    </div>
+
+
+                </Container>
+            </>
+        );
+    }
+
     return (
         <Container>
             <h2 className="my-2" style={{ color: 'rgb(146, 210, 226)', fontFamily: 'Julius Sans One', fontWeight: 'bold' }}>Tu carrito</h2>
@@ -219,7 +304,7 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} ajuste={ajuste} totalAmount={totalAmount}/>
+                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} ajuste={ajuste} totalAmount={totalAmount} setIsSuccess={setIsSuccess} />
                                 </div>
                             </div>
                         </Accordion.Body>

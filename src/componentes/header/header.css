@@ -66,20 +66,6 @@
    transition: 0.5s;
    background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
 }
-.header-style-success{
-   background-size: cover !important;
-   overflow: hidden;
-   width: 100%;
-   transition: 0.5s;
-   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
-}
-.header-style-cancel{
-   background-size: cover !important;
-   overflow: hidden;
-   width: 100%;
-   transition: 0.5s;
-   background: url(https://res.cloudinary.com/dcx1rcwvu/image/upload/v1638211714/cocoMAD/navbar6transp_nabtif.png) no-repeat top center;
-}
 
 .header-style-perfil{
    background-size: cover !important;

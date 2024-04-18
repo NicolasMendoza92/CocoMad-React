@@ -1,36 +1,23 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import swal from 'sweetalert'
 import './cartStyles.css';
 import { leerDeLocalStorage } from '../../utils/localStorage'
+import { guardarEnLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 
 
 
-export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount }) => {
+export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setIsSuccess }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
     const [isLoading, setIsLoading] = useState(false);
 
-    const [isSuccess, setIsSuccess] = useState(false);
-console.log(isSuccess)
-
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
-
-
-    useEffect(() => {
-        if (typeof window === 'undefined') {
-            return;
-        }
-        if (window?.location.href.includes('success')) {
-            setIsSuccess(true);
-            localStorage.removeItem('cart');
-        }
-    }, []);
 
     // Formula para editar el datepicker
     const disablePastDate = () => {
@@ -187,27 +174,21 @@ console.log(isSuccess)
                 });
             }
             else if (pickUpLocal === "no" & payment === "Tarjeta") {
+                guardarEnLocalStorage({ key: 'email', value: { newEmail } });
+                await axios.post('https://cocomadbackend.onrender.com/api/deliveries/', newDelivery);
                 const response = await axios.post('http://localhost:4000/api/payment', newStripe)
                 if (response.data.url) {
                     window.location.href = response.data.url;
                 }
-                if (isSuccess) {
-                    await axios.post('https://cocomadbackend.onrender.com/api/deliveries/', newDelivery);
-                    await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
-                }
-
             }
             else if (pickUpLocal === "si" & payment === "Tarjeta") {
+                guardarEnLocalStorage({ key: 'email', value: { newEmail } });
+                await axios.post('https://cocomadbackend.onrender.com/api/sales/', newBuy);
                 const response = await axios.post('http://localhost:4000/api/payment', newStripe)
                 if (response.data.url) {
                     window.location.href = response.data.url;
                 }
-                if (isSuccess) {
-                    await axios.post('https://cocomadbackend.onrender.com/api/sales/', newBuy);
-                    await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
-                }
             }
-
 
         } catch (error) {
             console.error(error);
@@ -231,7 +212,6 @@ console.log(isSuccess)
             <SpinnerCM />
         );
     }
-
 
 
 

@@ -9,6 +9,7 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
 import { PaginationTable } from '../paginacion/PaginationTable';
 import { ModalViewRetiro } from '../adminComp/ModalViewRetiro';
+import React from 'react';
 
 export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 
@@ -159,9 +160,9 @@ export const TableSales = ({ getSales, tableSales, setTableSales }) => {
                                 <td>{buyerName}</td>
                                 <td>{(new Date(deliveryDate).toDateString()).slice(0, -11)}</td>
                                 <td>{new Date(deliveryDate).getUTCDate()}/{new Date(deliveryDate).getUTCMonth() + 1}/{new Date(deliveryDate).getUTCFullYear()}</td>
-                                <td>{productsList.map(({ producto }) => ( <>{producto.name} </>))}</td>
-                                <td>{productsList.map(({  quantity }) => ( <>{quantity} u</>))}</td>
-                                <td>{productsList.map(({ producto }) => ( <>{producto.price} € </>))}</td>
+                                <td>{productsList.map(({ producto }) => ( <React.Fragment key={producto.id}>{producto.name} </React.Fragment>))}</td>
+                                <td>{productsList.map(({  quantity }) => ( <React.Fragment key={quantity}>{quantity} u</React.Fragment>))}</td>
+                                <td>{productsList.map(({ producto }) => ( <React.Fragment key={producto.id}>{producto.price} € </React.Fragment>))}</td>
                                 <td className="d-flex align-items-center justify-content-center" >
                                     {productsList.reduce((total, { producto, quantity }) => total + producto.price * quantity, 0).toFixed(2)}    €
                                 </td>
