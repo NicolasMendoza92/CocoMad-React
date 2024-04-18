@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Table } from 'react-bootstrap';
 import { AiFillEye } from 'react-icons/ai';
 import { FaEraser, FaHistory } from 'react-icons/fa';
@@ -9,7 +9,6 @@ import { leerDeLocalStorage } from '../../utils/localStorage';
 import { SpinnerCM } from '../spinner/SpinnerCM';
 import { PaginationTable } from '../paginacion/PaginationTable';
 import { ModalViewRetiro } from '../adminComp/ModalViewRetiro';
-import React from 'react';
 
 export const TableSales = ({ getSales, tableSales, setTableSales }) => {
 

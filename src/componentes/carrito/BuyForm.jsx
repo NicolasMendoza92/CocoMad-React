@@ -4,20 +4,20 @@ import { Accordion, Col, FloatingLabel, Form, Row } from 'react-bootstrap'
 import { FaWhatsappSquare } from 'react-icons/fa'
 import swal from 'sweetalert'
 import './cartStyles.css';
-import { leerDeLocalStorage } from '../../utils/localStorage'
-import { guardarEnLocalStorage } from '../../utils/localStorage';
+import { guardarEnLocalStorage, leerDeLocalStorage } from '../../utils/localStorage'
 import { SpinnerCM } from '../spinner/SpinnerCM'
 import { ZipCode } from './ZipCode'
 
 
 
-export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setIsSuccess }) => {
+export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount }) => {
 
     const tokenLocal = leerDeLocalStorage('token') || {};
     const [isLoading, setIsLoading] = useState(false);
 
     const [pickUpLocal, setPickUpLocal] = useState('');
     const [payment, setPayment] = useState('');
+
 
     // Formula para editar el datepicker
     const disablePastDate = () => {
@@ -180,6 +180,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setI
                 if (response.data.url) {
                     window.location.href = response.data.url;
                 }
+
             }
             else if (pickUpLocal === "si" & payment === "Tarjeta") {
                 guardarEnLocalStorage({ key: 'email', value: { newEmail } });
@@ -189,6 +190,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setI
                     window.location.href = response.data.url;
                 }
             }
+
 
         } catch (error) {
             console.error(error);
@@ -212,6 +214,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setI
             <SpinnerCM />
         );
     }
+
 
 
 

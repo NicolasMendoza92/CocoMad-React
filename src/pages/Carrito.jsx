@@ -8,16 +8,16 @@ import { BuyForm } from '../componentes/carrito/BuyForm';
 import { CardCarrito } from '../componentes/carrito/CardCarrito';
 import { CardDataCompra } from '../componentes/carrito/CardDataCompra';
 import { ModalDescuento } from '../componentes/carrito/ModalDescuento';
-import { FaWhatsappSquare } from 'react-icons/fa'
-import { leerDeLocalStorage } from '../utils/localStorage';
 import axios from 'axios';
+import { leerDeLocalStorage } from '../utils/localStorage';
+import { FaWhatsappSquare } from 'react-icons/fa';
 import PDFView from '../componentes/carrito/DocuPDF';
 
 export default function Carrito({ cart, setCart, user }) {
 
     const history = useHistory();
     const emailInfo = leerDeLocalStorage('email') || {};
-
+    
     const [envio, setEnvio] = useState('');
     const [ajuste, setAjuste] = useState('');
 
@@ -197,7 +197,6 @@ export default function Carrito({ cart, setCart, user }) {
     />
     ));
 
-
     if (isSuccess) {
 
         return (
@@ -304,7 +303,7 @@ export default function Carrito({ cart, setCart, user }) {
                                     </div>
                                 </div>
                                 <div>
-                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} ajuste={ajuste} totalAmount={totalAmount} setIsSuccess={setIsSuccess} />
+                                    <BuyForm user={user} cart={cart} setEnvio={setEnvio} envio={envio} ajuste={ajuste} totalAmount={totalAmount}/>
                                 </div>
                             </div>
                         </Accordion.Body>
