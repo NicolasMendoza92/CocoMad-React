@@ -39,7 +39,7 @@ export default function Carrito({ cart, setCart, user }) {
                 totalPurchase: emailInfo.newEmail.totalPurchase
             };
             console.log(newEmail)
-            await axios.post('http://localhost:4000/api/emails/', newEmail);
+            await axios.post('https://cocomadbackend.onrender.com/api/emails/', newEmail);
             localStorage.removeItem('email');
             swal({
                 title: "Email enviado !",

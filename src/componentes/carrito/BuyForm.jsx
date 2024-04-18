@@ -176,7 +176,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setI
             else if (pickUpLocal === "no" & payment === "Tarjeta") {
                 guardarEnLocalStorage({ key: 'email', value: { newEmail } });
                 await axios.post('https://cocomadbackend.onrender.com/api/deliveries/', newDelivery);
-                const response = await axios.post('http://localhost:4000/api/payment', newStripe)
+                const response = await axios.post('https://cocomadbackend.onrender.com/api/payment', newStripe)
                 if (response.data.url) {
                     window.location.href = response.data.url;
                 }
@@ -184,7 +184,7 @@ export const BuyForm = ({ user, cart, setEnvio, envio, ajuste, totalAmount, setI
             else if (pickUpLocal === "si" & payment === "Tarjeta") {
                 guardarEnLocalStorage({ key: 'email', value: { newEmail } });
                 await axios.post('https://cocomadbackend.onrender.com/api/sales/', newBuy);
-                const response = await axios.post('http://localhost:4000/api/payment', newStripe)
+                const response = await axios.post('https://cocomadbackend.onrender.com/api/payment', newStripe)
                 if (response.data.url) {
                     window.location.href = response.data.url;
                 }
