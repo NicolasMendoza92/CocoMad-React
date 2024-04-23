@@ -9,7 +9,6 @@ export const ModalEditProfile = ({ showModalEditar, closeModal, user, requestUse
         
     const [input, setInput] = useState({ name: user.name, lastName: user.lastName, email: user.email});
 
-
     const handleChange = (e) => {
         const { value, name } = e.target;
         const newInput = { ...input, [name]: value };

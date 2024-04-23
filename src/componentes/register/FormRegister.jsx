@@ -128,7 +128,7 @@ export const FormRegister = () => {
                     name="knowcoco"
                     onChange={(e) => handleChange(e)}
                     required>
-                    <option disabled selected={"Elije una Opcion"}>Elije una opcion</option>
+                    <option disabled >Elije una opcion</option>
                     <option value="si">Si</option>
                     <option value="no">No</option>
                     <option value="ire">No, pero quiero ir!</option>

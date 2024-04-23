@@ -216,8 +216,9 @@ function App() {
           <Route path="/perfil" >
             <Perfil requestUserData={requestUserData} user={user}
               sales={sales}
-              setSales={setSales}
-              getSales={getSales} />
+              getSales={getSales}
+              getDeliveries={getDeliveries}
+              deliveries={deliveries}  />
           </Route>
         }
         {/* Admin pages */}
